@@ -1206,15 +1206,19 @@ class Engine {
       ctx.beginPath(); ctx.moveTo(-hw, cl); ctx.quadraticCurveTo(0, c * 40 + (cl + cr) / 2 * 0, hw, cr); ctx.stroke();
       return;
     }
-    const top = c * 14 - 2;
-    ctx.beginPath();
-    ctx.moveTo(-hw, cl); ctx.quadraticCurveTo(0, top, hw, cr);
-    ctx.quadraticCurveTo(0, Math.max(cl, cr) + o * 1.9, -hw, cl); ctx.closePath();
-    ctx.fillStyle = '#4a1f27'; ctx.fill();
-    ctx.save(); ctx.clip();
-    ctx.fillStyle = '#e8737f'; ctx.beginPath(); ctx.ellipse(0, Math.max(cl, cr) + o * 0.95, hw * 0.55, o * 0.34, 0, 0, Math.PI * 2); ctx.fill();
+    const top = c * 14 - 2, low = Math.max(cl, cr);
+    const shape = () => {
+      ctx.beginPath();
+      ctx.moveTo(-hw, cl); ctx.quadraticCurveTo(0, top, hw, cr);
+      ctx.quadraticCurveTo(0, low + o * 1.9, -hw, cl); ctx.closePath();
+    };
+    shape(); ctx.fillStyle = '#4a1f27'; ctx.fill();
+    // язык внутри рта (обрезается по контуру)
+    ctx.save(); shape(); ctx.clip();
+    ctx.fillStyle = '#e8737f'; ctx.beginPath(); ctx.ellipse(0, low + o * 0.8, hw * 0.55, o * 0.3, 0, 0, Math.PI * 2); ctx.fill();
     ctx.restore();
-    ctx.stroke();
+    // обводка рта — строго по его контуру
+    shape(); ctx.stroke();
   }
 }
 

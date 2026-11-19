@@ -2,9 +2,15 @@
   "scenes": [
     {
       "id": "demo_01",
-      "title": "Демо: чертёж и рулетка",
+      "title": "Демо 1: чертёж и рулетка (стройка → магазин)",
       "file": "scenes/demo_01.json",
       "langs": {"ru": "lang/demo_01.ru.json", "en": "lang/demo_01.en.json"}
+    },
+    {
+      "id": "demo_02",
+      "title": "Демо 2: подпись в прорабской",
+      "file": "scenes/demo_02.json",
+      "langs": {"ru": "lang/demo_02.ru.json", "en": "lang/demo_02.en.json"}
     }
   ]
 }
