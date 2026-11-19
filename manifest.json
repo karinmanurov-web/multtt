@@ -1,0 +1,10 @@
+{
+  "scenes": [
+    {
+      "id": "demo_01",
+      "title": "Демо: чертёж и рулетка",
+      "file": "scenes/demo_01.json",
+      "langs": {"ru": "lang/demo_01.ru.json", "en": "lang/demo_01.en.json"}
+    }
+  ]
+}

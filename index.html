@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>multtt — плеер мультиков</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='18' r='11' fill='%23dfa57a'/%3E%3Cpath d='M4 16a12 11 0 0 1 24 0z' fill='%23ffc61a'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#14131a; --panel:#1d1c26; --line:#2f2d3d; --txt:#ecebf5; --dim:#9a98b0; --acc:#ffc61a; --bad:#ff6b6b; --warn:#ffb454; --ok:#5fd38d; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; background: var(--bg); color: var(--txt); font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  button, select, input, textarea { font: inherit; color: inherit; }
+  .app { display: grid; grid-template-columns: minmax(300px, 1fr) 470px; height: 100%; }
+  .stagecol { display: flex; flex-direction: column; align-items: center; padding: 12px; gap: 8px; min-width: 0; min-height: 0; }
+  .stagewrap { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; width: 100%; }
+  canvas#stage { height: 100%; max-height: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: 10px; box-shadow: 0 6px 30px #0008; max-width: 100%; }
+  .bar { width: 100%; max-width: 640px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .bar.tight { gap: 6px; }
+  button { background: #2a2838; border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+  button:hover { background: #343247; }
+  button.primary { background: var(--acc); color: #1b1500; border-color: var(--acc); font-weight: 700; }
+  button.primary:hover { background: #ffd54d; }
+  button.rec { background: #c0334a; border-color: #c0334a; font-weight: 700; }
+  button.rec.on { animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { background: #ff566f; } }
+  select { background: #2a2838; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+  input[type=range] { flex: 1; min-width: 120px; accent-color: var(--acc); }
+  label.chk { display: flex; gap: 5px; align-items: center; color: var(--dim); cursor: pointer; user-select: none; }
+  .time { font-variant-numeric: tabular-nums; color: var(--dim); min-width: 92px; text-align: right; }
+  #tl { width: 100%; max-width: 640px; height: 74px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+  .side { background: var(--panel); border-left: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; }
+  .tabs { display: flex; border-bottom: 1px solid var(--line); }
+  .tabs button { flex: 1; border: 0; border-radius: 0; background: transparent; padding: 11px 6px; color: var(--dim); border-bottom: 2px solid transparent; }
+  .tabs button.on { color: var(--txt); border-bottom-color: var(--acc); }
+  .tabs .badge { display: inline-block; min-width: 18px; padding: 0 5px; margin-left: 4px; border-radius: 9px; font-size: 11px; background: #444; }
+  .tabs .badge.bad { background: var(--bad); color: #200; } .tabs .badge.warn { background: var(--warn); color: #230; } .tabs .badge.ok { background: var(--ok); color: #021; }
+  .pane { display: none; flex: 1; min-height: 0; flex-direction: column; padding: 10px; gap: 8px; }
+  .pane.on { display: flex; }
+  textarea { flex: 1; min-height: 120px; width: 100%; resize: none; background: #121119; border: 1px solid var(--line); border-radius: 8px; padding: 10px; font: 12px/1.45 ui-monospace, Menlo, Consolas, monospace; tab-size: 2; white-space: pre; overflow: auto; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .hint { color: var(--dim); font-size: 12px; }
+  #log { flex: 1; overflow: auto; font-size: 13px; }
+  .msg { padding: 6px 9px; border-radius: 6px; margin-bottom: 5px; white-space: pre-wrap; word-break: break-word; }
+  .msg.err { background: #4a1f27; border-left: 3px solid var(--bad); }
+  .msg.warn { background: #46361c; border-left: 3px solid var(--warn); }
+  .msg.ok { background: #1c3a2a; border-left: 3px solid var(--ok); }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
+  td, th { padding: 4px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { color: var(--dim); font-weight: 600; }
+  td.bad { color: var(--bad); font-weight: 700; } td.good { color: var(--ok); }
+  .eng { color: #7fb2e6; } .bld { color: #ffa24a; }
+  .drop { border: 2px dashed var(--line); border-radius: 8px; padding: 8px 10px; color: var(--dim); }
+  .drop.over { border-color: var(--acc); color: var(--txt); }
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; }
+    .stagecol { height: 82vh; }
+    .side { border-left: 0; border-top: 1px solid var(--line); min-height: 70vh; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="stagecol">
+    <div class="bar tight">
+      <select id="selScene" title="Сцена"></select>
+      <select id="selLang" title="Язык текстов"></select>
+      <span class="hint" id="status"></span>
+    </div>
+    <div class="stagewrap"><canvas id="stage" width="540" height="960"></canvas></div>
+    <canvas id="tl" width="1280" height="148"></canvas>
+    <div class="bar">
+      <button id="btnRestart" title="В начало (Home)">⏮</button>
+      <button id="btnPlay" class="primary" title="Пробел">▶ Играть</button>
+      <input type="range" id="seek" min="0" max="1000" value="0">
+      <span class="time" id="time">0.0 / 0.0</span>
+    </div>
+    <div class="bar tight">
+      <select id="selSpeed" title="Скорость"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+      <select id="selQ" title="Качество"><option value="0.5" selected>Превью 540×960</option><option value="1">Полное 1080×1920</option></select>
+      <label class="chk"><input type="checkbox" id="chkSubs" checked> реплики</label>
+      <label class="chk"><input type="checkbox" id="chkTitles" checked> титры</label>
+      <label class="chk"><input type="checkbox" id="chkSafe"> зоны TikTok</label>
+      <button id="btnRec" class="rec" title="Запишет ролик в .webm в реальном времени">● Запись</button>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="tabs">
+      <button data-tab="scene" class="on">Сцена</button>
+      <button data-tab="texts">Тексты</button>
+      <button data-tab="lib">Библиотека</button>
+      <button data-tab="check">Проверка <span class="badge ok" id="badge">·</span></button>
+    </div>
+    <div class="pane on" id="pane-scene">
+      <div class="hint">JSON сцены от ИИ-2: тайминги, действия, локации. Слов здесь нет — только id реплик.</div>
+      <textarea id="taScene" spellcheck="false"></textarea>
+    </div>
+    <div class="pane" id="pane-texts">
+      <div class="hint">Слова для выбранного языка: реплики, титры, надписи на вывесках. Один и тот же JSON сцены — разные файлы текстов.</div>
+      <textarea id="taTexts" spellcheck="false"></textarea>
+    </div>
+    <div class="pane" id="pane-lib">
+      <div class="hint">library.json — общие локации и предметы. Новые локации ИИ может прислать и внутри сцены (defs).</div>
+      <textarea id="taLib" spellcheck="false"></textarea>
+    </div>
+    <div class="pane" id="pane-check">
+      <div id="log"></div>
+    </div>
+    <div style="padding:10px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:8px;">
+      <div class="row">
+        <button id="btnApply" class="primary">Применить JSON</button>
+        <button id="btnFiles">Открыть файлы…</button>
+        <input type="file" id="fileIn" multiple accept=".json,application/json" hidden>
+        <button id="btnDl" title="Скачать текущую сцену">Скачать сцену</button>
+      </div>
+      <div class="drop" id="drop">или перетащите сюда scene / lang / library .json</div>
+    </div>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script>
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const canvas = $('stage'), tl = $('tl'), tctx = tl.getContext('2d');
+const eng = new Mult.Engine(canvas);
+let manifest = null, t = 0, dur = 1, playing = false, lastTs = 0, speed = 1, dirty = true, recording = null, info = null, curLang = '';
+
+function setStatus(s) { $('status').textContent = s || ''; }
+
+// ───── загрузка ─────
+async function fetchText(url) {
+  const r = await fetch(url, { cache: 'no-store' });
+  if (!r.ok) throw new Error(url + ': ' + r.status);
+  return r.text();
+}
+async function boot() {
+  eng.setQuality(+$('selQ').value);
+  try {
+    manifest = JSON.parse(await fetchText('manifest.json'));
+    $('taLib').value = await fetchText('library.json');
+    fillScenes();
+    await loadScene(manifest.scenes[0].id);
+  } catch (e) {
+    setStatus('Файлы не подгрузились автоматически (' + (location.protocol === 'file:' ? 'страница открыта как file://' : e.message) + '). Откройте файлы кнопкой «Открыть файлы…» или запустите: python3 -m http.server');
+    $('selScene').innerHTML = '<option>—</option>'; $('selLang').innerHTML = '<option>—</option>';
+  }
+  requestAnimationFrame(frame);
+}
+function fillScenes() {
+  $('selScene').innerHTML = manifest.scenes.map(s => `<option value="${s.id}">${s.title || s.id}</option>`).join('');
+}
+function fillLangs(sc) {
+  $('selLang').innerHTML = Object.keys(sc.langs).map(l => `<option value="${l}">${l}</option>`).join('');
+}
+async function loadScene(id, lang) {
+  const sc = manifest.scenes.find(s => s.id === id);
+  if (!sc) return;
+  $('taScene').value = await fetchText(sc.file);
+  fillLangs(sc);
+  lang = lang || Object.keys(sc.langs)[0];
+  $('selLang').value = lang;
+  $('taTexts').value = await fetchText(sc.langs[lang]);
+  apply(true);
+}
+$('selScene').onchange = () => loadScene($('selScene').value);
+$('selLang').onchange = async () => {
+  const sc = manifest.scenes.find(s => s.id === $('selScene').value);
+  $('taTexts').value = await fetchText(sc.langs[$('selLang').value]);
+  apply(false);
+};
+
+// ───── применение JSON ─────
+function parse(id, name, errs) {
+  const s = $(id).value.trim();
+  if (!s) return null;
+  try { return JSON.parse(s); }
+  catch (e) { errs.push(`${name}: не JSON — ${e.message}`); return undefined; }
+}
+function apply(keepTime) {
+  const errs = [];
+  const lib = parse('taLib', 'Библиотека', errs), tx = parse('taTexts', 'Тексты', errs), sc = parse('taScene', 'Сцена', errs);
+  let rep = { errors: errs.slice(), warnings: [], info: {} };
+  eng.setLibrary(lib || {}); eng.setTexts(tx || {});
+  curLang = (tx && tx.lang) || '';
+  if (sc && !errs.length) rep = eng.load(sc);
+  else if (!sc && !errs.length) rep.errors.push('Сцена пуста');
+  info = rep.info || {};
+  dur = eng.C ? eng.C.dur : 1;
+  if (!keepTime) t = Math.min(t, dur); else t = 0;
+  showLog(rep);
+  dirty = true; drawTimeline();
+  if (eng.C) setStatus(`${sc.id || 'сцена'} · ${dur.toFixed(1)} с${curLang ? ' · ' + curLang : ''}`);
+  else setStatus('Сцена не загружена — смотрите вкладку «Проверка»');
+}
+function esc(s) { return String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])); }
+function showLog(rep) {
+  const b = $('badge'), log = $('log');
+  let h = '';
+  rep.errors.forEach(m => h += `<div class="msg err">✖ ${esc(m)}</div>`);
+  rep.warnings.forEach(m => h += `<div class="msg warn">⚠ ${esc(m)}</div>`);
+  if (!rep.errors.length && !rep.warnings.length) h += '<div class="msg ok">✔ Ошибок нет</div>';
+  const says = (rep.info && rep.info.says) || [];
+  if (says.length) {
+    h += `<table><tr><th>реплика</th><th>кто</th><th>слот</th><th>речь</th><th>текст</th></tr>` + says.map(s => {
+      const slot = s.t1 - s.t0, bad = s.need != null && s.need > slot * 1.05;
+      return `<tr><td>${esc(s.line)}</td><td class="${s.who}">${s.who === 'eng' ? 'инж.' : 'строит.'}</td><td>${slot.toFixed(1)}с</td><td class="${s.need == null ? '' : bad ? 'bad' : 'good'}">${s.need == null ? '—' : '≈' + s.need.toFixed(1) + 'с'}</td><td>${esc(s.text || '')}</td></tr>`;
+    }).join('') + `</table><div class="hint" style="margin-top:6px">«Речь» — оценка по числу знаков (${(rep.info.cps || 14)} зн/с для этого языка, задаётся полем cps в файле текстов). Красное — не влезет в слот: сократите текст или увеличьте dur.</div>`;
+  }
+  log.innerHTML = h;
+  const ne = rep.errors.length, nw = rep.warnings.length;
+  b.className = 'badge ' + (ne ? 'bad' : nw ? 'warn' : 'ok'); b.textContent = ne || nw || '✔';
+  if (ne) selectTab('check');
+}
+$('btnApply').onclick = () => apply(false);
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { apply(false); e.preventDefault(); return; }
+  if (/^(TEXTAREA|INPUT|SELECT)$/.test(document.activeElement.tagName) && document.activeElement.type !== 'range' && document.activeElement.type !== 'checkbox') return;
+  if (e.code === 'Space') { togglePlay(); e.preventDefault(); }
+  else if (e.code === 'Home') { seekTo(0); }
+  else if (e.code === 'ArrowRight') { seekTo(t + (e.shiftKey ? 1 : 0.1)); }
+  else if (e.code === 'ArrowLeft') { seekTo(t - (e.shiftKey ? 1 : 0.1)); }
+});
+
+// ───── вкладки ─────
+function selectTab(n) {
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === n));
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('on', p.id === 'pane-' + n));
+}
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => selectTab(b.dataset.tab));
+
+// ───── файлы ─────
+function ingest(text, name) {
+  let j; try { j = JSON.parse(text); } catch (e) { setStatus(name + ': не JSON'); return; }
+  if (j && Array.isArray(j.beats)) { $('taScene').value = text; selectTab('scene'); }
+  else if (j && j.lines) { $('taTexts').value = text; selectTab('texts'); }
+  else if (j && (j.locations || j.props)) { $('taLib').value = text; selectTab('lib'); }
+  else if (j && j.scenes) { manifest = j; fillScenes(); }
+  else setStatus(name + ': не похоже ни на сцену, ни на тексты, ни на библиотеку');
+}
+async function readFiles(files) {
+  for (const f of files) ingest(await f.text(), f.name);
+  apply(true);
+}
+$('btnFiles').onclick = () => $('fileIn').click();
+$('fileIn').onchange = e => readFiles(e.target.files);
+const drop = $('drop');
+['dragenter', 'dragover'].forEach(ev => document.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach(ev => document.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+document.addEventListener('drop', e => readFiles(e.dataTransfer.files));
+$('btnDl').onclick = () => download(new Blob([$('taScene').value], { type: 'application/json' }), 'scene.json');
+function download(blob, name) {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+}
+
+// ───── плеер ─────
+function togglePlay() {
+  if (!eng.C) return;
+  if (playing) { playing = false; }
+  else { if (t >= dur - 0.01) t = 0; playing = true; lastTs = performance.now(); }
+  $('btnPlay').textContent = playing ? '⏸ Пауза' : '▶ Играть';
+}
+function seekTo(v) { t = Math.max(0, Math.min(dur, v)); dirty = true; }
+$('btnPlay').onclick = togglePlay;
+$('btnRestart').onclick = () => seekTo(0);
+$('seek').oninput = e => seekTo(e.target.value / 1000 * dur);
+$('selSpeed').onchange = e => speed = +e.target.value;
+$('selQ').onchange = e => { eng.setQuality(+e.target.value); dirty = true; };
+$('chkSubs').onchange = e => { eng.flags.subs = e.target.checked; dirty = true; };
+$('chkTitles').onchange = e => { eng.flags.titles = e.target.checked; dirty = true; };
+$('chkSafe').onchange = e => { eng.flags.safe = e.target.checked; dirty = true; };
+
+function frame(ts) {
+  if (playing) {
+    const dt = Math.min(0.1, (ts - lastTs) / 1000); lastTs = ts;
+    t += dt * (recording ? 1 : speed);
+    if (t >= dur) { t = dur; playing = false; $('btnPlay').textContent = '▶ Играть'; if (recording) stopRecord(); }
+    dirty = true;
+  }
+  if (dirty && eng.C) {
+    eng.render(t);
+    $('seek').value = Math.round(t / dur * 1000);
+    $('time').textContent = `${t.toFixed(1)} / ${dur.toFixed(1)}`;
+    drawTimeline(); dirty = false;
+  }
+  requestAnimationFrame(frame);
+}
+
+// ───── таймлайн ─────
+function drawTimeline() {
+  const w = tl.width, h = tl.height, c = tctx;
+  c.clearRect(0, 0, w, h); c.fillStyle = '#1d1c26'; c.fillRect(0, 0, w, h);
+  if (!eng.C) return;
+  const X = s => s / dur * w;
+  c.strokeStyle = '#2f2d3d'; c.lineWidth = 1; c.fillStyle = '#6f6d86'; c.font = '20px system-ui';
+  for (let s = 0; s <= dur; s += 1) { c.beginPath(); c.moveTo(X(s), 0); c.lineTo(X(s), h); c.stroke(); if (s % 5 === 0) c.fillText(s + 'с', X(s) + 4, 20); }
+  const lane = { eng: 36, bld: 70, ev: 108 };
+  c.fillStyle = '#6f6d86'; c.font = '18px system-ui';
+  (info && info.says || []).forEach(s => {
+    const bad = s.need != null && s.need > (s.t1 - s.t0) * 1.05;
+    c.fillStyle = s.who === 'eng' ? '#4f86c6' : '#d9822b';
+    c.fillRect(X(s.t0), lane[s.who] - 14, X(s.t1) - X(s.t0), 28);
+    if (bad) { c.strokeStyle = '#ff6b6b'; c.lineWidth = 3; c.strokeRect(X(s.t0), lane[s.who] - 14, X(s.t1) - X(s.t0), 28); }
+    if (s.need != null) { c.fillStyle = 'rgba(255,255,255,.35)'; c.fillRect(X(s.t0), lane[s.who] + 8, Math.min(X(s.t1) - X(s.t0), X(s.need)), 6); }
+    c.fillStyle = '#fff'; c.font = '18px system-ui'; c.fillText(s.line, X(s.t0) + 5, lane[s.who] - 1);
+  });
+  (info && info.titles || []).forEach(s => { c.fillStyle = '#8a5ad6'; c.fillRect(X(s.t0), lane.ev - 8, X(s.t1) - X(s.t0), 16); });
+  (info && info.beats || []).forEach(b => {
+    if (['say', 'title', 'place', 'hide', 'show'].includes(b.do)) return;
+    c.fillStyle = b.do === 'location' ? '#5fd38d' : b.do === 'camera' ? '#e0e0ff' : '#9a98b0';
+    c.fillRect(X(b.t) - 1.5, lane.ev + 12, 3, 18);
+  });
+  (info && info.markers || []).forEach(m => { c.fillStyle = '#ffc61a'; c.beginPath(); c.arc(X(m.t), lane.ev + 36 > h - 6 ? h - 8 : lane.ev + 36, 5, 0, 7); c.fill(); });
+  c.fillStyle = '#6f6d86'; c.font = '16px system-ui'; c.fillText('инж.', 4, lane.eng + 22 > h ? h : 134);
+  c.strokeStyle = '#ffc61a'; c.lineWidth = 3; c.beginPath(); c.moveTo(X(t), 0); c.lineTo(X(t), h); c.stroke();
+}
+let dragging = false;
+const tlSeek = e => { const r = tl.getBoundingClientRect(); seekTo((e.clientX - r.left) / r.width * dur); };
+tl.onpointerdown = e => { dragging = true; tl.setPointerCapture(e.pointerId); tlSeek(e); };
+tl.onpointermove = e => { if (dragging) tlSeek(e); };
+tl.onpointerup = () => dragging = false;
+
+// ───── запись ─────
+function startRecord() {
+  if (!eng.C) return;
+  if (!window.MediaRecorder) { setStatus('Браузер не умеет MediaRecorder — используйте Chrome или запишите экран через OBS'); return; }
+  const mime = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'].find(m => MediaRecorder.isTypeSupported(m));
+  const stream = canvas.captureStream(30);
+  const chunks = [];
+  const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 14e6 });
+  rec.ondataavailable = e => e.data.size && chunks.push(e.data);
+  rec.onstop = () => download(new Blob(chunks, { type: 'video/webm' }), `${(eng.scene && eng.scene.id) || 'multtt'}${curLang ? '_' + curLang : ''}.webm`);
+  recording = rec; seekTo(0); playing = true; lastTs = performance.now();
+  $('btnPlay').textContent = '⏸ Пауза'; $('btnRec').classList.add('on'); $('btnRec').textContent = '■ Стоп';
+  setTimeout(() => rec.start(), 50);
+}
+function stopRecord() {
+  const rec = recording; recording = null;
+  $('btnRec').classList.remove('on'); $('btnRec').textContent = '● Запись';
+  setTimeout(() => { try { rec.stop(); } catch (e) { } setStatus('Запись сохранена (.webm)'); }, 350);
+}
+$('btnRec').onclick = () => { recording ? (playing = false, stopRecord()) : startRecord(); };
+
+// отладка из консоли
+window.multtt = { eng, apply, seekTo, get t() { return t; } };
+boot();
+})();
+</script>
+</body>
+</html>
