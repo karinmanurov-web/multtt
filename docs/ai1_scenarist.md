@@ -45,7 +45,7 @@
 
 Доступные локации: `construction_site` (стройплощадка с краном), `office` (офис), `foreman_office` (прорабская: бытовка с картой объекта, касками на вешалке, чайником и столом), `shop` (магазин стройматериалов, нарисован внутри сцены demo_01 и пока не вынесен в библиотеку). Новую локацию можно придумать, указав, как она выглядит (из чего состоит, какие предметы) — аниматор её нарисует.
 
-Предметы в библиотеке: `hammer, plan, roll, coffee, tape, box, brick, cone, phone, folder, walkie, clipboard`.
+Предметы в библиотеке: `hammer, plan, roll, coffee, tape, box, brick, cone, phone, folder, walkie, clipboard, brick_wall, win_new, wall_hole`.
 
 ## Формат ответа
 

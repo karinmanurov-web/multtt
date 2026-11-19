@@ -24,7 +24,7 @@
 ## Что тебе приходит
 
 1. Сценарий: описание действий и таблица реплик `id → кто → текст → длительность озвучки в секундах`.
-2. Список локаций и предметов, которые уже есть в `library.json`. Сейчас там локации `construction_site`, `office`, `foreman_office` и предметы `hammer, plan, roll, coffee, tape, box, brick, cone, phone, folder, walkie, clipboard`. Если локации нет в списке, нарисуй её в `defs`.
+2. Список локаций и предметов, которые уже есть в `library.json`. Сейчас там локации `construction_site`, `office`, `foreman_office` и предметы `hammer, plan, roll, coffee, tape, box, brick, cone, phone, folder, walkie, clipboard, brick_wall, win_new, wall_hole`. Если локации нет в списке, нарисуй её в `defs`.
 
 ## Что ты возвращаешь
 
