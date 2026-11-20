@@ -135,6 +135,10 @@ const POSES = {
     by: -Math.abs(Math.sin(lt * 9)) * 30, lean: Math.sin(lt * 4.5) * 8, head: Math.sin(lt * 4.5) * 10
   }),
   drill: (lt, t) => P({ R: [88 + Math.sin(t * 71) * 2.2, 54 + Math.sin(t * 83) * 3], L: [42 + Math.sin(t * 77 + 1) * 2, 82 + Math.sin(t * 89) * 3], lean: 1, head: 1 + Math.sin(t * 67) * 0.8, by: Math.sin(t * 61) * 1.4 }),
+  drill_think: (lt, t) => P({ R: [88, 54], L: [-30, 80], head: -7 + Math.sin(t * 1.5) * 2 }),
+  drill_point: (lt, t) => P({ R: [88, 54], L: [132, 20], lean: 2, head: -2 }),
+  drill_tired: (lt, t) => P({ R: [88, 54], L: [16, 175], head: 14, lean: -3, by: 4 + Math.sin(t * 1.4) }),
+
   drill_cheer: (lt, t) => P({ R: [88, 54], L: [72 + Math.sin(lt * 8) * 8, -142], by: -Math.abs(Math.sin(lt * 8)) * 7, head: -3 }),
   drill_wave: (lt, t) => P({ R: [88, 54], L: [78 + Math.sin(lt * 10) * 28, -140], head: -4 }),
   hammer: (lt) => {
