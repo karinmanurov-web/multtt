@@ -452,16 +452,6 @@
       "amp": 0.88
     },
     {
-      "t": 4.4,
-      "do": "spawn",
-      "id": "dust1",
-      "prop": "dust_puff",
-      "x": 760,
-      "y": 1000,
-      "scale": 0.65,
-      "layer": "front"
-    },
-    {
       "t": 4.1,
       "do": "shake",
       "dur": 0.55,
@@ -471,6 +461,16 @@
       "t": 4.35,
       "do": "remove",
       "id": "dust1"
+    },
+    {
+      "t": 4.4,
+      "do": "spawn",
+      "id": "dust1",
+      "prop": "dust_puff",
+      "x": 760,
+      "y": 1000,
+      "scale": 0.65,
+      "layer": "front"
     },
     {
       "t": 5.05,
@@ -716,19 +716,6 @@
       "dur": 2
     },
     {
-      "t": 30.9,
-      "do": "pose",
-      "who": "bld",
-      "pose": "shrug",
-      "dur": 2.2
-    },
-    {
-      "t": 33.6,
-      "do": "camera",
-      "reset": true,
-      "dur": 0.6
-    },
-    {
       "t": 29.5,
       "do": "pose",
       "who": "bld",
@@ -750,6 +737,13 @@
       "dur": 1.8
     },
     {
+      "t": 30.9,
+      "do": "pose",
+      "who": "bld",
+      "pose": "shrug",
+      "dur": 2.2
+    },
+    {
       "t": 31,
       "do": "camera",
       "zoom": 1.55,
@@ -763,6 +757,12 @@
       "who": "bld",
       "line": "l6",
       "dur": 1.6
+    },
+    {
+      "t": 33.6,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.6
     },
     {
       "t": 34,
