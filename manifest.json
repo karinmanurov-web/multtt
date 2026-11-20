@@ -82,6 +82,14 @@
       "langs": {
         "ru": "lang/insert.ru.json"
       }
+    },
+    {
+      "id": "blueprint_pov",
+      "title": "Ракурс · чертёж от первого лица",
+      "file": "scenes/blueprint_pov.json",
+      "langs": {
+        "ru": "lang/blueprint_pov.ru.json"
+      }
     }
   ]
 }
