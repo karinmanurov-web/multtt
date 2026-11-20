@@ -1,339 +1,1290 @@
 {
- "id": "demo_03",
- "duration": 13.5,
- "start": {
-  "location": "office",
-  "chars": {
-   "eng": {
-    "x": 260,
-    "face": "right"
-   },
-   "ex1": {
-    "type": "extra",
-    "x": 1250,
-    "face": "left",
-    "shirt": "#d8695f",
-    "tie": "#2d3a8c",
-    "hair": "#4a3426",
-    "hidden": true
-   },
-   "ex2": {
-    "type": "extra",
-    "x": 1330,
-    "face": "left",
-    "shirt": "#8fc58a",
-    "glasses": true,
-    "hair": "#c9c9d2",
-    "hidden": true
-   },
-   "ex3": {
-    "type": "extra",
-    "x": -170,
-    "face": "right",
-    "shirt": "#b48ad8",
-    "hat": "#e6b84a",
-    "hidden": true
-   }
-  }
- },
- "defs": {
-  "props": {
-   "printer": {
-    "grip": [
-     0,
-     -60
-    ],
-    "shapes": [
-     {
-      "t": "rect",
-      "x": -110,
-      "y": -140,
-      "w": 220,
-      "h": 140,
-      "r": 16,
-      "fill": [
-       "#e9e6f0",
-       "#bdb8cc"
-      ],
-      "stroke": "#1e1b26",
-      "sw": 5
-     },
-     {
-      "t": "rect",
-      "x": -86,
-      "y": -176,
-      "w": 172,
-      "h": 40,
-      "r": 8,
-      "fill": "#f7f5fb",
-      "stroke": "#1e1b26",
-      "sw": 5
-     },
-     {
-      "t": "rect",
-      "x": -70,
-      "y": -60,
-      "w": 140,
-      "h": 18,
-      "r": 6,
-      "fill": "#26232f"
-     },
-     {
-      "t": "circle",
-      "x": 86,
-      "y": -110,
-      "r": 9,
-      "fill": "#ff3b3b",
-      "stroke": "#1e1b26",
-      "sw": 3,
-      "anim": {
-       "k": "blink",
-       "s": 4
+  "id": "demo_03",
+  "duration": 38.2,
+  "start": {
+    "location": "office",
+    "chars": {
+      "eng": {
+        "x": 260,
+        "face": "right"
+      },
+      "ex1": {
+        "type": "extra",
+        "x": 1250,
+        "face": "left",
+        "shirt": "#d8695f",
+        "tie": "#2d3a8c",
+        "hair": "#4a3426",
+        "hidden": true
+      },
+      "ex2": {
+        "type": "extra",
+        "x": 1330,
+        "face": "left",
+        "shirt": "#8fc58a",
+        "glasses": true,
+        "hair": "#c9c9d2",
+        "hidden": true
+      },
+      "ex3": {
+        "type": "extra",
+        "x": -170,
+        "face": "right",
+        "shirt": "#b48ad8",
+        "hat": "#e6b84a",
+        "hidden": true
+      },
+      "bld": {
+        "x": 1250,
+        "face": "left",
+        "hidden": true
       }
-     },
-     {
-      "t": "poly",
-      "pts": [
-       [
-        -50,
-        -52
-       ],
-       [
-        -20,
-        -30
-       ],
-       [
-        10,
-        -58
-       ],
-       [
-        44,
-        -36
-       ],
-       [
-        48,
-        -12
-       ],
-       [
-        -54,
-        -12
-       ]
-      ],
-      "fill": "#fff",
-      "stroke": "#1e1b26",
-      "sw": 3
-     }
-    ]
-   }
-  }
- },
- "beats": [
-  {
-   "t": 0,
-   "do": "spawn",
-   "id": "prn",
-   "prop": "printer",
-   "x": 560
+    }
   },
-  {
-   "t": 0,
-   "do": "spawn",
-   "id": "fl",
-   "prop": "folder",
-   "x": 0
+  "defs": {
+    "props": {
+      "printer": {
+        "grip": [
+          0,
+          -60
+        ],
+        "shapes": [
+          {
+            "t": "rect",
+            "x": -110,
+            "y": -140,
+            "w": 220,
+            "h": 140,
+            "r": 16,
+            "fill": [
+              "#e9e6f0",
+              "#bdb8cc"
+            ],
+            "stroke": "#1e1b26",
+            "sw": 5
+          },
+          {
+            "t": "rect",
+            "x": -86,
+            "y": -176,
+            "w": 172,
+            "h": 40,
+            "r": 8,
+            "fill": "#f7f5fb",
+            "stroke": "#1e1b26",
+            "sw": 5
+          },
+          {
+            "t": "rect",
+            "x": -70,
+            "y": -60,
+            "w": 140,
+            "h": 18,
+            "r": 6,
+            "fill": "#26232f"
+          },
+          {
+            "t": "circle",
+            "x": 86,
+            "y": -110,
+            "r": 9,
+            "fill": "#ff3b3b",
+            "stroke": "#1e1b26",
+            "sw": 3,
+            "anim": {
+              "k": "blink",
+              "s": 4
+            }
+          },
+          {
+            "t": "poly",
+            "pts": [
+              [
+                -50,
+                -52
+              ],
+              [
+                -20,
+                -30
+              ],
+              [
+                10,
+                -58
+              ],
+              [
+                44,
+                -36
+              ],
+              [
+                48,
+                -12
+              ],
+              [
+                -54,
+                -12
+              ]
+            ],
+            "fill": "#fff",
+            "stroke": "#1e1b26",
+            "sw": 3
+          }
+        ]
+      },
+      "stuck_doc": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "poly",
+            "pts": [
+              [
+                -66,
+                -68
+              ],
+              [
+                66,
+                -68
+              ],
+              [
+                66,
+                8
+              ],
+              [
+                48,
+                2
+              ],
+              [
+                30,
+                14
+              ],
+              [
+                12,
+                4
+              ],
+              [
+                -8,
+                15
+              ],
+              [
+                -28,
+                4
+              ],
+              [
+                -48,
+                13
+              ],
+              [
+                -66,
+                5
+              ]
+            ],
+            "fill": "#fff",
+            "stroke": "#1e1b26",
+            "sw": 3
+          },
+          {
+            "t": "path",
+            "d": "M-53 -9 Q-42 -27 -34 -9 T-13 -11 L-3 -21",
+            "fill": "none",
+            "stroke": "#233b70",
+            "sw": 3
+          },
+          {
+            "t": "path",
+            "d": "M-7 -8 Q4 -25 12 -8 T31 -11 L45 -19",
+            "fill": "none",
+            "stroke": "#233b70",
+            "sw": 3
+          },
+          {
+            "t": "path",
+            "d": "M-48 2 Q-35 -12 -27 2 T-7 0 L3 -7",
+            "fill": "none",
+            "stroke": "#233b70",
+            "sw": 3
+          }
+        ]
+      },
+      "torn_doc": {
+        "grip": [
+          0,
+          -10
+        ],
+        "shapes": [
+          {
+            "t": "poly",
+            "pts": [
+              [
+                -66,
+                -88
+              ],
+              [
+                66,
+                -88
+              ],
+              [
+                66,
+                -12
+              ],
+              [
+                48,
+                -5
+              ],
+              [
+                30,
+                -15
+              ],
+              [
+                12,
+                -4
+              ],
+              [
+                -8,
+                -14
+              ],
+              [
+                -28,
+                -4
+              ],
+              [
+                -48,
+                -13
+              ],
+              [
+                -66,
+                -6
+              ]
+            ],
+            "fill": "#fff",
+            "stroke": "#1e1b26",
+            "sw": 3
+          },
+          {
+            "t": "line",
+            "x1": -44,
+            "y1": -64,
+            "x2": 42,
+            "y2": -64,
+            "stroke": "#c7cbd1",
+            "sw": 3
+          },
+          {
+            "t": "line",
+            "x1": -44,
+            "y1": -46,
+            "x2": 42,
+            "y2": -46,
+            "stroke": "#c7cbd1",
+            "sw": 3
+          }
+        ]
+      },
+      "office_desk": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "rect",
+            "x": -210,
+            "y": -225,
+            "w": 420,
+            "h": 28,
+            "r": 6,
+            "fill": "#9b6743",
+            "stroke": "#1e1b26",
+            "sw": 5
+          },
+          {
+            "t": "rect",
+            "x": -192,
+            "y": -197,
+            "w": 384,
+            "h": 34,
+            "r": 4,
+            "fill": "#7c4e33",
+            "stroke": "#1e1b26",
+            "sw": 4
+          },
+          {
+            "t": "rect",
+            "x": -180,
+            "y": -163,
+            "w": 28,
+            "h": 163,
+            "r": 4,
+            "fill": "#795033",
+            "stroke": "#1e1b26",
+            "sw": 4
+          },
+          {
+            "t": "rect",
+            "x": 152,
+            "y": -163,
+            "w": 28,
+            "h": 163,
+            "r": 4,
+            "fill": "#795033",
+            "stroke": "#1e1b26",
+            "sw": 4
+          },
+          {
+            "t": "rect",
+            "x": -80,
+            "y": -192,
+            "w": 160,
+            "h": 20,
+            "r": 3,
+            "fill": "#b77d50",
+            "stroke": "#1e1b26",
+            "sw": 3
+          }
+        ]
+      },
+      "keyboard": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "rect",
+            "x": -94,
+            "y": -24,
+            "w": 188,
+            "h": 48,
+            "r": 7,
+            "fill": "#444955",
+            "stroke": "#1e1b26",
+            "sw": 4
+          },
+          {
+            "t": "rect",
+            "x": -84,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -69,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -54,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -39,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -24,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -9,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 6,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 21,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 36,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 51,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 66,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 81,
+            "y": -15,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -76,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -61,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -46,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -31,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -16,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -1,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 14,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 29,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 44,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 59,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": 74,
+            "y": 0,
+            "w": 11,
+            "h": 9,
+            "r": 2,
+            "fill": "#d9dce1"
+          },
+          {
+            "t": "rect",
+            "x": -37,
+            "y": 14,
+            "w": 74,
+            "h": 6,
+            "r": 2,
+            "fill": "#d9dce1"
+          }
+        ]
+      },
+      "coffee_spill": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "ellipse",
+            "x": 0,
+            "y": 0,
+            "rx": 90,
+            "ry": 19,
+            "fill": "#5a321d",
+            "stroke": "#1e1b26",
+            "sw": 3
+          },
+          {
+            "t": "ellipse",
+            "x": 52,
+            "y": -6,
+            "rx": 28,
+            "ry": 10,
+            "fill": "#6d3d21"
+          },
+          {
+            "t": "circle",
+            "x": -60,
+            "y": -8,
+            "r": 7,
+            "fill": "#5a321d"
+          },
+          {
+            "t": "circle",
+            "x": 76,
+            "y": 5,
+            "r": 6,
+            "fill": "#5a321d"
+          }
+        ]
+      },
+      "gray_hair": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "path",
+            "d": "M0 0 Q10 -22 17 -48 Q23 -61 30 -70",
+            "fill": "none",
+            "stroke": "#d5d5d5",
+            "sw": 7
+          },
+          {
+            "t": "path",
+            "d": "M0 0 Q10 -22 17 -48 Q23 -61 30 -70",
+            "fill": "none",
+            "stroke": "#858585",
+            "sw": 2
+          }
+        ]
+      }
+    }
   },
-  {
-   "t": 0,
-   "do": "hold",
-   "who": "eng",
-   "id": "fl"
-  },
-  {
-   "t": 0.1,
-   "do": "pose",
-   "who": "eng",
-   "pose": "present",
-   "dur": 1.8
-  },
-  {
-   "t": 0.2,
-   "do": "say",
-   "who": "eng",
-   "line": "l1",
-   "dur": 2.2
-  },
-  {
-   "t": 2.6,
-   "do": "shake",
-   "dur": 0.5,
-   "amp": 10
-  },
-  {
-   "t": 2.6,
-   "do": "fx",
-   "kind": "boom",
-   "x": 560,
-   "y": 1060,
-   "dur": 0.8
-  },
-  {
-   "t": 2.7,
-   "do": "emote",
-   "who": "eng",
-   "emotion": "shocked",
-   "dur": 1.2
-  },
-  {
-   "t": 2.9,
-   "do": "pose",
-   "who": "eng",
-   "pose": "hands_up",
-   "dur": 1.4
-  },
-  {
-   "t": 3.0,
-   "do": "say",
-   "who": "eng",
-   "line": "l2",
-   "dur": 1.5
-  },
-  {
-   "t": 3.1,
-   "do": "callout",
-   "on": "eng",
-   "key": "c_jam",
-   "dur": 1.6,
-   "style": "slam",
-   "side": "right"
-  },
-  {
-   "t": 4.8,
-   "do": "walk",
-   "who": "ex1",
-   "x": 800,
-   "dur": 1.1
-  },
-  {
-   "t": 4.8,
-   "do": "show",
-   "who": "ex1"
-  },
-  {
-   "t": 5.2,
-   "do": "face",
-   "who": "eng",
-   "dir": "ex1"
-  },
-  {
-   "t": 5.9,
-   "do": "emote",
-   "who": "ex1",
-   "emotion": "angry",
-   "dur": 2.0
-  },
-  {
-   "t": 5.9,
-   "do": "pose",
-   "who": "ex1",
-   "pose": "arms_cross",
-   "dur": 2.0
-  },
-  {
-   "t": 6.0,
-   "do": "say",
-   "who": "ex1",
-   "line": "l3",
-   "dur": 2.0
-  },
-  {
-   "t": 6.4,
-   "do": "show",
-   "who": "ex2"
-  },
-  {
-   "t": 6.4,
-   "do": "walk",
-   "who": "ex2",
-   "x": 930,
-   "dur": 1.4
-  },
-  {
-   "t": 6.2,
-   "do": "show",
-   "who": "ex3"
-  },
-  {
-   "t": 6.2,
-   "do": "walk",
-   "who": "ex3",
-   "x": 120,
-   "dur": 1.6
-  },
-  {
-   "t": 8.3,
-   "do": "emote",
-   "who": "ex2",
-   "emotion": "smug",
-   "dur": 1.8
-  },
-  {
-   "t": 8.3,
-   "do": "say",
-   "who": "ex2",
-   "line": "l4",
-   "dur": 1.8
-  },
-  {
-   "t": 8.4,
-   "do": "camera",
-   "on": "eng",
-   "focus": "face",
-   "zoom": 1.6,
-   "dur": 0.5
-  },
-  {
-   "t": 10.3,
-   "do": "emote",
-   "who": "eng",
-   "emotion": "furious",
-   "dur": 2.6
-  },
-  {
-   "t": 10.3,
-   "do": "pose",
-   "who": "eng",
-   "pose": "facepalm",
-   "dur": 2.4
-  },
-  {
-   "t": 10.4,
-   "do": "say",
-   "who": "eng",
-   "line": "l5",
-   "dur": 2.2
-  },
-  {
-   "t": 10.5,
-   "do": "callout",
-   "on": "eng",
-   "key": "c_sign",
-   "dur": 2.0,
-   "style": "shake",
-   "side": "right"
-  },
-  {
-   "t": 10.5,
-   "do": "fx",
-   "kind": "anger",
-   "on": "eng",
-   "anchor": "head",
-   "dur": 1.6
-  },
-  {
-   "t": 12.6,
-   "do": "camera",
-   "reset": true,
-   "dur": 0.4
-  }
- ]
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "prn",
+      "prop": "printer",
+      "x": 560
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fl",
+      "prop": "folder",
+      "x": 0
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "who": "eng",
+      "id": "fl"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "desk",
+      "prop": "office_desk",
+      "x": 850,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "keyboard",
+      "prop": "keyboard",
+      "x": 850,
+      "y": 1005,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "mug",
+      "prop": "coffee",
+      "x": 970,
+      "y": 1030,
+      "scale": 0.82,
+      "layer": "front"
+    },
+    {
+      "t": 0.1,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present",
+      "dur": 1.8
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "eng",
+      "line": "l1",
+      "dur": 2.2
+    },
+    {
+      "t": 2.6,
+      "do": "shake",
+      "dur": 0.5,
+      "amp": 10
+    },
+    {
+      "t": 2.6,
+      "do": "fx",
+      "kind": "boom",
+      "x": 560,
+      "y": 1060,
+      "dur": 0.8
+    },
+    {
+      "t": 2.7,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "shocked",
+      "dur": 1.2
+    },
+    {
+      "t": 2.72,
+      "do": "remove",
+      "id": "fl"
+    },
+    {
+      "t": 2.73,
+      "do": "spawn",
+      "id": "paper_hand",
+      "prop": "torn_doc",
+      "x": 260,
+      "y": 980,
+      "layer": "front"
+    },
+    {
+      "t": 2.74,
+      "do": "hold",
+      "who": "eng",
+      "id": "paper_hand"
+    },
+    {
+      "t": 2.75,
+      "do": "spawn",
+      "id": "paper_printer",
+      "prop": "stuck_doc",
+      "x": 560,
+      "y": 1180,
+      "layer": "front"
+    },
+    {
+      "t": 2.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "hands_up",
+      "dur": 1.4
+    },
+    {
+      "t": 3,
+      "do": "say",
+      "who": "eng",
+      "line": "l2",
+      "dur": 1.5
+    },
+    {
+      "t": 3.1,
+      "do": "callout",
+      "on": "eng",
+      "key": "c_jam",
+      "dur": 1.6,
+      "style": "slam",
+      "side": "right"
+    },
+    {
+      "t": 3.65,
+      "do": "camera",
+      "on": "eng",
+      "focus": "body",
+      "zoom": 1.45,
+      "dur": 0.35
+    },
+    {
+      "t": 4.45,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.35
+    },
+    {
+      "t": 4.8,
+      "do": "walk",
+      "who": "ex1",
+      "x": 800,
+      "dur": 1.1
+    },
+    {
+      "t": 4.8,
+      "do": "show",
+      "who": "ex1"
+    },
+    {
+      "t": 5.2,
+      "do": "face",
+      "who": "eng",
+      "dir": "ex1"
+    },
+    {
+      "t": 5.9,
+      "do": "emote",
+      "who": "ex1",
+      "emotion": "angry",
+      "dur": 2
+    },
+    {
+      "t": 5.9,
+      "do": "pose",
+      "who": "ex1",
+      "pose": "arms_cross",
+      "dur": 2
+    },
+    {
+      "t": 6,
+      "do": "say",
+      "who": "ex1",
+      "line": "l3",
+      "dur": 2
+    },
+    {
+      "t": 6.2,
+      "do": "show",
+      "who": "ex3"
+    },
+    {
+      "t": 6.2,
+      "do": "walk",
+      "who": "ex3",
+      "x": 120,
+      "dur": 1.6
+    },
+    {
+      "t": 6.4,
+      "do": "show",
+      "who": "ex2"
+    },
+    {
+      "t": 6.4,
+      "do": "walk",
+      "who": "ex2",
+      "x": 930,
+      "dur": 1.4
+    },
+    {
+      "t": 8.3,
+      "do": "emote",
+      "who": "ex2",
+      "emotion": "smug",
+      "dur": 1.8
+    },
+    {
+      "t": 8.3,
+      "do": "say",
+      "who": "ex2",
+      "line": "l4",
+      "dur": 1.8
+    },
+    {
+      "t": 8.4,
+      "do": "camera",
+      "on": "eng",
+      "focus": "face",
+      "zoom": 1.6,
+      "dur": 0.5
+    },
+    {
+      "t": 10.3,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "furious",
+      "dur": 2.6
+    },
+    {
+      "t": 10.3,
+      "do": "pose",
+      "who": "eng",
+      "pose": "facepalm",
+      "dur": 2.4
+    },
+    {
+      "t": 10.4,
+      "do": "say",
+      "who": "eng",
+      "line": "l5",
+      "dur": 2.2
+    },
+    {
+      "t": 10.5,
+      "do": "callout",
+      "on": "eng",
+      "key": "c_sign",
+      "dur": 2,
+      "style": "shake",
+      "side": "right"
+    },
+    {
+      "t": 10.5,
+      "do": "fx",
+      "kind": "anger",
+      "on": "eng",
+      "anchor": "head",
+      "dur": 1.6
+    },
+    {
+      "t": 12.6,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.4
+    },
+    {
+      "t": 13.05,
+      "do": "hide",
+      "who": "ex1"
+    },
+    {
+      "t": 13.05,
+      "do": "hide",
+      "who": "ex2"
+    },
+    {
+      "t": 13.05,
+      "do": "hide",
+      "who": "ex3"
+    },
+    {
+      "t": 13.75,
+      "do": "show",
+      "who": "bld"
+    },
+    {
+      "t": 13.76,
+      "do": "walk",
+      "who": "bld",
+      "x": 760,
+      "dur": 1.25,
+      "face": "left"
+    },
+    {
+      "t": 13.8,
+      "do": "spawn",
+      "id": "bplan",
+      "prop": "clipboard",
+      "x": 1250,
+      "y": 1020,
+      "layer": "front"
+    },
+    {
+      "t": 15.15,
+      "do": "hold",
+      "who": "bld",
+      "id": "bplan"
+    },
+    {
+      "t": 15.35,
+      "do": "face",
+      "who": "bld",
+      "dir": "eng"
+    },
+    {
+      "t": 15.45,
+      "do": "say",
+      "who": "bld",
+      "line": "l6",
+      "dur": 1.6
+    },
+    {
+      "t": 17.2,
+      "do": "face",
+      "who": "eng",
+      "dir": "bld"
+    },
+    {
+      "t": 17.2,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "annoyed",
+      "dur": 1
+    },
+    {
+      "t": 17.3,
+      "do": "say",
+      "who": "eng",
+      "line": "l7",
+      "dur": 0.9
+    },
+    {
+      "t": 18.35,
+      "do": "say",
+      "who": "bld",
+      "line": "l8",
+      "dur": 1.2
+    },
+    {
+      "t": 19.75,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "confused",
+      "dur": 1.4
+    },
+    {
+      "t": 19.8,
+      "do": "say",
+      "who": "eng",
+      "line": "l9",
+      "dur": 1.6
+    },
+    {
+      "t": 21.65,
+      "do": "say",
+      "who": "bld",
+      "line": "l10",
+      "dur": 1.2
+    },
+    {
+      "t": 23.05,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "angry",
+      "dur": 2.8
+    },
+    {
+      "t": 23.05,
+      "do": "pose",
+      "who": "eng",
+      "pose": "point",
+      "dur": 2.8
+    },
+    {
+      "t": 23.15,
+      "do": "say",
+      "who": "eng",
+      "line": "l11",
+      "dur": 2.6
+    },
+    {
+      "t": 26,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.8
+    },
+    {
+      "t": 26.05,
+      "do": "say",
+      "who": "bld",
+      "line": "l12",
+      "dur": 0.6
+    },
+    {
+      "t": 26.85,
+      "do": "walk",
+      "who": "bld",
+      "x": 1250,
+      "dur": 1.25,
+      "face": "right"
+    },
+    {
+      "t": 27.05,
+      "do": "remove",
+      "id": "bplan"
+    },
+    {
+      "t": 27.2,
+      "do": "remove",
+      "id": "paper_hand"
+    },
+    {
+      "t": 27.25,
+      "do": "walk",
+      "who": "eng",
+      "x": 850,
+      "dur": 2,
+      "face": "right"
+    },
+    {
+      "t": 28.15,
+      "do": "hide",
+      "who": "bld"
+    },
+    {
+      "t": 29.35,
+      "do": "pose",
+      "who": "eng",
+      "pose": "tired",
+      "dur": 1.4
+    },
+    {
+      "t": 29.5,
+      "do": "camera",
+      "on": "eng",
+      "focus": "body",
+      "zoom": 1.35,
+      "dur": 0.45
+    },
+    {
+      "t": 30,
+      "do": "move",
+      "id": "mug",
+      "x": 895,
+      "y": 1080,
+      "dur": 0.38,
+      "rot": 72,
+      "ease": "snap"
+    },
+    {
+      "t": 30.15,
+      "do": "spawn",
+      "id": "spill",
+      "prop": "coffee_spill",
+      "x": 850,
+      "y": 1006,
+      "scale": 0.9,
+      "layer": "front"
+    },
+    {
+      "t": 30.15,
+      "do": "shake",
+      "dur": 0.35,
+      "amp": 9
+    },
+    {
+      "t": 30.2,
+      "do": "fx",
+      "kind": "sweat",
+      "on": "eng",
+      "anchor": "head",
+      "dur": 1
+    },
+    {
+      "t": 30.45,
+      "do": "camera",
+      "on": "eng",
+      "focus": "body",
+      "zoom": 1.8,
+      "dur": 0.45
+    },
+    {
+      "t": 31.25,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 1.8
+    },
+    {
+      "t": 32.05,
+      "do": "camera",
+      "on": "eng",
+      "focus": "face",
+      "zoom": 2.15,
+      "dur": 0.55
+    },
+    {
+      "t": 32.15,
+      "do": "spawn",
+      "id": "one_hair",
+      "prop": "gray_hair",
+      "x": 850,
+      "y": 710,
+      "scale": 1,
+      "layer": "front"
+    },
+    {
+      "t": 34,
+      "do": "remove",
+      "id": "desk"
+    },
+    {
+      "t": 34,
+      "do": "remove",
+      "id": "keyboard"
+    },
+    {
+      "t": 34,
+      "do": "remove",
+      "id": "mug"
+    },
+    {
+      "t": 34,
+      "do": "remove",
+      "id": "spill"
+    },
+    {
+      "t": 34,
+      "do": "remove",
+      "id": "one_hair"
+    },
+    {
+      "t": 34.05,
+      "do": "location",
+      "id": "construction_site",
+      "transition": "cut",
+      "dur": 0.1
+    },
+    {
+      "t": 34.15,
+      "do": "place",
+      "who": "eng",
+      "x": 300,
+      "face": "right"
+    },
+    {
+      "t": 34.15,
+      "do": "place",
+      "who": "bld",
+      "x": 760,
+      "face": "left"
+    },
+    {
+      "t": 34.2,
+      "do": "spawn",
+      "id": "wall",
+      "prop": "brick_wall",
+      "x": 820,
+      "layer": "back"
+    },
+    {
+      "t": 34.2,
+      "do": "spawn",
+      "id": "hammer",
+      "prop": "hammer",
+      "x": 760,
+      "y": 1050,
+      "layer": "front"
+    },
+    {
+      "t": 34.3,
+      "do": "hold",
+      "who": "bld",
+      "id": "hammer"
+    },
+    {
+      "t": 35,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 0.8
+    },
+    {
+      "t": 35.45,
+      "do": "shake",
+      "dur": 0.35,
+      "amp": 15
+    },
+    {
+      "t": 35.45,
+      "do": "fx",
+      "kind": "dust",
+      "x": 820,
+      "y": 930,
+      "dur": 1
+    },
+    {
+      "t": 36.15,
+      "do": "remove",
+      "id": "wall"
+    },
+    {
+      "t": 36.15,
+      "do": "spawn",
+      "id": "wall_hole",
+      "prop": "wall_hole",
+      "x": 820,
+      "y": 1050,
+      "scale": 1.4,
+      "layer": "front"
+    },
+    {
+      "t": 36.5,
+      "do": "camera",
+      "on": "both",
+      "focus": "body",
+      "zoom": 1.25,
+      "dur": 0.45
+    }
+  ]
 }
