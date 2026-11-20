@@ -134,6 +134,7 @@ const POSES = {
     L: [70, -60 + Math.sin(lt * 9) * 100], R: [70, -60 + Math.sin(lt * 9 + Math.PI) * 100],
     by: -Math.abs(Math.sin(lt * 9)) * 30, lean: Math.sin(lt * 4.5) * 8, head: Math.sin(lt * 4.5) * 10
   }),
+  drill: () => P({ R: [88, 54], L: [42, 82], lean: 1, head: 1 }),
   hammer: (lt) => {
     const p = (lt * 2.2) % 1; let ox, oy, lean;
     if (p < 0.6) { const k = ease('easeInOut', p / 0.6); ox = lerp(70, 36, k); oy = lerp(30, -170, k); lean = lerp(0, -6, k); }
