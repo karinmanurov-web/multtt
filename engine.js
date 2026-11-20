@@ -135,6 +135,8 @@ const POSES = {
     by: -Math.abs(Math.sin(lt * 9)) * 30, lean: Math.sin(lt * 4.5) * 8, head: Math.sin(lt * 4.5) * 10
   }),
   drill: (lt, t) => P({ R: [88 + Math.sin(t * 71) * 2.2, 54 + Math.sin(t * 83) * 3], L: [42 + Math.sin(t * 77 + 1) * 2, 82 + Math.sin(t * 89) * 3], lean: 1, head: 1 + Math.sin(t * 67) * 0.8, by: Math.sin(t * 61) * 1.4 }),
+  drill_cheer: (lt, t) => P({ R: [88, 54], L: [72 + Math.sin(lt * 8) * 8, -142], by: -Math.abs(Math.sin(lt * 8)) * 7, head: -3 }),
+  drill_wave: (lt, t) => P({ R: [88, 54], L: [78 + Math.sin(lt * 10) * 28, -140], head: -4 }),
   hammer: (lt) => {
     const p = (lt * 2.2) % 1; let ox, oy, lean;
     if (p < 0.6) { const k = ease('easeInOut', p / 0.6); ox = lerp(70, 36, k); oy = lerp(30, -170, k); lean = lerp(0, -6, k); }
