@@ -1,0 +1,816 @@
+{
+  "id": "demo_05",
+  "duration": 33.2,
+  "start": {
+    "location": "construction_site",
+    "chars": {
+      "bld": {
+        "x": 510,
+        "face": "right"
+      }
+    }
+  },
+  "defs": {
+    "props": {
+      "wall_panel": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "rect",
+            "x": -205,
+            "y": -540,
+            "w": 410,
+            "h": 540,
+            "r": 5,
+            "fill": "#aeb4bb",
+            "stroke": "#343941",
+            "sw": 7
+          },
+          {
+            "t": "rect",
+            "x": -190,
+            "y": -525,
+            "w": 380,
+            "h": 510,
+            "fill": "#c4c9ce"
+          },
+          {
+            "t": "line",
+            "x1": -185,
+            "y1": -410,
+            "x2": 185,
+            "y2": -410,
+            "stroke": "#a3a9af",
+            "sw": 4
+          },
+          {
+            "t": "line",
+            "x1": -185,
+            "y1": -270,
+            "x2": 185,
+            "y2": -270,
+            "stroke": "#a3a9af",
+            "sw": 4
+          },
+          {
+            "t": "line",
+            "x1": -185,
+            "y1": -130,
+            "x2": 185,
+            "y2": -130,
+            "stroke": "#a3a9af",
+            "sw": 4
+          },
+          {
+            "t": "line",
+            "x1": -100,
+            "y1": -520,
+            "x2": -100,
+            "y2": -20,
+            "stroke": "rgba(255,255,255,0.25)",
+            "sw": 3
+          },
+          {
+            "t": "line",
+            "x1": 90,
+            "y1": -520,
+            "x2": 90,
+            "y2": -20,
+            "stroke": "rgba(255,255,255,0.25)",
+            "sw": 3
+          }
+        ]
+      },
+      "rotary_drill": {
+        "grip": [
+          0,
+          0
+        ],
+        "upright": true,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": -100,
+            "y": -42,
+            "w": 145,
+            "h": 74,
+            "r": 12,
+            "fill": "#e6b52f",
+            "stroke": "#1e1b26",
+            "sw": 6
+          },
+          {
+            "t": "rect",
+            "x": -72,
+            "y": -56,
+            "w": 80,
+            "h": 18,
+            "r": 5,
+            "fill": "#343a42",
+            "stroke": "#1e1b26",
+            "sw": 4
+          },
+          {
+            "t": "rect",
+            "x": -36,
+            "y": 28,
+            "w": 42,
+            "h": 100,
+            "r": 9,
+            "fill": "#343a42",
+            "stroke": "#1e1b26",
+            "sw": 5
+          },
+          {
+            "t": "rect",
+            "x": -28,
+            "y": 48,
+            "w": 26,
+            "h": 45,
+            "r": 5,
+            "fill": "#e6b52f"
+          },
+          {
+            "t": "rect",
+            "x": 42,
+            "y": -24,
+            "w": 42,
+            "h": 36,
+            "r": 6,
+            "fill": "#555d66",
+            "stroke": "#1e1b26",
+            "sw": 4
+          },
+          {
+            "t": "rect",
+            "x": 80,
+            "y": -13,
+            "w": 132,
+            "h": 14,
+            "r": 3,
+            "fill": "#7f8993",
+            "stroke": "#1e1b26",
+            "sw": 3
+          },
+          {
+            "t": "poly",
+            "pts": [
+              [
+                208,
+                -16
+              ],
+              [
+                244,
+                -7
+              ],
+              [
+                208,
+                2
+              ]
+            ],
+            "fill": "#59616b",
+            "stroke": "#1e1b26",
+            "sw": 3
+          },
+          {
+            "t": "circle",
+            "x": -66,
+            "y": -5,
+            "r": 9,
+            "fill": "#d84a3a",
+            "stroke": "#1e1b26",
+            "sw": 3
+          },
+          {
+            "t": "line",
+            "x1": -90,
+            "y1": -33,
+            "x2": -60,
+            "y2": -33,
+            "stroke": "#fff1b3",
+            "sw": 5
+          }
+        ]
+      },
+      "dust_puff": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "circle",
+            "x": -42,
+            "y": 0,
+            "r": 30,
+            "fill": "rgba(205,195,178,0.75)"
+          },
+          {
+            "t": "circle",
+            "x": -8,
+            "y": -18,
+            "r": 38,
+            "fill": "rgba(220,211,195,0.78)"
+          },
+          {
+            "t": "circle",
+            "x": 30,
+            "y": -2,
+            "r": 27,
+            "fill": "rgba(190,183,171,0.72)"
+          },
+          {
+            "t": "circle",
+            "x": 6,
+            "y": 18,
+            "r": 24,
+            "fill": "rgba(210,201,187,0.72)"
+          }
+        ]
+      },
+      "rebar_flash": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "line",
+            "x1": -4,
+            "y1": -58,
+            "x2": 4,
+            "y2": 58,
+            "stroke": "#59616b",
+            "sw": 12
+          },
+          {
+            "t": "line",
+            "x1": -2,
+            "y1": -54,
+            "x2": 2,
+            "y2": 54,
+            "stroke": "#aeb4bb",
+            "sw": 4
+          },
+          {
+            "t": "line",
+            "x1": -32,
+            "y1": -44,
+            "x2": 32,
+            "y2": -44,
+            "stroke": "#d8dde2",
+            "sw": 4
+          },
+          {
+            "t": "line",
+            "x1": -32,
+            "y1": 44,
+            "x2": 32,
+            "y2": 44,
+            "stroke": "#d8dde2",
+            "sw": 4
+          }
+        ]
+      },
+      "drill_hole": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "ellipse",
+            "x": 0,
+            "y": 0,
+            "rx": 45,
+            "ry": 38,
+            "fill": "#34302e",
+            "stroke": "#5c5149",
+            "sw": 9
+          },
+          {
+            "t": "ellipse",
+            "x": -2,
+            "y": -2,
+            "rx": 29,
+            "ry": 24,
+            "fill": "#111315"
+          },
+          {
+            "t": "ellipse",
+            "x": -8,
+            "y": -10,
+            "rx": 12,
+            "ry": 7,
+            "fill": "rgba(255,255,255,0.08)"
+          }
+        ]
+      },
+      "opposite_bit": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "rect",
+            "x": -5,
+            "y": -10,
+            "w": 105,
+            "h": 20,
+            "r": 4,
+            "fill": "#737d87",
+            "stroke": "#1e1b26",
+            "sw": 3
+          },
+          {
+            "t": "poly",
+            "pts": [
+              [
+                95,
+                -14
+              ],
+              [
+                132,
+                0
+              ],
+              [
+                95,
+                14
+              ]
+            ],
+            "fill": "#aeb7c0",
+            "stroke": "#1e1b26",
+            "sw": 3
+          },
+          {
+            "t": "line",
+            "x1": 8,
+            "y1": -5,
+            "x2": 84,
+            "y2": -5,
+            "stroke": "#dce1e6",
+            "sw": 3
+          }
+        ]
+      },
+      "crack_dust": {
+        "grip": [
+          0,
+          0
+        ],
+        "shapes": [
+          {
+            "t": "poly",
+            "pts": [
+              [
+                -56,
+                -18
+              ],
+              [
+                -34,
+                -34
+              ],
+              [
+                -18,
+                -8
+              ],
+              [
+                0,
+                -28
+              ],
+              [
+                18,
+                -4
+              ],
+              [
+                44,
+                -18
+              ],
+              [
+                56,
+                12
+              ],
+              [
+                22,
+                26
+              ],
+              [
+                -12,
+                18
+              ],
+              [
+                -40,
+                32
+              ]
+            ],
+            "fill": "#c9c0b3",
+            "stroke": "#8d857b",
+            "sw": 3
+          },
+          {
+            "t": "circle",
+            "x": -64,
+            "y": 26,
+            "r": 7,
+            "fill": "#a79e91"
+          },
+          {
+            "t": "circle",
+            "x": 62,
+            "y": -30,
+            "r": 6,
+            "fill": "#a79e91"
+          }
+        ]
+      }
+    }
+  },
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "wall",
+      "prop": "wall_panel",
+      "x": 815,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "drill",
+      "prop": "rotary_drill",
+      "x": 0,
+      "y": 0,
+      "scale": 0.82,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "drill",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0.15,
+      "do": "camera",
+      "on": "bld",
+      "zoom": 1.22,
+      "dur": 0.6,
+      "x": 560,
+      "y": 1080
+    },
+    {
+      "t": 0.35,
+      "do": "pose",
+      "who": "bld",
+      "pose": "think",
+      "dur": 1.4
+    },
+    {
+      "t": 1.35,
+      "do": "pose",
+      "who": "bld",
+      "pose": "point",
+      "dur": 1.1
+    },
+    {
+      "t": 1.45,
+      "do": "say",
+      "who": "bld",
+      "line": "l1",
+      "dur": 2
+    },
+    {
+      "t": 3.55,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 3
+    },
+    {
+      "t": 3.65,
+      "do": "shake",
+      "dur": 0.85,
+      "amp": 4
+    },
+    {
+      "t": 3.68,
+      "do": "spawn",
+      "id": "dust1",
+      "prop": "dust_puff",
+      "x": 760,
+      "y": 1000,
+      "scale": 0.65,
+      "layer": "front"
+    },
+    {
+      "t": 4.1,
+      "do": "shake",
+      "dur": 0.55,
+      "amp": 7
+    },
+    {
+      "t": 4.35,
+      "do": "remove",
+      "id": "dust1"
+    },
+    {
+      "t": 5.05,
+      "do": "shake",
+      "dur": 0.35,
+      "amp": 3
+    },
+    {
+      "t": 6.15,
+      "do": "pose",
+      "who": "bld",
+      "pose": "think",
+      "dur": 1.5
+    },
+    {
+      "t": 6.25,
+      "do": "spawn",
+      "id": "rebar",
+      "prop": "rebar_flash",
+      "x": 815,
+      "y": 980,
+      "scale": 0.75,
+      "layer": "front"
+    },
+    {
+      "t": 7.15,
+      "do": "say",
+      "who": "bld",
+      "line": "l2",
+      "dur": 1.15
+    },
+    {
+      "t": 7.65,
+      "do": "remove",
+      "id": "rebar"
+    },
+    {
+      "t": 8.8,
+      "do": "move",
+      "id": "drill",
+      "x": 0,
+      "y": 0,
+      "rot": -4,
+      "dur": 0.25,
+      "ease": "snap"
+    },
+    {
+      "t": 9.1,
+      "do": "move",
+      "id": "drill",
+      "x": 0,
+      "y": 0,
+      "rot": 0,
+      "dur": 0.25
+    },
+    {
+      "t": 9.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 3.1
+    },
+    {
+      "t": 9.4,
+      "do": "shake",
+      "dur": 1.05,
+      "amp": 5
+    },
+    {
+      "t": 9.45,
+      "do": "spawn",
+      "id": "dust2",
+      "prop": "dust_puff",
+      "x": 770,
+      "y": 1030,
+      "scale": 0.75,
+      "layer": "front"
+    },
+    {
+      "t": 10.2,
+      "do": "shake",
+      "dur": 0.55,
+      "amp": 8
+    },
+    {
+      "t": 10.8,
+      "do": "spawn",
+      "id": "crackdust",
+      "prop": "crack_dust",
+      "x": 820,
+      "y": 1040,
+      "scale": 0.7,
+      "layer": "front"
+    },
+    {
+      "t": 11.35,
+      "do": "remove",
+      "id": "dust2"
+    },
+    {
+      "t": 12,
+      "do": "remove",
+      "id": "crackdust"
+    },
+    {
+      "t": 12.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "think",
+      "dur": 1.4
+    },
+    {
+      "t": 13,
+      "do": "camera",
+      "on": "bld",
+      "zoom": 1.38,
+      "dur": 0.45,
+      "x": 650,
+      "y": 1060
+    },
+    {
+      "t": 14,
+      "do": "say",
+      "who": "bld",
+      "line": "l3",
+      "dur": 1
+    },
+    {
+      "t": 15.6,
+      "do": "pose",
+      "who": "bld",
+      "pose": "think",
+      "dur": 1.3
+    },
+    {
+      "t": 17,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 3
+    },
+    {
+      "t": 17.1,
+      "do": "shake",
+      "dur": 0.55,
+      "amp": 5
+    },
+    {
+      "t": 17.75,
+      "do": "shake",
+      "dur": 0.65,
+      "amp": 9
+    },
+    {
+      "t": 17.8,
+      "do": "spawn",
+      "id": "dust3",
+      "prop": "dust_puff",
+      "x": 790,
+      "y": 1000,
+      "scale": 0.85,
+      "layer": "front"
+    },
+    {
+      "t": 18.5,
+      "do": "shake",
+      "dur": 0.5,
+      "amp": 5
+    },
+    {
+      "t": 19.3,
+      "do": "remove",
+      "id": "dust3"
+    },
+    {
+      "t": 19.65,
+      "do": "pose",
+      "who": "bld",
+      "pose": "think",
+      "dur": 1.3
+    },
+    {
+      "t": 20.1,
+      "do": "camera",
+      "on": "bld",
+      "zoom": 1.48,
+      "dur": 0.5,
+      "x": 720,
+      "y": 1010
+    },
+    {
+      "t": 21,
+      "do": "say",
+      "who": "bld",
+      "line": "l4",
+      "dur": 1.1
+    },
+    {
+      "t": 22.25,
+      "do": "shake",
+      "dur": 0.25,
+      "amp": 2
+    },
+    {
+      "t": 23,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 3
+    },
+    {
+      "t": 23.1,
+      "do": "shake",
+      "dur": 1.15,
+      "amp": 11
+    },
+    {
+      "t": 23.15,
+      "do": "spawn",
+      "id": "dust4",
+      "prop": "dust_puff",
+      "x": 805,
+      "y": 990,
+      "scale": 1,
+      "layer": "front"
+    },
+    {
+      "t": 23.7,
+      "do": "spawn",
+      "id": "hole",
+      "prop": "drill_hole",
+      "x": 815,
+      "y": 980,
+      "scale": 0.72,
+      "layer": "front"
+    },
+    {
+      "t": 24,
+      "do": "spawn",
+      "id": "opposite",
+      "prop": "opposite_bit",
+      "x": 760,
+      "y": 980,
+      "scale": 0.72,
+      "layer": "front"
+    },
+    {
+      "t": 24.35,
+      "do": "remove",
+      "id": "dust4"
+    },
+    {
+      "t": 25,
+      "do": "pose",
+      "who": "bld",
+      "pose": "think",
+      "dur": 1.4
+    },
+    {
+      "t": 25.25,
+      "do": "camera",
+      "zoom": 1.8,
+      "dur": 0.55,
+      "x": 790,
+      "y": 980
+    },
+    {
+      "t": 26.2,
+      "do": "say",
+      "who": "bld",
+      "line": "l5",
+      "dur": 2
+    },
+    {
+      "t": 28.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "shrug",
+      "dur": 2.2
+    },
+    {
+      "t": 28.35,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 2
+    },
+    {
+      "t": 31,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.6
+    }
+  ]
+}
