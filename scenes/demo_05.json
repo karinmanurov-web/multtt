@@ -720,7 +720,7 @@
       "do": "pose",
       "who": "bld",
       "pose": "think",
-      "dur": 1
+      "dur": 0.7
     },
     {
       "t": 30.35,
@@ -734,7 +734,7 @@
       "do": "pose",
       "who": "bld",
       "pose": "hips",
-      "dur": 1.8
+      "dur": 2.8
     },
     {
       "t": 31,
