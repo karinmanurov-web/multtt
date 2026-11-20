@@ -507,7 +507,7 @@
       "prop": "wall_panel",
       "x": 815,
       "y": 1250,
-      "layer": "front"
+      "layer": "back"
     },
     {
       "t": 0,
@@ -1196,12 +1196,12 @@
       "face": "left"
     },
     {
-      "t": 34,
+      "t": 34.16,
       "do": "show",
       "who": "colleague"
     },
     {
-      "t": 34,
+      "t": 34.16,
       "do": "spawn",
       "id": "colleague_drill",
       "prop": "rotary_drill",
@@ -1211,14 +1211,14 @@
       "layer": "front"
     },
     {
-      "t": 34.01,
+      "t": 34.17,
       "do": "hold",
       "id": "colleague_drill",
       "who": "colleague",
       "hand": "R"
     },
     {
-      "t": 34.02,
+      "t": 34.18,
       "do": "pose",
       "who": "colleague",
       "pose": "drill_wave"
@@ -1319,7 +1319,7 @@
       "t": 35.8,
       "do": "pose",
       "who": "bld",
-      "pose": "drill_sad"
+      "pose": "drill_tired"
     },
     {
       "t": 35.82,
@@ -1340,7 +1340,7 @@
       "t": 36,
       "do": "pose",
       "who": "bld",
-      "pose": "drill_sad"
+      "pose": "drill_tired"
     },
     {
       "t": 36.05,
