@@ -507,7 +507,7 @@
       "prop": "wall_panel",
       "x": 815,
       "y": 1250,
-      "layer": "back"
+      "layer": "front"
     },
     {
       "t": 0,
@@ -1099,8 +1099,8 @@
       "do": "spawn",
       "id": "hole",
       "prop": "drill_hole",
-      "x": 648,
-      "y": 975,
+      "x": 660,
+      "y": 910,
       "scale": 0.8,
       "layer": "front"
     },
@@ -1189,6 +1189,41 @@
       "amp": 5
     },
     {
+      "t": 34,
+      "do": "place",
+      "who": "colleague",
+      "x": 890,
+      "face": "left"
+    },
+    {
+      "t": 34,
+      "do": "show",
+      "who": "colleague"
+    },
+    {
+      "t": 34,
+      "do": "spawn",
+      "id": "colleague_drill",
+      "prop": "rotary_drill",
+      "x": 0,
+      "y": 0,
+      "scale": 0.72,
+      "layer": "front"
+    },
+    {
+      "t": 34.01,
+      "do": "hold",
+      "id": "colleague_drill",
+      "who": "colleague",
+      "hand": "R"
+    },
+    {
+      "t": 34.02,
+      "do": "pose",
+      "who": "colleague",
+      "pose": "drill_wave"
+    },
+    {
       "t": 34.15,
       "do": "remove",
       "id": "wall"
@@ -1202,12 +1237,7 @@
       "dur": 0.9
     },
     {
-      "t": 34.16,
-      "do": "remove",
-      "id": "wallcrack"
-    },
-    {
-      "t": 34.17,
+      "t": 34.15,
       "do": "spawn",
       "id": "piece_left",
       "prop": "wall_piece_left",
@@ -1216,7 +1246,7 @@
       "layer": "front"
     },
     {
-      "t": 34.17,
+      "t": 34.15,
       "do": "spawn",
       "id": "piece_top",
       "prop": "wall_piece_top",
@@ -1225,7 +1255,7 @@
       "layer": "front"
     },
     {
-      "t": 34.17,
+      "t": 34.15,
       "do": "spawn",
       "id": "piece_bottom",
       "prop": "wall_piece_bottom",
@@ -1234,7 +1264,7 @@
       "layer": "front"
     },
     {
-      "t": 34.25,
+      "t": 34.15,
       "do": "move",
       "id": "piece_left",
       "x": 700,
@@ -1245,7 +1275,7 @@
       "ease": "easeIn"
     },
     {
-      "t": 34.25,
+      "t": 34.15,
       "do": "move",
       "id": "piece_top",
       "x": 930,
@@ -1256,7 +1286,7 @@
       "ease": "easeIn"
     },
     {
-      "t": 34.25,
+      "t": 34.15,
       "do": "move",
       "id": "piece_bottom",
       "x": 820,
@@ -1265,6 +1295,11 @@
       "dur": 1.35,
       "arc": 8,
       "ease": "easeIn"
+    },
+    {
+      "t": 34.16,
+      "do": "remove",
+      "id": "wallcrack"
     },
     {
       "t": 34.3,
@@ -1293,48 +1328,6 @@
       "y": 1040,
       "zoom": 1.25,
       "dur": 0.7
-    },
-    {
-      "t": 35.85,
-      "do": "place",
-      "who": "colleague",
-      "x": 820,
-      "face": "left"
-    },
-    {
-      "t": 35.9,
-      "do": "show",
-      "who": "colleague"
-    },
-    {
-      "t": 35.95,
-      "do": "spawn",
-      "id": "colleague_drill",
-      "prop": "rotary_drill",
-      "x": 0,
-      "y": 0,
-      "scale": 0.72,
-      "layer": "front"
-    },
-    {
-      "t": 35.96,
-      "do": "hold",
-      "id": "colleague_drill",
-      "who": "colleague",
-      "hand": "R"
-    },
-    {
-      "t": 36,
-      "do": "pose",
-      "who": "colleague",
-      "pose": "drill_wave"
-    },
-    {
-      "t": 36,
-      "do": "emote",
-      "who": "colleague",
-      "emotion": "happy",
-      "dur": 2.8
     },
     {
       "t": 36,
