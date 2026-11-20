@@ -1,0 +1,13 @@
+{
+ "lang": "en",
+ "cps": 15,
+ "lines": {
+  "l1": "I need just one page.",
+  "l2": "A paper jam?!",
+  "l3": "There's a queue, you know.",
+  "l4": "We've waited since nine.",
+  "l5": "I only need to SIGN it!",
+  "c_jam": "JAMMED?!",
+  "c_sign": "A QUEUE?!"
+ }
+}

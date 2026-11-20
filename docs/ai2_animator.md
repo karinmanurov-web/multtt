@@ -71,7 +71,16 @@
 | `emote` | `who`, `emotion`, `dur` | эмоция лица. С `dur` вернётся в `neutral` |
 | `say` | `who`, `line`, `dur` | рот говорит, а в кадре появляется субтитр с текстом `line` |
 
-`who` принимает `eng` или `bld`.
+`who` принимает `eng`, `bld` или id любого статиста из `start.chars` (например `ex1`).
+
+### Массовка (статисты)
+
+Любой id в `start.chars`, кроме `eng` и `bld`, — безликий статист. Поля: `type` (`extra` по умолчанию или имя своего типа из `defs.characters` / библиотеки), `x`, `face`, `hidden:true` (в кадре его нет, пока не придёт `show`/`walk`), и внешность: `skin, shirt, sleeve, pants, shoe, sy` (рост, 1 = норма), `tw` (ширина торса), `hair` (цвет причёски), `hat` (цвет кепки), `glasses:true`, `tie` (цвет галстука). Пример: `"ex1":{"type":"extra","x":1250,"face":"left","shirt":"#d8695f","tie":"#2d3a8c","hair":"#4a3426","hidden":true}`.
+Статисты умеют всё, что герои: `walk, pose, emote, say, hold`. Свой тип со своими фигурами: `defs.characters.guard = {"shirt":"#444","torso":[фигуры],"head_front":[фигуры]}` (координаты торса от бёдер, торс y −198…18; голова вокруг 0,0 радиусом ~80). Делай 2–4 статиста на сцену, разной внешности.
+
+### Акцент рядом с героем (`callout`)
+
+`{"do":"callout","on":"eng","key":"c_jam","dur":1.6,"style":"slam","side":"right"}` — крупная надпись рядом с головой героя, `key` — id текста в языковом файле. `style`: `pop`, `shake`, `slam`. Приём редкий: **не более 1–2 на сцену**, только самые эмоциональные моменты (возмущение, шок). Это не дубль субтитра: слово короткое, 1–2 слова с «?!» или «!».
 
 **Позы:** `idle, wave, point, point_up, present, hands_up, shrug, facepalm, think, arms_cross, hips, write, measure, tired, angry, cheer, dizzy, dance, hammer, jump`
 
@@ -100,7 +109,7 @@
 | do | параметры | что делает |
 |---|---|---|
 | `location` | `id`, `transition`, `dur` | смена локации. `transition`: `fade`, `flash`, `wipe`, `cut` |
-| `camera` | `on`, `focus`, `zoom`, `x`, `y`, `dx`, `dy`, `rot`, `reset`, `dur`, `ease` | `on`: `eng`, `bld` или `both`. `focus`: `head`, `face`, `body`, `feet`. `zoom` 1 — общий план, 1,5 — средний, 1,8–2,2 — крупный. `reset:true` — вернуть общий план |
+| `camera` | `on` (id героя или `both`), `focus`, `zoom`, `x`, `y`, `dx`, `dy`, `rot`, `reset`, `dur`, `ease` | `on`: `eng`, `bld` или `both`. `focus`: `head`, `face`, `body`, `feet`. `zoom` 1 — общий план, 1,5 — средний, 1,8–2,2 — крупный. `reset:true` — вернуть общий план |
 | `shake` | `dur`, `amp` | тряска камеры (amp 8–25) |
 | `fx` | `kind`, `on`, `anchor`, `x`, `y`, `dur` | эффект. `on` — к герою, `anchor`: `head`, `body`, `feet`, `hand`. Без `on` — в точке x, y |
 | `title` | `key`, `dur`, `pos`, `style`, `color` | крупный текст на экране. `pos`: `top`, `center`, `bottom`. `style`: `pop`, `slide`, `shake` |

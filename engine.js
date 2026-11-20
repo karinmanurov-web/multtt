@@ -80,6 +80,32 @@ const CHARS = {
 const ALIASES = { eng: 'eng', engineer: 'eng', 'инженер': 'eng', bld: 'bld', builder: 'bld', 'строитель': 'bld' };
 const CHAR_IDS = ['eng', 'bld'];
 
+// Статисты: тип "extra" — безликий человек, внешность задаётся в JSON (цвета, шапка, очки, галстук, свои фигуры)
+const EXTRA_BASE = {
+  kind: 'extra', name: 'Статист', skin: '#f1cba6', shirt: '#c9b25a', sleeve: null, pants: '#3a4152', shoe: '#2d2a30',
+  sy: 1.0, tw: 122, hair: null, hat: null, glasses: false, tie: null, browY: -32
+};
+const LOOK_KEYS = ['skin', 'shirt', 'sleeve', 'pants', 'shoe', 'sy', 'tw', 'hair', 'hat', 'glasses', 'tie'];
+function resolveCharDef(type, inst, types, err, id) {
+  let base;
+  if (type === 'eng' || type === 'bld') base = Object.assign({ kind: type }, CHARS[type]);
+  else if (type === 'extra') base = Object.assign({}, EXTRA_BASE);
+  else if (types[type] && typeof types[type] === 'object') base = Object.assign({}, EXTRA_BASE, types[type], { kind: 'extra' });
+  else {
+    err(`Персонаж "${id}": неизвестный тип "${type}" (есть: eng, bld, extra${Object.keys(types).map(k => ', ' + k).join('')})`);
+    base = Object.assign({}, EXTRA_BASE);
+  }
+  for (const k of LOOK_KEYS) {
+    if (inst && inst[k] != null) {
+      if ((k === 'sy' || k === 'tw') && !isNum(inst[k])) err(`Персонаж "${id}": "${k}" должно быть числом`);
+      else base[k] = inst[k];
+    }
+  }
+  if (!base.sleeve) base.sleeve = base.shirt;
+  return base;
+}
+const CALLOUT_STYLES = ['pop', 'shake', 'slam'];
+
 const HIP_Y = -160, LEG = 88, UARM = 92, FARM = 88, SHOULDER_Y = -172;
 
 // ───────────────────────── позы ─────────────────────────
@@ -423,14 +449,14 @@ class Engine {
     this.canvas = canvas || null;
     this.ctx = canvas ? canvas.getContext('2d') : null;
     this.q = 1;
-    this.lib = { locations: {}, props: {} };
+    this.lib = { locations: {}, props: {}, characters: {} };
     this.texts = { lang: '', cps: 14, lines: {} };
     this.flags = { subs: true, titles: true, safe: false };
     this.C = null;
     this.missing = new Set();
   }
   setQuality(q) { this.q = q; if (this.canvas) { this.canvas.width = Math.round(W * q); this.canvas.height = Math.round(H * q); } }
-  setLibrary(lib) { this.lib = { locations: (lib && lib.locations) || {}, props: (lib && lib.props) || {} }; }
+  setLibrary(lib) { this.lib = { locations: (lib && lib.locations) || {}, props: (lib && lib.props) || {}, characters: (lib && lib.characters) || {} }; }
   setTexts(tx) { this.texts = Object.assign({ lang: '', cps: 14, lines: {} }, tx || {}); this.texts.lines = (tx && tx.lines) || {}; this.missing.clear(); }
   T(key) {
     const v = this.texts.lines[key];
@@ -462,16 +488,28 @@ class Engine {
       validateShapes(p.shapes, `Предмет "${k}"`, err);
     }
 
+    const charTypes = Object.assign({}, this.lib.characters || {}, defs.characters || {});
+    for (const k in charTypes) {
+      const d = charTypes[k];
+      if (!d || typeof d !== 'object') { err(`Тип персонажа "${k}": ожидался объект`); continue; }
+      for (const part of ['torso', 'head_back', 'head_front']) if (d[part] != null) validateShapes(d[part], `Тип персонажа "${k}" → ${part}`, err);
+    }
+
     const start = scene.start || {};
     const C = {
-      locs, propDefs, chars: {}, props: {}, camSegs: [], shakes: [], fx: [], titles: [], locEv: [], says: [], markers: [],
+      locs, propDefs, chars: {}, props: {}, camSegs: [], shakes: [], fx: [], titles: [], callouts: [], locEv: [], says: [], markers: [],
       cam0: Object.assign({ x: 540, y: 960, zoom: 1, rot: 0 }, start.camera || {}), beatsFlat: []
     };
     const defaultStart = { eng: { x: 300, face: 'right' }, bld: { x: 780, face: 'left' } };
-    for (const id of CHAR_IDS) {
-      const s = start.chars && id in start.chars ? start.chars[id] : (start.chars ? null : defaultStart[id]);
+    const startChars = start.chars && typeof start.chars === 'object' && !Array.isArray(start.chars) ? start.chars : null;
+    const charIds = [...new Set([...CHAR_IDS, ...(startChars ? Object.keys(startChars) : [])])];
+    for (const id of charIds) {
+      const s = startChars ? (id in startChars ? startChars[id] : null) : (defaultStart[id] || null);
+      const inst = s && typeof s === 'object' ? s : {};
+      const type = inst.type || (CHARS[id] ? id : 'extra');
       C.chars[id] = {
-        id, x0: s && isNum(s.x) ? s.x : (defaultStart[id].x), vis: [{ t: 0, v: !!s }],
+        id, def: resolveCharDef(type, inst, charTypes, err, id),
+        x0: s && isNum(s.x) ? s.x : (defaultStart[id] ? defaultStart[id].x : 540), vis: [{ t: 0, v: !!s && !inst.hidden }],
         face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], cum: 0, poses: [], emos: [], says: [], holds: [], seed: hashStr(id) % 100
       };
     }
@@ -485,9 +523,15 @@ class Engine {
     beats.forEach((b, i) => { if (!b || typeof b !== 'object') err(`beats[${i}]: ожидался объект`); });
 
     const eng = this;
+    const resolveId = v => {
+      const raw = String(v);
+      if (C.chars[raw]) return raw;
+      const a = ALIASES[raw.toLowerCase()];
+      return a && C.chars[a] ? a : null;
+    };
     const who = (b, i, key = 'who') => {
-      const id = ALIASES[String(b[key]).toLowerCase()];
-      if (!id) { err(`beats[${i}] (${b.do}): неизвестный персонаж "${b[key]}" (есть: eng, bld)`); return null; }
+      const id = resolveId(b[key]);
+      if (!id) { err(`beats[${i}] (${b.do}): неизвестный персонаж "${b[key]}" (есть: ${Object.keys(C.chars).join(', ')})`); return null; }
       return id;
     };
 
@@ -532,8 +576,8 @@ class Engine {
           const ch = C.chars[id];
           let v;
           if (b.dir === 'left') v = -1; else if (b.dir === 'right') v = 1;
-          else if (ALIASES[String(b.dir).toLowerCase()]) { const o = C.chars[ALIASES[String(b.dir).toLowerCase()]]; v = eng._posAt(o, t) >= eng._posAt(ch, t) ? 1 : -1; }
-          else { err(`${tag}: dir = left | right | eng | bld`); break; }
+          else if (resolveId(b.dir)) { const o = C.chars[resolveId(b.dir)]; v = eng._posAt(o, t) >= eng._posAt(ch, t) ? 1 : -1; }
+          else { err(`${tag}: dir = left | right | id персонажа (${Object.keys(C.chars).join(', ')})`); break; }
           ch.face.push({ t, v });
           break;
         }
@@ -596,8 +640,8 @@ class Engine {
         }
         case 'camera': {
           const seg = { t0: t, t1: t + (isNum(b.dur) ? b.dur : 0.6), ease: b.ease || 'easeInOut', reset: !!b.reset, on: b.on || null, focus: b.focus || 'body', follow: !!b.follow, zoom: b.zoom, x: b.x, y: b.y, dx: b.dx || 0, dy: b.dy || 0, rot: b.rot };
-          if (seg.on && seg.on !== 'both' && !ALIASES[String(seg.on).toLowerCase()]) { err(`${tag}: on = eng | bld | both`); break; }
-          if (seg.on && seg.on !== 'both') seg.on = ALIASES[String(seg.on).toLowerCase()];
+          if (seg.on && seg.on !== 'both' && !resolveId(seg.on)) { err(`${tag}: on = id персонажа (${Object.keys(C.chars).join(', ')}) или both`); break; }
+          if (seg.on && seg.on !== 'both') seg.on = resolveId(seg.on);
           C.camSegs.push(seg);
           break;
         }
@@ -605,7 +649,7 @@ class Engine {
         case 'fx': {
           if (!FX[b.kind]) { err(`${tag}: неизвестный эффект "${b.kind}" (есть: ${FX_KINDS.join(', ')})`); break; }
           let on = null;
-          if (b.on) { on = ALIASES[String(b.on).toLowerCase()]; if (!on) { err(`${tag}: on = eng | bld`); break; } }
+          if (b.on) { on = resolveId(b.on); if (!on) { err(`${tag}: on = id персонажа (${Object.keys(C.chars).join(', ')})`); break; } }
           C.fx.push({ t0: t, dur: isNum(b.dur) ? b.dur : 1, kind: b.kind, on, anchor: b.anchor || 'head', x: b.x, y: b.y, seed: hashStr(b.kind + t) });
           break;
         }
@@ -615,13 +659,23 @@ class Engine {
           C.titles.push({ t0: t, t1: t + b.dur, key: b.key, pos: b.pos || 'top', style: b.style || 'pop', color: b.color || '#fff' });
           break;
         }
+        case 'callout': {
+          // акцентная надпись рядом с героем: только для самых эмоциональных моментов
+          const id = who(b, i, 'on'); if (!id) break;
+          if (typeof b.key !== 'string') { err(`${tag}: нужен key (id текста, не сам текст)`); break; }
+          if (!needDur()) break;
+          if (b.style != null && !CALLOUT_STYLES.includes(b.style)) { err(`${tag}: style = ${CALLOUT_STYLES.join(' | ')}`); break; }
+          if (b.side != null && !['left', 'right', 'auto'].includes(b.side)) { err(`${tag}: side = left | right | auto`); break; }
+          C.callouts.push({ t0: t, t1: t + b.dur, on: id, key: b.key, style: b.style || 'pop', color: b.color || '#ffd400', side: b.side || 'auto', size: isNum(b.size) ? b.size : 84 });
+          break;
+        }
         case 'marker': case 'sfx': C.markers.push({ t, name: b.name || b.do }); break;
         default: err(`${tag}: неизвестное действие "${b.do}"`);
       }
     }
 
     // авто-возвраты в idle/neutral отменяются, если между ними была другая явная команда
-    for (const id of CHAR_IDS) {
+    for (const id of Object.keys(C.chars)) {
       const ch = C.chars[id];
       for (const k of ['poses', 'emos']) {
         const arr = ch[k];
@@ -638,6 +692,12 @@ class Engine {
     C.camSegs.sort((a, c) => a.t0 - c.t0);
     for (const k in C.props) C.props[k].ev.sort((a, c) => a.t - c.t);
     C.says.sort((a, c) => a.t0 - c.t0);
+
+    C.callouts.sort((a, c) => a.t0 - c.t0);
+    if (C.callouts.length > 2) warn(`Акцентов (callout) в сцене ${C.callouts.length}: этот приём работает, пока он редкий. Оставьте 1–2 самых эмоциональных момента`);
+    for (let k = 1; k < C.callouts.length; k++) {
+      if (C.callouts[k].t0 < C.callouts[k - 1].t1) warn(`Акценты "${C.callouts[k - 1].key}" и "${C.callouts[k].key}" одновременно на экране`);
+    }
 
     let maxEnd = 0;
     for (const s of C.says) maxEnd = Math.max(maxEnd, s.t1);
@@ -658,7 +718,8 @@ class Engine {
       else if (need > slot * 1.05) warn(`Реплика "${s.line}": ≈${need.toFixed(1)}с речи на слот ${slot.toFixed(1)}с — сократите или увеличьте dur`);
       return { line: s.line, who: s.who, t0: s.t0, t1: s.t1, need, text: txt };
     });
-    for (const k of new Set([...C.titles.map(x => x.key)])) if (this.texts.lines[k] == null) warn(`Нет текста для титра "${k}" в языке "${this.texts.lang || '?'}"`);
+    for (const k of new Set([...C.titles.map(x => x.key), ...C.callouts.map(x => x.key)])) if (this.texts.lines[k] == null) warn(`Нет текста для титра/акцента "${k}" в языке "${this.texts.lang || '?'}"`);
+    rep.info.callouts = C.callouts;
     rep.info.duration = C.dur;
     rep.info.markers = C.markers;
     rep.info.beats = C.beatsFlat;
@@ -721,7 +782,7 @@ class Engine {
   }
 
   charState(id, t) {
-    const C = this.C, ch = C.chars[id], def = CHARS[id];
+    const C = this.C, ch = C.chars[id], def = ch.def;
     const vis = lastBefore(ch.vis, t).v;
     const x = this._posAt(ch, t);
     const face = lastBefore(ch.face, t).v;
@@ -803,8 +864,11 @@ class Engine {
     if (seg.on) {
       const FY = { head: 430, face: 445, body: 260, feet: 90 };
       if (seg.on === 'both') {
-        const a = this.charState('eng', tt), b = this.charState('bld', tt);
-        to.x = (a.x + b.x) / 2; to.y = GROUND - 300;
+        // середина между крайними видимыми героями (для двух — ровно их среднее)
+        const xs = [];
+        for (const cid in this.C.chars) { const s = this.charState(cid, tt); if (s.vis) xs.push(s.x); }
+        if (xs.length) to.x = (Math.min(...xs) + Math.max(...xs)) / 2;
+        to.y = GROUND - 300;
       } else {
         const s = this.charState(seg.on, tt);
         to.x = s.x; to.y = GROUND - (FY[seg.focus] || 260) * s.def.sy;
@@ -888,6 +952,7 @@ class Engine {
     const ctx = this.ctx, C = this.C;
     if (!ctx || !C) return;
     const q = this.q;
+    this._t = t;
     ctx.setTransform(q, 0, 0, q, 0, 0);
     ctx.clearRect(0, 0, W, H);
     ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
@@ -922,7 +987,7 @@ class Engine {
         ctx.save(); ctx.translate(s.pos.x, s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx, P, t, s.scale); ctx.restore();
       }
       // герои (по x, чтобы перекрытие было естественным)
-      const ids = CHAR_IDS.slice().sort((a, b) => this._posAt(C.chars[a], t) - this._posAt(C.chars[b], t));
+      const ids = Object.keys(C.chars).sort((a, b) => this._posAt(C.chars[a], t) - this._posAt(C.chars[b], t));
       for (const id of ids) {
         const st = this.charState(id, t);
         if (st.vis) this._drawChar(ctx, st, t);
@@ -949,6 +1014,11 @@ class Engine {
     for (const f of C.fx) {
       const lt = t - f.t0;
       if (lt >= 0 && lt <= f.dur && FX_SCREEN[f.kind]) FX[f.kind](ctx, 0, 0, lt, f.dur, f.seed);
+    }
+
+    // акценты рядом с героем (выключаются вместе с титрами)
+    if (this.flags.titles && C.callouts.length) {
+      withCam(1, () => { for (const c of C.callouts) if (t >= c.t0 && t < c.t1) this._drawCallout(ctx, c, t, cam); });
     }
 
     // переход между локациями
@@ -1032,6 +1102,42 @@ class Engine {
     });
     ctx.restore();
   }
+  _drawCallout(ctx, c, t, cam) {
+    const st = this.charState(c.on, t);
+    if (!st.vis) return;
+    const lt = t - c.t0, d = c.t1 - c.t0, z = cam.zoom;
+    const text = this.T(c.key);
+    ctx.save();
+    ctx.font = `900 ${c.size}px "Arial Black", Impact, Arial, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    const lines = this._wrap(ctx, text, 540), lh = c.size * 1.08;
+    let w = 0; for (const l of lines) w = Math.max(w, ctx.measureText(l).width);
+    const h = lines.length * lh;
+    // надпись рядом с головой, со стороны центра кадра; в видимой области и вне зон интерфейса TikTok
+    const side = c.side === 'left' ? -1 : c.side === 'right' ? 1 : (st.x < cam.x ? 1 : -1);
+    const headY = GROUND + st.air - 545 * st.def.sy;
+    let x = st.x + side * (100 + w / 2), y = headY - 60;
+    const hw = 540 / z, hh = 960 / z, m = 26 / z;
+    const x0 = cam.x - hw + w / 2 + m, x1 = cam.x + hw - w / 2 - m;
+    const y0 = cam.y - hh + 190 / z + h / 2, y1 = cam.y + hh - 520 / z - h / 2;
+    x = clamp(x, x0, Math.max(x0, x1)); y = clamp(y, y0, Math.max(y0, y1));
+    const fade = clamp(Math.min(lt / 0.05, (d - lt) / 0.2), 0, 1);
+    let sc = 1, rot = -side * 0.06, jx = 0, jy = 0;
+    if (c.style === 'slam') {
+      const u = clamp(lt / 0.16, 0, 1); sc = lerp(2.5, 1, ease('easeOut', u));
+      if (lt > 0.16) sc *= 1 + 0.07 * Math.sin((lt - 0.16) * 34) * Math.exp(-(lt - 0.16) * 7);
+    } else if (c.style === 'shake') {
+      sc = ease('back', lt / 0.25); jx = Math.sin(lt * 70) * 5; jy = Math.cos(lt * 63) * 4; rot += Math.sin(lt * 55) * 0.035;
+    } else sc = ease('back', lt / 0.28);
+    ctx.globalAlpha = fade; ctx.translate(x + jx, y + jy); ctx.rotate(rot); ctx.scale(sc, sc);
+    ctx.lineJoin = 'round';
+    lines.forEach((ln, i) => {
+      const yy = (i - (lines.length - 1) / 2) * lh;
+      ctx.lineWidth = c.size * 0.3; ctx.strokeStyle = OUT; ctx.strokeText(ln, 0, yy);
+      ctx.fillStyle = c.color; ctx.fillText(ln, 0, yy);
+    });
+    ctx.restore();
+  }
   _drawSafe(ctx) {
     ctx.save(); ctx.fillStyle = 'rgba(255,40,80,0.22)';
     ctx.fillRect(0, 0, W, 150); ctx.fillRect(0, H - 380, W, 380); ctx.fillRect(W - 130, 150, 130, H - 530);
@@ -1070,7 +1176,7 @@ class Engine {
     ctx.translate(0, g.hipY);
     ctx.rotate(rad(st.lean));
     const tw = def.tw;
-    this._torso(ctx, id, def, tw);
+    this._torso(ctx, def.kind, def, tw);
 
     // руки (держат предметы)
     for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
@@ -1078,7 +1184,7 @@ class Engine {
     // голова
     ctx.save();
     ctx.translate(0, -200); ctx.rotate(rad(st.head)); ctx.translate(0, -80);
-    this._head(ctx, st, id, def, t);
+    this._head(ctx, st, def.kind, def, t);
     ctx.restore();
     ctx.restore();
 
@@ -1109,7 +1215,7 @@ class Engine {
       ctx.strokeStyle = OUT; ctx.lineWidth = 6;
       // ремень
       ctx.fillStyle = '#2a2f3d'; rr(ctx, -tw / 2 + 2, 2, tw - 4, 16, 6); ctx.fill(); ctx.stroke();
-    } else {
+    } else if (id === 'bld') {
       ctx.fillStyle = def.shirt; rr(ctx, -tw / 2, -198, tw, 216, 28); ctx.fill(); ctx.stroke();
       // жилет
       ctx.fillStyle = '#ff7a1a'; rr(ctx, -tw / 2 + 2, -196, tw - 4, 200, 24); ctx.fill(); ctx.stroke();
@@ -1123,6 +1229,17 @@ class Engine {
       ctx.lineWidth = 6;
       ctx.fillStyle = '#3b2e22'; rr(ctx, -tw / 2 + 2, 2, tw - 4, 16, 6); ctx.fill(); ctx.stroke();
       ctx.fillStyle = '#d8b24a'; rr(ctx, -10, 3, 20, 14, 3); ctx.fill();
+    } else {
+      // статист: рубашка, ремень, необязательный галстук и свои фигуры из JSON (координаты от бёдер, торс y от −198 до 18)
+      ctx.fillStyle = def.shirt; rr(ctx, -tw / 2, -198, tw, 216, 28); ctx.fill(); ctx.stroke();
+      if (def.tie) {
+        ctx.fillStyle = '#fff';
+        for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(s * 2, -200); ctx.lineTo(s * 30, -200); ctx.lineTo(s * 4, -160); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+        ctx.fillStyle = def.tie;
+        ctx.beginPath(); ctx.moveTo(-8, -170); ctx.lineTo(8, -170); ctx.lineTo(13, -104); ctx.lineTo(0, -88); ctx.lineTo(-13, -104); ctx.closePath(); ctx.fill(); ctx.stroke();
+      }
+      ctx.fillStyle = '#2a2f3d'; rr(ctx, -tw / 2 + 2, 2, tw - 4, 16, 6); ctx.fill(); ctx.stroke();
+      if (def.torso && def.torso.length) drawShapes(ctx, def.torso, this._t || 0, k => this.T(k));
     }
   }
   _arm(ctx, st, g, hand, t) {
@@ -1159,9 +1276,9 @@ class Engine {
     ctx.beginPath(); ctx.ellipse(-32, -38, 22, 13, -0.6, 0, Math.PI * 2); ctx.fill(); ctx.restore();
 
     const e = st.emo, look = 8;
-    const browY = id === 'eng' ? -54 : -32;
-    // очки инженера
-    if (id === 'eng') {
+    const browY = id === 'eng' ? -54 : (id === 'extra' ? (def.glasses ? -54 : def.browY) : -32);
+    // очки инженера (и статистов с glasses)
+    if (id === 'eng' || (id === 'extra' && def.glasses)) {
       ctx.fillStyle = '#f6fbff'; ctx.strokeStyle = '#20242c'; ctx.lineWidth = 8;
       for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(s * 31 + look, -8, 26, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); }
       ctx.beginPath(); ctx.moveTo(-5 + look, -10); ctx.lineTo(5 + look, -10); ctx.stroke();
@@ -1169,6 +1286,16 @@ class Engine {
       ctx.save(); ctx.globalAlpha = 0.6; ctx.strokeStyle = '#fff'; ctx.lineWidth = 5;
       for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(s * 31 + look, -8, 16, Math.PI * 1.15, Math.PI * 1.5); ctx.stroke(); }
       ctx.restore();
+    }
+    // причёска и свои детали статиста (позади бровей и рта)
+    if (id === 'extra') {
+      if (def.hair) {
+        ctx.fillStyle = def.hair; ctx.strokeStyle = OUT; ctx.lineWidth = 6;
+        const a0 = Math.PI * 1.06, a1 = Math.PI * 1.94;
+        ctx.beginPath(); ctx.moveTo(Math.cos(a0) * 79, Math.sin(a0) * 79); ctx.arc(0, 0, 79, a0, a1);
+        ctx.quadraticCurveTo(0, -92, Math.cos(a0) * 79, Math.sin(a0) * 79); ctx.closePath(); ctx.fill(); ctx.stroke();
+      }
+      if (def.head_back && def.head_back.length) drawShapes(ctx, def.head_back, this._t || 0, k => this.T(k));
     }
     // брови — только когда есть эмоция
     if (e.vis > 0.03) {
@@ -1198,6 +1325,16 @@ class Engine {
       ctx.fillStyle = '#e6a800'; rr(ctx, -96, -58, 192, 18, 9); ctx.fill(); ctx.stroke();
       ctx.save(); ctx.globalAlpha = 0.35; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(-48, -86, 20, 9, -0.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
     }
+    if (id === 'extra') {
+      if (def.hat) this._cap(ctx, def.hat);
+      if (def.head_front && def.head_front.length) drawShapes(ctx, def.head_front, this._t || 0, k => this.T(k));
+    }
+  }
+  _cap(ctx, col) {
+    ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.fillStyle = col;
+    ctx.beginPath(); ctx.moveTo(-82, -44); ctx.quadraticCurveTo(-88, -112, 0, -116); ctx.quadraticCurveTo(88, -112, 82, -44); ctx.closePath(); ctx.fill(); ctx.stroke();
+    rr(ctx, -94, -54, 188, 16, 8); ctx.fill(); ctx.stroke();
+    ctx.save(); ctx.globalAlpha = 0.3; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(-46, -84, 20, 9, -0.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
   }
   _mouth(ctx, w, c, o, mk) {
     const hw = w / 2, cl = -c * 16 + mk * 0.4, cr = -c * 16 - mk * 0.6;
@@ -1222,7 +1359,7 @@ class Engine {
   }
 }
 
-const api = { Engine, W, H, GROUND, POSE_NAMES, EMO_NAMES, FX_KINDS, EASE_NAMES, SHAPE_TYPES, CHAR_IDS };
+const api = { Engine, W, H, GROUND, POSE_NAMES, EMO_NAMES, FX_KINDS, EASE_NAMES, SHAPE_TYPES, CHAR_IDS, LOOK_KEYS, CALLOUT_STYLES };
 if (typeof module !== 'undefined' && module.exports) module.exports = api;
 else root.Mult = api;
 })(typeof window !== 'undefined' ? window : globalThis);

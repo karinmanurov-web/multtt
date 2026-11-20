@@ -1,0 +1,339 @@
+{
+ "id": "demo_03",
+ "duration": 13.5,
+ "start": {
+  "location": "office",
+  "chars": {
+   "eng": {
+    "x": 260,
+    "face": "right"
+   },
+   "ex1": {
+    "type": "extra",
+    "x": 1250,
+    "face": "left",
+    "shirt": "#d8695f",
+    "tie": "#2d3a8c",
+    "hair": "#4a3426",
+    "hidden": true
+   },
+   "ex2": {
+    "type": "extra",
+    "x": 1330,
+    "face": "left",
+    "shirt": "#8fc58a",
+    "glasses": true,
+    "hair": "#c9c9d2",
+    "hidden": true
+   },
+   "ex3": {
+    "type": "extra",
+    "x": -170,
+    "face": "right",
+    "shirt": "#b48ad8",
+    "hat": "#e6b84a",
+    "hidden": true
+   }
+  }
+ },
+ "defs": {
+  "props": {
+   "printer": {
+    "grip": [
+     0,
+     -60
+    ],
+    "shapes": [
+     {
+      "t": "rect",
+      "x": -110,
+      "y": -140,
+      "w": 220,
+      "h": 140,
+      "r": 16,
+      "fill": [
+       "#e9e6f0",
+       "#bdb8cc"
+      ],
+      "stroke": "#1e1b26",
+      "sw": 5
+     },
+     {
+      "t": "rect",
+      "x": -86,
+      "y": -176,
+      "w": 172,
+      "h": 40,
+      "r": 8,
+      "fill": "#f7f5fb",
+      "stroke": "#1e1b26",
+      "sw": 5
+     },
+     {
+      "t": "rect",
+      "x": -70,
+      "y": -60,
+      "w": 140,
+      "h": 18,
+      "r": 6,
+      "fill": "#26232f"
+     },
+     {
+      "t": "circle",
+      "x": 86,
+      "y": -110,
+      "r": 9,
+      "fill": "#ff3b3b",
+      "stroke": "#1e1b26",
+      "sw": 3,
+      "anim": {
+       "k": "blink",
+       "s": 4
+      }
+     },
+     {
+      "t": "poly",
+      "pts": [
+       [
+        -50,
+        -52
+       ],
+       [
+        -20,
+        -30
+       ],
+       [
+        10,
+        -58
+       ],
+       [
+        44,
+        -36
+       ],
+       [
+        48,
+        -12
+       ],
+       [
+        -54,
+        -12
+       ]
+      ],
+      "fill": "#fff",
+      "stroke": "#1e1b26",
+      "sw": 3
+     }
+    ]
+   }
+  }
+ },
+ "beats": [
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "prn",
+   "prop": "printer",
+   "x": 560
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "fl",
+   "prop": "folder",
+   "x": 0
+  },
+  {
+   "t": 0,
+   "do": "hold",
+   "who": "eng",
+   "id": "fl"
+  },
+  {
+   "t": 0.1,
+   "do": "pose",
+   "who": "eng",
+   "pose": "present",
+   "dur": 1.8
+  },
+  {
+   "t": 0.2,
+   "do": "say",
+   "who": "eng",
+   "line": "l1",
+   "dur": 2.2
+  },
+  {
+   "t": 2.6,
+   "do": "shake",
+   "dur": 0.5,
+   "amp": 10
+  },
+  {
+   "t": 2.6,
+   "do": "fx",
+   "kind": "boom",
+   "x": 560,
+   "y": 1060,
+   "dur": 0.8
+  },
+  {
+   "t": 2.7,
+   "do": "emote",
+   "who": "eng",
+   "emotion": "shocked",
+   "dur": 1.2
+  },
+  {
+   "t": 2.9,
+   "do": "pose",
+   "who": "eng",
+   "pose": "hands_up",
+   "dur": 1.4
+  },
+  {
+   "t": 3.0,
+   "do": "say",
+   "who": "eng",
+   "line": "l2",
+   "dur": 1.5
+  },
+  {
+   "t": 3.1,
+   "do": "callout",
+   "on": "eng",
+   "key": "c_jam",
+   "dur": 1.6,
+   "style": "slam",
+   "side": "right"
+  },
+  {
+   "t": 4.8,
+   "do": "walk",
+   "who": "ex1",
+   "x": 800,
+   "dur": 1.1
+  },
+  {
+   "t": 4.8,
+   "do": "show",
+   "who": "ex1"
+  },
+  {
+   "t": 5.2,
+   "do": "face",
+   "who": "eng",
+   "dir": "ex1"
+  },
+  {
+   "t": 5.9,
+   "do": "emote",
+   "who": "ex1",
+   "emotion": "angry",
+   "dur": 2.0
+  },
+  {
+   "t": 5.9,
+   "do": "pose",
+   "who": "ex1",
+   "pose": "arms_cross",
+   "dur": 2.0
+  },
+  {
+   "t": 6.0,
+   "do": "say",
+   "who": "ex1",
+   "line": "l3",
+   "dur": 2.0
+  },
+  {
+   "t": 6.4,
+   "do": "show",
+   "who": "ex2"
+  },
+  {
+   "t": 6.4,
+   "do": "walk",
+   "who": "ex2",
+   "x": 930,
+   "dur": 1.4
+  },
+  {
+   "t": 6.2,
+   "do": "show",
+   "who": "ex3"
+  },
+  {
+   "t": 6.2,
+   "do": "walk",
+   "who": "ex3",
+   "x": 120,
+   "dur": 1.6
+  },
+  {
+   "t": 8.3,
+   "do": "emote",
+   "who": "ex2",
+   "emotion": "smug",
+   "dur": 1.8
+  },
+  {
+   "t": 8.3,
+   "do": "say",
+   "who": "ex2",
+   "line": "l4",
+   "dur": 1.8
+  },
+  {
+   "t": 8.4,
+   "do": "camera",
+   "on": "eng",
+   "focus": "face",
+   "zoom": 1.6,
+   "dur": 0.5
+  },
+  {
+   "t": 10.3,
+   "do": "emote",
+   "who": "eng",
+   "emotion": "furious",
+   "dur": 2.6
+  },
+  {
+   "t": 10.3,
+   "do": "pose",
+   "who": "eng",
+   "pose": "facepalm",
+   "dur": 2.4
+  },
+  {
+   "t": 10.4,
+   "do": "say",
+   "who": "eng",
+   "line": "l5",
+   "dur": 2.2
+  },
+  {
+   "t": 10.5,
+   "do": "callout",
+   "on": "eng",
+   "key": "c_sign",
+   "dur": 2.0,
+   "style": "shake",
+   "side": "right"
+  },
+  {
+   "t": 10.5,
+   "do": "fx",
+   "kind": "anger",
+   "on": "eng",
+   "anchor": "head",
+   "dur": 1.6
+  },
+  {
+   "t": 12.6,
+   "do": "camera",
+   "reset": true,
+   "dur": 0.4
+  }
+ ]
+}

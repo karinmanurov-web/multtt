@@ -1,40 +1,63 @@
 {
-  "scenes": [
-    {
-      "id": "demo_01",
-      "title": "Демо 1: чертёж и рулетка (стройка → магазин)",
-      "file": "scenes/demo_01.json",
-      "langs": {"ru": "lang/demo_01.ru.json", "en": "lang/demo_01.en.json"}
-    },
-    {
-      "id": "demo_02",
-      "title": "Демо 2: подпись в прорабской",
-      "file": "scenes/demo_02.json",
-      "langs": {"ru": "lang/demo_02.ru.json", "en": "lang/demo_02.en.json"}
-    },
-    {
-      "id": "ep01_s01",
-      "title": "Изм. №10 · s01 · Стена готова",
-      "file": "scenes/ep01_s01.json",
-      "langs": {"ru": "lang/ep01.ru.json"}
-    },
-    {
-      "id": "ep01_s02",
-      "title": "Изм. №10 · s02 · Окно сдвинулось",
-      "file": "scenes/ep01_s02.json",
-      "langs": {"ru": "lang/ep01.ru.json"}
-    },
-    {
-      "id": "ep01_s03",
-      "title": "Изм. №10 · s03 · Фото для отчёта",
-      "file": "scenes/ep01_s03.json",
-      "langs": {"ru": "lang/ep01.ru.json"}
-    },
-    {
-      "id": "ep01_s04",
-      "title": "Изм. №10 · s04 · Одиннадцатое",
-      "file": "scenes/ep01_s04.json",
-      "langs": {"ru": "lang/ep01.ru.json"}
-    }
-  ]
+ "scenes": [
+  {
+   "id": "demo_01",
+   "title": "Демо 1: чертёж и рулетка (стройка → магазин)",
+   "file": "scenes/demo_01.json",
+   "langs": {
+    "ru": "lang/demo_01.ru.json",
+    "en": "lang/demo_01.en.json"
+   }
+  },
+  {
+   "id": "demo_02",
+   "title": "Демо 2: подпись в прорабской",
+   "file": "scenes/demo_02.json",
+   "langs": {
+    "ru": "lang/demo_02.ru.json",
+    "en": "lang/demo_02.en.json"
+   }
+  },
+  {
+   "id": "demo_03",
+   "title": "Демо 3: принтер (цепочка раздражителей, массовка, акценты)",
+   "file": "scenes/demo_03.json",
+   "langs": {
+    "ru": "lang/demo_03.ru.json",
+    "en": "lang/demo_03.en.json"
+   }
+  },
+  {
+   "id": "ep01_s01",
+   "title": "Изм. №10 · s01 · Стена готова",
+   "file": "scenes/ep01_s01.json",
+   "langs": {
+    "ru": "lang/ep01.ru.json"
+   }
+  },
+  {
+   "id": "ep01_s02",
+   "title": "Изм. №10 · s02 · Окно сдвинулось",
+   "file": "scenes/ep01_s02.json",
+   "langs": {
+    "ru": "lang/ep01.ru.json"
+   }
+  },
+  {
+   "id": "ep01_s03",
+   "title": "Изм. №10 · s03 · Фото для отчёта",
+   "file": "scenes/ep01_s03.json",
+   "langs": {
+    "ru": "lang/ep01.ru.json"
+   }
+  },
+  {
+   "id": "ep01_s04",
+   "title": "Изм. №10 · s04 · Одиннадцатое",
+   "file": "scenes/ep01_s04.json",
+   "langs": {
+    "ru": "lang/ep01.ru.json"
+   }
+  }
+ ]
 }

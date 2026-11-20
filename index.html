@@ -205,7 +205,7 @@ function showLog(rep) {
   if (says.length) {
     h += `<table><tr><th>реплика</th><th>кто</th><th>слот</th><th>речь</th><th>текст</th></tr>` + says.map(s => {
       const slot = s.t1 - s.t0, bad = s.need != null && s.need > slot * 1.05;
-      return `<tr><td>${esc(s.line)}</td><td class="${s.who}">${s.who === 'eng' ? 'инж.' : 'строит.'}</td><td>${slot.toFixed(1)}с</td><td class="${s.need == null ? '' : bad ? 'bad' : 'good'}">${s.need == null ? '—' : '≈' + s.need.toFixed(1) + 'с'}</td><td>${esc(s.text || '')}</td></tr>`;
+      return `<tr><td>${esc(s.line)}</td><td class="${s.who}">${s.who === 'eng' ? 'инж.' : s.who === 'bld' ? 'строит.' : esc(s.who)}</td><td>${slot.toFixed(1)}с</td><td class="${s.need == null ? '' : bad ? 'bad' : 'good'}">${s.need == null ? '—' : '≈' + s.need.toFixed(1) + 'с'}</td><td>${esc(s.text || '')}</td></tr>`;
     }).join('') + `</table><div class="hint" style="margin-top:6px">«Речь» — оценка по числу знаков (${(rep.info.cps || 14)} зн/с для этого языка, задаётся полем cps в файле текстов). Красное — не влезет в слот: сократите текст или увеличьте dur.</div>`;
   }
   log.innerHTML = h;
@@ -296,17 +296,18 @@ function drawTimeline() {
   const X = s => s / dur * w;
   c.strokeStyle = '#2f2d3d'; c.lineWidth = 1; c.fillStyle = '#6f6d86'; c.font = '20px system-ui';
   for (let s = 0; s <= dur; s += 1) { c.beginPath(); c.moveTo(X(s), 0); c.lineTo(X(s), h); c.stroke(); if (s % 5 === 0) c.fillText(s + 'с', X(s) + 4, 20); }
-  const lane = { eng: 36, bld: 70, ev: 108 };
+  const lane0 = { eng: 36, bld: 70, ev: 108 }, lane = new Proxy(lane0, { get: (o, k) => k in o ? o[k] : o.bld });
   c.fillStyle = '#6f6d86'; c.font = '18px system-ui';
   (info && info.says || []).forEach(s => {
     const bad = s.need != null && s.need > (s.t1 - s.t0) * 1.05;
-    c.fillStyle = s.who === 'eng' ? '#4f86c6' : '#d9822b';
+    c.fillStyle = s.who === 'eng' ? '#4f86c6' : s.who === 'bld' ? '#d9822b' : '#6aa07a';
     c.fillRect(X(s.t0), lane[s.who] - 14, X(s.t1) - X(s.t0), 28);
     if (bad) { c.strokeStyle = '#ff6b6b'; c.lineWidth = 3; c.strokeRect(X(s.t0), lane[s.who] - 14, X(s.t1) - X(s.t0), 28); }
     if (s.need != null) { c.fillStyle = 'rgba(255,255,255,.35)'; c.fillRect(X(s.t0), lane[s.who] + 8, Math.min(X(s.t1) - X(s.t0), X(s.need)), 6); }
     c.fillStyle = '#fff'; c.font = '18px system-ui'; c.fillText(s.line, X(s.t0) + 5, lane[s.who] - 1);
   });
   (info && info.titles || []).forEach(s => { c.fillStyle = '#8a5ad6'; c.fillRect(X(s.t0), lane.ev - 8, X(s.t1) - X(s.t0), 16); });
+  (info && info.callouts || []).forEach(s => { c.fillStyle = '#ff5ca8'; c.fillRect(X(s.t0), lane.ev - 8, X(s.t1) - X(s.t0), 16); });
   (info && info.beats || []).forEach(b => {
     if (['say', 'title', 'place', 'hide', 'show'].includes(b.do)) return;
     c.fillStyle = b.do === 'location' ? '#5fd38d' : b.do === 'camera' ? '#e0e0ff' : '#9a98b0';
