@@ -556,25 +556,6 @@
       "id": "rebar"
     },
     {
-      "t": 8.8,
-      "do": "move",
-      "id": "drill",
-      "x": 0,
-      "y": 0,
-      "rot": -4,
-      "dur": 0.25,
-      "ease": "snap"
-    },
-    {
-      "t": 9.1,
-      "do": "move",
-      "id": "drill",
-      "x": 0,
-      "y": 0,
-      "rot": 0,
-      "dur": 0.25
-    },
-    {
       "t": 9.3,
       "do": "pose",
       "who": "bld",
@@ -798,13 +779,6 @@
       "who": "bld",
       "pose": "shrug",
       "dur": 2.2
-    },
-    {
-      "t": 28.35,
-      "do": "emote",
-      "who": "bld",
-      "emotion": "neutral",
-      "dur": 2
     },
     {
       "t": 31,
