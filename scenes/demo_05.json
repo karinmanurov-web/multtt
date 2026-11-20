@@ -1,12 +1,18 @@
 {
   "id": "demo_05",
-  "duration": 38,
+  "duration": 40,
   "start": {
     "location": "construction_site",
     "chars": {
       "bld": {
         "x": 300,
         "face": "right"
+      },
+      "colleague": {
+        "type": "bld",
+        "x": 890,
+        "face": "left",
+        "hidden": true
       }
     }
   },
@@ -106,8 +112,8 @@
       },
       "rotary_drill": {
         "grip": [
-          0,
-          0
+          -15,
+          70
         ],
         "upright": true,
         "shapes": [
@@ -533,14 +539,14 @@
       "do": "pose",
       "who": "bld",
       "pose": "think",
-      "dur": 1.0
+      "dur": 1
     },
     {
       "t": 0.4,
       "do": "emote",
       "who": "bld",
       "emotion": "confused",
-      "dur": 1.0
+      "dur": 1
     },
     {
       "t": 1.35,
@@ -569,7 +575,7 @@
       "do": "pose",
       "who": "bld",
       "pose": "drill",
-      "dur": 3.0
+      "dur": 3
     },
     {
       "t": 3.65,
@@ -614,7 +620,7 @@
       "dur": 0.7
     },
     {
-      "t": 5.0,
+      "t": 5,
       "do": "shake",
       "dur": 0.4,
       "amp": 4
@@ -746,7 +752,7 @@
       "dur": 3.1
     },
     {
-      "t": 12.0,
+      "t": 12,
       "do": "shake",
       "dur": 0.4,
       "amp": 5
@@ -885,7 +891,7 @@
       "do": "pose",
       "who": "bld",
       "pose": "drill",
-      "dur": 3.0
+      "dur": 3
     },
     {
       "t": 19.7,
@@ -972,7 +978,7 @@
       "amp": 6
     },
     {
-      "t": 22.0,
+      "t": 22,
       "do": "fx",
       "kind": "dust",
       "x": 655,
@@ -1133,16 +1139,16 @@
     },
     {
       "t": 30.35,
-      "do": "release",
-      "id": "drill",
+      "do": "pose",
       "who": "bld",
-      "hand": "R"
+      "pose": "drill_cheer",
+      "dur": 2.8
     },
     {
       "t": 30.4,
-      "do": "pose",
+      "do": "emote",
       "who": "bld",
-      "pose": "cheer",
+      "emotion": "happy",
       "dur": 2.8
     },
     {
@@ -1168,13 +1174,6 @@
       "dur": 1.8
     },
     {
-      "t": 33.15,
-      "do": "pose",
-      "who": "bld",
-      "pose": "hands_up",
-      "dur": 1.2
-    },
-    {
       "t": 33.2,
       "do": "emote",
       "who": "bld",
@@ -1196,6 +1195,11 @@
       "do": "shake",
       "dur": 0.8,
       "amp": 5
+    },
+    {
+      "t": 34.14,
+      "do": "remove",
+      "id": "hole"
     },
     {
       "t": 34.15,
@@ -1290,21 +1294,64 @@
       "dur": 1.4
     },
     {
-      "t": 35.2,
-      "do": "pose",
-      "who": "bld",
-      "pose": "shrug",
-      "dur": 1.6
+      "t": 35.65,
+      "do": "show",
+      "who": "colleague"
     },
     {
-      "t": 35.2,
+      "t": 35.66,
+      "do": "spawn",
+      "id": "colleague_drill",
+      "prop": "rotary_drill",
+      "x": 0,
+      "y": 0,
+      "scale": 0.72,
+      "layer": "front"
+    },
+    {
+      "t": 35.66,
+      "do": "hold",
+      "id": "colleague_drill",
+      "who": "colleague",
+      "hand": "R"
+    },
+    {
+      "t": 35.7,
+      "do": "pose",
+      "who": "colleague",
+      "pose": "drill_wave",
+      "dur": 2.4
+    },
+    {
+      "t": 35.72,
       "do": "emote",
+      "who": "colleague",
+      "emotion": "happy",
+      "dur": 2.4
+    },
+    {
+      "t": 35.8,
+      "do": "pose",
       "who": "bld",
-      "emotion": "confused",
+      "pose": "drill_cheer",
       "dur": 1.8
     },
     {
+      "t": 35.85,
+      "do": "camera",
+      "x": 620,
+      "y": 1040,
+      "zoom": 1.25,
+      "dur": 0.7
+    },
+    {
       "t": 37,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.7
+    },
+    {
+      "t": 38.5,
       "do": "camera",
       "reset": true,
       "dur": 0.7
