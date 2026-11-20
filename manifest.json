@@ -74,6 +74,14 @@
       "langs": {
         "ru": "lang/demo_05.ru.json"
       }
+    },
+    {
+      "id": "insert",
+      "title": "Ракурс · предметный кадр",
+      "file": "scenes/insert.json",
+      "langs": {
+        "ru": "lang/insert.ru.json"
+      }
     }
   ]
 }
