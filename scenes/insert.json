@@ -1,0 +1,16 @@
+{
+  "id": "insert",
+  "title": "Предметный кадр · универсальный шаблон",
+  "duration": 4,
+  "start": {
+    "location": "insert_stage",
+    "chars": {},
+    "camera": {
+      "x": 540,
+      "y": 960,
+      "zoom": 1,
+      "rot": 0
+    }
+  },
+  "beats": []
+}
