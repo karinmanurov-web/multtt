@@ -404,32 +404,6 @@ const FX = {
     }
     c.restore();
   },
-  hair_sprout: (c, x, y, lt, d) => {
-    // Корень начинается прямо на макушке; волос быстро вырастает и остаётся до смены сцены.
-    const u = clamp(lt / 0.62, 0, 1);
-    const grow = ease('back', u);
-    const x0 = x + 4, y0 = y + 30;
-    const x1 = x + 20 * grow, y1 = y - 76 * grow;
-    const cx = x + 30 * grow, cy = y - 48 * grow;
-    const ex = (1-grow)*(1-grow)*x0 + 2*(1-grow)*grow*cx + grow*grow*x1;
-    const ey = (1-grow)*(1-grow)*y0 + 2*(1-grow)*grow*cy + grow*grow*y1;
-    c.save(); c.globalAlpha = 1; c.lineCap = 'round'; c.lineJoin = 'round';
-    if (lt < 0.28) {
-      const k = 1 - lt / 0.28;
-      c.strokeStyle = '#fff2a6'; c.lineWidth = 5;
-      for (let i = 0; i < 5; i++) {
-        const a = i * Math.PI * 2 / 5 - Math.PI / 2;
-        c.beginPath(); c.moveTo(x0 + Math.cos(a)*8, y0 + Math.sin(a)*8);
-        c.lineTo(x0 + Math.cos(a)*(8+18*k), y0 + Math.sin(a)*(8+18*k)); c.stroke();
-      }
-    }
-    c.beginPath(); c.moveTo(x0,y0); c.quadraticCurveTo(cx,cy,ex,ey);
-    c.strokeStyle = OUT; c.lineWidth = 13; c.stroke();
-    c.beginPath(); c.moveTo(x0,y0); c.quadraticCurveTo(cx,cy,ex,ey);
-    c.strokeStyle = '#d8dce2'; c.lineWidth = 7; c.stroke();
-    c.beginPath(); c.arc(x0,y0,5,0,Math.PI*2); c.fillStyle='#f7f7f7'; c.fill();
-    c.restore();
-  },
   boom: (c, x, y, lt, d) => {
     const u = clamp(lt / 0.35, 0, 1), k = ease('back', u), fade = clamp((d - lt) / 0.15, 0, 1);
     c.save(); c.translate(x, y); c.rotate(lt * 0.4); c.globalAlpha = fade;
@@ -639,11 +613,14 @@ class Engine {
           C.props[b.id] = { id: b.id, def: propDefs[b.prop], floor, layer: b.layer === 'front' ? 'front' : 'back', ev: [{ type: 'spawn', t, x: b.x, y: floor, rot: b.rot || 0, scale: isNum(b.scale) ? b.scale : 1 }] };
           break;
         }
-        case 'move': case 'remove': case 'hold': case 'release': {
+        case 'move': case 'remove': case 'hold': case 'release': case 'layer': {
           const P = C.props[b.id];
           if (!P) { err(`${tag}: предмет "${b.id}" не создан (нужен spawn раньше)`); break; }
           if (b.do === 'remove') P.ev.push({ type: 'remove', t });
-          else if (b.do === 'move') {
+          else if (b.do === 'layer') {
+            if (!['front', 'back'].includes(b.layer)) { err(`${tag}: layer = front | back`); break; }
+            P.ev.push({ type: 'layer', t, layer: b.layer });
+          } else if (b.do === 'move') {
             if (!needDur()) break;
             P.ev.push({ type: 'move', t, t1: t + b.dur, x: isNum(b.x) ? b.x : null, y: isNum(b.y) ? b.y : null, arc: b.arc || 0, ease: b.ease || 'easeInOut', rot: isNum(b.rot) ? b.rot : null });
           } else if (b.do === 'hold') {
@@ -926,13 +903,14 @@ class Engine {
 
   // ───── предметы ─────
   propState(P, t) {
-    let pos = null, rot = 0, scale = 1, vis = false, held = null, floor = P.floor;
+    let pos = null, rot = 0, scale = 1, vis = false, held = null, floor = P.floor, layer = P.layer;
     for (let i = 0; i < P.ev.length; i++) {
       const e = P.ev[i];
       if (e.t > t) break;
       switch (e.type) {
         case 'spawn': pos = { x: e.x, y: e.y }; rot = e.rot; scale = e.scale; vis = true; held = null; break;
         case 'remove': vis = false; break;
+        case 'layer': layer = e.layer; break;
         case 'hold': held = { who: e.who, hand: e.hand }; break;
         case 'release': {
           const hw = this.handWorld(e.who, e.t, e.hand);
@@ -956,7 +934,7 @@ class Engine {
             const k = ease(e.ease, (t - e.t) / (e.t1 - e.t));
             pos = { x: lerp(pos.x, tx, k), y: lerp(pos.y, ty, k) - Math.sin(Math.PI * k) * e.arc };
             if (e.rot != null) rot = lerp(rot, e.rot, k);
-            return { vis, pos, rot, scale, held, floor };
+            return { vis, pos, rot, scale, held, floor, layer };
           }
           break;
         }
@@ -1007,8 +985,8 @@ class Engine {
       // предметы сзади
       const props = Object.values(C.props);
       for (const P of props) {
-        if (P.layer !== 'back') continue;
         const s = this.propState(P, t);
+        if (s.layer !== 'back') continue;
         if (!s.vis || s.held || !s.pos) continue;
         ctx.save(); ctx.translate(s.pos.x, s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx, P, t, s.scale); ctx.restore();
       }
@@ -1019,8 +997,8 @@ class Engine {
         if (st.vis) this._drawChar(ctx, st, t);
       }
       for (const P of props) {
-        if (P.layer !== 'front') continue;
         const s = this.propState(P, t);
+        if (s.layer !== 'front') continue;
         if (!s.vis || s.held || !s.pos) continue;
         ctx.save(); ctx.translate(s.pos.x, s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx, P, t, s.scale); ctx.restore();
       }
