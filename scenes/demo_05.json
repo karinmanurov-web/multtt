@@ -737,13 +737,6 @@
       "dur": 1.8
     },
     {
-      "t": 30.9,
-      "do": "pose",
-      "who": "bld",
-      "pose": "shrug",
-      "dur": 2.2
-    },
-    {
       "t": 31,
       "do": "camera",
       "zoom": 1.55,
@@ -757,12 +750,6 @@
       "who": "bld",
       "line": "l6",
       "dur": 1.6
-    },
-    {
-      "t": 33.6,
-      "do": "camera",
-      "reset": true,
-      "dur": 0.6
     },
     {
       "t": 34,
