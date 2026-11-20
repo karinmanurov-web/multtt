@@ -405,30 +405,29 @@ const FX = {
     c.restore();
   },
   hair_sprout: (c, x, y, lt, d) => {
-    const u = clamp(lt / 0.72, 0, 1);
+    // Корень начинается прямо на макушке; волос быстро вырастает и остаётся до смены сцены.
+    const u = clamp(lt / 0.62, 0, 1);
     const grow = ease('back', u);
-    const fade = clamp((d - lt) / 0.22, 0, 1);
-    const x0 = x + 4, y0 = y - 72;
-    const x1 = x + 24 * grow, y1 = y - 132 * grow;
-    const cx = x + 32 * grow, cy = y - 112 * grow;
-    const endT = grow;
-    const ex = (1-endT)*(1-endT)*x0 + 2*(1-endT)*endT*cx + endT*endT*x1;
-    const ey = (1-endT)*(1-endT)*y0 + 2*(1-endT)*endT*cy + endT*endT*y1;
-    c.save(); c.globalAlpha = fade; c.lineCap = 'round'; c.lineJoin = 'round';
-    if (lt < 0.32) {
-      const k = 1 - lt / 0.32;
+    const x0 = x + 4, y0 = y + 30;
+    const x1 = x + 20 * grow, y1 = y - 76 * grow;
+    const cx = x + 30 * grow, cy = y - 48 * grow;
+    const ex = (1-grow)*(1-grow)*x0 + 2*(1-grow)*grow*cx + grow*grow*x1;
+    const ey = (1-grow)*(1-grow)*y0 + 2*(1-grow)*grow*cy + grow*grow*y1;
+    c.save(); c.globalAlpha = 1; c.lineCap = 'round'; c.lineJoin = 'round';
+    if (lt < 0.28) {
+      const k = 1 - lt / 0.28;
       c.strokeStyle = '#fff2a6'; c.lineWidth = 5;
       for (let i = 0; i < 5; i++) {
         const a = i * Math.PI * 2 / 5 - Math.PI / 2;
-        c.beginPath(); c.moveTo(x0 + Math.cos(a)*10, y0 + Math.sin(a)*10);
-        c.lineTo(x0 + Math.cos(a)*(10+22*k), y0 + Math.sin(a)*(10+22*k)); c.stroke();
+        c.beginPath(); c.moveTo(x0 + Math.cos(a)*8, y0 + Math.sin(a)*8);
+        c.lineTo(x0 + Math.cos(a)*(8+18*k), y0 + Math.sin(a)*(8+18*k)); c.stroke();
       }
     }
     c.beginPath(); c.moveTo(x0,y0); c.quadraticCurveTo(cx,cy,ex,ey);
     c.strokeStyle = OUT; c.lineWidth = 13; c.stroke();
     c.beginPath(); c.moveTo(x0,y0); c.quadraticCurveTo(cx,cy,ex,ey);
     c.strokeStyle = '#d8dce2'; c.lineWidth = 7; c.stroke();
-    c.beginPath(); c.arc(x0,y0,5+3*Math.sin(lt*18),0,Math.PI*2); c.fillStyle='#f7f7f7'; c.fill();
+    c.beginPath(); c.arc(x0,y0,5,0,Math.PI*2); c.fillStyle='#f7f7f7'; c.fill();
     c.restore();
   },
   boom: (c, x, y, lt, d) => {
