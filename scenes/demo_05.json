@@ -1196,34 +1196,6 @@
       "face": "left"
     },
     {
-      "t": 34.16,
-      "do": "show",
-      "who": "colleague"
-    },
-    {
-      "t": 34.16,
-      "do": "spawn",
-      "id": "colleague_drill",
-      "prop": "rotary_drill",
-      "x": 0,
-      "y": 0,
-      "scale": 0.72,
-      "layer": "front"
-    },
-    {
-      "t": 34.17,
-      "do": "hold",
-      "id": "colleague_drill",
-      "who": "colleague",
-      "hand": "R"
-    },
-    {
-      "t": 34.18,
-      "do": "pose",
-      "who": "colleague",
-      "pose": "drill_wave"
-    },
-    {
       "t": 34.15,
       "do": "remove",
       "id": "wall"
@@ -1298,8 +1270,36 @@
     },
     {
       "t": 34.16,
+      "do": "show",
+      "who": "colleague"
+    },
+    {
+      "t": 34.16,
+      "do": "spawn",
+      "id": "colleague_drill",
+      "prop": "rotary_drill",
+      "x": 0,
+      "y": 0,
+      "scale": 0.72,
+      "layer": "front"
+    },
+    {
+      "t": 34.16,
       "do": "remove",
       "id": "wallcrack"
+    },
+    {
+      "t": 34.17,
+      "do": "hold",
+      "id": "colleague_drill",
+      "who": "colleague",
+      "hand": "R"
+    },
+    {
+      "t": 34.18,
+      "do": "pose",
+      "who": "colleague",
+      "pose": "drill_wave"
     },
     {
       "t": 34.3,
@@ -1319,7 +1319,7 @@
       "t": 35.8,
       "do": "pose",
       "who": "bld",
-      "pose": "drill_tired"
+      "pose": "drill_sad"
     },
     {
       "t": 35.82,
@@ -1340,7 +1340,7 @@
       "t": 36,
       "do": "pose",
       "who": "bld",
-      "pose": "drill_tired"
+      "pose": "drill_sad"
     },
     {
       "t": 36.05,
