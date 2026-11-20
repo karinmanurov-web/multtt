@@ -1518,7 +1518,7 @@
       "id": "desk",
       "prop": "office_desk",
       "x": 850,
-      "layer": "back"
+      "layer": "front"
     },
     {
       "t": 0,
@@ -1527,7 +1527,7 @@
       "prop": "keyboard",
       "x": 850,
       "y": 1005,
-      "layer": "back"
+      "layer": "front"
     },
     {
       "t": 0,
@@ -1537,7 +1537,7 @@
       "x": 970,
       "y": 1030,
       "scale": 0.82,
-      "layer": "back"
+      "layer": "front"
     },
     {
       "t": 0.1,
@@ -1972,7 +1972,7 @@
       "x": 850,
       "y": 1006,
       "scale": 0.9,
-      "layer": "back"
+      "layer": "front"
     },
     {
       "t": 30.15,
@@ -2017,7 +2017,7 @@
       "kind": "hair_sprout",
       "on": "eng",
       "anchor": "head",
-      "dur": 1.25
+      "dur": 1.85
     },
     {
       "t": 34,
