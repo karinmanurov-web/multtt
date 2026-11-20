@@ -1,0 +1,16 @@
+{
+  "id": "blueprint_pov",
+  "title": "Ракурс · чертёж от первого лица",
+  "duration": 4,
+  "start": {
+    "location": "blueprint_pov",
+    "chars": {},
+    "camera": {
+      "x": 540,
+      "y": 960,
+      "zoom": 1,
+      "rot": 0
+    }
+  },
+  "beats": []
+}
