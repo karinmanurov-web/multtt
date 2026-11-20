@@ -140,6 +140,7 @@ const POSES = {
   drill_tired: (lt, t) => P({ R: [88, 54], L: [16, 175], head: 14, lean: -3, by: 4 + Math.sin(t * 1.4) }),
 
   drill_cheer: (lt, t) => P({ R: [88, 54], L: [72 + Math.sin(lt * 8) * 8, -142], lean: 1, by: -Math.abs(Math.sin(lt * 8)) * 7, head: -3 }),
+  drill_sad: (lt, t) => P({ R: [88, 54], L: [16, 175], lean: -2, by: 0, head: 9, sq: 0.99 }),
   drill_wave: (lt, t) => P({ R: [88, 54], L: [78 + Math.sin(lt * 10) * 28, -140], lean: 1, head: -4 }),
   hammer: (lt) => {
     const p = (lt * 2.2) % 1; let ox, oy, lean;
