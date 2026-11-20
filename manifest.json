@@ -66,6 +66,14 @@
       "langs": {
         "ru": "lang/demo_04.ru.json"
       }
+    },
+    {
+      "id": "demo_05",
+      "title": "Демо 5: перфоратор",
+      "file": "scenes/demo_05.json",
+      "langs": {
+        "ru": "lang/demo_05.ru.json"
+      }
     }
   ]
 }
