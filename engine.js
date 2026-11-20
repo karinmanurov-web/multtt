@@ -940,7 +940,7 @@ class Engine {
         }
       }
     }
-    return { vis, pos, rot, scale, held, floor };
+    return { vis, pos, rot, scale, held, floor, layer };
   }
   _drawProp(ctx, P, t, scale, grip) {
     const g = P.def.grip || [0, 0];
