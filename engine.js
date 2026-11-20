@@ -134,7 +134,7 @@ const POSES = {
     L: [70, -60 + Math.sin(lt * 9) * 100], R: [70, -60 + Math.sin(lt * 9 + Math.PI) * 100],
     by: -Math.abs(Math.sin(lt * 9)) * 30, lean: Math.sin(lt * 4.5) * 8, head: Math.sin(lt * 4.5) * 10
   }),
-  drill: (lt, t) => P({ R: [88, 54], L: [42, 82], lean: 1, head: 1 + Math.sin(t * 2.2) * 0.8, by: Math.sin(t * 2.2) * 1.2 }),
+  drill: (lt, t) => P({ R: [88 + Math.sin(t * 72) * 2.4, 54 + Math.sin(t * 83) * 1.7], L: [42 + Math.sin(t * 69 + 1) * 1.6, 82 + Math.sin(t * 77) * 1.3], lean: 1, head: 1 + Math.sin(t * 2.2) * 0.8, by: Math.sin(t * 2.2) * 1.2 }),
   drill_think: (lt, t) => P({ R: [88, 54], L: [-30, 80], head: -7 + Math.sin(t * 1.5) * 2 }),
   drill_point: (lt, t) => P({ R: [88, 54], L: [132, 20], lean: 2, head: -2 }),
   drill_tired: (lt, t) => P({ R: [88, 54], L: [16, 175], head: 14, lean: -3, by: 4 + Math.sin(t * 1.4) }),
