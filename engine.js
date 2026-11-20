@@ -404,6 +404,33 @@ const FX = {
     }
     c.restore();
   },
+  hair_sprout: (c, x, y, lt, d) => {
+    const u = clamp(lt / 0.72, 0, 1);
+    const grow = ease('back', u);
+    const fade = clamp((d - lt) / 0.22, 0, 1);
+    const x0 = x + 4, y0 = y - 72;
+    const x1 = x + 24 * grow, y1 = y - 132 * grow;
+    const cx = x + 32 * grow, cy = y - 112 * grow;
+    const endT = grow;
+    const ex = (1-endT)*(1-endT)*x0 + 2*(1-endT)*endT*cx + endT*endT*x1;
+    const ey = (1-endT)*(1-endT)*y0 + 2*(1-endT)*endT*cy + endT*endT*y1;
+    c.save(); c.globalAlpha = fade; c.lineCap = 'round'; c.lineJoin = 'round';
+    if (lt < 0.32) {
+      const k = 1 - lt / 0.32;
+      c.strokeStyle = '#fff2a6'; c.lineWidth = 5;
+      for (let i = 0; i < 5; i++) {
+        const a = i * Math.PI * 2 / 5 - Math.PI / 2;
+        c.beginPath(); c.moveTo(x0 + Math.cos(a)*10, y0 + Math.sin(a)*10);
+        c.lineTo(x0 + Math.cos(a)*(10+22*k), y0 + Math.sin(a)*(10+22*k)); c.stroke();
+      }
+    }
+    c.beginPath(); c.moveTo(x0,y0); c.quadraticCurveTo(cx,cy,ex,ey);
+    c.strokeStyle = OUT; c.lineWidth = 13; c.stroke();
+    c.beginPath(); c.moveTo(x0,y0); c.quadraticCurveTo(cx,cy,ex,ey);
+    c.strokeStyle = '#d8dce2'; c.lineWidth = 7; c.stroke();
+    c.beginPath(); c.arc(x0,y0,5+3*Math.sin(lt*18),0,Math.PI*2); c.fillStyle='#f7f7f7'; c.fill();
+    c.restore();
+  },
   boom: (c, x, y, lt, d) => {
     const u = clamp(lt / 0.35, 0, 1), k = ease('back', u), fade = clamp((d - lt) / 0.15, 0, 1);
     c.save(); c.translate(x, y); c.rotate(lt * 0.4); c.globalAlpha = fade;
