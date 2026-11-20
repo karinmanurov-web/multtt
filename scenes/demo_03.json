@@ -1928,6 +1928,24 @@
     },
     {
       "t": 27.25,
+      "do": "layer",
+      "id": "desk",
+      "layer": "back"
+    },
+    {
+      "t": 27.25,
+      "do": "layer",
+      "id": "keyboard",
+      "layer": "back"
+    },
+    {
+      "t": 27.25,
+      "do": "layer",
+      "id": "mug",
+      "layer": "back"
+    },
+    {
+      "t": 27.25,
       "do": "walk",
       "who": "eng",
       "x": 850,
@@ -1972,7 +1990,7 @@
       "x": 850,
       "y": 1006,
       "scale": 0.9,
-      "layer": "front"
+      "layer": "back"
     },
     {
       "t": 30.15,
@@ -2010,14 +2028,6 @@
       "focus": "face",
       "zoom": 2.15,
       "dur": 0.55
-    },
-    {
-      "t": 32.15,
-      "do": "fx",
-      "kind": "hair_sprout",
-      "on": "eng",
-      "anchor": "head",
-      "dur": 1.85
     },
     {
       "t": 34,
