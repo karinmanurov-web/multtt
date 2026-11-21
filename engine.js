@@ -927,7 +927,7 @@ class Engine {
     }
     const ae = lastBefore(ch.angs, t);
     const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
-    return { ang, vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id };
+    return { ang, pname: pose._name, vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id };
   }
 
   // кисть в мировых координатах (для падения/удержания предметов и камеры)
@@ -1321,6 +1321,11 @@ class Engine {
       turnK = Math.max(0.1, Math.abs(Math.cos(Math.PI * u)));
     }
     const back = view === 'back' && isMain(def), q45 = view === 'q45';
+    // сверление со спины: инструмент направлен от камеры. Руки сведены у груди за торсом, предмет не виден, тело мелко дрожит
+    if (back && st.pname === 'drill') {
+      const j = Math.sin(t * 72) * 1.6, sxn = this._bodyGeo(st).sxn;
+      st = Object.assign({}, st, { L: [-sxn + 6 + j, 70 + j], R: [-sxn + 6 - j, 64], hideHeld: true, by: (st.by || 0) + Math.sin(t * 61) * 1.4 });
+    }
     const C = this.C;
     ctx.save();
     ctx.translate(st.x, GROUND + st.y);
@@ -1348,10 +1353,18 @@ class Engine {
     ctx.translate(0, g.hipY);
     ctx.rotate(rad(st.lean));
     const tw = def.tw;
+    // со спины всё, что руки держат перед телом, закрыто торсом: такие руки (и предмет в них) рисуем ДО торса
+    const hid = { L: false, R: false };
+    if (back) for (const hand of ['L', 'R']) {
+      const side = hand === 'L' ? -1 : 1, tgt = hand === 'L' ? st.L : st.R, sx = side * g.sxn;
+      const r = ik(sx, SHOULDER_Y, sx + side * tgt[0], SHOULDER_Y + tgt[1], UARM, FARM, side, 0.8, 0.6);
+      hid[hand] = Math.abs(r.hx) < tw / 2 - 6 && r.hy > -190 && r.hy < 40;
+    }
+    for (const hand of ['L', 'R']) if (hid[hand]) this._arm(ctx, st, g, hand, t);
     this._torso(ctx, def.kind, def, tw, back);
 
     // руки (держат предметы)
-    for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
+    for (const hand of ['L', 'R']) if (!hid[hand]) this._arm(ctx, st, g, hand, t);
 
     // голова
     ctx.save();
@@ -1449,7 +1462,7 @@ class Engine {
     if (hold && hold.id && hold.t <= t) {
       const P = this.C.props[hold.id];
       const ps = P && this.propState(P, t);
-      if (P && ps.vis && ps.held) {
+      if (P && ps.vis && ps.held && !st.hideHeld) {
         ctx.save();
         ctx.translate(r.hx, r.hy);
         if (P.def.upright) ctx.rotate(-rad(st.lean));

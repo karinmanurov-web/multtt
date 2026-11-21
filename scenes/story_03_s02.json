@@ -148,19 +148,6 @@
       "transition": "cut"
     },
     {
-      "t": 9,
-      "do": "pose",
-      "who": "bld",
-      "pose": "hammer"
-    },
-    {
-      "t": 9,
-      "do": "pose",
-      "who": "bld",
-      "pose": "hammer",
-      "dur": 2.8
-    },
-    {
       "t": 9.1,
       "do": "say",
       "who": "narr",
@@ -174,6 +161,34 @@
       "prop": "shelf_wall_holes",
       "x": 610,
       "y": 800
+    },
+    {
+      "t": 8.8,
+      "do": "angle",
+      "who": "both",
+      "angle": "back",
+      "dur": 0.25
+    },
+    {
+      "t": 9,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drill",
+      "dur": 2.8
+    },
+    {
+      "t": 9.3,
+      "do": "fx",
+      "kind": "dust",
+      "x": 610,
+      "y": 800,
+      "dur": 1.2
+    },
+    {
+      "t": 9.3,
+      "do": "shake",
+      "dur": 2.2,
+      "amp": 3
     }
   ]
 }
