@@ -1,0 +1,107 @@
+{
+ "id": "demo_08",
+ "duration": 12,
+ "start": {
+  "location": "construction_site",
+  "view": "main",
+  "chars": {
+   "eng": {
+    "x": 300,
+    "face": "right"
+   },
+   "bld": {
+    "x": 690,
+    "face": "left"
+   },
+   "ex1": {
+    "type": "extra",
+    "x": 930,
+    "face": "left",
+    "shirt": "#d8695f",
+    "hair": "#4a3426"
+   }
+  }
+ },
+ "beats": [
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "c1",
+   "prop": "cone",
+   "x": 470
+  },
+  {
+   "t": 0.2,
+   "do": "say",
+   "who": "eng",
+   "line": "l1",
+   "dur": 2.2
+  },
+  {
+   "t": 0.3,
+   "do": "pose",
+   "who": "eng",
+   "pose": "present",
+   "dur": 1.8
+  },
+  {
+   "t": 2.8,
+   "do": "view",
+   "id": "scaffold",
+   "angle": "back"
+  },
+  {
+   "t": 3.0,
+   "do": "say",
+   "who": "bld",
+   "line": "l2",
+   "dur": 2.0
+  },
+  {
+   "t": 3.1,
+   "do": "pose",
+   "who": "bld",
+   "pose": "point_up",
+   "dur": 1.8
+  },
+  {
+   "t": 5.4,
+   "do": "walk",
+   "who": "eng",
+   "x": 420,
+   "dur": 1.2
+  },
+  {
+   "t": 6.9,
+   "do": "view",
+   "id": "fence",
+   "angle": "side"
+  },
+  {
+   "t": 7.0,
+   "do": "emote",
+   "who": "eng",
+   "emotion": "angry",
+   "dur": 1.8
+  },
+  {
+   "t": 7.1,
+   "do": "say",
+   "who": "eng",
+   "line": "l3",
+   "dur": 1.6
+  },
+  {
+   "t": 9.0,
+   "do": "view",
+   "id": "cabin"
+  },
+  {
+   "t": 9.1,
+   "do": "pose",
+   "who": "bld",
+   "pose": "shrug",
+   "dur": 1.6
+  }
+ ]
+}

@@ -525,7 +525,7 @@ class Engine {
 
     const start = scene.start || {};
     const C = {
-      locs, propDefs, chars: {}, props: {}, camSegs: [], shakes: [], fx: [], titles: [], callouts: [], viewEv: [], portraits: [], locEv: [], says: [], markers: [],
+      locs, propDefs, chars: {}, props: {}, camSegs: [], shakes: [], fx: [], titles: [], callouts: [], viewEv: [], mirrorEv: [{ t: 0, m: false }], portraits: [], locEv: [], says: [], markers: [],
       cam0: Object.assign({ x: 540, y: 960, zoom: 1, rot: 0 }, start.camera || {}), beatsFlat: []
     };
     const defaultStart = { eng: { x: 300, face: 'right' }, bld: { x: 780, face: 'left' } };
@@ -692,7 +692,13 @@ class Engine {
           // смена ракурса текущей локации (другой «кадр» того же места)
           if (typeof b.id !== 'string') { err(`${tag}: нужен id ракурса`); break; }
           if (b.transition != null && !['cut', 'fade', 'flash', 'wipe'].includes(b.transition)) { err(`${tag}: transition = cut | fade | flash | wipe`); break; }
-          C.viewEv.push({ t, view: b.id, transition: b.transition || 'cut', dur: isNum(b.dur) ? b.dur : 0.4, cam: b.keepCam ? false : true, tag });
+          if (b.angle != null && !ANGLES.includes(b.angle)) { err(`${tag}: angle = ${ANGLES.join(' | ')} (камера: side — как обычно, back — камера за спинами героев)`); break; }
+          C.viewEv.push({ t, view: b.id, transition: b.transition || 'cut', dur: isNum(b.dur) ? b.dur : 0.4, cam: b.keepCam ? false : true, tag, angle: b.angle || null });
+          if (b.angle) {
+            // камера перешла за спины героев (или вернулась): мир отзеркаливается, герои разворачиваются мгновенно
+            C.mirrorEv.push({ t, m: b.angle === 'back' });
+            for (const k of ['eng', 'bld']) if (C.chars[k]) C.chars[k].angs.push({ t, v: b.angle, prev: null, dur: 0 });
+          }
           break;
         }
         case 'portrait': {
@@ -759,6 +765,10 @@ class Engine {
     }
     C.locEv.sort((a, c) => a.t - c.t);
     C.viewEv.sort((a, c) => a.t - c.t);
+    C.mirrorEv.sort((a, c) => a.t - c.t);
+    for (const e of C.viewEv) {
+      if (e.t > 0 && !e.angle && C.mirrorEv.length > 1 && lastBefore(C.mirrorEv, e.t - 1e-6).m) warn(`${e.tag}: камера всё ещё за спинами героев (angle back). Новый ракурс без angle оставляет всё как есть; для кадра с лица укажите angle:"side"`);
+    }
     for (const e of C.viewEv) {
       const L = locs[lastBefore(C.locEv, e.t).id]; if (!L) continue;
       const names = viewNamesOf(L);
@@ -868,11 +878,14 @@ class Engine {
     return Object.assign({}, cur);
   }
 
-  charState(id, t) {
+  _mirrorAt(t) { return !!lastBefore(this.C.mirrorEv, t).m; }
+  // raw = координаты «мира» без зеркала камеры (для логики предметов)
+  charState(id, t, raw) {
     const C = this.C, ch = C.chars[id], def = ch.def;
     const vis = lastBefore(ch.vis, t).v;
-    const x = this._posAt(ch, t);
-    const face = lastBefore(ch.face, t).v;
+    const mir = !raw && this._mirrorAt(t);
+    const x = mir ? W - this._posAt(ch, t) : this._posAt(ch, t);
+    const face = lastBefore(ch.face, t).v * (mir ? -1 : 1);
     let seg = null;
     for (const s of ch.segs) if (s.moving && s.t0 <= t && t < s.t1) { seg = s; break; }
     let speed = 0, wk = 0;
@@ -925,8 +938,8 @@ class Engine {
     const sxn = def.tw / 2 - 8;
     return { hipY, sxn, def };
   }
-  handWorld(id, t, hand) {
-    const st = this.charState(id, t);
+  handWorld(id, t, hand, raw) {
+    const st = this.charState(id, t, raw);
     return this._handWorldSt(st, hand);
   }
   _handWorldSt(st, hand) {
@@ -988,7 +1001,13 @@ class Engine {
   }
 
   // ───── предметы ─────
+  // предмет с учётом зеркала камеры (камера за спинами героев)
   propState(P, t) {
+    const r = this._propRaw(P, t);
+    if (!r.pos || !this._mirrorAt(t)) return r;
+    return Object.assign({}, r, { pos: Object.assign({}, r.pos, { x: W - r.pos.x }), rot: -r.rot });
+  }
+  _propRaw(P, t) {
     let pos = null, rot = 0, scale = 1, vis = false, held = null, floor = P.floor, layer = P.layer;
     for (let i = 0; i < P.ev.length; i++) {
       const e = P.ev[i];
@@ -999,7 +1018,7 @@ class Engine {
         case 'layer': layer = e.layer; break;
         case 'hold': held = { who: e.who, hand: e.hand }; break;
         case 'release': {
-          const hw = this.handWorld(e.who, e.t, e.hand);
+          const hw = this.handWorld(e.who, e.t, e.hand, true);
           held = null;
           if (e.drop) {
             const dt = t - e.t, y0 = hw.y, fl = Math.max(floor, y0), G = 3200;
@@ -1081,7 +1100,8 @@ class Engine {
         ctx.save(); ctx.translate(s.pos.x, s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx, P, t, s.scale); ctx.restore();
       }
       // герои (по x, чтобы перекрытие было естественным)
-      const ids = Object.keys(C.chars).sort((a, b) => this._posAt(C.chars[a], t) - this._posAt(C.chars[b], t));
+      const mirK = this._mirrorAt(t) ? -1 : 1;
+      const ids = Object.keys(C.chars).sort((a, b) => mirK * (this._posAt(C.chars[a], t) - this._posAt(C.chars[b], t)));
       for (const id of ids) {
         const st = this.charState(id, t);
         if (por && por.solo && id !== por.on) continue;
@@ -1200,7 +1220,8 @@ class Engine {
       if (f.anchor === 'hand') { const h = this._handWorldSt(st, 'R'); return { x: h.x, y: h.y }; }
       return { x: st.x, y: GROUND + st.air - 545 * sy };
     }
-    return { x: isNum(f.x) ? f.x : 540, y: isNum(f.y) ? f.y : 700 };
+    const fx = isNum(f.x) ? f.x : 540;
+    return { x: this._mirrorAt(t) ? W - fx : fx, y: isNum(f.y) ? f.y : 700 };
   }
 
   _wrap(ctx, text, maxW) {
@@ -1445,7 +1466,7 @@ class Engine {
     if (ang === 'back') return this._headBack(ctx, id, def);
     const q = ang === 'q45';
     // уши (в три четверти дальнее ухо прячется за головой)
-    for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(q && s > 0 ? 60 : s * 76, 6, q && s > 0 ? 12 : 15, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); }
+    if (!q) for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(s * 76, 6, 15, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); }   // в три четверти уши не рисуем
     ctx.beginPath(); ctx.arc(0, 0, 77, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
     // блик
     ctx.save(); ctx.globalAlpha = 0.22; ctx.fillStyle = '#fff';
@@ -1495,8 +1516,22 @@ class Engine {
     ctx.restore();
     if (q) ctx.restore();
     // каска строителя
-    if (id === 'bld') {
-      ctx.save(); if (q) ctx.translate(10, 0);
+    if (id === 'bld' && q) {
+      // каска в три четверти: купол сдвинут и сужен, козырёк вынесен вперёд, центральная полоса изогнута по куполу
+      ctx.save(); ctx.translate(12, 0);
+      ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.fillStyle = '#ffc61a';
+      ctx.beginPath(); ctx.moveTo(-72, -48); ctx.quadraticCurveTo(-76, -118, 4, -122); ctx.quadraticCurveTo(78, -118, 74, -48); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.save(); ctx.lineCap = 'butt'; ctx.lineJoin = 'round';
+      ctx.beginPath(); ctx.moveTo(36, -56); ctx.quadraticCurveTo(40, -104, 10, -121);
+      ctx.strokeStyle = OUT; ctx.lineWidth = 34; ctx.stroke();
+      ctx.strokeStyle = '#ffd95c'; ctx.lineWidth = 22; ctx.stroke();
+      ctx.restore();
+      ctx.fillStyle = '#e6a800'; ctx.strokeStyle = OUT; ctx.lineWidth = 6;
+      ctx.beginPath(); ctx.moveTo(-70, -58); ctx.lineTo(86, -58); ctx.quadraticCurveTo(114, -58, 114, -49); ctx.quadraticCurveTo(114, -40, 86, -40); ctx.lineTo(-70, -40); ctx.quadraticCurveTo(-82, -40, -82, -49); ctx.quadraticCurveTo(-82, -58, -70, -58); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.save(); ctx.globalAlpha = 0.35; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(-30, -88, 16, 8, -0.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      ctx.restore();
+    } else if (id === 'bld') {
+      ctx.save();
       ctx.lineWidth = 6; ctx.strokeStyle = OUT;
       ctx.fillStyle = '#ffc61a';
       ctx.beginPath(); ctx.moveTo(-84, -48); ctx.quadraticCurveTo(-90, -118, 0, -122); ctx.quadraticCurveTo(90, -118, 84, -48); ctx.closePath(); ctx.fill(); ctx.stroke();
