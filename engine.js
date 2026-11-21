@@ -1521,11 +1521,16 @@ class Engine {
       ctx.save(); ctx.translate(12, 0);
       ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.fillStyle = '#ffc61a';
       ctx.beginPath(); ctx.moveTo(-72, -48); ctx.quadraticCurveTo(-76, -118, 4, -122); ctx.quadraticCurveTo(78, -118, 74, -48); ctx.closePath(); ctx.fill(); ctx.stroke();
-      ctx.save(); ctx.lineCap = 'butt'; ctx.lineJoin = 'round';
-      ctx.beginPath(); ctx.moveTo(36, -56); ctx.quadraticCurveTo(40, -104, 10, -121);
-      ctx.strokeStyle = OUT; ctx.lineWidth = 34; ctx.stroke();
-      ctx.strokeStyle = '#ffd95c'; ctx.lineWidth = 22; ctx.stroke();
+      // центральная полоса: заходит под купол и обрезается его контуром, края изогнуты по кривизне каски
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(-72, -48); ctx.quadraticCurveTo(-76, -118, 4, -122); ctx.quadraticCurveTo(78, -118, 74, -48); ctx.closePath(); ctx.clip();
+      ctx.fillStyle = '#ffd95c';
+      ctx.beginPath(); ctx.moveTo(-45, -52); ctx.quadraticCurveTo(-43, -100, -26, -132); ctx.lineTo(48, -138); ctx.quadraticCurveTo(24, -128, 4, -112); ctx.quadraticCurveTo(-16, -96, -19, -52); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = OUT; ctx.lineWidth = 6; ctx.lineCap = 'butt';
+      ctx.beginPath(); ctx.moveTo(-45, -52); ctx.quadraticCurveTo(-43, -100, -26, -132); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-19, -52); ctx.quadraticCurveTo(-16, -96, 4, -112); ctx.quadraticCurveTo(24, -128, 48, -138); ctx.stroke();
       ctx.restore();
+      ctx.beginPath(); ctx.moveTo(-72, -48); ctx.quadraticCurveTo(-76, -118, 4, -122); ctx.quadraticCurveTo(78, -118, 74, -48); ctx.closePath(); ctx.stroke();
       ctx.fillStyle = '#e6a800'; ctx.strokeStyle = OUT; ctx.lineWidth = 6;
       ctx.beginPath(); ctx.moveTo(-70, -58); ctx.lineTo(86, -58); ctx.quadraticCurveTo(114, -58, 114, -49); ctx.quadraticCurveTo(114, -40, 86, -40); ctx.lineTo(-70, -40); ctx.quadraticCurveTo(-82, -40, -82, -49); ctx.quadraticCurveTo(-82, -58, -70, -58); ctx.closePath(); ctx.fill(); ctx.stroke();
       ctx.save(); ctx.globalAlpha = 0.35; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(-30, -88, 16, 8, -0.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
