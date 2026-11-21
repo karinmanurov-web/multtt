@@ -1525,10 +1525,10 @@ class Engine {
       ctx.save();
       ctx.beginPath(); ctx.moveTo(-72, -48); ctx.quadraticCurveTo(-76, -118, 4, -122); ctx.quadraticCurveTo(78, -118, 74, -48); ctx.closePath(); ctx.clip();
       ctx.fillStyle = '#ffd95c';
-      ctx.beginPath(); ctx.moveTo(-45, -52); ctx.quadraticCurveTo(-43, -100, -26, -132); ctx.lineTo(48, -138); ctx.quadraticCurveTo(24, -128, 4, -112); ctx.quadraticCurveTo(-16, -96, -19, -52); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(47, -52); ctx.quadraticCurveTo(45, -100, 28, -132); ctx.lineTo(-46, -138); ctx.quadraticCurveTo(-22, -128, -2, -112); ctx.quadraticCurveTo(18, -96, 21, -52); ctx.closePath(); ctx.fill();
       ctx.strokeStyle = OUT; ctx.lineWidth = 6; ctx.lineCap = 'butt';
-      ctx.beginPath(); ctx.moveTo(-45, -52); ctx.quadraticCurveTo(-43, -100, -26, -132); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(-19, -52); ctx.quadraticCurveTo(-16, -96, 4, -112); ctx.quadraticCurveTo(24, -128, 48, -138); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(47, -52); ctx.quadraticCurveTo(45, -100, 28, -132); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(21, -52); ctx.quadraticCurveTo(18, -96, -2, -112); ctx.quadraticCurveTo(-22, -128, -46, -138); ctx.stroke();
       ctx.restore();
       ctx.beginPath(); ctx.moveTo(-72, -48); ctx.quadraticCurveTo(-76, -118, 4, -122); ctx.quadraticCurveTo(78, -118, 74, -48); ctx.closePath(); ctx.stroke();
       ctx.fillStyle = '#e6a800'; ctx.strokeStyle = OUT; ctx.lineWidth = 6;
