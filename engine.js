@@ -1336,6 +1336,15 @@ class Engine {
     ctx.translate(0, st.air);
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
 
+    if (back) {
+      ctx.save();
+      ctx.translate(0, g.hipY);
+      ctx.rotate(rad(st.lean));
+      this._arm(ctx, st, g, 'L', t);
+      this._arm(ctx, st, g, 'R', t);
+      ctx.restore();
+    }
+
     // ноги
     const hipX = 30;
     for (const side of [-1, 1]) {
@@ -1363,11 +1372,10 @@ class Engine {
       // Рисуем их до торса, чтобы корпус естественно перекрывал предмет.
       hid[hand] = !!(held && held.id) || (Math.abs(r.hx) < tw / 2 - 6 && r.hy > -190 && r.hy < 40);
     }
-    for (const hand of ['L', 'R']) if (hid[hand]) this._arm(ctx, st, g, hand, t);
+    if (!back) {
+      for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
+    }
     this._torso(ctx, def.kind, def, tw, back);
-
-    // руки (держат предметы)
-    for (const hand of ['L', 'R']) if (!hid[hand]) this._arm(ctx, st, g, hand, t);
 
     // голова
     ctx.save();
