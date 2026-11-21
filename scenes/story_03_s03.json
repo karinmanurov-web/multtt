@@ -1,6 +1,6 @@
 {
   "id": "story_03_s03",
-  "duration": 10.4,
+  "duration": 12.4,
   "start": {
     "location": "shelf_room",
     "view": "wall_close",
@@ -149,6 +149,27 @@
       "focus": "body",
       "zoom": 1.4,
       "dur": 1
+    },
+    {
+      "t": 9.2,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drill",
+      "dur": 2.5
+    },
+    {
+      "t": 9.35,
+      "do": "fx",
+      "kind": "dust",
+      "x": 610,
+      "y": 800,
+      "dur": 1.5
+    },
+    {
+      "t": 9.35,
+      "do": "shake",
+      "dur": 1.4,
+      "amp": 3
     }
   ]
 }
