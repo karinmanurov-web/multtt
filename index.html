@@ -309,6 +309,7 @@ function drawTimeline() {
   (info && info.titles || []).forEach(s => { c.fillStyle = '#8a5ad6'; c.fillRect(X(s.t0), lane.ev - 8, X(s.t1) - X(s.t0), 16); });
   (info && info.callouts || []).forEach(s => { c.fillStyle = '#ff5ca8'; c.fillRect(X(s.t0), lane.ev - 8, X(s.t1) - X(s.t0), 16); });
   (info && info.portraits || []).forEach(s => { c.fillStyle = '#e8a33d'; c.fillRect(X(s.t0), lane.ev - 8, X(s.t1) - X(s.t0), 16); });
+  (info && info.angles || []).forEach(s => { c.fillStyle = '#8a5ad6'; c.fillRect(X(s.t) - 1.5, lane[s.who] - 12, 3, 24); });
   (info && info.views || []).forEach(s => { c.fillStyle = '#2aa6a0'; c.fillRect(X(s.t) - 1.5, lane.ev - 14, 3, 28); });
   (info && info.beats || []).forEach(b => {
     if (['say', 'title', 'place', 'hide', 'show'].includes(b.do)) return;

@@ -115,6 +115,9 @@ function viewNamesOf(L) {
 }
 function layerInView(ly, view) { return ly.v == null || [].concat(ly.v).map(String).includes(view); }
 const PORTRAIT_BG = ['blur', 'dark'];
+const ANGLES = ['side', 'back'];          // углы героев в обычном кадре: 90° (как раньше) и 270° (со спины)
+const PORTRAIT_ANGLES = ['side', 'q45'];  // в портрете: 90° и 45° (три четверти); со спины портрет не бывает
+const isMain = d => d && (d.kind === 'eng' || d.kind === 'bld');
 
 const HIP_Y = -160, LEG = 88, UARM = 92, FARM = 88, SHOULDER_Y = -172;
 
@@ -535,8 +538,14 @@ class Engine {
       C.chars[id] = {
         id, def: resolveCharDef(type, inst, charTypes, err, id),
         x0: s && isNum(s.x) ? s.x : (defaultStart[id] ? defaultStart[id].x : 540), vis: [{ t: 0, v: !!s && !inst.hidden }],
+        angs: [{ t: 0, v: inst.angle === 'back' ? 'back' : 'side', prev: 'side', dur: 0 }],
         face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], cum: 0, poses: [], emos: [], says: [], holds: [], seed: hashStr(id) % 100
       };
+    }
+    for (const id in C.chars) {
+      const a = startChars && startChars[id] && startChars[id].angle;
+      if (a != null && !ANGLES.includes(a)) err(`Персонаж "${id}": angle = ${ANGLES.join(' | ')} (45° только в портрете)`);
+      else if (a === 'back' && !isMain(C.chars[id].def)) err(`Персонаж "${id}": вид со спины есть только у eng и bld`);
     }
     const locStart = start.location || (scene.location);
     if (!locStart) err('Сцена: не указана стартовая локация (start.location)');
@@ -668,6 +677,17 @@ class Engine {
           C.viewEv.push({ t, view: b.view || null, transition: 'cut', dur: 0, cam: true, tag });
           break;
         }
+        case 'angle': {
+          // поворот главного героя: side (как обычно) или back (спиной к камере)
+          if (!ANGLES.includes(b.angle)) { err(`${tag}: angle = ${ANGLES.join(' | ')}${b.angle === 'q45' ? ' (45° только в портрете: portrait с angle:"q45")' : ''}`); break; }
+          const ids = b.who === 'both' ? ['eng', 'bld'].filter(k => C.chars[k]) : [who(b, i)];
+          for (const id of ids) {
+            if (!id) continue;
+            if (!isMain(C.chars[id].def)) { err(`${tag}: поворот есть только у eng и bld, не у "${id}"`); continue; }
+            C.chars[id].angs.push({ t, v: b.angle, prev: null, dur: isNum(b.dur) ? clamp(b.dur, 0, 1.5) : 0.3 });
+          }
+          break;
+        }
         case 'view': {
           // смена ракурса текущей локации (другой «кадр» того же места)
           if (typeof b.id !== 'string') { err(`${tag}: нужен id ракурса`); break; }
@@ -681,7 +701,9 @@ class Engine {
           if (!needDur()) break;
           const bgOk = b.bg == null || PORTRAIT_BG.includes(b.bg) || typeof b.bg === 'string' && /^(#|rgb|hsl)/i.test(b.bg) || (Array.isArray(b.bg) && b.bg.length >= 2);
           if (!bgOk) { err(`${tag}: bg = blur | dark | цвет "#rrggbb" | массив цветов (градиент)`); break; }
-          C.portraits.push({ t0: t, t1: t + b.dur, on: id, zoom: isNum(b.zoom) ? clamp(b.zoom, 1.6, 4) : 2.5, solo: b.solo !== false, bg: b.bg == null ? 'blur' : b.bg, punch: b.punch !== false, dy: isNum(b.dy) ? b.dy : 0, tag });
+          if (!PORTRAIT_ANGLES.includes(b.angle == null ? 'side' : b.angle)) { err(`${tag}: angle портрета = ${PORTRAIT_ANGLES.join(' | ')} (со спины лицо не показывают)`); break; }
+          if (b.angle === 'q45' && !isMain(C.chars[id].def)) { err(`${tag}: 45° есть только у eng и bld`); break; }
+          C.portraits.push({ t0: t, t1: t + b.dur, on: id, angle: b.angle == null ? 'side' : b.angle, zoom: isNum(b.zoom) ? clamp(b.zoom, 1.6, 4) : 2.5, solo: b.solo !== false, bg: b.bg == null ? 'blur' : b.bg, punch: b.punch !== false, dy: isNum(b.dy) ? b.dy : 0, tag });
           break;
         }
         case 'camera': {
@@ -729,6 +751,7 @@ class Engine {
         keep.sort((a, c) => a.t - c.t);
         ch[k] = keep;
       }
+      ch.angs.sort((a, c) => a.t - c.t); for (let k = 1; k < ch.angs.length; k++) ch.angs[k].prev = ch.angs[k - 1].v;
       ch.face.sort((a, c) => a.t - c.t); ch.vis.sort((a, c) => a.t - c.t); ch.holds.sort((a, c) => a.t - c.t);
       ch.segs.sort((a, c) => a.t0 - c.t0);
       // кумулятивная дистанция для ходьбы без скольжения ног
@@ -744,6 +767,11 @@ class Engine {
       if (e.cam && vc) C.camSegs.push({ t0: e.t, t1: e.t, ease: 'snap', reset: false, on: null, focus: 'body', follow: false, zoom: vc.zoom, x: vc.x, y: vc.y, dx: 0, dy: 0, rot: 0 });
     }
     C.portraits.sort((a, c) => a.t0 - c.t0);
+    for (const p of C.portraits) {
+      const ch = C.chars[p.on];
+      const backAt = lastBefore(ch.angs, p.t0).v === 'back' || ch.angs.some(a => a.t > p.t0 && a.t < p.t1 && a.v === 'back');
+      if (backAt) err(`${p.tag}: портрет героя "${p.on}", пока он стоит спиной (angle back). Сначала верните angle side`);
+    }
     for (let k = 1; k < C.portraits.length; k++) if (C.portraits[k].t0 < C.portraits[k - 1].t1) warn('Портретные кадры пересекаются по времени');
     C.camSegs.sort((a, c) => a.t0 - c.t0);
     for (const k in C.props) C.props[k].ev.sort((a, c) => a.t - c.t);
@@ -777,6 +805,7 @@ class Engine {
     for (const k of new Set([...C.titles.map(x => x.key), ...C.callouts.map(x => x.key)])) if (this.texts.lines[k] == null) warn(`Нет текста для титра/акцента "${k}" в языке "${this.texts.lang || '?'}"`);
     rep.info.callouts = C.callouts;
     rep.info.portraits = C.portraits;
+    rep.info.angles = Object.values(C.chars).flatMap(ch => ch.angs.filter(a => a.t > 0).map(a => ({ t: a.t, who: ch.id, v: a.v })));
     rep.info.views = C.viewEv.filter(e => e.t > 0).map(e => ({ t: e.t, view: e.view || DEFAULT_VIEW, transition: e.transition, dur: e.dur }));
     rep.info.duration = C.dur;
     rep.info.markers = C.markers;
@@ -883,7 +912,9 @@ class Engine {
         R = [24 + 34 * g1, 164 - 100 * g1]; L = [24 + 30 * g2, 164 - 90 * g2];
       }
     }
-    return { vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id };
+    const ae = lastBefore(ch.angs, t);
+    const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
+    return { ang, vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id };
   }
 
   // кисть в мировых координатах (для падения/удержания предметов и камеры)
@@ -1054,7 +1085,7 @@ class Engine {
       for (const id of ids) {
         const st = this.charState(id, t);
         if (por && por.solo && id !== por.on) continue;
-        if (st.vis) this._drawChar(ctx, st, t);
+        if (st.vis) this._drawChar(ctx, st, t, por && por.on === id ? por.angle : null);
       }
       for (const P of props) {
         const s = this.propState(P, t);
@@ -1259,15 +1290,23 @@ class Engine {
   }
 
   // ───── персонаж ─────
-  _drawChar(ctx, st, t) {
+  _drawChar(ctx, st, t, portraitAngle) {
     const def = st.def, g = this._bodyGeo(st), id = st.id;
+    // угол показа: в портрете 'side' или 'q45', иначе из timeline поворотов; во время поворота герой «схлопывается» по ширине
+    let view = portraitAngle || st.ang.v, turnK = 1;
+    if (!portraitAngle && st.ang.dur > 0 && st.ang.lt >= 0 && st.ang.lt < st.ang.dur) {
+      const u = st.ang.lt / st.ang.dur;
+      view = u < 0.5 ? st.ang.prev : st.ang.v;
+      turnK = Math.max(0.1, Math.abs(Math.cos(Math.PI * u)));
+    }
+    const back = view === 'back' && isMain(def), q45 = view === 'q45';
     const C = this.C;
     ctx.save();
     ctx.translate(st.x, GROUND + st.y);
     const sh = 1 - clamp(-st.air / 400, 0, 0.6);
     ctx.fillStyle = 'rgba(0,0,0,0.24)';
     ctx.beginPath(); ctx.ellipse(0, 6, 84 * sh, 17 * sh, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.scale(st.face / Math.sqrt(st.sq), def.sy * st.sq);
+    ctx.scale((st.face / Math.sqrt(st.sq)) * turnK * (q45 ? 0.9 : 1), def.sy * st.sq);
     ctx.translate(0, st.air);
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
 
@@ -1280,7 +1319,7 @@ class Engine {
       const r = ik(hx, hy + 4, fx, fy, LEG, LEG, side, 1, 0.1);
       this._limb(ctx, [hx, hy + 4], [r.ex, r.ey], [r.hx, r.hy], 38, def.pants);
       ctx.fillStyle = def.shoe; ctx.strokeStyle = OUT; ctx.lineWidth = 6;
-      ctx.beginPath(); ctx.ellipse(r.hx + 8, r.hy - 4, 36, 19, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(r.hx + (back ? 0 : 8), r.hy - 4, back ? 30 : 36, back ? 22 : 19, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
     }
 
     // верх тела (в системе бёдер, с наклоном)
@@ -1288,7 +1327,7 @@ class Engine {
     ctx.translate(0, g.hipY);
     ctx.rotate(rad(st.lean));
     const tw = def.tw;
-    this._torso(ctx, def.kind, def, tw);
+    this._torso(ctx, def.kind, def, tw, back);
 
     // руки (держат предметы)
     for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
@@ -1296,7 +1335,7 @@ class Engine {
     // голова
     ctx.save();
     ctx.translate(0, -200); ctx.rotate(rad(st.head)); ctx.translate(0, -80);
-    this._head(ctx, st, def.kind, def, t);
+    this._head(ctx, st, def.kind, def, t, back ? 'back' : (q45 ? 'q45' : 'side'));
     ctx.restore();
     ctx.restore();
 
@@ -1309,10 +1348,11 @@ class Engine {
       ctx.strokeStyle = cc; ctx.lineWidth = ww; ctx.stroke();
     }
   }
-  _torso(ctx, id, def, tw) {
+  _torso(ctx, id, def, tw, back) {
     ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.lineJoin = 'round';
     // шея
     ctx.fillStyle = def.skin; rr(ctx, -16, -214, 32, 28, 8); ctx.fill(); ctx.stroke();
+    if (back && (id === 'eng' || id === 'bld')) return this._torsoBack(ctx, id, def, tw);
     if (id === 'eng') {
       ctx.fillStyle = def.shirt; rr(ctx, -tw / 2, -198, tw, 216, 28); ctx.fill(); ctx.stroke();
       // воротник
@@ -1354,6 +1394,28 @@ class Engine {
       if (def.torso && def.torso.length) drawShapes(ctx, def.torso, this._t || 0, k => this.T(k));
     }
   }
+  // спина: без галстука, кармана и V-выреза
+  _torsoBack(ctx, id, def, tw) {
+    ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.lineJoin = 'round';
+    ctx.fillStyle = def.shirt; rr(ctx, -tw / 2, -198, tw, 216, 28); ctx.fill(); ctx.stroke();
+    if (id === 'eng') {
+      ctx.fillStyle = '#fff'; rr(ctx, -34, -210, 68, 24, 10); ctx.fill(); ctx.stroke();            // воротник сзади
+      ctx.strokeStyle = 'rgba(30,27,38,.35)'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(-tw / 2 + 6, -150); ctx.quadraticCurveTo(0, -176, tw / 2 - 6, -150); ctx.stroke();  // кокетка
+      ctx.beginPath(); ctx.moveTo(0, -160); ctx.lineTo(0, -4); ctx.stroke();                         // шов по центру
+      ctx.strokeStyle = OUT; ctx.lineWidth = 6;
+      ctx.fillStyle = '#2a2f3d'; rr(ctx, -tw / 2 + 2, 2, tw - 4, 16, 6); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#1b1f2a'; for (const x of [-46, -16, 16, 46]) rr(ctx, x - 4, 0, 8, 20, 2), ctx.fill();
+    } else {
+      ctx.fillStyle = '#ff7a1a'; rr(ctx, -tw / 2 + 2, -196, tw - 4, 200, 24); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#e8f27a'; ctx.lineWidth = 4;
+      for (const y of [-118, -66]) { ctx.fillRect(-tw / 2 + 4, y, tw - 8, 14); ctx.strokeRect(-tw / 2 + 4, y, tw - 8, 14); }
+      for (const x of [-34, 20]) { ctx.fillRect(x, -192, 14, 192); ctx.strokeRect(x, -192, 14, 192); }   // вертикальные лямки сзади
+      ctx.lineWidth = 6;
+      ctx.fillStyle = def.shirt; ctx.beginPath(); ctx.moveTo(-34, -198); ctx.lineTo(34, -198); ctx.lineTo(0, -176); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#3b2e22'; rr(ctx, -tw / 2 + 2, 2, tw - 4, 16, 6); ctx.fill(); ctx.stroke();
+    }
+  }
   _arm(ctx, st, g, hand, t) {
     const side = hand === 'L' ? -1 : 1;
     const tgt = hand === 'L' ? st.L : st.R;
@@ -1378,15 +1440,18 @@ class Engine {
     ctx.fillStyle = st.def.skin; ctx.strokeStyle = OUT; ctx.lineWidth = 6;
     ctx.beginPath(); ctx.arc(r.hx, r.hy, 19, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
   }
-  _head(ctx, st, id, def, t) {
+  _head(ctx, st, id, def, t, ang) {
     ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.fillStyle = def.skin;
-    // уши
-    for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(s * 76, 6, 15, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); }
+    if (ang === 'back') return this._headBack(ctx, id, def);
+    const q = ang === 'q45';
+    // уши (в три четверти дальнее ухо прячется за головой)
+    for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(q && s > 0 ? 60 : s * 76, 6, q && s > 0 ? 12 : 15, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); }
     ctx.beginPath(); ctx.arc(0, 0, 77, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
     // блик
     ctx.save(); ctx.globalAlpha = 0.22; ctx.fillStyle = '#fff';
     ctx.beginPath(); ctx.ellipse(-32, -38, 22, 13, -0.6, 0, Math.PI * 2); ctx.fill(); ctx.restore();
 
+    if (q) { ctx.save(); ctx.translate(15, 0); ctx.scale(0.78, 1); }
     const e = st.emo, look = 8;
     const browY = id === 'eng' ? -54 : (id === 'extra' ? (def.glasses ? -54 : def.browY) : -32);
     // очки инженера (и статистов с glasses)
@@ -1428,18 +1493,40 @@ class Engine {
     ctx.save(); ctx.translate(look, 34);
     this._mouth(ctx, e.mw, e.mc, st.mo, e.mk);
     ctx.restore();
+    if (q) ctx.restore();
     // каска строителя
     if (id === 'bld') {
+      ctx.save(); if (q) ctx.translate(10, 0);
       ctx.lineWidth = 6; ctx.strokeStyle = OUT;
       ctx.fillStyle = '#ffc61a';
       ctx.beginPath(); ctx.moveTo(-84, -48); ctx.quadraticCurveTo(-90, -118, 0, -122); ctx.quadraticCurveTo(90, -118, 84, -48); ctx.closePath(); ctx.fill(); ctx.stroke();
       ctx.fillStyle = '#ffd95c'; rr(ctx, -12, -122, 24, 60, 8); ctx.fill(); ctx.stroke();
       ctx.fillStyle = '#e6a800'; rr(ctx, -96, -58, 192, 18, 9); ctx.fill(); ctx.stroke();
       ctx.save(); ctx.globalAlpha = 0.35; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(-48, -86, 20, 9, -0.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      ctx.restore();
     }
     if (id === 'extra') {
       if (def.hat) this._cap(ctx, def.hat);
       if (def.head_front && def.head_front.length) drawShapes(ctx, def.head_front, this._t || 0, k => this.T(k));
+    }
+  }
+  // затылок: без лица, очки видны дужками, каска со стороны затылка
+  _headBack(ctx, id, def) {
+    ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.fillStyle = def.skin;
+    for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(s * 76, 6, 15, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); }
+    ctx.beginPath(); ctx.arc(0, 0, 77, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.save(); ctx.fillStyle = 'rgba(0,0,0,.07)'; ctx.beginPath(); ctx.ellipse(0, 46, 54, 22, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    if (id === 'eng') {
+      ctx.strokeStyle = '#20242c'; ctx.lineWidth = 8; ctx.lineCap = 'round';
+      for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(s * 66, -8); ctx.quadraticCurveTo(s * 86, -4, s * 84, 14); ctx.stroke(); }
+      ctx.save(); ctx.globalAlpha = 0.22; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(-30, -38, 22, 13, -0.6, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    } else if (id === 'bld') {
+      ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.fillStyle = '#ffc61a';
+      ctx.beginPath(); ctx.moveTo(-86, -26); ctx.quadraticCurveTo(-92, -118, 0, -122); ctx.quadraticCurveTo(92, -118, 86, -26); ctx.quadraticCurveTo(60, -6, 0, -4); ctx.quadraticCurveTo(-60, -6, -86, -26); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#ffd95c'; rr(ctx, -12, -122, 24, 100, 8); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#e6a800'; rr(ctx, -92, -34, 184, 16, 8); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#4a4f5a'; rr(ctx, -30, -22, 60, 22, 8); ctx.fill(); ctx.stroke();                // храповик затылочного ремня
+      ctx.save(); ctx.globalAlpha = 0.35; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(-48, -86, 20, 9, -0.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
     }
   }
   _cap(ctx, col) {
@@ -1471,7 +1558,7 @@ class Engine {
   }
 }
 
-const api = { Engine, W, H, GROUND, POSE_NAMES, EMO_NAMES, FX_KINDS, EASE_NAMES, SHAPE_TYPES, CHAR_IDS, LOOK_KEYS, CALLOUT_STYLES, DEFAULT_VIEW };
+const api = { Engine, W, H, GROUND, POSE_NAMES, EMO_NAMES, FX_KINDS, EASE_NAMES, SHAPE_TYPES, CHAR_IDS, LOOK_KEYS, CALLOUT_STYLES, DEFAULT_VIEW, ANGLES, PORTRAIT_ANGLES };
 if (typeof module !== 'undefined' && module.exports) module.exports = api;
 else root.Mult = api;
 })(typeof window !== 'undefined' ? window : globalThis);

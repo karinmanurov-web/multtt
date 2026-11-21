@@ -99,6 +99,15 @@
     "ru": "lang/demo_06.ru.json",
     "en": "lang/demo_06.en.json"
    }
+  },
+  {
+   "id": "demo_07",
+   "title": "Демо 7: углы героев (спиной, три четверти в портрете)",
+   "file": "scenes/demo_07.json",
+   "langs": {
+    "ru": "lang/demo_07.ru.json",
+    "en": "lang/demo_07.en.json"
+   }
   }
  ]
 }
