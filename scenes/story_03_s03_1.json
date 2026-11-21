@@ -1,0 +1,72 @@
+{
+  "id": "story_03_s03_1",
+  "title": "Сюжет №3 · s03.1 · Лишние детали",
+  "duration": 3.4,
+  "start": {
+    "location": "insert_stage",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    },
+    "camera": {
+      "x": 540,
+      "y": 1080,
+      "zoom": 1.25,
+      "rot": 0
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "unused_bracket",
+      "prop": "shelf_bracket",
+      "x": 410,
+      "y": 1190
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "unused_nails",
+      "prop": "nails",
+      "x": 690,
+      "y": 1200
+    },
+    {
+      "t": 0.1,
+      "do": "title",
+      "key": "tag_unused_parts",
+      "dur": 1.5,
+      "pos": "top",
+      "style": "pop"
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n19",
+      "dur": 2.2
+    },
+    {
+      "t": 1.7,
+      "do": "camera",
+      "on": "both",
+      "focus": "body",
+      "zoom": 1.65,
+      "dur": 0.7
+    },
+    {
+      "t": 2.8,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.4
+    }
+  ]
+}
