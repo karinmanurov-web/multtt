@@ -1,6 +1,6 @@
 {
   "id": "story_03_s02",
-  "duration": 11.6,
+  "duration": 13,
   "start": {
     "location": "shelf_room",
     "view": "wall_close",
@@ -49,13 +49,6 @@
       "y": 800
     },
     {
-      "t": 0.1,
-      "do": "angle",
-      "who": "both",
-      "angle": "back",
-      "dur": 0.2
-    },
-    {
       "t": 0.2,
       "do": "view",
       "id": "wall_close",
@@ -63,19 +56,13 @@
     },
     {
       "t": 0.2,
-      "do": "pose",
-      "who": "bld",
-      "pose": "hammer"
-    },
-    {
-      "t": 0.2,
       "do": "say",
       "who": "narr",
       "line": "n05",
-      "dur": 1.6
+      "dur": 1.9
     },
     {
-      "t": 1.9,
+      "t": 2.2,
       "do": "say",
       "who": "narr",
       "line": "n06",
@@ -103,11 +90,11 @@
       "dur": 1.2
     },
     {
-      "t": 2.7,
+      "t": 2.9,
       "do": "say",
       "who": "narr",
       "line": "n07",
-      "dur": 3.6
+      "dur": 4.2
     },
     {
       "t": 5,
@@ -116,6 +103,13 @@
       "dur": 1.8,
       "pos": "top",
       "style": "shake"
+    },
+    {
+      "t": 5.7,
+      "do": "angle",
+      "who": "both",
+      "angle": "back",
+      "dur": 0.2
     },
     {
       "t": 5.9,
@@ -134,41 +128,47 @@
       "dur": 1.5
     },
     {
-      "t": 6.5,
+      "t": 7.2,
       "do": "say",
       "who": "narr",
       "line": "n08",
-      "dur": 1.2
+      "dur": 1.5
     },
     {
-      "t": 7.8,
+      "t": 8.8,
       "do": "view",
       "id": "main",
       "transition": "cut"
     },
     {
-      "t": 7.9,
+      "t": 8.9,
       "do": "angle",
       "who": "both",
       "angle": "side",
       "dur": 0.2
     },
     {
-      "t": 8,
+      "t": 9,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer"
+    },
+    {
+      "t": 9,
       "do": "pose",
       "who": "bld",
       "pose": "hammer",
       "dur": 2.8
     },
     {
-      "t": 8.1,
+      "t": 9.1,
       "do": "say",
       "who": "narr",
       "line": "n09",
-      "dur": 3.2
+      "dur": 3.8
     },
     {
-      "t": 8.5,
+      "t": 9.5,
       "do": "spawn",
       "id": "holes1",
       "prop": "shelf_wall_holes",
