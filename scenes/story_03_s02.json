@@ -49,6 +49,13 @@
       "y": 800
     },
     {
+      "t": 0.1,
+      "do": "angle",
+      "who": "both",
+      "angle": "back",
+      "dur": 0.2
+    },
+    {
       "t": 0.2,
       "do": "view",
       "id": "wall_close",
@@ -108,7 +115,7 @@
       "t": 5.7,
       "do": "angle",
       "who": "both",
-      "angle": "back",
+      "angle": "side",
       "dur": 0.2
     },
     {
