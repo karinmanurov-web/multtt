@@ -1,0 +1,141 @@
+{
+  "id": "story_03_s01",
+  "duration": 10.8,
+  "start": {
+    "location": "shelf_room",
+    "view": "main",
+    "chars": {
+      "eng": {
+        "x": 790,
+        "face": "left"
+      },
+      "bld": {
+        "x": 350,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "shelf_floor",
+      "prop": "shelf_board",
+      "x": 540,
+      "y": 1230
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "drill1",
+      "prop": "drill",
+      "x": 410,
+      "y": 1230
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "drill1",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "manual1",
+      "prop": "instruction_manual",
+      "x": 830,
+      "y": 1000
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "manual1",
+      "who": "eng",
+      "hand": "L"
+    },
+    {
+      "t": 0.1,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present",
+      "dur": 2.1
+    },
+    {
+      "t": 0.1,
+      "do": "say",
+      "who": "narr",
+      "line": "n01",
+      "dur": 3.1
+    },
+    {
+      "t": 1.9,
+      "do": "title",
+      "key": "tag_5min",
+      "dur": 2.2,
+      "pos": "top",
+      "style": "pop"
+    },
+    {
+      "t": 3.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n02",
+      "dur": 1.1
+    },
+    {
+      "t": 4.6,
+      "do": "say",
+      "who": "narr",
+      "line": "n03",
+      "dur": 2.5
+    },
+    {
+      "t": 5,
+      "do": "portrait",
+      "on": "eng",
+      "dur": 1.5,
+      "zoom": 2.2,
+      "angle": "q45",
+      "bg": "blur"
+    },
+    {
+      "t": 5,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "smug",
+      "dur": 1.5
+    },
+    {
+      "t": 7.4,
+      "do": "say",
+      "who": "narr",
+      "line": "n04",
+      "dur": 1.5
+    },
+    {
+      "t": 8,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 1.8
+    },
+    {
+      "t": 8.2,
+      "do": "camera",
+      "on": "bld",
+      "focus": "body",
+      "zoom": 1.5,
+      "dur": 1.2
+    }
+  ]
+}
