@@ -151,6 +151,13 @@
       "dur": 1
     },
     {
+      "t": 9.15,
+      "do": "angle",
+      "who": "bld",
+      "angle": "back",
+      "dur": 0.2
+    },
+    {
       "t": 9.2,
       "do": "spawn",
       "id": "drill3",
