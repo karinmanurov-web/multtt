@@ -1373,9 +1373,13 @@ class Engine {
       hid[hand] = !!(held && held.id) || (Math.abs(r.hx) < tw / 2 - 6 && r.hy > -190 && r.hy < 40);
     }
     if (!back) {
+      this._torso(ctx, def.kind, def, tw, back);
+      // В обычном ракурсе удерживаемые предметы и руки остаются перед торсом.
       for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
+    } else {
+      // При back руки и предмет уже нарисованы под ногами и торсом.
+      this._torso(ctx, def.kind, def, tw, back);
     }
-    this._torso(ctx, def.kind, def, tw, back);
 
     // голова
     ctx.save();
