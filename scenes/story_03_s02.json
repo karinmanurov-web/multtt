@@ -1,0 +1,179 @@
+{
+  "id": "story_03_s02",
+  "duration": 11.6,
+  "start": {
+    "location": "shelf_room",
+    "view": "wall_close",
+    "chars": {
+      "bld": {
+        "x": 520,
+        "face": "left"
+      },
+      "eng": {
+        "x": 820,
+        "face": "left"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "drill2",
+      "prop": "drill",
+      "x": 520,
+      "y": 1000
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "drill2",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "holes0",
+      "prop": "shelf_wall_holes",
+      "x": 520,
+      "y": 800
+    },
+    {
+      "t": 0.1,
+      "do": "angle",
+      "who": "both",
+      "angle": "back",
+      "dur": 0.2
+    },
+    {
+      "t": 0.2,
+      "do": "view",
+      "id": "wall_close",
+      "transition": "cut"
+    },
+    {
+      "t": 0.2,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer"
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n05",
+      "dur": 1.6
+    },
+    {
+      "t": 1.9,
+      "do": "say",
+      "who": "narr",
+      "line": "n06",
+      "dur": 0.6
+    },
+    {
+      "t": 2.5,
+      "do": "shake",
+      "dur": 0.35,
+      "amp": 14
+    },
+    {
+      "t": 2.6,
+      "do": "fx",
+      "kind": "sparks",
+      "on": "bld",
+      "anchor": "hand",
+      "dur": 0.5
+    },
+    {
+      "t": 2.7,
+      "do": "pose",
+      "who": "bld",
+      "pose": "tired",
+      "dur": 1.2
+    },
+    {
+      "t": 2.7,
+      "do": "say",
+      "who": "narr",
+      "line": "n07",
+      "dur": 3.6
+    },
+    {
+      "t": 5,
+      "do": "title",
+      "key": "tag_armature",
+      "dur": 1.8,
+      "pos": "top",
+      "style": "shake"
+    },
+    {
+      "t": 5.9,
+      "do": "portrait",
+      "on": "bld",
+      "dur": 1.5,
+      "zoom": 2.4,
+      "angle": "q45",
+      "bg": "blur"
+    },
+    {
+      "t": 5.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "confused",
+      "dur": 1.5
+    },
+    {
+      "t": 6.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n08",
+      "dur": 1.2
+    },
+    {
+      "t": 7.8,
+      "do": "view",
+      "id": "main",
+      "transition": "cut"
+    },
+    {
+      "t": 7.9,
+      "do": "angle",
+      "who": "both",
+      "angle": "side",
+      "dur": 0.2
+    },
+    {
+      "t": 8,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 2.8
+    },
+    {
+      "t": 8.1,
+      "do": "say",
+      "who": "narr",
+      "line": "n09",
+      "dur": 3.2
+    },
+    {
+      "t": 8.5,
+      "do": "spawn",
+      "id": "holes1",
+      "prop": "shelf_wall_holes",
+      "x": 610,
+      "y": 800
+    }
+  ]
+}
