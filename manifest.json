@@ -143,6 +143,14 @@
       }
     },
     {
+      "id": "story_03_s03_1",
+      "title": "Сюжет №3 · s03.1 · Лишние детали",
+      "file": "scenes/story_03_s03_1.json",
+      "langs": {
+        "ru": "lang/story_03.ru.json"
+      }
+    },
+    {
       "id": "story_03_s04",
       "title": "Сюжет №3 · Полка · s04",
       "file": "scenes/story_03_s04.json",
