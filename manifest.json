@@ -1,122 +1,154 @@
 {
- "scenes": [
-  {
-   "id": "demo_01",
-   "title": "Демо 1: чертёж и рулетка (стройка → магазин)",
-   "file": "scenes/demo_01.json",
-   "langs": {
-    "ru": "lang/demo_01.ru.json",
-    "en": "lang/demo_01.en.json"
-   }
-  },
-  {
-   "id": "demo_02",
-   "title": "Демо 2: подпись в прорабской",
-   "file": "scenes/demo_02.json",
-   "langs": {
-    "ru": "lang/demo_02.ru.json",
-    "en": "lang/demo_02.en.json"
-   }
-  },
-  {
-   "id": "demo_03",
-   "title": "Демо 3: принтер (цепочка раздражителей, массовка, акценты)",
-   "file": "scenes/demo_03.json",
-   "langs": {
-    "ru": "lang/demo_03.ru.json",
-    "en": "lang/demo_03.en.json"
-   }
-  },
-  {
-   "id": "ep01_s01",
-   "title": "Изм. №10 · s01 · Стена готова",
-   "file": "scenes/ep01_s01.json",
-   "langs": {
-    "ru": "lang/ep01.ru.json"
-   }
-  },
-  {
-   "id": "ep01_s02",
-   "title": "Изм. №10 · s02 · Окно сдвинулось",
-   "file": "scenes/ep01_s02.json",
-   "langs": {
-    "ru": "lang/ep01.ru.json"
-   }
-  },
-  {
-   "id": "ep01_s03",
-   "title": "Изм. №10 · s03 · Фото для отчёта",
-   "file": "scenes/ep01_s03.json",
-   "langs": {
-    "ru": "lang/ep01.ru.json"
-   }
-  },
-  {
-   "id": "ep01_s04",
-   "title": "Изм. №10 · s04 · Одиннадцатое",
-   "file": "scenes/ep01_s04.json",
-   "langs": {
-    "ru": "lang/ep01.ru.json"
-   }
-  },
-  {
-   "id": "demo_04",
-   "title": "Демо 4: три толчка и пролитый кофе",
-   "file": "scenes/demo_04.json",
-   "langs": {
-    "ru": "lang/demo_04.ru.json"
-   }
-  },
-  {
-   "id": "demo_05",
-   "title": "Демо 5: перфоратор",
-   "file": "scenes/demo_05.json",
-   "langs": {
-    "ru": "lang/demo_05.ru.json"
-   }
-  },
-  {
-   "id": "insert",
-   "title": "Ракурс · предметный кадр",
-   "file": "scenes/insert.json",
-   "langs": {
-    "ru": "lang/insert.ru.json"
-   }
-  },
-  {
-   "id": "blueprint_pov",
-   "title": "Ракурс · чертёж от первого лица",
-   "file": "scenes/blueprint_pov.json",
-   "langs": {
-    "ru": "lang/blueprint_pov.ru.json"
-   }
-  },
-  {
-   "id": "demo_06",
-   "title": "Демо 6: ракурсы и портретная камера",
-   "file": "scenes/demo_06.json",
-   "langs": {
-    "ru": "lang/demo_06.ru.json",
-    "en": "lang/demo_06.en.json"
-   }
-  },
-  {
-   "id": "demo_07",
-   "title": "Демо 7: углы героев (спиной, три четверти в портрете)",
-   "file": "scenes/demo_07.json",
-   "langs": {
-    "ru": "lang/demo_07.ru.json",
-    "en": "lang/demo_07.en.json"
-   }
-  },
-  {
-   "id": "demo_08",
-   "title": "Демо 8: камера за спинами (герои меняются местами)",
-   "file": "scenes/demo_08.json",
-   "langs": {
-    "ru": "lang/demo_08.ru.json",
-    "en": "lang/demo_08.en.json"
-   }
-  }
- ]
+  "scenes": [
+    {
+      "id": "demo_01",
+      "title": "Демо 1: чертёж и рулетка (стройка → магазин)",
+      "file": "scenes/demo_01.json",
+      "langs": {
+        "ru": "lang/demo_01.ru.json",
+        "en": "lang/demo_01.en.json"
+      }
+    },
+    {
+      "id": "demo_02",
+      "title": "Демо 2: подпись в прорабской",
+      "file": "scenes/demo_02.json",
+      "langs": {
+        "ru": "lang/demo_02.ru.json",
+        "en": "lang/demo_02.en.json"
+      }
+    },
+    {
+      "id": "demo_03",
+      "title": "Демо 3: принтер (цепочка раздражителей, массовка, акценты)",
+      "file": "scenes/demo_03.json",
+      "langs": {
+        "ru": "lang/demo_03.ru.json",
+        "en": "lang/demo_03.en.json"
+      }
+    },
+    {
+      "id": "ep01_s01",
+      "title": "Изм. №10 · s01 · Стена готова",
+      "file": "scenes/ep01_s01.json",
+      "langs": {
+        "ru": "lang/ep01.ru.json"
+      }
+    },
+    {
+      "id": "ep01_s02",
+      "title": "Изм. №10 · s02 · Окно сдвинулось",
+      "file": "scenes/ep01_s02.json",
+      "langs": {
+        "ru": "lang/ep01.ru.json"
+      }
+    },
+    {
+      "id": "ep01_s03",
+      "title": "Изм. №10 · s03 · Фото для отчёта",
+      "file": "scenes/ep01_s03.json",
+      "langs": {
+        "ru": "lang/ep01.ru.json"
+      }
+    },
+    {
+      "id": "ep01_s04",
+      "title": "Изм. №10 · s04 · Одиннадцатое",
+      "file": "scenes/ep01_s04.json",
+      "langs": {
+        "ru": "lang/ep01.ru.json"
+      }
+    },
+    {
+      "id": "demo_04",
+      "title": "Демо 4: три толчка и пролитый кофе",
+      "file": "scenes/demo_04.json",
+      "langs": {
+        "ru": "lang/demo_04.ru.json"
+      }
+    },
+    {
+      "id": "demo_05",
+      "title": "Демо 5: перфоратор",
+      "file": "scenes/demo_05.json",
+      "langs": {
+        "ru": "lang/demo_05.ru.json"
+      }
+    },
+    {
+      "id": "insert",
+      "title": "Ракурс · предметный кадр",
+      "file": "scenes/insert.json",
+      "langs": {
+        "ru": "lang/insert.ru.json"
+      }
+    },
+    {
+      "id": "blueprint_pov",
+      "title": "Ракурс · чертёж от первого лица",
+      "file": "scenes/blueprint_pov.json",
+      "langs": {
+        "ru": "lang/blueprint_pov.ru.json"
+      }
+    },
+    {
+      "id": "demo_06",
+      "title": "Демо 6: ракурсы и портретная камера",
+      "file": "scenes/demo_06.json",
+      "langs": {
+        "ru": "lang/demo_06.ru.json",
+        "en": "lang/demo_06.en.json"
+      }
+    },
+    {
+      "id": "demo_07",
+      "title": "Демо 7: углы героев (спиной, три четверти в портрете)",
+      "file": "scenes/demo_07.json",
+      "langs": {
+        "ru": "lang/demo_07.ru.json",
+        "en": "lang/demo_07.en.json"
+      }
+    },
+    {
+      "id": "demo_08",
+      "title": "Демо 8: камера за спинами (герои меняются местами)",
+      "file": "scenes/demo_08.json",
+      "langs": {
+        "ru": "lang/demo_08.ru.json",
+        "en": "lang/demo_08.en.json"
+      }
+    },
+    {
+      "id": "story_03_s01",
+      "title": "Сюжет №3 · Полка · s01",
+      "file": "scenes/story_03_s01.json",
+      "langs": {
+        "ru": "lang/story_03.ru.json"
+      }
+    },
+    {
+      "id": "story_03_s02",
+      "title": "Сюжет №3 · Полка · s02",
+      "file": "scenes/story_03_s02.json",
+      "langs": {
+        "ru": "lang/story_03.ru.json"
+      }
+    },
+    {
+      "id": "story_03_s03",
+      "title": "Сюжет №3 · Полка · s03",
+      "file": "scenes/story_03_s03.json",
+      "langs": {
+        "ru": "lang/story_03.ru.json"
+      }
+    },
+    {
+      "id": "story_03_s04",
+      "title": "Сюжет №3 · Полка · s04",
+      "file": "scenes/story_03_s04.json",
+      "langs": {
+        "ru": "lang/story_03.ru.json"
+      }
+    }
+  ]
 }
