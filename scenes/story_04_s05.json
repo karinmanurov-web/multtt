@@ -1,0 +1,191 @@
+{
+  "id": "story_04_s05",
+  "duration": 8.2,
+  "start": {
+    "location": "office_day",
+    "view": "kitchen",
+    "chars": {
+      "eng": {
+        "x": 440,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "flood",
+      "prop": "flood",
+      "x": 540,
+      "y": 2185,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "move",
+      "id": "flood",
+      "y": 2135,
+      "dur": 5
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ph",
+      "prop": "phone",
+      "x": 520,
+      "y": 1070
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "ph",
+      "who": "eng",
+      "hand": "L"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "cart",
+      "prop": "cartridge",
+      "x": 560,
+      "y": 1070
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "cart",
+      "who": "eng",
+      "hand": "R"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "tired",
+      "dur": 1.8
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 2
+    },
+    {
+      "t": 1.9,
+      "do": "release",
+      "id": "cart",
+      "drop": false
+    },
+    {
+      "t": 1.9,
+      "do": "move",
+      "id": "cart",
+      "x": 470,
+      "y": 1090,
+      "dur": 0.4,
+      "arc": -30
+    },
+    {
+      "t": 2.0,
+      "do": "release",
+      "id": "ph",
+      "drop": false
+    },
+    {
+      "t": 2.0,
+      "do": "move",
+      "id": "ph",
+      "x": 520,
+      "y": 1090,
+      "dur": 0.4,
+      "arc": -30
+    },
+    {
+      "t": 2.5,
+      "do": "pose",
+      "who": "eng",
+      "pose": "wipe",
+      "dur": 1.2
+    },
+    {
+      "t": 3.6,
+      "do": "walk",
+      "who": "eng",
+      "x": 1000,
+      "dur": 1.3,
+      "face": "keep"
+    },
+    {
+      "t": 4.9,
+      "do": "location",
+      "id": "office_day",
+      "view": "desk",
+      "transition": "cut"
+    },
+    {
+      "t": 4.9,
+      "do": "remove",
+      "id": "cart"
+    },
+    {
+      "t": 4.9,
+      "do": "remove",
+      "id": "ph"
+    },
+    {
+      "t": 4.9,
+      "do": "place",
+      "who": "eng",
+      "x": 540,
+      "face": "right"
+    },
+    {
+      "t": 4.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "sit_slump",
+      "dur": 1.2
+    },
+    {
+      "t": 4.9,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 3
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "pd",
+      "prop": "puddle",
+      "x": 540,
+      "y": 1262,
+      "layer": "front"
+    },
+    {
+      "t": 5.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n19",
+      "dur": 2.2
+    },
+    {
+      "t": 6.5,
+      "do": "pose",
+      "who": "eng",
+      "pose": "sit",
+      "dur": 1.5
+    }
+  ]
+}

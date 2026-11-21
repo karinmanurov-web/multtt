@@ -1,0 +1,473 @@
+{
+  "id": "story_04_s04",
+  "duration": 19.0,
+  "start": {
+    "location": "office_day",
+    "view": "kitchen",
+    "chars": {
+      "eng": {
+        "x": 560,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "master": {
+        "type": "extra",
+        "x": 330,
+        "face": "right",
+        "hidden": true,
+        "skin": "#f0c9a5",
+        "shirt": "#fafafa",
+        "sleeve": "#fafafa",
+        "pants": "#d9dde6",
+        "shoe": "#fafafa",
+        "hair": "#3a2c24"
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fo",
+      "prop": "fountain",
+      "x": 394,
+      "y": 962
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hdl",
+      "prop": "tap_handle",
+      "x": 330,
+      "y": 985,
+      "rot": -35
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "flood",
+      "prop": "flood",
+      "x": 540,
+      "y": 2230,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "shake",
+      "dur": 17,
+      "amp": 3
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ph",
+      "prop": "phone",
+      "x": 560,
+      "y": 1070
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle",
+      "dur": 5.0
+    },
+    {
+      "t": 0.1,
+      "do": "move",
+      "id": "flood",
+      "y": 2205,
+      "dur": 5
+    },
+    {
+      "t": 0.1,
+      "do": "hold",
+      "id": "ph",
+      "who": "eng",
+      "hand": "R"
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n13",
+      "dur": 3.5
+    },
+    {
+      "t": 3.9,
+      "do": "say",
+      "who": "narr",
+      "line": "n14",
+      "dur": 1.5
+    },
+    {
+      "t": 5.4,
+      "do": "location",
+      "id": "phone_screen",
+      "transition": "cut"
+    },
+    {
+      "t": 5.4,
+      "do": "hide",
+      "who": "eng"
+    },
+    {
+      "t": 5.4,
+      "do": "remove",
+      "id": "fo"
+    },
+    {
+      "t": 5.4,
+      "do": "remove",
+      "id": "flood"
+    },
+    {
+      "t": 5.4,
+      "do": "remove",
+      "id": "hdl"
+    },
+    {
+      "t": 5.4,
+      "do": "spawn",
+      "id": "ctap",
+      "prop": "clean_tap",
+      "x": 640,
+      "y": 1094
+    },
+    {
+      "t": 5.4,
+      "do": "show",
+      "who": "master"
+    },
+    {
+      "t": 5.6,
+      "do": "say",
+      "who": "master",
+      "line": "n15",
+      "dur": 3.0
+    },
+    {
+      "t": 8.8,
+      "do": "location",
+      "id": "office_day",
+      "view": "kitchen",
+      "transition": "cut"
+    },
+    {
+      "t": 8.8,
+      "do": "show",
+      "who": "eng"
+    },
+    {
+      "t": 8.8,
+      "do": "hide",
+      "who": "master"
+    },
+    {
+      "t": 8.8,
+      "do": "spawn",
+      "id": "fo2",
+      "prop": "fountain",
+      "x": 394,
+      "y": 962
+    },
+    {
+      "t": 8.8,
+      "do": "spawn",
+      "id": "hdl2",
+      "prop": "tap_handle",
+      "x": 330,
+      "y": 985,
+      "rot": -35
+    },
+    {
+      "t": 8.8,
+      "do": "spawn",
+      "id": "flood2",
+      "prop": "flood",
+      "x": 540,
+      "y": 2205,
+      "layer": "front"
+    },
+    {
+      "t": 8.8,
+      "do": "remove",
+      "id": "ctap"
+    },
+    {
+      "t": 8.8,
+      "do": "pose",
+      "who": "eng",
+      "pose": "point",
+      "dur": 1.2
+    },
+    {
+      "t": 8.9,
+      "do": "move",
+      "id": "flood2",
+      "y": 2195,
+      "dur": 2.5
+    },
+    {
+      "t": 8.9,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "confused",
+      "dur": 2.4
+    },
+    {
+      "t": 9.0,
+      "do": "say",
+      "who": "narr",
+      "line": "n16",
+      "dur": 2.2
+    },
+    {
+      "t": 9.2,
+      "do": "fx",
+      "kind": "question",
+      "who": "eng",
+      "dur": 1.2
+    },
+    {
+      "t": 11.5,
+      "do": "location",
+      "id": "phone_screen",
+      "transition": "cut"
+    },
+    {
+      "t": 11.5,
+      "do": "hide",
+      "who": "eng"
+    },
+    {
+      "t": 11.5,
+      "do": "show",
+      "who": "master"
+    },
+    {
+      "t": 11.5,
+      "do": "remove",
+      "id": "fo2"
+    },
+    {
+      "t": 11.5,
+      "do": "remove",
+      "id": "flood2"
+    },
+    {
+      "t": 11.5,
+      "do": "remove",
+      "id": "hdl2"
+    },
+    {
+      "t": 11.5,
+      "do": "spawn",
+      "id": "ctool",
+      "prop": "clean_tool",
+      "x": 640,
+      "y": 1094
+    },
+    {
+      "t": 11.7,
+      "do": "say",
+      "who": "master",
+      "line": "n17",
+      "dur": 3.0
+    },
+    {
+      "t": 14.9,
+      "do": "location",
+      "id": "office_day",
+      "view": "kitchen",
+      "transition": "cut"
+    },
+    {
+      "t": 14.9,
+      "do": "show",
+      "who": "eng"
+    },
+    {
+      "t": 14.9,
+      "do": "hide",
+      "who": "master"
+    },
+    {
+      "t": 14.9,
+      "do": "spawn",
+      "id": "fo3",
+      "prop": "fountain",
+      "x": 394,
+      "y": 962
+    },
+    {
+      "t": 14.9,
+      "do": "spawn",
+      "id": "hdl3",
+      "prop": "tap_handle",
+      "x": 330,
+      "y": 985,
+      "rot": -35
+    },
+    {
+      "t": 14.9,
+      "do": "spawn",
+      "id": "flood3",
+      "prop": "flood",
+      "x": 540,
+      "y": 2195,
+      "layer": "front"
+    },
+    {
+      "t": 14.9,
+      "do": "remove",
+      "id": "ctool"
+    },
+    {
+      "t": 14.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "crank",
+      "dur": 1.0
+    },
+    {
+      "t": 15.0,
+      "do": "move",
+      "id": "flood3",
+      "y": 2185,
+      "dur": 4
+    },
+    {
+      "t": 15.9,
+      "do": "marker",
+      "name": "усиленный фонтан"
+    },
+    {
+      "t": 15.9,
+      "do": "remove",
+      "id": "fo3"
+    },
+    {
+      "t": 15.9,
+      "do": "spawn",
+      "id": "fo4",
+      "prop": "fountain",
+      "x": 394,
+      "y": 962,
+      "scale": 1.35
+    },
+    {
+      "t": 15.9,
+      "do": "shake",
+      "dur": 1.5,
+      "amp": 16
+    },
+    {
+      "t": 15.9,
+      "do": "callout",
+      "on": "eng",
+      "key": "c_more",
+      "style": "shake",
+      "dur": 1.4
+    },
+    {
+      "t": 15.9,
+      "do": "spawn",
+      "id": "cart",
+      "prop": "cartridge",
+      "x": 340,
+      "y": 1000
+    },
+    {
+      "t": 15.9,
+      "do": "move",
+      "id": "cart",
+      "x": 470,
+      "y": 1180,
+      "arc": -300,
+      "rot": 540,
+      "dur": 0.8
+    },
+    {
+      "t": 15.9,
+      "do": "spawn",
+      "id": "p1",
+      "prop": "tap_part",
+      "x": 340,
+      "y": 990
+    },
+    {
+      "t": 15.9,
+      "do": "move",
+      "id": "p1",
+      "x": 100,
+      "y": 1250,
+      "arc": -260,
+      "rot": 300,
+      "dur": 0.8
+    },
+    {
+      "t": 15.9,
+      "do": "spawn",
+      "id": "p2",
+      "prop": "cap_part",
+      "x": 340,
+      "y": 990
+    },
+    {
+      "t": 15.9,
+      "do": "move",
+      "id": "p2",
+      "x": 650,
+      "y": 1250,
+      "arc": -340,
+      "rot": 200,
+      "dur": 0.9
+    },
+    {
+      "t": 15.9,
+      "do": "walk",
+      "who": "eng",
+      "x": 190,
+      "dur": 0.8,
+      "ease": "easeOut",
+      "face": "keep"
+    },
+    {
+      "t": 15.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "fall_back",
+      "dur": 0.9
+    },
+    {
+      "t": 16.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle",
+      "dur": 1
+    },
+    {
+      "t": 16.9,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 2
+    },
+    {
+      "t": 17.1,
+      "do": "say",
+      "who": "narr",
+      "line": "n18",
+      "dur": 1.2
+    }
+  ]
+}

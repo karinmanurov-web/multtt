@@ -157,6 +157,54 @@
       "langs": {
         "ru": "lang/story_03.ru.json"
       }
+    },
+    {
+      "id": "story_04_s01",
+      "title": "Сюжет №4 · Кран · s01 · Рабочий день",
+      "file": "scenes/story_04_s01.json",
+      "langs": {
+        "ru": "lang/story_04.ru.json"
+      }
+    },
+    {
+      "id": "story_04_s02",
+      "title": "Сюжет №4 · Кран · s02 · Чай",
+      "file": "scenes/story_04_s02.json",
+      "langs": {
+        "ru": "lang/story_04.ru.json"
+      }
+    },
+    {
+      "id": "story_04_s03",
+      "title": "Сюжет №4 · Кран · s03 · Аварийное перекрытие",
+      "file": "scenes/story_04_s03.json",
+      "langs": {
+        "ru": "lang/story_04.ru.json"
+      }
+    },
+    {
+      "id": "story_04_s04",
+      "title": "Сюжет №4 · Кран · s04 · Инструкция из интернета",
+      "file": "scenes/story_04_s04.json",
+      "langs": {
+        "ru": "lang/story_04.ru.json"
+      }
+    },
+    {
+      "id": "story_04_s05",
+      "title": "Сюжет №4 · Кран · s05 · Возвращение к работе",
+      "file": "scenes/story_04_s05.json",
+      "langs": {
+        "ru": "lang/story_04.ru.json"
+      }
+    },
+    {
+      "id": "story_04_s06",
+      "title": "Сюжет №4 · Кран · s06 · Финал",
+      "file": "scenes/story_04_s06.json",
+      "langs": {
+        "ru": "lang/story_04.ru.json"
+      }
     }
   ]
 }

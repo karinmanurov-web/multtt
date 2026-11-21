@@ -162,6 +162,16 @@ const POSES = {
     else { const k = ease('easeOut', (p - 0.72) / 0.28); ox = lerp(100, 70, k); oy = lerp(100, 30, k); lean = lerp(12, 0, k); }
     return P({ R: [ox, oy], L: [40, 80], lean, by: lean > 6 ? 5 : 0 });
   },
+  sit: (lt, t) => P({ L: [46, 150], R: [46, 150], sq: .86, air: -30, by: Math.sin(t * 1.6) * 1 }),
+  sit_tap: (lt, t) => P({ L: [46, 150], R: [46, 142 + Math.abs(Math.sin(t * 11)) * 12], sq: .86, air: -30, head: -3 }),
+  sit_up: (lt, t) => P({ L: [46, 150], R: [-20, 80], sq: .86, air: -30, head: -13, lean: -4 }),
+  sit_slump: (lt, t) => P({ L: [40, 150], R: [40, 150], sq: .84, air: -30, head: 12, lean: 5, by: 4 }),
+  sit_lean: (lt, t) => P({ L: [46, 150], R: [-10, 60], sq: .86, air: -30, head: 6, lean: 8 }),
+  crank: (lt, t) => P({ R: [112 + Math.sin(t * 18) * 8, 6 + Math.cos(t * 18) * 8], L: [46, 100], lean: 4 }),
+  valve_pull: (lt, t) => P({ L: [120, -4 + Math.sin(t * 26) * 3], R: [120, -4 - Math.sin(t * 26) * 3], lean: -14, by: 6, head: 4 }),
+  pull: (lt, t) => P({ L: [128, 12 + Math.sin(t * 24) * 3], R: [128, 12 - Math.sin(t * 24) * 3], lean: -14, by: 6 }),
+  fall_back: (lt, t) => P({ L: [74, -70], R: [74, -70], lean: -30, by: 8, head: -8 }),
+  wipe: (lt, t) => P({ L: [30, 120 + Math.sin(t * 9) * 8], R: [30, 120 - Math.sin(t * 9) * 8], head: 8, lean: -2, by: 3 }),
   jump: (lt) => {
     const T = 0.8, u = (lt % T) / T;
     const air = u < 0.15 ? 0 : Math.sin(Math.PI * ((u - 0.15) / 0.85));

@@ -1,0 +1,115 @@
+{
+  "id": "story_04_s06",
+  "duration": 6.2,
+  "start": {
+    "location": "office_day",
+    "view": "clock",
+    "chars": {
+      "eng": {
+        "x": 540,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hh",
+      "prop": "clock_hour",
+      "x": 540,
+      "y": 640,
+      "rot": 285
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "mm",
+      "prop": "clock_min",
+      "x": 540,
+      "y": 640,
+      "rot": 180
+    },
+    {
+      "t": 0,
+      "do": "hide",
+      "who": "eng"
+    },
+    {
+      "t": 0.1,
+      "do": "move",
+      "id": "mm",
+      "rot": 182,
+      "dur": 1.8
+    },
+    {
+      "t": 2.0,
+      "do": "remove",
+      "id": "hh"
+    },
+    {
+      "t": 2.0,
+      "do": "remove",
+      "id": "mm"
+    },
+    {
+      "t": 2.0,
+      "do": "view",
+      "id": "desk",
+      "transition": "cut"
+    },
+    {
+      "t": 2.0,
+      "do": "show",
+      "who": "eng"
+    },
+    {
+      "t": 2.0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "sit",
+      "dur": 4
+    },
+    {
+      "t": 2.0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 0.9
+    },
+    {
+      "t": 2.0,
+      "do": "portrait",
+      "on": "eng",
+      "dur": 1.2,
+      "zoom": 2.4,
+      "angle": "side",
+      "bg": "blur"
+    },
+    {
+      "t": 3.2,
+      "do": "portrait",
+      "on": "eng",
+      "dur": 2.4,
+      "zoom": 2.4,
+      "angle": "q45",
+      "bg": "blur"
+    },
+    {
+      "t": 3.2,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "neutral",
+      "dur": 2.4
+    }
+  ]
+}

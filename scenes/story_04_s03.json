@@ -1,0 +1,271 @@
+{
+  "id": "story_04_s03",
+  "duration": 14.2,
+  "start": {
+    "location": "office_day",
+    "view": "kitchen",
+    "chars": {
+      "eng": {
+        "x": 215,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fo",
+      "prop": "fountain",
+      "x": 394,
+      "y": 962
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hdl",
+      "prop": "tap_handle",
+      "x": 330,
+      "y": 985,
+      "rot": -35
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "flood",
+      "prop": "flood",
+      "x": 540,
+      "y": 2290,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "val",
+      "prop": "valve",
+      "x": 880,
+      "y": 905
+    },
+    {
+      "t": 0,
+      "do": "shake",
+      "dur": 14,
+      "amp": 3
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "crank",
+      "dur": 2.6
+    },
+    {
+      "t": 0.1,
+      "do": "move",
+      "id": "flood",
+      "y": 2230,
+      "dur": 13
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n09",
+      "dur": 2.6
+    },
+    {
+      "t": 0.4,
+      "do": "move",
+      "id": "hdl",
+      "rot": 720,
+      "dur": 2.4
+    },
+    {
+      "t": 2.8,
+      "do": "camera",
+      "x": 330,
+      "y": 1000,
+      "zoom": 2.2,
+      "dur": 0.5
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "hdl",
+      "rot": 1800,
+      "dur": 2.8
+    },
+    {
+      "t": 2.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "crank",
+      "dur": 2.8
+    },
+    {
+      "t": 3.1,
+      "do": "say",
+      "who": "narr",
+      "line": "n10",
+      "dur": 2.8
+    },
+    {
+      "t": 3.2,
+      "do": "fx",
+      "kind": "sweat",
+      "who": "eng",
+      "dur": 1.5
+    },
+    {
+      "t": 3.2,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "angry",
+      "dur": 2.8
+    },
+    {
+      "t": 6.1,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.4
+    },
+    {
+      "t": 6.4,
+      "do": "say",
+      "who": "narr",
+      "line": "n11",
+      "dur": 1.9
+    },
+    {
+      "t": 6.4,
+      "do": "walk",
+      "who": "eng",
+      "x": 755,
+      "dur": 1.4
+    },
+    {
+      "t": 6.4,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "worried",
+      "dur": 1.5
+    },
+    {
+      "t": 8.0,
+      "do": "camera",
+      "x": 745,
+      "y": 1010,
+      "zoom": 2.0,
+      "rot": -5,
+      "dur": 0.5
+    },
+    {
+      "t": 8.0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "valve_pull",
+      "dur": 2.6
+    },
+    {
+      "t": 8.0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "angry",
+      "dur": 2.8
+    },
+    {
+      "t": 8.4,
+      "do": "marker",
+      "name": "скрип металла"
+    },
+    {
+      "t": 9.2,
+      "do": "shake",
+      "dur": 1.4,
+      "amp": 7
+    },
+    {
+      "t": 10.6,
+      "do": "marker",
+      "name": "срыв вентиля"
+    },
+    {
+      "t": 10.6,
+      "do": "move",
+      "id": "val",
+      "x": 330,
+      "y": 1200,
+      "arc": -320,
+      "rot": 900,
+      "dur": 0.8
+    },
+    {
+      "t": 10.6,
+      "do": "walk",
+      "who": "eng",
+      "x": 590,
+      "dur": 0.6,
+      "ease": "easeOut",
+      "face": "keep"
+    },
+    {
+      "t": 10.6,
+      "do": "pose",
+      "who": "eng",
+      "pose": "fall_back",
+      "dur": 1.2
+    },
+    {
+      "t": 10.6,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "shocked",
+      "dur": 1.0
+    },
+    {
+      "t": 11.8,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.5
+    },
+    {
+      "t": 11.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "tired",
+      "dur": 1.5
+    },
+    {
+      "t": 11.9,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 2
+    },
+    {
+      "t": 12.0,
+      "do": "portrait",
+      "on": "eng",
+      "dur": 1.5,
+      "zoom": 2.4,
+      "angle": "side",
+      "bg": "blur"
+    },
+    {
+      "t": 12.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n12",
+      "dur": 0.9
+    }
+  ]
+}
