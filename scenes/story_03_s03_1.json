@@ -1,7 +1,7 @@
 {
   "id": "story_03_s03_1",
   "title": "Сюжет №3 · s03.1 · Лишние детали",
-  "duration": 3.4,
+  "duration": 3.2,
   "start": {
     "location": "insert_stage",
     "chars": {
@@ -17,7 +17,7 @@
     "camera": {
       "x": 540,
       "y": 1080,
-      "zoom": 1.25,
+      "zoom": 1.45,
       "rot": 0
     }
   },
@@ -53,20 +53,6 @@
       "who": "narr",
       "line": "n19",
       "dur": 2.2
-    },
-    {
-      "t": 1.7,
-      "do": "camera",
-      "on": "both",
-      "focus": "body",
-      "zoom": 1.65,
-      "dur": 0.7
-    },
-    {
-      "t": 2.8,
-      "do": "camera",
-      "reset": true,
-      "dur": 0.4
     }
   ]
 }
