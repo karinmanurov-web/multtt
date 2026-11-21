@@ -1,0 +1,154 @@
+{
+  "id": "story_03_s03",
+  "duration": 10.4,
+  "start": {
+    "location": "shelf_room",
+    "view": "wall_close",
+    "chars": {
+      "eng": {
+        "x": 790,
+        "face": "left"
+      },
+      "bld": {
+        "x": 350,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "manual3",
+      "prop": "instruction_manual",
+      "x": 810,
+      "y": 980
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "manual3",
+      "who": "eng",
+      "hand": "L"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "level3",
+      "prop": "shelf_level",
+      "x": 520,
+      "y": 1230
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "level3",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "holes3",
+      "prop": "shelf_wall_holes",
+      "x": 520,
+      "y": 800
+    },
+    {
+      "t": 0.1,
+      "do": "view",
+      "id": "wall_close",
+      "transition": "cut"
+    },
+    {
+      "t": 0.2,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present",
+      "dur": 2.6
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n10",
+      "dur": 3.1
+    },
+    {
+      "t": 1.5,
+      "do": "title",
+      "key": "tag_tolerance",
+      "dur": 2,
+      "pos": "top",
+      "style": "slam"
+    },
+    {
+      "t": 3.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n11",
+      "dur": 2.4
+    },
+    {
+      "t": 3.6,
+      "do": "portrait",
+      "on": "eng",
+      "dur": 1.5,
+      "zoom": 2.3,
+      "angle": "q45",
+      "bg": "blur"
+    },
+    {
+      "t": 3.6,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "smug",
+      "dur": 1.5
+    },
+    {
+      "t": 6.1,
+      "do": "say",
+      "who": "narr",
+      "line": "n12",
+      "dur": 2
+    },
+    {
+      "t": 6.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "measure",
+      "dur": 1.5
+    },
+    {
+      "t": 8.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n13",
+      "dur": 1
+    },
+    {
+      "t": 8.3,
+      "do": "view",
+      "id": "main",
+      "transition": "wipe",
+      "dur": 0.4
+    },
+    {
+      "t": 9,
+      "do": "camera",
+      "on": "both",
+      "focus": "body",
+      "zoom": 1.4,
+      "dur": 1
+    }
+  ]
+}
