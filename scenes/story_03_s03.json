@@ -152,6 +152,21 @@
     },
     {
       "t": 9.2,
+      "do": "spawn",
+      "id": "drill3",
+      "prop": "drill",
+      "x": 610,
+      "y": 1000
+    },
+    {
+      "t": 9.2,
+      "do": "hold",
+      "id": "drill3",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 9.2,
       "do": "pose",
       "who": "bld",
       "pose": "drill",
