@@ -1,0 +1,144 @@
+{
+ "id": "demo_06",
+ "duration": 13,
+ "start": {
+  "location": "construction_site",
+  "view": "main",
+  "chars": {
+   "eng": {
+    "x": 330,
+    "face": "right"
+   },
+   "bld": {
+    "x": 760,
+    "face": "left"
+   }
+  }
+ },
+ "beats": [
+  {
+   "t": 0.1,
+   "do": "say",
+   "who": "eng",
+   "line": "l1",
+   "dur": 2.2
+  },
+  {
+   "t": 0.2,
+   "do": "pose",
+   "who": "eng",
+   "pose": "present",
+   "dur": 1.8
+  },
+  {
+   "t": 2.7,
+   "do": "view",
+   "id": "fence"
+  },
+  {
+   "t": 2.8,
+   "do": "emote",
+   "who": "bld",
+   "emotion": "worried",
+   "dur": 1.6
+  },
+  {
+   "t": 2.9,
+   "do": "say",
+   "who": "bld",
+   "line": "l2",
+   "dur": 1.8
+  },
+  {
+   "t": 4.9,
+   "do": "portrait",
+   "on": "eng",
+   "dur": 1.9,
+   "zoom": 2.6,
+   "bg": "blur"
+  },
+  {
+   "t": 4.9,
+   "do": "emote",
+   "who": "eng",
+   "emotion": "furious",
+   "dur": 1.9
+  },
+  {
+   "t": 5.0,
+   "do": "say",
+   "who": "eng",
+   "line": "l3",
+   "dur": 1.6
+  },
+  {
+   "t": 5.1,
+   "do": "callout",
+   "on": "eng",
+   "key": "c_what",
+   "dur": 1.5,
+   "style": "slam",
+   "side": "right"
+  },
+  {
+   "t": 7.1,
+   "do": "view",
+   "id": "scaffold",
+   "transition": "wipe",
+   "dur": 0.5
+  },
+  {
+   "t": 7.3,
+   "do": "pose",
+   "who": "bld",
+   "pose": "shrug",
+   "dur": 1.6
+  },
+  {
+   "t": 7.4,
+   "do": "say",
+   "who": "bld",
+   "line": "l4",
+   "dur": 1.8
+  },
+  {
+   "t": 9.4,
+   "do": "portrait",
+   "on": "bld",
+   "dur": 1.6,
+   "zoom": 2.6,
+   "bg": [
+    "#ffd89a",
+    "#e8863a"
+   ]
+  },
+  {
+   "t": 9.4,
+   "do": "emote",
+   "who": "bld",
+   "emotion": "smug",
+   "dur": 1.6
+  },
+  {
+   "t": 9.5,
+   "do": "say",
+   "who": "bld",
+   "line": "l5",
+   "dur": 1.4
+  },
+  {
+   "t": 11.2,
+   "do": "view",
+   "id": "cabin",
+   "transition": "fade",
+   "dur": 0.6
+  },
+  {
+   "t": 11.5,
+   "do": "emote",
+   "who": "eng",
+   "emotion": "tired",
+   "dur": 1.4
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "lang": "en",
+ "cps": 15,
+ "lines": {
+  "l1": "The fence is exactly as drawn.",
+  "l2": "But the gate is now inside.",
+  "l3": "Inside how?!",
+  "l4": "We built it as drawn.",
+  "l5": "The drawing was mirrored.",
+  "c_what": "INSIDE?!"
+ }
+}

@@ -105,6 +105,16 @@ function resolveCharDef(type, inst, types, err, id) {
   return base;
 }
 const CALLOUT_STYLES = ['pop', 'shake', 'slam'];
+const DEFAULT_VIEW = 'main';
+// имена ракурсов локации: из L.views и из меток v у слоёв
+function viewNamesOf(L) {
+  const set = new Set([DEFAULT_VIEW]);
+  if (L && L.views && typeof L.views === 'object') for (const k in L.views) set.add(k);
+  if (L && Array.isArray(L.layers)) for (const ly of L.layers) if (ly && ly.v != null) for (const v of [].concat(ly.v)) set.add(String(v));
+  return set;
+}
+function layerInView(ly, view) { return ly.v == null || [].concat(ly.v).map(String).includes(view); }
+const PORTRAIT_BG = ['blur', 'dark'];
 
 const HIP_Y = -160, LEG = 88, UARM = 92, FARM = 88, SHOULDER_Y = -172;
 
@@ -488,7 +498,14 @@ class Engine {
     for (const k in locs) {
       const L = locs[k];
       if (!L || !Array.isArray(L.layers)) { err(`Локация "${k}": нужен массив layers`); continue; }
-      L.layers.forEach((ly, i) => validateShapes(ly.shapes, `Локация "${k}" → layers[${i}]`, err));
+      L.layers.forEach((ly, i) => {
+        validateShapes(ly.shapes, `Локация "${k}" → layers[${i}]`, err);
+        if (ly.v != null && !(typeof ly.v === 'string' || (Array.isArray(ly.v) && ly.v.every(x => typeof x === 'string')))) err(`Локация "${k}" → layers[${i}]: v — строка или массив строк (имена ракурсов)`);
+      });
+      if (L.views != null) {
+        if (typeof L.views !== 'object' || Array.isArray(L.views)) err(`Локация "${k}": views — объект {имя: {title, cam}}`);
+        else for (const vn in L.views) { const c = L.views[vn] && L.views[vn].cam; if (c && !(isNum(c.x) || isNum(c.y) || isNum(c.zoom))) err(`Локация "${k}" → views.${vn}.cam: нужны x, y и/или zoom`); }
+      }
     }
     for (const k in propDefs) {
       const p = propDefs[k];
@@ -505,7 +522,7 @@ class Engine {
 
     const start = scene.start || {};
     const C = {
-      locs, propDefs, chars: {}, props: {}, camSegs: [], shakes: [], fx: [], titles: [], callouts: [], locEv: [], says: [], markers: [],
+      locs, propDefs, chars: {}, props: {}, camSegs: [], shakes: [], fx: [], titles: [], callouts: [], viewEv: [], portraits: [], locEv: [], says: [], markers: [],
       cam0: Object.assign({ x: 540, y: 960, zoom: 1, rot: 0 }, start.camera || {}), beatsFlat: []
     };
     const defaultStart = { eng: { x: 300, face: 'right' }, bld: { x: 780, face: 'left' } };
@@ -525,6 +542,7 @@ class Engine {
     if (!locStart) err('Сцена: не указана стартовая локация (start.location)');
     else if (!locs[locStart]) err(`Стартовая локация "${locStart}" не найдена (ни в library.json, ни в defs.locations)`);
     C.locEv.push({ t: 0, id: locStart, transition: 'cut', dur: 0 });
+    C.viewEv.push({ t: 0, view: start.view || null, transition: 'cut', dur: 0, cam: false });
 
     const sorted = beats.map((b, i) => ({ b, i })).filter(o => o.b && typeof o.b === 'object')
       .sort((a, c) => (a.b.t - c.b.t) || (a.i - c.i));
@@ -647,6 +665,23 @@ class Engine {
         case 'location': {
           if (!locs[b.id]) { err(`${tag}: локация "${b.id}" не найдена`); break; }
           C.locEv.push({ t, id: b.id, transition: b.transition || 'fade', dur: isNum(b.dur) ? b.dur : 0.5 });
+          C.viewEv.push({ t, view: b.view || null, transition: 'cut', dur: 0, cam: true, tag });
+          break;
+        }
+        case 'view': {
+          // смена ракурса текущей локации (другой «кадр» того же места)
+          if (typeof b.id !== 'string') { err(`${tag}: нужен id ракурса`); break; }
+          if (b.transition != null && !['cut', 'fade', 'flash', 'wipe'].includes(b.transition)) { err(`${tag}: transition = cut | fade | flash | wipe`); break; }
+          C.viewEv.push({ t, view: b.id, transition: b.transition || 'cut', dur: isNum(b.dur) ? b.dur : 0.4, cam: b.keepCam ? false : true, tag });
+          break;
+        }
+        case 'portrait': {
+          // портретная камера: резкая смена кадра на крупное лицо героя
+          const id = who(b, i, 'on'); if (!id) break;
+          if (!needDur()) break;
+          const bgOk = b.bg == null || PORTRAIT_BG.includes(b.bg) || typeof b.bg === 'string' && /^(#|rgb|hsl)/i.test(b.bg) || (Array.isArray(b.bg) && b.bg.length >= 2);
+          if (!bgOk) { err(`${tag}: bg = blur | dark | цвет "#rrggbb" | массив цветов (градиент)`); break; }
+          C.portraits.push({ t0: t, t1: t + b.dur, on: id, zoom: isNum(b.zoom) ? clamp(b.zoom, 1.6, 4) : 2.5, solo: b.solo !== false, bg: b.bg == null ? 'blur' : b.bg, punch: b.punch !== false, dy: isNum(b.dy) ? b.dy : 0, tag });
           break;
         }
         case 'camera': {
@@ -700,6 +735,16 @@ class Engine {
       let cum = 0; for (const s of ch.segs) { s.d0 = cum; if (s.moving) cum += Math.abs(s.x1 - s.x0); }
     }
     C.locEv.sort((a, c) => a.t - c.t);
+    C.viewEv.sort((a, c) => a.t - c.t);
+    for (const e of C.viewEv) {
+      const L = locs[lastBefore(C.locEv, e.t).id]; if (!L) continue;
+      const names = viewNamesOf(L);
+      if (e.view && !names.has(e.view)) { err(`${e.tag || 'start'}: у локации "${lastBefore(C.locEv, e.t).id}" нет ракурса "${e.view}" (есть: ${[...names].join(', ')})`); e.view = null; }
+      const vc = L.views && L.views[e.view || DEFAULT_VIEW] && L.views[e.view || DEFAULT_VIEW].cam;
+      if (e.cam && vc) C.camSegs.push({ t0: e.t, t1: e.t, ease: 'snap', reset: false, on: null, focus: 'body', follow: false, zoom: vc.zoom, x: vc.x, y: vc.y, dx: 0, dy: 0, rot: 0 });
+    }
+    C.portraits.sort((a, c) => a.t0 - c.t0);
+    for (let k = 1; k < C.portraits.length; k++) if (C.portraits[k].t0 < C.portraits[k - 1].t1) warn('Портретные кадры пересекаются по времени');
     C.camSegs.sort((a, c) => a.t0 - c.t0);
     for (const k in C.props) C.props[k].ev.sort((a, c) => a.t - c.t);
     C.says.sort((a, c) => a.t0 - c.t0);
@@ -731,6 +776,8 @@ class Engine {
     });
     for (const k of new Set([...C.titles.map(x => x.key), ...C.callouts.map(x => x.key)])) if (this.texts.lines[k] == null) warn(`Нет текста для титра/акцента "${k}" в языке "${this.texts.lang || '?'}"`);
     rep.info.callouts = C.callouts;
+    rep.info.portraits = C.portraits;
+    rep.info.views = C.viewEv.filter(e => e.t > 0).map(e => ({ t: e.t, view: e.view || DEFAULT_VIEW, transition: e.transition, dur: e.dur }));
     rep.info.duration = C.dur;
     rep.info.markers = C.markers;
     rep.info.beats = C.beatsFlat;
@@ -968,7 +1015,9 @@ class Engine {
     ctx.setTransform(q, 0, 0, q, 0, 0);
     ctx.clearRect(0, 0, W, H);
     ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
-    const cam = this.camAt(t);
+    let cam = this.camAt(t);
+    const por = C.portraits.find(p => t >= p.t0 && t < p.t1) || null;
+    if (por) cam = this._portraitCam(por, t);
     let sx = 0, sy = 0;
     for (const s of C.shakes) if (t >= s.t0 && t < s.t1) {
       const k = 1 - (t - s.t0) / (s.t1 - s.t0);
@@ -976,6 +1025,7 @@ class Engine {
     }
     const locEv = lastBefore(C.locEv, t);
     const loc = C.locs[locEv.id];
+    const view = (lastBefore(C.viewEv, t) || {}).view || DEFAULT_VIEW;
     const T = k => this.T(k);
 
     const withCam = (p, fn) => {
@@ -987,14 +1037,15 @@ class Engine {
       fn(); ctx.restore();
     };
 
-    if (loc) for (const ly of loc.layers) if (ly.z !== 'front') withCam(ly.p == null ? 1 : ly.p, () => drawShapes(ctx, ly.shapes, t, T));
+    if (por) this._portraitBg(ctx, por, t, loc, view, withCam, T);
+    else if (loc) for (const ly of loc.layers) if (ly.z !== 'front' && layerInView(ly, view)) withCam(ly.p == null ? 1 : ly.p, () => drawShapes(ctx, ly.shapes, t, T));
 
     withCam(1, () => {
       // предметы сзади
       const props = Object.values(C.props);
       for (const P of props) {
         const s = this.propState(P, t);
-        if (s.layer !== 'back') continue;
+        if (s.layer !== 'back' || por) continue;
         if (!s.vis || s.held || !s.pos) continue;
         ctx.save(); ctx.translate(s.pos.x, s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx, P, t, s.scale); ctx.restore();
       }
@@ -1002,17 +1053,18 @@ class Engine {
       const ids = Object.keys(C.chars).sort((a, b) => this._posAt(C.chars[a], t) - this._posAt(C.chars[b], t));
       for (const id of ids) {
         const st = this.charState(id, t);
+        if (por && por.solo && id !== por.on) continue;
         if (st.vis) this._drawChar(ctx, st, t);
       }
       for (const P of props) {
         const s = this.propState(P, t);
-        if (s.layer !== 'front') continue;
+        if (s.layer !== 'front' || por) continue;
         if (!s.vis || s.held || !s.pos) continue;
         ctx.save(); ctx.translate(s.pos.x, s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx, P, t, s.scale); ctx.restore();
       }
     });
 
-    if (loc) for (const ly of loc.layers) if (ly.z === 'front') withCam(ly.p == null ? 1 : ly.p, () => drawShapes(ctx, ly.shapes, t, T));
+    if (loc && !por) for (const ly of loc.layers) if (ly.z === 'front' && layerInView(ly, view)) withCam(ly.p == null ? 1 : ly.p, () => drawShapes(ctx, ly.shapes, t, T));
 
     // эффекты
     withCam(1, () => {
@@ -1033,8 +1085,10 @@ class Engine {
       withCam(1, () => { for (const c of C.callouts) if (t >= c.t0 && t < c.t1) this._drawCallout(ctx, c, t, cam); });
     }
 
-    // переход между локациями
-    for (const e of C.locEv) {
+    if (por) this._portraitFx(ctx, por, t);
+
+    // переход между локациями и ракурсами
+    for (const e of [...C.locEv, ...C.viewEv]) {
       if (e.t === 0 || e.transition === 'cut' || !e.dur) continue;
       const half = e.dur / 2, d = t - e.t;
       if (Math.abs(d) >= half) continue;
@@ -1059,6 +1113,51 @@ class Engine {
       if (t >= s.t0 && t < s.t1) { this._drawSub(ctx, this.T(s.line)); break; }
     }
     if (this.flags.safe) this._drawSafe(ctx);
+  }
+
+  // камера портретного кадра: лицо героя крупно, чуть выше центра (внизу место для субтитров)
+  _portraitCam(p, t) {
+    const lt = t - p.t0;
+    const seg = { on: p.on, focus: 'face', zoom: p.zoom, dx: 0, dy: 0 };
+    const to = this._camTarget(seg, { x: 540, y: 960, zoom: p.zoom, rot: 0 }, t);
+    let zoom = p.zoom;
+    if (p.punch) zoom *= 1 + 0.14 * Math.exp(-lt * 16) * Math.cos(lt * 22);   // «щелчок» при смене кадра
+    to.y += 120 / p.zoom + p.dy;
+    const hw = W / 2 / zoom, hh = H / 2 / zoom;
+    return { x: clamp(to.x, hw, W - hw), y: clamp(to.y, hh, H - hh), zoom, rot: 0 };
+  }
+  _portraitBg(ctx, p, t, loc, view, withCam, T) {
+    const bg = p.bg;
+    if (bg === 'blur' || bg === 'dark') {
+      if (loc) {
+        const blur = bg === 'blur' && this._canBlur();
+        if (blur) ctx.filter = 'blur(16px)';
+        for (const ly of loc.layers) if (ly.z !== 'front' && layerInView(ly, view)) withCam(ly.p == null ? 1 : ly.p, () => drawShapes(ctx, ly.shapes, t, T));
+        if (blur) ctx.filter = 'none';
+      }
+      ctx.fillStyle = bg === 'dark' ? 'rgba(18,14,28,.62)' : 'rgba(18,14,28,.28)'; ctx.fillRect(0, 0, W, H);
+    } else {
+      const g = ctx.createLinearGradient(0, 0, 0, H);
+      const cols = Array.isArray(bg) ? bg : [bg, bg];
+      cols.forEach((c, i) => g.addColorStop(i / (cols.length - 1), c));
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    }
+    // мягкое пятно света за головой
+    const sp = ctx.createRadialGradient(W / 2, 800, 60, W / 2, 800, 620);
+    sp.addColorStop(0, 'rgba(255,255,255,.20)'); sp.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = sp; ctx.fillRect(0, 0, W, H);
+  }
+  _portraitFx(ctx, p, t) {
+    // виньетка и короткая вспышка при смене кадра
+    const v = ctx.createRadialGradient(W / 2, H / 2, 380, W / 2, H / 2, 1150);
+    v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,.5)');
+    ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
+    const lt = t - p.t0;
+    if (p.punch && lt < 0.12) { ctx.fillStyle = `rgba(255,255,255,${0.45 * (1 - lt / 0.12)})`; ctx.fillRect(0, 0, W, H); }
+  }
+  _canBlur() {
+    if (this._blurOk == null) { try { this._blurOk = 'filter' in this.ctx && !/^((?!chrome|android).)*safari/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : ''); } catch (e) { this._blurOk = false; } }
+    return this._blurOk;
   }
 
   _fxPoint(f, t) {
@@ -1119,10 +1218,11 @@ class Engine {
     if (!st.vis) return;
     const lt = t - c.t0, d = c.t1 - c.t0, z = cam.zoom;
     const text = this.T(c.key);
+    const csz = c.size * Math.min(1, 1.3 / z);   // на крупных планах не раздуваем надпись
     ctx.save();
-    ctx.font = `900 ${c.size}px "Arial Black", Impact, Arial, sans-serif`;
+    ctx.font = `900 ${csz}px "Arial Black", Impact, Arial, sans-serif`;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    const lines = this._wrap(ctx, text, 540), lh = c.size * 1.08;
+    const lines = this._wrap(ctx, text, 540), lh = csz * 1.08;
     let w = 0; for (const l of lines) w = Math.max(w, ctx.measureText(l).width);
     const h = lines.length * lh;
     // надпись рядом с головой, со стороны центра кадра; в видимой области и вне зон интерфейса TikTok
@@ -1145,7 +1245,7 @@ class Engine {
     ctx.lineJoin = 'round';
     lines.forEach((ln, i) => {
       const yy = (i - (lines.length - 1) / 2) * lh;
-      ctx.lineWidth = c.size * 0.3; ctx.strokeStyle = OUT; ctx.strokeText(ln, 0, yy);
+      ctx.lineWidth = csz * 0.3; ctx.strokeStyle = OUT; ctx.strokeText(ln, 0, yy);
       ctx.fillStyle = c.color; ctx.fillText(ln, 0, yy);
     });
     ctx.restore();
@@ -1371,7 +1471,7 @@ class Engine {
   }
 }
 
-const api = { Engine, W, H, GROUND, POSE_NAMES, EMO_NAMES, FX_KINDS, EASE_NAMES, SHAPE_TYPES, CHAR_IDS, LOOK_KEYS, CALLOUT_STYLES };
+const api = { Engine, W, H, GROUND, POSE_NAMES, EMO_NAMES, FX_KINDS, EASE_NAMES, SHAPE_TYPES, CHAR_IDS, LOOK_KEYS, CALLOUT_STYLES, DEFAULT_VIEW };
 if (typeof module !== 'undefined' && module.exports) module.exports = api;
 else root.Mult = api;
 })(typeof window !== 'undefined' ? window : globalThis);
