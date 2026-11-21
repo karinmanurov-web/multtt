@@ -1324,7 +1324,7 @@ class Engine {
     // сверление со спины: инструмент направлен от камеры. Руки сведены у груди за торсом, предмет не виден, тело мелко дрожит
     if (back && st.pname === 'drill') {
       const j = Math.sin(t * 72) * 1.6, sxn = this._bodyGeo(st).sxn;
-      st = Object.assign({}, st, { L: [-sxn + 6 + j, 70 + j], R: [-sxn + 6 - j, 64], hideHeld: true, by: (st.by || 0) + Math.sin(t * 61) * 1.4 });
+      st = Object.assign({}, st, { L: [-sxn + 6 + j, 70 + j], R: [-sxn + 6 - j, 64], by: (st.by || 0) + Math.sin(t * 61) * 1.4 });
     }
     const C = this.C;
     ctx.save();
@@ -1358,7 +1358,10 @@ class Engine {
     if (back) for (const hand of ['L', 'R']) {
       const side = hand === 'L' ? -1 : 1, tgt = hand === 'L' ? st.L : st.R, sx = side * g.sxn;
       const r = ik(sx, SHOULDER_Y, sx + side * tgt[0], SHOULDER_Y + tgt[1], UARM, FARM, side, 0.8, 0.6);
-      hid[hand] = Math.abs(r.hx) < tw / 2 - 6 && r.hy > -190 && r.hy < 40;
+      const held = lastBefore((C.chars[st.id].holds || []).filter(h => h.hand === hand), t);
+      // Со спины предмет в руке и сама рука находятся на дальней стороне торса.
+      // Рисуем их до торса, чтобы корпус естественно перекрывал предмет.
+      hid[hand] = !!(held && held.id) || (Math.abs(r.hx) < tw / 2 - 6 && r.hy > -190 && r.hy < 40);
     }
     for (const hand of ['L', 'R']) if (hid[hand]) this._arm(ctx, st, g, hand, t);
     this._torso(ctx, def.kind, def, tw, back);
