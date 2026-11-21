@@ -52,7 +52,7 @@
       "t": 0.1,
       "do": "angle",
       "who": "both",
-      "angle": "back",
+      "angle": "side",
       "dur": 0.2
     },
     {
@@ -112,13 +112,6 @@
       "style": "shake"
     },
     {
-      "t": 5.7,
-      "do": "angle",
-      "who": "both",
-      "angle": "side",
-      "dur": 0.2
-    },
-    {
       "t": 5.9,
       "do": "portrait",
       "on": "bld",
@@ -146,13 +139,6 @@
       "do": "view",
       "id": "main",
       "transition": "cut"
-    },
-    {
-      "t": 8.9,
-      "do": "angle",
-      "who": "both",
-      "angle": "side",
-      "dur": 0.2
     },
     {
       "t": 9,
