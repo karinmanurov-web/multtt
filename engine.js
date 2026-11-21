@@ -1125,7 +1125,7 @@ class Engine {
       }
     });
 
-    if (loc && !por) for (const ly of loc.layers) if (ly.z === 'front' && layerInView(ly, view)) withCam(ly.p == null ? 1 : ly.p, () => drawShapes(ctx, ly.shapes, t, T));
+    if (loc) for (const ly of loc.layers) if (ly.z === 'front' && layerInView(ly, view)) withCam(ly.p == null ? 1 : ly.p, () => drawShapes(ctx, ly.shapes, t, T));
 
     // эффекты
     withCam(1, () => {
