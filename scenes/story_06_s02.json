@@ -259,13 +259,6 @@
       "hand": "R"
     },
     {
-      "t": 2.6,
-      "do": "fx",
-      "kind": "stars",
-      "who": "bld",
-      "dur": 1.0
-    },
-    {
       "t": 2.8,
       "do": "say",
       "who": "narr",
