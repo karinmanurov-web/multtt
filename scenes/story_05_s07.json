@@ -1,6 +1,6 @@
 {
   "id": "story_05_s07",
-  "duration": 12.0,
+  "duration": 12,
   "start": {
     "location": "field",
     "view": "main",
@@ -72,14 +72,14 @@
       "x": -600,
       "y": 1420,
       "layer": "front",
-      "scale": 1.0
+      "scale": 1
     },
     {
       "t": 0.7,
       "do": "move",
       "id": "v1",
       "x": 1700,
-      "dur": 3.0,
+      "dur": 3,
       "ease": "linear"
     },
     {
@@ -89,7 +89,7 @@
       "prop": "car_yellow",
       "x": -600,
       "y": 1290,
-      "layer": "back",
+      "layer": "front",
       "scale": 0.9
     },
     {
@@ -106,17 +106,17 @@
       "id": "v1"
     },
     {
-      "t": 4.0,
+      "t": 4,
       "do": "spawn",
       "id": "v3",
       "prop": "car_green_l",
       "x": 1700,
       "y": 1420,
       "layer": "front",
-      "scale": 1.0
+      "scale": 1
     },
     {
-      "t": 4.0,
+      "t": 4,
       "do": "move",
       "id": "v3",
       "x": -600,
@@ -138,7 +138,7 @@
       "x": -600,
       "y": 1420,
       "layer": "front",
-      "scale": 1.0
+      "scale": 1
     },
     {
       "t": 5.2,
@@ -155,7 +155,7 @@
       "prop": "car_white_l",
       "x": 1700,
       "y": 1290,
-      "layer": "back",
+      "layer": "front",
       "scale": 0.9
     },
     {
@@ -179,7 +179,7 @@
       "dur": 3
     },
     {
-      "t": 7.0,
+      "t": 7,
       "do": "spawn",
       "id": "ph1",
       "prop": "pothole",
@@ -188,7 +188,7 @@
       "layer": "back"
     },
     {
-      "t": 7.0,
+      "t": 7,
       "do": "spawn",
       "id": "ph2",
       "prop": "pothole",
@@ -204,7 +204,7 @@
       "x": -600,
       "y": 1420,
       "layer": "front",
-      "scale": 1.0
+      "scale": 1
     },
     {
       "t": 7.2,
@@ -232,17 +232,17 @@
       "dur": 3.1
     },
     {
-      "t": 8.0,
+      "t": 8,
       "do": "spawn",
       "id": "v7",
       "prop": "car_yellow_l",
       "x": 1800,
       "y": 1290,
-      "layer": "back",
+      "layer": "front",
       "scale": 0.9
     },
     {
-      "t": 8.0,
+      "t": 8,
       "do": "move",
       "id": "v7",
       "x": 860,
@@ -255,7 +255,7 @@
       "kind": "dust",
       "x": 700,
       "y": 1300,
-      "dur": 1.0
+      "dur": 1
     },
     {
       "t": 8.65,
@@ -285,7 +285,7 @@
       "kind": "dust",
       "x": 300,
       "y": 1440,
-      "dur": 1.0
+      "dur": 1
     },
     {
       "t": 8.950000000000001,
