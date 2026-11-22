@@ -333,6 +333,46 @@
       "langs": {
         "ru": "lang/story_06.ru.json"
       }
+    },
+    {
+      "id": "story_07_s01",
+      "title": "Сюжет №7 · Забор · s01 · Ведро",
+      "file": "scenes/story_07_s01.json",
+      "langs": {
+        "ru": "lang/story_07.ru.json"
+      }
+    },
+    {
+      "id": "story_07_s02",
+      "title": "Сюжет №7 · Забор · s02 · Краска кончилась",
+      "file": "scenes/story_07_s02.json",
+      "langs": {
+        "ru": "lang/story_07.ru.json"
+      }
+    },
+    {
+      "id": "story_07_s03",
+      "title": "Сюжет №7 · Забор · s03 · Облупилось",
+      "file": "scenes/story_07_s03.json",
+      "langs": {
+        "ru": "lang/story_07.ru.json"
+      }
+    },
+    {
+      "id": "story_07_s04",
+      "title": "Сюжет №7 · Забор · s04 · Заново",
+      "file": "scenes/story_07_s04.json",
+      "langs": {
+        "ru": "lang/story_07.ru.json"
+      }
+    },
+    {
+      "id": "story_07_s05",
+      "title": "Сюжет №7 · Забор · s05 · Взгляд",
+      "file": "scenes/story_07_s05.json",
+      "langs": {
+        "ru": "lang/story_07.ru.json"
+      }
     }
   ]
 }

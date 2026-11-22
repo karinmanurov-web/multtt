@@ -178,6 +178,7 @@ const POSES = {
   drive_sink: (lt, t) => P({ L: [74, 104], R: [74, 104], sq: .86, air: 22, lean: 4 + Math.sin(t * 20) * 2, head: 3, by: Math.sin(t * 26) * 2 }),
   rake: (lt, t) => P({ L: [86 + Math.sin(t * 3.2) * 20, 134], R: [92 + Math.sin(t * 3.2) * 20, 118], lean: 12 + Math.sin(t * 3.2) * 3, by: 2 }),
   saw: (lt, t) => P({ R: [100 + Math.sin(t * 10.5) * 16, 150], L: [40, 130], lean: 24, head: 6, sq: .86 }),
+  paint: (lt, t) => P({ R: [118, 20 + Math.sin(t * 6.5) * 55], L: [40, 125], lean: 8, head: -4, by: 1 }),
   crouch_idle: (lt, t) => P({ sq: .8, lean: 14, head: -6, L: [20, 120], R: [20, 120], by: Math.sin(t * 2) * 1 }),
   crouch_walk: (lt, t) => P({ sq: .8, lean: 15, head: -8, L: [24 + Math.sin(t * 7) * 10, 118], R: [24 - Math.sin(t * 7) * 10, 118], by: Math.abs(Math.sin(t * 7)) * 2 }),
   ouch: (lt, t) => P({ sq: .92, lean: 6, head: 14, L: [10, -160], R: [40, 110], by: 4 }),

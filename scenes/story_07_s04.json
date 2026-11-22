@@ -1,0 +1,589 @@
+{
+  "id": "story_07_s04",
+  "duration": 7.6,
+  "start": {
+    "location": "yard",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 130,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r0",
+      "prop": "pk_raw",
+      "x": 320,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r1",
+      "prop": "pk_raw",
+      "x": 382,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r2",
+      "prop": "pk_raw",
+      "x": 444,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r3",
+      "prop": "pk_raw",
+      "x": 506,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r4",
+      "prop": "pk_raw",
+      "x": 568,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r5",
+      "prop": "pk_raw",
+      "x": 630,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r6",
+      "prop": "pk_raw",
+      "x": 692,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r7",
+      "prop": "pk_raw",
+      "x": 754,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r8",
+      "prop": "pk_raw",
+      "x": 816,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r9",
+      "prop": "pk_raw",
+      "x": 878,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r10",
+      "prop": "pk_raw",
+      "x": 940,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r11",
+      "prop": "pk_raw",
+      "x": 1002,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "p0",
+      "prop": "pk_g1p",
+      "x": 320,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "p1",
+      "prop": "pk_g1p",
+      "x": 382,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "p2",
+      "prop": "pk_g1p",
+      "x": 444,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "p3",
+      "prop": "pk_g1p",
+      "x": 506,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "a4",
+      "prop": "pk_g1",
+      "x": 568,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "a5",
+      "prop": "pk_g1",
+      "x": 630,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "a6",
+      "prop": "pk_g1",
+      "x": 692,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c7",
+      "prop": "pk_g2",
+      "x": 754,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c8",
+      "prop": "pk_g2",
+      "x": 816,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c9",
+      "prop": "pk_g2",
+      "x": 878,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c10",
+      "prop": "pk_g2",
+      "x": 940,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c11",
+      "prop": "pk_g2",
+      "x": 1002,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "br",
+      "prop": "brush_g2",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "cn",
+      "prop": "can_g2",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.0
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.2
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "br",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "cn",
+      "who": "bld",
+      "hand": "L"
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n06",
+      "dur": 2.4
+    },
+    {
+      "t": 1.15,
+      "do": "walk",
+      "who": "bld",
+      "x": 130,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 1.2,
+      "do": "pose",
+      "who": "bld",
+      "pose": "paint",
+      "dur": 5.0
+    },
+    {
+      "t": 1.2,
+      "do": "marker",
+      "name": "кисть, мазки заново"
+    },
+    {
+      "t": 1.2,
+      "do": "remove",
+      "id": "p0"
+    },
+    {
+      "t": 1.2,
+      "do": "spawn",
+      "id": "n0",
+      "prop": "pk_g2",
+      "x": 320,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.2199999999999998,
+      "do": "walk",
+      "who": "bld",
+      "x": 192,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 1.6199999999999999,
+      "do": "remove",
+      "id": "p1"
+    },
+    {
+      "t": 1.6199999999999999,
+      "do": "spawn",
+      "id": "n1",
+      "prop": "pk_g2",
+      "x": 382,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.6400000000000001,
+      "do": "walk",
+      "who": "bld",
+      "x": 254,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 2.04,
+      "do": "remove",
+      "id": "p2"
+    },
+    {
+      "t": 2.04,
+      "do": "spawn",
+      "id": "n2",
+      "prop": "pk_g2",
+      "x": 444,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 2.06,
+      "do": "walk",
+      "who": "bld",
+      "x": 316,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 2.46,
+      "do": "remove",
+      "id": "p3"
+    },
+    {
+      "t": 2.46,
+      "do": "spawn",
+      "id": "n3",
+      "prop": "pk_g2",
+      "x": 506,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 2.48,
+      "do": "walk",
+      "who": "bld",
+      "x": 378,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 2.88,
+      "do": "remove",
+      "id": "a4"
+    },
+    {
+      "t": 2.88,
+      "do": "spawn",
+      "id": "n4",
+      "prop": "pk_g2",
+      "x": 568,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 2.9,
+      "do": "walk",
+      "who": "bld",
+      "x": 440,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 3.3,
+      "do": "remove",
+      "id": "a5"
+    },
+    {
+      "t": 3.3,
+      "do": "spawn",
+      "id": "n5",
+      "prop": "pk_g2",
+      "x": 630,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 3.32,
+      "do": "walk",
+      "who": "bld",
+      "x": 502,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 3.7199999999999998,
+      "do": "remove",
+      "id": "a6"
+    },
+    {
+      "t": 3.7199999999999998,
+      "do": "spawn",
+      "id": "n6",
+      "prop": "pk_g2",
+      "x": 692,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 3.7399999999999998,
+      "do": "walk",
+      "who": "bld",
+      "x": 564,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 4.14,
+      "do": "remove",
+      "id": "c7"
+    },
+    {
+      "t": 4.14,
+      "do": "spawn",
+      "id": "n7",
+      "prop": "pk_g2",
+      "x": 754,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 4.159999999999999,
+      "do": "walk",
+      "who": "bld",
+      "x": 626,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 4.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n07",
+      "dur": 2.0
+    },
+    {
+      "t": 4.56,
+      "do": "remove",
+      "id": "c8"
+    },
+    {
+      "t": 4.56,
+      "do": "spawn",
+      "id": "n8",
+      "prop": "pk_g2",
+      "x": 816,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 4.579999999999999,
+      "do": "walk",
+      "who": "bld",
+      "x": 688,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 4.9799999999999995,
+      "do": "remove",
+      "id": "c9"
+    },
+    {
+      "t": 4.9799999999999995,
+      "do": "spawn",
+      "id": "n9",
+      "prop": "pk_g2",
+      "x": 878,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 5.0,
+      "do": "walk",
+      "who": "bld",
+      "x": 750,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 5.4,
+      "do": "remove",
+      "id": "c10"
+    },
+    {
+      "t": 5.4,
+      "do": "spawn",
+      "id": "n10",
+      "prop": "pk_g2",
+      "x": 940,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 5.42,
+      "do": "walk",
+      "who": "bld",
+      "x": 812,
+      "dur": 0.38,
+      "ease": "linear"
+    },
+    {
+      "t": 5.82,
+      "do": "remove",
+      "id": "c11"
+    },
+    {
+      "t": 5.82,
+      "do": "spawn",
+      "id": "n11",
+      "prop": "pk_g2",
+      "x": 1002,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 6.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.0
+    },
+    {
+      "t": 6.3,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "tired",
+      "dur": 1.3
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "id": "story_07_s01",
+  "duration": 7.0,
+  "start": {
+    "location": "yard",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 100,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r0",
+      "prop": "pk_raw",
+      "x": 320,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r1",
+      "prop": "pk_raw",
+      "x": 382,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r2",
+      "prop": "pk_raw",
+      "x": 444,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r3",
+      "prop": "pk_raw",
+      "x": 506,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r4",
+      "prop": "pk_raw",
+      "x": 568,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r5",
+      "prop": "pk_raw",
+      "x": 630,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r6",
+      "prop": "pk_raw",
+      "x": 692,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r7",
+      "prop": "pk_raw",
+      "x": 754,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r8",
+      "prop": "pk_raw",
+      "x": 816,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r9",
+      "prop": "pk_raw",
+      "x": 878,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r10",
+      "prop": "pk_raw",
+      "x": 940,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r11",
+      "prop": "pk_raw",
+      "x": 1002,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "br",
+      "prop": "brush_g1",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "cn",
+      "prop": "can_g1",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "paint",
+      "dur": 7.0
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.2
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "br",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "cn",
+      "who": "bld",
+      "hand": "L"
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n01",
+      "dur": 2.4
+    },
+    {
+      "t": 0.95,
+      "do": "walk",
+      "who": "bld",
+      "x": 130,
+      "dur": 0.405,
+      "ease": "linear"
+    },
+    {
+      "t": 1.0,
+      "do": "spawn",
+      "id": "a0",
+      "prop": "pk_g1",
+      "x": 320,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.0,
+      "do": "marker",
+      "name": "мазки кистью, тихая музыка"
+    },
+    {
+      "t": 1.02,
+      "do": "walk",
+      "who": "bld",
+      "x": 192,
+      "dur": 0.405,
+      "ease": "linear"
+    },
+    {
+      "t": 1.45,
+      "do": "spawn",
+      "id": "a1",
+      "prop": "pk_g1",
+      "x": 382,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.47,
+      "do": "walk",
+      "who": "bld",
+      "x": 254,
+      "dur": 0.405,
+      "ease": "linear"
+    },
+    {
+      "t": 1.9,
+      "do": "spawn",
+      "id": "a2",
+      "prop": "pk_g1",
+      "x": 444,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.9200000000000002,
+      "do": "walk",
+      "who": "bld",
+      "x": 316,
+      "dur": 0.405,
+      "ease": "linear"
+    },
+    {
+      "t": 2.35,
+      "do": "spawn",
+      "id": "a3",
+      "prop": "pk_g1",
+      "x": 506,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 2.3699999999999997,
+      "do": "walk",
+      "who": "bld",
+      "x": 378,
+      "dur": 0.405,
+      "ease": "linear"
+    },
+    {
+      "t": 2.8,
+      "do": "spawn",
+      "id": "a4",
+      "prop": "pk_g1",
+      "x": 568,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 2.82,
+      "do": "walk",
+      "who": "bld",
+      "x": 440,
+      "dur": 0.405,
+      "ease": "linear"
+    },
+    {
+      "t": 3.25,
+      "do": "spawn",
+      "id": "a5",
+      "prop": "pk_g1",
+      "x": 630,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 3.27,
+      "do": "walk",
+      "who": "bld",
+      "x": 502,
+      "dur": 0.405,
+      "ease": "linear"
+    },
+    {
+      "t": 3.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n02",
+      "dur": 2.3
+    },
+    {
+      "t": 3.7,
+      "do": "spawn",
+      "id": "a6",
+      "prop": "pk_g1",
+      "x": 692,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 4.5,
+      "do": "pose",
+      "who": "bld",
+      "pose": "shrug",
+      "dur": 2.4
+    },
+    {
+      "t": 4.5,
+      "do": "release",
+      "id": "br",
+      "drop": false
+    },
+    {
+      "t": 4.5,
+      "do": "remove",
+      "id": "br"
+    },
+    {
+      "t": 4.5,
+      "do": "spawn",
+      "id": "br2",
+      "prop": "brush_dry",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 4.55,
+      "do": "hold",
+      "id": "br2",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 4.6,
+      "do": "marker",
+      "name": "кисть скребёт по пустой банке"
+    },
+    {
+      "t": 4.7,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "worried",
+      "dur": 2.2
+    }
+  ]
+}
