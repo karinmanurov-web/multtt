@@ -175,6 +175,7 @@ const POSES = {
   drive: (lt, t) => P({ L: [74, 104], R: [74, 104], sq: .86, air: -30, by: Math.sin(t * 2.2) * 1, head: 0 }),
   drive_rev: (lt, t) => P({ L: [74, 104], R: [74, 104], sq: .86, air: -30, lean: 5 + Math.sin(t * 26) * 3, head: 4, by: Math.sin(t * 30) * 3 }),
   mow: (lt, t) => P({ L: [84, 134], R: [84, 134], lean: 7, by: Math.abs(Math.sin(t * 6)) * 3 }),
+  drive_sink: (lt, t) => P({ L: [74, 104], R: [74, 104], sq: .86, air: 22, lean: 4 + Math.sin(t * 20) * 2, head: 3, by: Math.sin(t * 26) * 2 }),
   jump: (lt) => {
     const T = 0.8, u = (lt % T) / T;
     const air = u < 0.15 ? 0 : Math.sin(Math.PI * ((u - 0.15) / 0.85));
@@ -269,6 +270,7 @@ function applyAnim(ctx, a, t, px, py) {
     case 'spin': ctx.rotate(2 * Math.PI * sp * t + ph); break;
     case 'pulse': { const k = 1 + am * Math.sin(2 * Math.PI * sp * t + ph); ctx.scale(k, k); break; }
     case 'drift': ctx.translate(sp * t, 0); break;
+    case 'fall': { const wr = a.a || 160, off = (t * (a.s || 1800)) % wr; ctx.translate(off * (a.dx || 0) / wr, off); break; }   // дождь: узор с периодом a падает со скоростью s px/с, снос dx на период
     case 'shake': ctx.translate(am * noise(t * 40 * sp + ph), am * noise(t * 37 * sp + ph + 5)); break;
     case 'blink': ctx.globalAlpha *= (Math.sin(2 * Math.PI * sp * t + ph) > 0 ? 1 : clamp(a.a == null ? 0.2 : a.a, 0, 1)); break;
   }
@@ -353,7 +355,7 @@ function validateShapes(shapes, where, err, texts) {
     if (s.t === 'path') { if (typeof s.d !== 'string') err(`${w}: path требует строку d`); }
     if (s.t === 'text' && typeof s.key !== 'string') err(`${w}: text требует key (ключ из файла текстов, не сам текст)`);
     if (s.t === 'g') validateShapes(s.shapes || [], w, err, texts);
-    if (s.anim && !['sway', 'bob', 'slide', 'spin', 'pulse', 'drift', 'shake', 'blink'].includes(s.anim.k)) err(`${w}: неизвестная анимация "${s.anim.k}"`);
+    if (s.anim && !['sway', 'bob', 'slide', 'spin', 'pulse', 'drift', 'shake', 'blink', 'fall'].includes(s.anim.k)) err(`${w}: неизвестная анимация "${s.anim.k}"`);
   });
 }
 

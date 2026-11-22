@@ -229,6 +229,30 @@
       "langs": {
         "ru": "lang/story_05.ru.json"
       }
+    },
+    {
+      "id": "story_05_s04",
+      "title": "Сюжет №5 · Дорога · s04 · Бульдозер",
+      "file": "scenes/story_05_s04.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
+    },
+    {
+      "id": "story_05_s05",
+      "title": "Сюжет №5 · Дорога · s05 · Дождь",
+      "file": "scenes/story_05_s05.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
+    },
+    {
+      "id": "story_05_s06",
+      "title": "Сюжет №5 · Дорога · s06 · Грунтовая дорога",
+      "file": "scenes/story_05_s06.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
     }
   ]
 }

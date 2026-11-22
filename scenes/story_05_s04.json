@@ -1,0 +1,568 @@
+{
+  "id": "story_05_s04",
+  "duration": 11.6,
+  "start": {
+    "location": "field",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 140,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "seat",
+      "prop": "dozer_seat",
+      "x": 330,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "dz",
+      "prop": "dozer",
+      "x": 330,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pile",
+      "prop": "dirt_pile",
+      "x": 800,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ds",
+      "prop": "dirt_strip",
+      "x": 730,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drive",
+      "dur": 6.0
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.1
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c0",
+      "prop": "grass_clump",
+      "x": 900,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c1",
+      "prop": "grass_mid",
+      "x": 1010,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c2",
+      "prop": "grass_clump",
+      "x": 1120,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c3",
+      "prop": "grass_mid",
+      "x": 1230,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c4",
+      "prop": "grass_clump",
+      "x": 1340,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c5",
+      "prop": "grass_mid",
+      "x": 1450,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c6",
+      "prop": "grass_clump",
+      "x": 1560,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c7",
+      "prop": "grass_mid",
+      "x": 1670,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c8",
+      "prop": "grass_clump",
+      "x": 1780,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c9",
+      "prop": "grass_mid",
+      "x": 1890,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c10",
+      "prop": "grass_clump",
+      "x": 2000,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "c11",
+      "prop": "grass_mid",
+      "x": 2110,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n09",
+      "dur": 2.2
+    },
+    {
+      "t": 0.2,
+      "do": "move",
+      "id": "dz",
+      "x": 1542.2,
+      "dur": 5.8,
+      "ease": "linear"
+    },
+    {
+      "t": 0.2,
+      "do": "move",
+      "id": "seat",
+      "x": 1542.2,
+      "dur": 5.8,
+      "ease": "linear"
+    },
+    {
+      "t": 0.2,
+      "do": "move",
+      "id": "pile",
+      "x": 2012.2,
+      "dur": 5.8,
+      "ease": "linear"
+    },
+    {
+      "t": 0.2,
+      "do": "move",
+      "id": "ds",
+      "x": 1942.2,
+      "dur": 5.8,
+      "ease": "linear"
+    },
+    {
+      "t": 0.2,
+      "do": "walk",
+      "who": "bld",
+      "x": 1352.2,
+      "dur": 5.8,
+      "ease": "linear"
+    },
+    {
+      "t": 0.3,
+      "do": "marker",
+      "name": "бульдозер: низкий рокот"
+    },
+    {
+      "t": 0.630622009569378,
+      "do": "remove",
+      "id": "c0"
+    },
+    {
+      "t": 0.630622009569378,
+      "do": "fx",
+      "kind": "dust",
+      "x": 900,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 1.1569377990430623,
+      "do": "remove",
+      "id": "c1"
+    },
+    {
+      "t": 1.1569377990430623,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1010,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 1.6832535885167463,
+      "do": "remove",
+      "id": "c2"
+    },
+    {
+      "t": 1.6832535885167463,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1120,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 2.2095693779904306,
+      "do": "remove",
+      "id": "c3"
+    },
+    {
+      "t": 2.2095693779904306,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1230,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 2.6,
+      "do": "camera",
+      "x": 900,
+      "y": 1050,
+      "zoom": 0.68,
+      "dur": 1.3
+    },
+    {
+      "t": 2.735885167464115,
+      "do": "remove",
+      "id": "c4"
+    },
+    {
+      "t": 2.735885167464115,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1340,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 3.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n10",
+      "dur": 2.6
+    },
+    {
+      "t": 3.262200956937799,
+      "do": "remove",
+      "id": "c5"
+    },
+    {
+      "t": 3.262200956937799,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1450,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 3.7885167464114833,
+      "do": "remove",
+      "id": "c6"
+    },
+    {
+      "t": 3.7885167464114833,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1560,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 4.0,
+      "do": "camera",
+      "x": 1400,
+      "y": 1050,
+      "zoom": 0.68,
+      "dur": 2.0
+    },
+    {
+      "t": 4.314832535885167,
+      "do": "remove",
+      "id": "c7"
+    },
+    {
+      "t": 4.314832535885167,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1670,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 4.841148325358851,
+      "do": "remove",
+      "id": "c8"
+    },
+    {
+      "t": 4.841148325358851,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1780,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 5.367464114832536,
+      "do": "remove",
+      "id": "c9"
+    },
+    {
+      "t": 5.367464114832536,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1890,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 5.8937799043062205,
+      "do": "remove",
+      "id": "c10"
+    },
+    {
+      "t": 5.8937799043062205,
+      "do": "fx",
+      "kind": "dust",
+      "x": 2000,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 6.2,
+      "do": "remove",
+      "id": "dz"
+    },
+    {
+      "t": 6.2,
+      "do": "remove",
+      "id": "seat"
+    },
+    {
+      "t": 6.2,
+      "do": "remove",
+      "id": "pile"
+    },
+    {
+      "t": 6.2,
+      "do": "remove",
+      "id": "ds"
+    },
+    {
+      "t": 6.2,
+      "do": "camera",
+      "x": 540,
+      "y": 1000,
+      "zoom": 0.8,
+      "dur": 0.01
+    },
+    {
+      "t": 6.2,
+      "do": "spawn",
+      "id": "road",
+      "prop": "dirt_strip",
+      "x": 3000,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 6.2,
+      "do": "spawn",
+      "id": "cs",
+      "prop": "car_seat",
+      "x": -420,
+      "y": 1250
+    },
+    {
+      "t": 6.2,
+      "do": "spawn",
+      "id": "car",
+      "prop": "car",
+      "x": -420,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 6.2,
+      "do": "place",
+      "who": "bld",
+      "x": -480,
+      "face": "right"
+    },
+    {
+      "t": 6.2,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drive",
+      "dur": 5
+    },
+    {
+      "t": 6.2,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 5
+    },
+    {
+      "t": 6.3,
+      "do": "move",
+      "id": "car",
+      "x": 1500,
+      "dur": 4.8,
+      "ease": "linear"
+    },
+    {
+      "t": 6.3,
+      "do": "move",
+      "id": "cs",
+      "x": 1500,
+      "dur": 4.8,
+      "ease": "linear"
+    },
+    {
+      "t": 6.3,
+      "do": "walk",
+      "who": "bld",
+      "x": 1440,
+      "dur": 4.8,
+      "ease": "linear"
+    },
+    {
+      "t": 6.3,
+      "do": "marker",
+      "name": "машина едет, пыль"
+    },
+    {
+      "t": 6.6,
+      "do": "fx",
+      "kind": "dust",
+      "x": -300,
+      "y": 1240,
+      "dur": 0.9
+    },
+    {
+      "t": 7.1499999999999995,
+      "do": "fx",
+      "kind": "dust",
+      "x": -70,
+      "y": 1240,
+      "dur": 0.9
+    },
+    {
+      "t": 7.699999999999999,
+      "do": "fx",
+      "kind": "dust",
+      "x": 160,
+      "y": 1240,
+      "dur": 0.9
+    },
+    {
+      "t": 8.25,
+      "do": "fx",
+      "kind": "dust",
+      "x": 390,
+      "y": 1240,
+      "dur": 0.9
+    },
+    {
+      "t": 8.8,
+      "do": "fx",
+      "kind": "dust",
+      "x": 620,
+      "y": 1240,
+      "dur": 0.9
+    },
+    {
+      "t": 9.35,
+      "do": "fx",
+      "kind": "dust",
+      "x": 850,
+      "y": 1240,
+      "dur": 0.9
+    },
+    {
+      "t": 9.9,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1080,
+      "y": 1240,
+      "dur": 0.9
+    },
+    {
+      "t": 10.45,
+      "do": "fx",
+      "kind": "dust",
+      "x": 1310,
+      "y": 1240,
+      "dur": 0.9
+    }
+  ]
+}

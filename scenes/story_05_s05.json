@@ -1,0 +1,273 @@
+{
+  "id": "story_05_s05",
+  "duration": 12.4,
+  "start": {
+    "location": "field",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 380,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "road",
+      "prop": "dirt_strip",
+      "x": 3000,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "seat",
+      "prop": "car_seat",
+      "x": 440,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "car",
+      "prop": "car",
+      "x": 440,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drive",
+      "dur": 2.4
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 1.0
+    },
+    {
+      "t": 0.4,
+      "do": "say",
+      "who": "narr",
+      "line": "n11",
+      "dur": 2.2
+    },
+    {
+      "t": 0.8,
+      "do": "spawn",
+      "id": "cl",
+      "prop": "storm_cloud",
+      "x": -900,
+      "y": 160,
+      "layer": "front"
+    },
+    {
+      "t": 0.8,
+      "do": "move",
+      "id": "cl",
+      "x": 540,
+      "dur": 2.2,
+      "ease": "easeOut"
+    },
+    {
+      "t": 1.0,
+      "do": "spawn",
+      "id": "d1",
+      "prop": "dark",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 1.8,
+      "do": "spawn",
+      "id": "rain",
+      "prop": "rain",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 1.9,
+      "do": "spawn",
+      "id": "d2",
+      "prop": "dark",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 1.9,
+      "do": "fx",
+      "kind": "flash",
+      "dur": 0.3
+    },
+    {
+      "t": 1.9,
+      "do": "marker",
+      "name": "дождь, раскат грома"
+    },
+    {
+      "t": 2.4,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "worried",
+      "dur": 1.0
+    },
+    {
+      "t": 2.7,
+      "do": "spawn",
+      "id": "d3",
+      "prop": "dark",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 3.0,
+      "do": "spawn",
+      "id": "mud",
+      "prop": "mud_strip",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 3.2,
+      "do": "camera",
+      "x": 740,
+      "y": 1180,
+      "zoom": 2.0,
+      "dur": 0.6
+    },
+    {
+      "t": 3.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drive_sink",
+      "dur": 3.0
+    },
+    {
+      "t": 3.3,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "angry",
+      "dur": 3.0
+    },
+    {
+      "t": 3.4,
+      "do": "move",
+      "id": "car",
+      "y": 1300,
+      "dur": 2.8,
+      "ease": "linear"
+    },
+    {
+      "t": 3.4,
+      "do": "move",
+      "id": "seat",
+      "y": 1300,
+      "dur": 2.8,
+      "ease": "linear"
+    },
+    {
+      "t": 3.4,
+      "do": "shake",
+      "dur": 2.8,
+      "amp": 5
+    },
+    {
+      "t": 3.4,
+      "do": "fx",
+      "kind": "dust",
+      "x": 740,
+      "y": 1270,
+      "dur": 2.8
+    },
+    {
+      "t": 3.4,
+      "do": "marker",
+      "name": "колёса буксуют в грязи"
+    },
+    {
+      "t": 3.6,
+      "do": "say",
+      "who": "narr",
+      "line": "n12",
+      "dur": 2.7
+    },
+    {
+      "t": 6.4,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.5
+    },
+    {
+      "t": 6.9,
+      "do": "place",
+      "who": "bld",
+      "x": 900,
+      "face": "left"
+    },
+    {
+      "t": 6.9,
+      "do": "pose",
+      "who": "bld",
+      "pose": "shrug",
+      "dur": 1.6
+    },
+    {
+      "t": 6.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "sad",
+      "dur": 3
+    },
+    {
+      "t": 6.9,
+      "do": "spawn",
+      "id": "mf",
+      "prop": "mud_front",
+      "x": 900,
+      "y": 1262,
+      "layer": "front"
+    },
+    {
+      "t": 8.6,
+      "do": "pose",
+      "who": "bld",
+      "pose": "arms_cross",
+      "dur": 3.0
+    },
+    {
+      "t": 8.8,
+      "do": "fx",
+      "kind": "sweat",
+      "who": "bld",
+      "dur": 1.2
+    },
+    {
+      "t": 9.6,
+      "do": "say",
+      "who": "narr",
+      "line": "n13",
+      "dur": 2.3
+    }
+  ]
+}
