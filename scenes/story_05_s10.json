@@ -1053,7 +1053,7 @@
         "layers": [
           {
             "z": "back",
-            "p": 0,
+            "p": 1,
             "shapes": [
               {
                 "t": "rect",
@@ -1458,7 +1458,7 @@
       "do": "spawn",
       "id": "mall",
       "prop": "town_mall",
-      "x": 540,
+      "x": -250,
       "y": 3300,
       "scale": 0.08,
       "layer": "auto"
