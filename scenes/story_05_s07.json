@@ -1,0 +1,319 @@
+{
+  "id": "story_05_s07",
+  "duration": 12.0,
+  "start": {
+    "location": "field",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 150,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 540,
+      "y": 1050,
+      "zoom": 0.8,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "road",
+      "prop": "road_wide",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "arms_cross",
+      "dur": 11
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.1
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n16",
+      "dur": 3.8
+    },
+    {
+      "t": 0.3,
+      "do": "marker",
+      "name": "первая машина, шум мотора"
+    },
+    {
+      "t": 0.7,
+      "do": "spawn",
+      "id": "v1",
+      "prop": "car_blue",
+      "x": -600,
+      "y": 1420,
+      "layer": "front",
+      "scale": 1.0
+    },
+    {
+      "t": 0.7,
+      "do": "move",
+      "id": "v1",
+      "x": 1700,
+      "dur": 3.0,
+      "ease": "linear"
+    },
+    {
+      "t": 2.8,
+      "do": "spawn",
+      "id": "v2",
+      "prop": "car_yellow",
+      "x": -600,
+      "y": 1290,
+      "layer": "back",
+      "scale": 0.9
+    },
+    {
+      "t": 2.8,
+      "do": "move",
+      "id": "v2",
+      "x": 1700,
+      "dur": 3.4,
+      "ease": "linear"
+    },
+    {
+      "t": 3.75,
+      "do": "remove",
+      "id": "v1"
+    },
+    {
+      "t": 4.0,
+      "do": "spawn",
+      "id": "v3",
+      "prop": "car_green_l",
+      "x": 1700,
+      "y": 1420,
+      "layer": "front",
+      "scale": 1.0
+    },
+    {
+      "t": 4.0,
+      "do": "move",
+      "id": "v3",
+      "x": -600,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 4.1,
+      "do": "say",
+      "who": "narr",
+      "line": "n17",
+      "dur": 2.5
+    },
+    {
+      "t": 5.2,
+      "do": "spawn",
+      "id": "v4",
+      "prop": "van",
+      "x": -600,
+      "y": 1420,
+      "layer": "front",
+      "scale": 1.0
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "v4",
+      "x": 1700,
+      "dur": 3.4,
+      "ease": "linear"
+    },
+    {
+      "t": 5.8,
+      "do": "spawn",
+      "id": "v5",
+      "prop": "car_white_l",
+      "x": 1700,
+      "y": 1290,
+      "layer": "back",
+      "scale": 0.9
+    },
+    {
+      "t": 5.8,
+      "do": "move",
+      "id": "v5",
+      "x": -600,
+      "dur": 3.3,
+      "ease": "linear"
+    },
+    {
+      "t": 6.249999999999999,
+      "do": "remove",
+      "id": "v2"
+    },
+    {
+      "t": 6.4,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "worried",
+      "dur": 3
+    },
+    {
+      "t": 7.0,
+      "do": "spawn",
+      "id": "ph1",
+      "prop": "pothole",
+      "x": 640,
+      "y": 1445,
+      "layer": "back"
+    },
+    {
+      "t": 7.0,
+      "do": "spawn",
+      "id": "ph2",
+      "prop": "pothole",
+      "x": 240,
+      "y": 1470,
+      "layer": "back"
+    },
+    {
+      "t": 7.2,
+      "do": "spawn",
+      "id": "v6",
+      "prop": "car_blue",
+      "x": -600,
+      "y": 1420,
+      "layer": "front",
+      "scale": 1.0
+    },
+    {
+      "t": 7.2,
+      "do": "move",
+      "id": "v6",
+      "x": 520,
+      "dur": 1.7,
+      "ease": "easeOut"
+    },
+    {
+      "t": 7.2,
+      "do": "marker",
+      "name": "тормозят перед ямами"
+    },
+    {
+      "t": 7.25,
+      "do": "remove",
+      "id": "v3"
+    },
+    {
+      "t": 7.4,
+      "do": "say",
+      "who": "narr",
+      "line": "n18",
+      "dur": 3.1
+    },
+    {
+      "t": 8.0,
+      "do": "spawn",
+      "id": "v7",
+      "prop": "car_yellow_l",
+      "x": 1800,
+      "y": 1290,
+      "layer": "back",
+      "scale": 0.9
+    },
+    {
+      "t": 8.0,
+      "do": "move",
+      "id": "v7",
+      "x": 860,
+      "dur": 1.5,
+      "ease": "easeOut"
+    },
+    {
+      "t": 8.6,
+      "do": "fx",
+      "kind": "dust",
+      "x": 700,
+      "y": 1300,
+      "dur": 1.0
+    },
+    {
+      "t": 8.65,
+      "do": "remove",
+      "id": "v4"
+    },
+    {
+      "t": 8.9,
+      "do": "spawn",
+      "id": "v6b",
+      "prop": "car_blue",
+      "x": 520,
+      "y": 1420,
+      "layer": "front"
+    },
+    {
+      "t": 8.9,
+      "do": "move",
+      "id": "v6b",
+      "x": 1800,
+      "dur": 1.8,
+      "ease": "easeIn"
+    },
+    {
+      "t": 8.9,
+      "do": "fx",
+      "kind": "dust",
+      "x": 300,
+      "y": 1440,
+      "dur": 1.0
+    },
+    {
+      "t": 8.950000000000001,
+      "do": "remove",
+      "id": "v6"
+    },
+    {
+      "t": 9.15,
+      "do": "remove",
+      "id": "v5"
+    },
+    {
+      "t": 9.6,
+      "do": "move",
+      "id": "v7",
+      "x": -700,
+      "dur": 1.8,
+      "ease": "easeIn"
+    },
+    {
+      "t": 10.8,
+      "do": "remove",
+      "id": "v6b"
+    },
+    {
+      "t": 11.5,
+      "do": "remove",
+      "id": "v7"
+    }
+  ]
+}

@@ -253,6 +253,30 @@
       "langs": {
         "ru": "lang/story_05.ru.json"
       }
+    },
+    {
+      "id": "story_05_s07",
+      "title": "Сюжет №5 · Дорога · s07 · По дороге ездят другие",
+      "file": "scenes/story_05_s07.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
+    },
+    {
+      "id": "story_05_s08",
+      "title": "Сюжет №5 · Дорога · s08 · Дорогу нужно улучшить",
+      "file": "scenes/story_05_s08.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
+    },
+    {
+      "id": "story_05_s09",
+      "title": "Сюжет №5 · Дорога · s09 · Дорога становится трассой",
+      "file": "scenes/story_05_s09.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
     }
   ]
 }
