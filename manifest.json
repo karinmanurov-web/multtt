@@ -293,6 +293,46 @@
       "langs": {
         "ru": "lang/story_05.ru.json"
       }
+    },
+    {
+      "id": "story_06_s01",
+      "title": "Сюжет №6 · Пол · s01 · Заливка",
+      "file": "scenes/story_06_s01.json",
+      "langs": {
+        "ru": "lang/story_06.ru.json"
+      }
+    },
+    {
+      "id": "story_06_s02",
+      "title": "Сюжет №6 · Пол · s02 · Дверь не открывается",
+      "file": "scenes/story_06_s02.json",
+      "langs": {
+        "ru": "lang/story_06.ru.json"
+      }
+    },
+    {
+      "id": "story_06_s03",
+      "title": "Сюжет №6 · Пол · s03 · Подрезаем дверь",
+      "file": "scenes/story_06_s03.json",
+      "langs": {
+        "ru": "lang/story_06.ru.json"
+      }
+    },
+    {
+      "id": "story_06_s04",
+      "title": "Сюжет №6 · Пол · s04 · Потолок ниже",
+      "file": "scenes/story_06_s04.json",
+      "langs": {
+        "ru": "lang/story_06.ru.json"
+      }
+    },
+    {
+      "id": "story_06_s05",
+      "title": "Сюжет №6 · Пол · s05 · Взгляд",
+      "file": "scenes/story_06_s05.json",
+      "langs": {
+        "ru": "lang/story_06.ru.json"
+      }
     }
   ]
 }

@@ -1,0 +1,195 @@
+{
+  "id": "story_06_s05",
+  "duration": 6.9,
+  "start": {
+    "location": "room",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 250,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ceil",
+      "prop": "ceiling",
+      "x": 540,
+      "y": 745
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "door",
+      "prop": "door_open",
+      "x": 870,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl0",
+      "prop": "slab",
+      "x": -10,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl1",
+      "prop": "slab",
+      "x": 190,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl2",
+      "prop": "slab",
+      "x": 390,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl3",
+      "prop": "slab",
+      "x": 590,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl4",
+      "prop": "slab",
+      "x": 790,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl5",
+      "prop": "slab",
+      "x": 990,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s1",
+      "prop": "socket",
+      "x": 520,
+      "y": 1120,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s2",
+      "prop": "socket",
+      "x": 620,
+      "y": 1120,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ball",
+      "prop": "ball",
+      "x": 170,
+      "y": 1262,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "level_ok",
+      "x": 500,
+      "y": 1030
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "crouch_idle",
+      "dur": 2.3
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "tired",
+      "dur": 2.2
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "lv",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n08",
+      "dur": 1.6
+    },
+    {
+      "t": 2.3,
+      "do": "release",
+      "id": "lv",
+      "drop": false
+    },
+    {
+      "t": 2.3,
+      "do": "remove",
+      "id": "lv"
+    },
+    {
+      "t": 2.3,
+      "do": "portrait",
+      "on": "bld",
+      "dur": 1.1,
+      "zoom": 2.4,
+      "angle": "side",
+      "bg": "blur"
+    },
+    {
+      "t": 2.4,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "frown",
+      "dur": 4.3
+    },
+    {
+      "t": 3.4,
+      "do": "portrait",
+      "on": "bld",
+      "dur": 3.2,
+      "zoom": 2.4,
+      "angle": "q45",
+      "bg": "blur"
+    }
+  ]
+}

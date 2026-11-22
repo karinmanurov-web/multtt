@@ -1,0 +1,250 @@
+{
+  "id": "story_06_s04",
+  "duration": 9.6,
+  "start": {
+    "location": "room",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 540,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ceil",
+      "prop": "ceiling",
+      "x": 540,
+      "y": 620
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "door",
+      "prop": "door_open",
+      "x": 870,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl0",
+      "prop": "slab",
+      "x": -10,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl1",
+      "prop": "slab",
+      "x": 190,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl2",
+      "prop": "slab",
+      "x": 390,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl3",
+      "prop": "slab",
+      "x": 590,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl4",
+      "prop": "slab",
+      "x": 790,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl5",
+      "prop": "slab",
+      "x": 990,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s1",
+      "prop": "socket",
+      "x": 520,
+      "y": 1120,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s2",
+      "prop": "socket",
+      "x": 620,
+      "y": 1120,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ball",
+      "prop": "ball",
+      "x": 170,
+      "y": 1262,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "cheer",
+      "dur": 1.8
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 1.8
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n06",
+      "dur": 1.8
+    },
+    {
+      "t": 2.3,
+      "do": "move",
+      "id": "ceil",
+      "y": 745,
+      "dur": 0.9,
+      "ease": "easeIn"
+    },
+    {
+      "t": 2.3,
+      "do": "shake",
+      "dur": 1.2,
+      "amp": 4
+    },
+    {
+      "t": 2.3,
+      "do": "marker",
+      "name": "потолок ползёт вниз, скрип"
+    },
+    {
+      "t": 2.9,
+      "do": "pose",
+      "who": "bld",
+      "pose": "ouch",
+      "dur": 1.6
+    },
+    {
+      "t": 2.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "shocked",
+      "dur": 1.2
+    },
+    {
+      "t": 3.0,
+      "do": "fx",
+      "kind": "stars",
+      "x": 540,
+      "y": 740,
+      "dur": 1.0
+    },
+    {
+      "t": 3.0,
+      "do": "marker",
+      "name": "дзынь: каска о потолок"
+    },
+    {
+      "t": 4.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n07",
+      "dur": 2.6
+    },
+    {
+      "t": 4.6,
+      "do": "pose",
+      "who": "bld",
+      "pose": "crouch_idle",
+      "dur": 1.2
+    },
+    {
+      "t": 4.8,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "angry",
+      "dur": 1.6
+    },
+    {
+      "t": 6.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "crouch_walk",
+      "dur": 3.0
+    },
+    {
+      "t": 6.3,
+      "do": "walk",
+      "who": "bld",
+      "x": 250,
+      "dur": 3.0,
+      "ease": "linear",
+      "face": "left"
+    },
+    {
+      "t": 6.4,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "tired",
+      "dur": 3.0
+    },
+    {
+      "t": 7.0,
+      "do": "fx",
+      "kind": "dust",
+      "x": 480,
+      "y": 745,
+      "dur": 0.5
+    },
+    {
+      "t": 8.0,
+      "do": "fx",
+      "kind": "dust",
+      "x": 380,
+      "y": 745,
+      "dur": 0.5
+    }
+  ]
+}

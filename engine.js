@@ -176,6 +176,11 @@ const POSES = {
   drive_rev: (lt, t) => P({ L: [74, 104], R: [74, 104], sq: .86, air: -30, lean: 5 + Math.sin(t * 26) * 3, head: 4, by: Math.sin(t * 30) * 3 }),
   mow: (lt, t) => P({ L: [84, 134], R: [84, 134], lean: 7, by: Math.abs(Math.sin(t * 6)) * 3 }),
   drive_sink: (lt, t) => P({ L: [74, 104], R: [74, 104], sq: .86, air: 22, lean: 4 + Math.sin(t * 20) * 2, head: 3, by: Math.sin(t * 26) * 2 }),
+  rake: (lt, t) => P({ L: [86 + Math.sin(t * 3.2) * 20, 134], R: [92 + Math.sin(t * 3.2) * 20, 118], lean: 12 + Math.sin(t * 3.2) * 3, by: 2 }),
+  saw: (lt, t) => P({ R: [96 + Math.sin(t * 15) * 18, 150], L: [40, 130], lean: 18, head: 6 }),
+  crouch_idle: (lt, t) => P({ sq: .8, lean: 14, head: -6, L: [20, 120], R: [20, 120], by: Math.sin(t * 2) * 1 }),
+  crouch_walk: (lt, t) => P({ sq: .8, lean: 15, head: -8, L: [24 + Math.sin(t * 7) * 10, 118], R: [24 - Math.sin(t * 7) * 10, 118], by: Math.abs(Math.sin(t * 7)) * 2 }),
+  ouch: (lt, t) => P({ sq: .92, lean: 6, head: 14, L: [10, -160], R: [40, 110], by: 4 }),
   jump: (lt) => {
     const T = 0.8, u = (lt % T) / T;
     const air = u < 0.15 ? 0 : Math.sin(Math.PI * ((u - 0.15) / 0.85));
@@ -207,6 +212,7 @@ const EMOS = {
   worried: { mw: 46, mc: -0.4, mo: 6, vis: 1, bh: 8, bt: -18 },
   smug: { mw: 56, mc: 0.6, mk: 10, vis: 1, bh: 6, bt: 6, bd: 14 },
   tired: { mw: 40, mc: -0.2, vis: 1, bh: -12, bt: 4 },
+  frown: { mw: 76, mc: -1.7 },   // сильно перевёрнутая улыбка без бровей (финал сюжета №6)
   confused: { mw: 40, mc: -0.3, mk: -6, vis: 1, bh: 10, bt: 0, bd: -16 }
 };
 for (const k in EMOS) EMOS[k] = Object.assign({}, EMO0, EMOS[k]);

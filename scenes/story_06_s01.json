@@ -1,0 +1,175 @@
+{
+  "id": "story_06_s01",
+  "duration": 7.2,
+  "start": {
+    "location": "room",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 540,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ceil",
+      "prop": "ceiling",
+      "x": 540,
+      "y": 620
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "door",
+      "prop": "door_closed",
+      "x": 870,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s1",
+      "prop": "socket",
+      "x": 520,
+      "y": 1164,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s2",
+      "prop": "socket",
+      "x": 620,
+      "y": 1164,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "level_tilt",
+      "x": 640,
+      "y": 1010
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 3.0
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "lv",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n01",
+      "dur": 2.2
+    },
+    {
+      "t": 0.4,
+      "do": "spawn",
+      "id": "ball",
+      "prop": "ball",
+      "x": 760,
+      "y": 1262,
+      "layer": "front"
+    },
+    {
+      "t": 0.6,
+      "do": "move",
+      "id": "ball",
+      "x": 170,
+      "dur": 2.2,
+      "ease": "easeIn",
+      "rot": -900
+    },
+    {
+      "t": 0.6,
+      "do": "marker",
+      "name": "шарик катится, мягкий стук"
+    },
+    {
+      "t": 2.8,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.0
+    },
+    {
+      "t": 2.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.1
+    },
+    {
+      "t": 3.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n02",
+      "dur": 3.5
+    },
+    {
+      "t": 3.2,
+      "do": "release",
+      "id": "lv",
+      "drop": false
+    },
+    {
+      "t": 3.2,
+      "do": "remove",
+      "id": "lv"
+    },
+    {
+      "t": 3.3,
+      "do": "spawn",
+      "id": "bk",
+      "prop": "bucket",
+      "x": 860,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 3.3,
+      "do": "spawn",
+      "id": "rk",
+      "prop": "rake",
+      "x": 560,
+      "y": 1250
+    },
+    {
+      "t": 3.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "rake",
+      "dur": 3.0
+    },
+    {
+      "t": 3.35,
+      "do": "hold",
+      "id": "rk",
+      "who": "bld",
+      "hand": "R"
+    }
+  ]
+}

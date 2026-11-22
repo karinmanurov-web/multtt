@@ -1,0 +1,348 @@
+{
+  "id": "story_06_s02",
+  "duration": 7.6,
+  "start": {
+    "location": "room",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 100,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ceil",
+      "prop": "ceiling",
+      "x": 540,
+      "y": 620
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "door",
+      "prop": "door_closed",
+      "x": 870,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s1",
+      "prop": "socket",
+      "x": 520,
+      "y": 1164,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s2",
+      "prop": "socket",
+      "x": 620,
+      "y": 1164,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ball",
+      "prop": "ball",
+      "x": 170,
+      "y": 1262,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bk",
+      "prop": "bucket",
+      "x": 960,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rk",
+      "prop": "rake",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "rake",
+      "dur": 2.4
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "bld",
+      "x": 100,
+      "face": "right"
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "rk",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0.1,
+      "do": "walk",
+      "who": "bld",
+      "x": 880,
+      "dur": 2.2,
+      "ease": "linear"
+    },
+    {
+      "t": 0.3,
+      "do": "spawn",
+      "id": "sl0",
+      "prop": "slab",
+      "x": -10,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0.3,
+      "do": "fx",
+      "kind": "dust",
+      "x": -10,
+      "y": 1240,
+      "dur": 0.4
+    },
+    {
+      "t": 0.6499999999999999,
+      "do": "spawn",
+      "id": "sl1",
+      "prop": "slab",
+      "x": 190,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0.6499999999999999,
+      "do": "fx",
+      "kind": "dust",
+      "x": 190,
+      "y": 1240,
+      "dur": 0.4
+    },
+    {
+      "t": 1.0,
+      "do": "spawn",
+      "id": "sl2",
+      "prop": "slab",
+      "x": 390,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.0,
+      "do": "fx",
+      "kind": "dust",
+      "x": 390,
+      "y": 1240,
+      "dur": 0.4
+    },
+    {
+      "t": 1.3499999999999999,
+      "do": "spawn",
+      "id": "sl3",
+      "prop": "slab",
+      "x": 590,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.3499999999999999,
+      "do": "fx",
+      "kind": "dust",
+      "x": 590,
+      "y": 1240,
+      "dur": 0.4
+    },
+    {
+      "t": 1.7,
+      "do": "spawn",
+      "id": "sl4",
+      "prop": "slab",
+      "x": 790,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.7,
+      "do": "fx",
+      "kind": "dust",
+      "x": 790,
+      "y": 1240,
+      "dur": 0.4
+    },
+    {
+      "t": 2.05,
+      "do": "spawn",
+      "id": "sl5",
+      "prop": "slab",
+      "x": 990,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 2.05,
+      "do": "fx",
+      "kind": "dust",
+      "x": 990,
+      "y": 1240,
+      "dur": 0.4
+    },
+    {
+      "t": 2.5,
+      "do": "release",
+      "id": "rk",
+      "drop": false
+    },
+    {
+      "t": 2.5,
+      "do": "remove",
+      "id": "rk"
+    },
+    {
+      "t": 2.5,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "level_ok",
+      "x": 640,
+      "y": 1010
+    },
+    {
+      "t": 2.5,
+      "do": "pose",
+      "who": "bld",
+      "pose": "cheer",
+      "dur": 1.4
+    },
+    {
+      "t": 2.5,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 1.4
+    },
+    {
+      "t": 2.5,
+      "do": "marker",
+      "name": "дзынь"
+    },
+    {
+      "t": 2.55,
+      "do": "hold",
+      "id": "lv",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 2.6,
+      "do": "fx",
+      "kind": "stars",
+      "who": "bld",
+      "dur": 1.0
+    },
+    {
+      "t": 2.8,
+      "do": "say",
+      "who": "narr",
+      "line": "n03",
+      "dur": 3.8
+    },
+    {
+      "t": 4.0,
+      "do": "walk",
+      "who": "bld",
+      "x": 690,
+      "dur": 0.7,
+      "face": "right"
+    },
+    {
+      "t": 4.1,
+      "do": "release",
+      "id": "lv",
+      "drop": false
+    },
+    {
+      "t": 4.1,
+      "do": "remove",
+      "id": "lv"
+    },
+    {
+      "t": 4.8,
+      "do": "pose",
+      "who": "bld",
+      "pose": "pull",
+      "dur": 1.8
+    },
+    {
+      "t": 4.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "confused",
+      "dur": 2.0
+    },
+    {
+      "t": 4.9,
+      "do": "move",
+      "id": "door",
+      "x": 878,
+      "dur": 0.12
+    },
+    {
+      "t": 4.9,
+      "do": "shake",
+      "dur": 1.0,
+      "amp": 3
+    },
+    {
+      "t": 4.9,
+      "do": "marker",
+      "name": "дверь скребёт по полу, не открывается"
+    },
+    {
+      "t": 5.1,
+      "do": "move",
+      "id": "door",
+      "x": 866,
+      "dur": 0.12
+    },
+    {
+      "t": 5.3,
+      "do": "move",
+      "id": "door",
+      "x": 878,
+      "dur": 0.12
+    },
+    {
+      "t": 5.5,
+      "do": "move",
+      "id": "door",
+      "x": 868,
+      "dur": 0.12
+    }
+  ]
+}

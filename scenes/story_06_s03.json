@@ -1,0 +1,289 @@
+{
+  "id": "story_06_s03",
+  "duration": 7.8,
+  "start": {
+    "location": "room",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 650,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ceil",
+      "prop": "ceiling",
+      "x": 540,
+      "y": 620
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "d1",
+      "prop": "door_closed",
+      "x": 870,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl0",
+      "prop": "slab",
+      "x": -10,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl1",
+      "prop": "slab",
+      "x": 190,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl2",
+      "prop": "slab",
+      "x": 390,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl3",
+      "prop": "slab",
+      "x": 590,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl4",
+      "prop": "slab",
+      "x": 790,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sl5",
+      "prop": "slab",
+      "x": 990,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s1",
+      "prop": "socket",
+      "x": 520,
+      "y": 1238,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s2",
+      "prop": "socket",
+      "x": 620,
+      "y": 1238,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ball",
+      "prop": "ball",
+      "x": 170,
+      "y": 1262,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "saw",
+      "dur": 2.6
+    },
+    {
+      "t": 0.2,
+      "do": "spawn",
+      "id": "sw",
+      "prop": "saw",
+      "x": 870,
+      "y": 1195,
+      "layer": "front"
+    },
+    {
+      "t": 0.2,
+      "do": "marker",
+      "name": "пила по дереву"
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n04",
+      "dur": 2.0
+    },
+    {
+      "t": 0.3,
+      "do": "fx",
+      "kind": "dust",
+      "x": 870,
+      "y": 1190,
+      "dur": 2.2
+    },
+    {
+      "t": 2.6,
+      "do": "remove",
+      "id": "sw"
+    },
+    {
+      "t": 2.6,
+      "do": "remove",
+      "id": "d1"
+    },
+    {
+      "t": 2.6,
+      "do": "spawn",
+      "id": "d2",
+      "prop": "door_cut",
+      "x": 870,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 2.8,
+      "do": "remove",
+      "id": "d2"
+    },
+    {
+      "t": 2.8,
+      "do": "spawn",
+      "id": "d3",
+      "prop": "door_open",
+      "x": 870,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 2.8,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 0.8
+    },
+    {
+      "t": 2.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 0.7
+    },
+    {
+      "t": 3.5,
+      "do": "walk",
+      "who": "bld",
+      "x": 410,
+      "dur": 0.8,
+      "face": "right"
+    },
+    {
+      "t": 3.6,
+      "do": "camera",
+      "x": 520,
+      "y": 1150,
+      "zoom": 2.0,
+      "dur": 0.5
+    },
+    {
+      "t": 3.7,
+      "do": "pose",
+      "who": "bld",
+      "pose": "think",
+      "dur": 2.4
+    },
+    {
+      "t": 3.7,
+      "do": "say",
+      "who": "narr",
+      "line": "n05",
+      "dur": 3.0
+    },
+    {
+      "t": 3.8,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "tired",
+      "dur": 1.8
+    },
+    {
+      "t": 5.2,
+      "do": "spawn",
+      "id": "mx",
+      "prop": "mark_x",
+      "x": 520,
+      "y": 1110,
+      "layer": "back"
+    },
+    {
+      "t": 5.7,
+      "do": "move",
+      "id": "s1",
+      "y": 1120,
+      "dur": 0.5
+    },
+    {
+      "t": 5.7,
+      "do": "move",
+      "id": "s2",
+      "y": 1120,
+      "dur": 0.5
+    },
+    {
+      "t": 6.0,
+      "do": "marker",
+      "name": "розетки поднимают"
+    },
+    {
+      "t": 6.2,
+      "do": "remove",
+      "id": "mx"
+    },
+    {
+      "t": 6.7,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.5
+    },
+    {
+      "t": 6.8,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.1
+    }
+  ]
+}
