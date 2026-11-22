@@ -561,7 +561,7 @@ class Engine {
         id, def: resolveCharDef(type, inst, charTypes, err, id), renderLayer: inst.renderLayer === 'behindProps' ? 'behindProps' : 'normal',
         x0: s && isNum(s.x) ? s.x : (defaultStart[id] ? defaultStart[id].x : 540), vis: [{ t: 0, v: !!s && !inst.hidden }],
         angs: [{ t: 0, v: inst.angle === 'back' ? 'back' : 'side', prev: 'side', dur: 0 }],
-        face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], cum: 0, poses: [], emos: [], says: [], holds: [], seed: hashStr(id) % 100
+        face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], cum: 0, poses: [], emos: [], says: [], holds: [], vests: [], seed: hashStr(id) % 100
       };
     }
     for (const id in C.chars) {
@@ -697,6 +697,13 @@ class Engine {
           if (!locs[b.id]) { err(`${tag}: локация "${b.id}" не найдена`); break; }
           C.locEv.push({ t, id: b.id, transition: b.transition || 'fade', dur: isNum(b.dur) ? b.dur : 0.5 });
           C.viewEv.push({ t, view: b.view || null, transition: 'cut', dur: 0, cam: true, tag });
+          break;
+        }
+        case 'vest': {
+          // перекраска жилета строителя: {do:"vest",who:"bld",color:"#2f8049",stripe:"#2a6f40"}
+          const id = who(b, i); if (!id || id !== 'bld') { err(`${tag}: vest только у bld`); break; }
+          if (typeof b.color !== 'string') { err(`${tag}: vest требует color`); break; }
+          C.chars[id].vests.push({ t, color: b.color, stripe: typeof b.stripe === 'string' ? b.stripe : null });
           break;
         }
         case 'angle': {
@@ -947,9 +954,10 @@ class Engine {
         R = [24 + 34 * g1, 164 - 100 * g1]; L = [24 + 30 * g2, 164 - 90 * g2];
       }
     }
+    let vest = null; for (const e of ch.vests) if (e.t <= t) vest = e;
     const ae = lastBefore(ch.angs, t);
     const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
-    return { ang, pname: pose._name, vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id, renderLayer: ch.renderLayer || 'normal' };
+    return { ang, pname: pose._name, vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id, vest, renderLayer: ch.renderLayer || 'normal' };
   }
 
   // кисть в мировых координатах (для падения/удержания предметов и камеры)
@@ -1368,6 +1376,7 @@ class Engine {
   // ───── персонаж ─────
   _drawChar(ctx, st, t, portraitAngle) {
     const def = st.def, g = this._bodyGeo(st), id = st.id;
+    this._vestNow = st.vest;
     // угол показа: в портрете 'side' или 'q45', иначе из timeline поворотов; во время поворота герой «схлопывается» по ширине
     let view = portraitAngle || st.ang.v, turnK = 1;
     if (!portraitAngle && st.ang.dur > 0 && st.ang.lt >= 0 && st.ang.lt < st.ang.dur) {
@@ -1480,11 +1489,11 @@ class Engine {
     } else if (id === 'bld') {
       ctx.fillStyle = def.shirt; rr(ctx, -tw / 2, -198, tw, 216, 28); ctx.fill(); ctx.stroke();
       // жилет
-      ctx.fillStyle = '#ff7a1a'; rr(ctx, -tw / 2 + 2, -196, tw - 4, 200, 24); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = (this._vestNow && this._vestNow.color) || '#ff7a1a'; rr(ctx, -tw / 2 + 2, -196, tw - 4, 200, 24); ctx.fill(); ctx.stroke();
       ctx.fillStyle = def.shirt;
       ctx.beginPath(); ctx.moveTo(-30, -198); ctx.lineTo(30, -198); ctx.lineTo(0, -146); ctx.closePath(); ctx.fill(); ctx.stroke();
       // световозвращающие полосы
-      ctx.fillStyle = '#e8f27a';
+      ctx.fillStyle = (this._vestNow && this._vestNow.stripe) || '#e8f27a';
       for (const y of [-118, -66]) { ctx.fillRect(-tw / 2 + 4, y, tw - 8, 14); }
       ctx.lineWidth = 4;
       for (const y of [-118, -66]) { ctx.strokeRect(-tw / 2 + 4, y, tw - 8, 14); }
@@ -1517,8 +1526,8 @@ class Engine {
       ctx.fillStyle = '#2a2f3d'; rr(ctx, -tw / 2 + 2, 2, tw - 4, 16, 6); ctx.fill(); ctx.stroke();
       ctx.fillStyle = '#1b1f2a'; for (const x of [-46, -16, 16, 46]) rr(ctx, x - 4, 0, 8, 20, 2), ctx.fill();
     } else {
-      ctx.fillStyle = '#ff7a1a'; rr(ctx, -tw / 2 + 2, -196, tw - 4, 200, 24); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = '#e8f27a'; ctx.lineWidth = 4;
+      ctx.fillStyle = (this._vestNow && this._vestNow.color) || '#ff7a1a'; rr(ctx, -tw / 2 + 2, -196, tw - 4, 200, 24); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = (this._vestNow && this._vestNow.stripe) || '#e8f27a'; ctx.lineWidth = 4;
       for (const y of [-118, -66]) { ctx.fillRect(-tw / 2 + 4, y, tw - 8, 14); ctx.strokeRect(-tw / 2 + 4, y, tw - 8, 14); }
       for (const x of [-34, 20]) { ctx.fillRect(x, -192, 14, 192); ctx.strokeRect(x, -192, 14, 192); }   // вертикальные лямки сзади
       ctx.lineWidth = 6;
