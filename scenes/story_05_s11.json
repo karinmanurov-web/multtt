@@ -1,0 +1,262 @@
+{
+  "id": "story_05_s11",
+  "duration": 12.2,
+  "start": {
+    "location": "field",
+    "view": "main",
+    "chars": {
+      "eng": {
+        "x": 440,
+        "face": "right",
+        "renderLayer": "behindProps"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {
+    "props": {
+      "nav_unit": {
+        "shapes": [
+          {
+            "t": "rect",
+            "x": -170,
+            "y": -105,
+            "w": 340,
+            "h": 210,
+            "r": 24,
+            "fill": "#22252c",
+            "stroke": "#111318",
+            "sw": 14
+          },
+          {
+            "t": "rect",
+            "x": -145,
+            "y": -82,
+            "w": 290,
+            "h": 150,
+            "r": 12,
+            "fill": "#7fa4a9",
+            "stroke": "#454b52",
+            "sw": 8
+          },
+          {
+            "t": "line",
+            "x1": -115,
+            "y1": 25,
+            "x2": 115,
+            "y2": 25,
+            "stroke": "#f3e5b4",
+            "sw": 8
+          }
+        ]
+      }
+    }
+  },
+  "beats": [
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 540,
+      "y": 1050,
+      "zoom": 0.82,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "road",
+      "prop": "road_wide",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "barriers",
+      "prop": "aer_barriers",
+      "x": 540,
+      "y": 1250,
+      "scale": 0.8,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "seat",
+      "prop": "car_seat",
+      "x": 440,
+      "y": 1420,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hero_car",
+      "prop": "car",
+      "x": 440,
+      "y": 1420,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "drive",
+      "dur": 12
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "neutral",
+      "dur": 0.1
+    },
+    {
+      "t": 0.3,
+      "do": "marker",
+      "name": "ровный шум трассы, двигатель на холостых"
+    },
+    {
+      "t": 0.4,
+      "do": "spawn",
+      "id": "traffic1",
+      "prop": "car_blue",
+      "x": -120,
+      "y": 1290,
+      "scale": 0.85,
+      "layer": "back"
+    },
+    {
+      "t": 0.4,
+      "do": "spawn",
+      "id": "traffic2",
+      "prop": "car_white",
+      "x": 900,
+      "y": 1290,
+      "scale": 0.85,
+      "layer": "back"
+    },
+    {
+      "t": 0.4,
+      "do": "spawn",
+      "id": "traffic3",
+      "prop": "van",
+      "x": 1450,
+      "y": 1420,
+      "scale": 0.9,
+      "layer": "back"
+    },
+    {
+      "t": 0.4,
+      "do": "spawn",
+      "id": "traffic4",
+      "prop": "car_yellow",
+      "x": -400,
+      "y": 1550,
+      "scale": 0.8,
+      "layer": "back"
+    },
+    {
+      "t": 0.4,
+      "do": "spawn",
+      "id": "traffic5",
+      "prop": "car_green_l",
+      "x": 1100,
+      "y": 1550,
+      "scale": 0.85,
+      "layer": "back"
+    },
+    {
+      "t": 1,
+      "do": "spawn",
+      "id": "nav",
+      "prop": "nav_unit",
+      "x": 800,
+      "y": 1090,
+      "scale": 0.7,
+      "layer": "front"
+    },
+    {
+      "t": 1.5,
+      "do": "title",
+      "key": "n30",
+      "dur": 3,
+      "pos": "bottom",
+      "style": "slide",
+      "color": "#fff"
+    },
+    {
+      "t": 4.8,
+      "do": "marker",
+      "name": "машины впереди останавливаются"
+    },
+    {
+      "t": 5,
+      "do": "shake",
+      "dur": 0.35,
+      "amp": 2
+    },
+    {
+      "t": 5.2,
+      "do": "marker",
+      "name": "короткие гудки, затем общий шум пробки"
+    },
+    {
+      "t": 6,
+      "do": "pose",
+      "who": "eng",
+      "pose": "think",
+      "dur": 1.1
+    },
+    {
+      "t": 6,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 1.4
+    },
+    {
+      "t": 7.4,
+      "do": "pose",
+      "who": "eng",
+      "pose": "drive",
+      "dur": 1
+    },
+    {
+      "t": 8,
+      "do": "portrait",
+      "on": "eng",
+      "dur": 3.8,
+      "zoom": 2.4,
+      "angle": "q45",
+      "bg": "blur"
+    },
+    {
+      "t": 8,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "neutral",
+      "dur": 3.8
+    },
+    {
+      "t": 9,
+      "do": "say",
+      "who": "narr",
+      "line": "n31",
+      "dur": 2.2
+    },
+    {
+      "t": 11.5,
+      "do": "marker",
+      "name": "тишина"
+    }
+  ]
+}
