@@ -551,7 +551,7 @@ class Engine {
       const inst = s && typeof s === 'object' ? s : {};
       const type = inst.type || (CHARS[id] ? id : 'extra');
       C.chars[id] = {
-        id, def: resolveCharDef(type, inst, charTypes, err, id),
+        id, def: resolveCharDef(type, inst, charTypes, err, id), renderLayer: inst.renderLayer === 'behindProps' ? 'behindProps' : 'normal',
         x0: s && isNum(s.x) ? s.x : (defaultStart[id] ? defaultStart[id].x : 540), vis: [{ t: 0, v: !!s && !inst.hidden }],
         angs: [{ t: 0, v: inst.angle === 'back' ? 'back' : 'side', prev: 'side', dur: 0 }],
         face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], cum: 0, poses: [], emos: [], says: [], holds: [], seed: hashStr(id) % 100
@@ -942,7 +942,7 @@ class Engine {
     }
     const ae = lastBefore(ch.angs, t);
     const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
-    return { ang, pname: pose._name, vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id };
+    return { ang, pname: pose._name, vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id, renderLayer: ch.renderLayer || 'normal' };
   }
 
   // кисть в мировых координатах (для падения/удержания предметов и камеры)
@@ -1109,20 +1109,26 @@ class Engine {
     else if (loc) for (const ly of loc.layers) if (ly.z !== 'front' && layerInView(ly, view)) withCam(ly.p == null ? 1 : ly.p, () => drawShapes(ctx, ly.shapes, t, T));
 
     withCam(1, () => {
-      // предметы сзади
       const props = Object.values(C.props);
+      const mirK = this._mirrorAt(t) ? -1 : 1;
+      const ids = Object.keys(C.chars).sort((a, b) => mirK * (this._posAt(C.chars[a], t) - this._posAt(C.chars[b], t)));
+      // Персонажи с renderLayer: behindProps рисуются позади всех предметов сцены.
+      for (const id of ids) {
+        const st = this.charState(id, t);
+        if (st.renderLayer !== 'behindProps' || (por && por.solo && id !== por.on)) continue;
+        if (st.vis) this._drawChar(ctx, st, t, por && por.on === id ? por.angle : null);
+      }
+      // предметы заднего слоя
       for (const P of props) {
         const s = this.propState(P, t);
         if (s.layer !== 'back' || por) continue;
         if (!s.vis || s.held || !s.pos) continue;
         ctx.save(); ctx.translate(s.pos.x, s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx, P, t, s.scale); ctx.restore();
       }
-      // герои (по x, чтобы перекрытие было естественным)
-      const mirK = this._mirrorAt(t) ? -1 : 1;
-      const ids = Object.keys(C.chars).sort((a, b) => mirK * (this._posAt(C.chars[a], t) - this._posAt(C.chars[b], t)));
+      // обычный слой персонажей (по x, чтобы перекрытие было естественным)
       for (const id of ids) {
         const st = this.charState(id, t);
-        if (por && por.solo && id !== por.on) continue;
+        if (st.renderLayer === 'behindProps' || (por && por.solo && id !== por.on)) continue;
         if (st.vis) this._drawChar(ctx, st, t, por && por.on === id ? por.angle : null);
       }
       for (const P of props) {
