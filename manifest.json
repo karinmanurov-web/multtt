@@ -277,6 +277,22 @@
       "langs": {
         "ru": "lang/story_05.ru.json"
       }
+    },
+    {
+      "id": "story_05_s10",
+      "title": "Сюжет №5 · Дорога · s10 · Деревня становится городом",
+      "file": "scenes/story_05_s10.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
+    },
+    {
+      "id": "story_05_s11",
+      "title": "Сюжет №5 · Дорога · s11 · Почти приехал",
+      "file": "scenes/story_05_s11.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
     }
   ]
 }
