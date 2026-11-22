@@ -1339,6 +1339,8 @@ class Engine {
       turnK = Math.max(0.1, Math.abs(Math.cos(Math.PI * u)));
     }
     const back = view === 'back' && isMain(def), q45 = view === 'q45';
+    // В водительских позах персонаж находится внутри машины: оставляем только верх тела.
+    const inVehicle = ['drive', 'drive_rev', 'drive_sink'].includes(st.pname);
     // сверление со спины: инструмент направлен от камеры. Руки сведены у груди за торсом, предмет не виден, тело мелко дрожит
     if (back && st.pname === 'drill') {
       const j = Math.sin(t * 72) * 1.6, sxn = this._bodyGeo(st).sxn;
@@ -1348,13 +1350,15 @@ class Engine {
     ctx.save();
     ctx.translate(st.x, GROUND + st.y);
     const sh = 1 - clamp(-st.air / 400, 0, 0.6);
-    ctx.fillStyle = 'rgba(0,0,0,0.24)';
-    ctx.beginPath(); ctx.ellipse(0, 6, 84 * sh, 17 * sh, 0, 0, Math.PI * 2); ctx.fill();
+    if (!inVehicle) {
+      ctx.fillStyle = 'rgba(0,0,0,0.24)';
+      ctx.beginPath(); ctx.ellipse(0, 6, 84 * sh, 17 * sh, 0, 0, Math.PI * 2); ctx.fill();
+    }
     ctx.scale((st.face / Math.sqrt(st.sq)) * turnK * (q45 ? 0.9 : 1), def.sy * st.sq);
     ctx.translate(0, st.air);
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
 
-    if (back) {
+    if (back && !inVehicle) {
       ctx.save();
       ctx.translate(0, g.hipY);
       ctx.rotate(rad(st.lean));
@@ -1363,16 +1367,18 @@ class Engine {
       ctx.restore();
     }
 
-    // ноги
-    const hipX = 30;
-    for (const side of [-1, 1]) {
+    // Ноги и обувь не рисуем, когда герой сидит в машине.
+    if (!inVehicle) {
+      const hipX = 30;
+      for (const side of [-1, 1]) {
       const leg = side < 0 ? st.legs.L : st.legs.R;
       const hx = side * hipX, hy = g.hipY;
       const fx = leg.x, fy = -leg.lift - st.air * 0.0;
       const r = ik(hx, hy + 4, fx, fy, LEG, LEG, side, 1, 0.1);
       this._limb(ctx, [hx, hy + 4], [r.ex, r.ey], [r.hx, r.hy], 38, def.pants);
       ctx.fillStyle = def.shoe; ctx.strokeStyle = OUT; ctx.lineWidth = 6;
-      ctx.beginPath(); ctx.ellipse(r.hx + (back ? 0 : 8), r.hy - 4, back ? 30 : 36, back ? 22 : 19, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(r.hx + (back ? 0 : 8), r.hy - 4, back ? 30 : 36, back ? 22 : 19, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      }
     }
 
     // верх тела (в системе бёдер, с наклоном)
@@ -1392,8 +1398,8 @@ class Engine {
     }
     if (!back) {
       this._torso(ctx, def.kind, def, tw, back);
-      // В обычном ракурсе удерживаемые предметы и руки остаются перед торсом.
-      for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
+      // В машине руки и удерживаемые предметы скрыты; остаются только торс и голова.
+      if (!inVehicle) for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
     } else {
       // При back руки и предмет уже нарисованы под ногами и торсом.
       this._torso(ctx, def.kind, def, tw, back);
