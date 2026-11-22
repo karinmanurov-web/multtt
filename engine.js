@@ -660,7 +660,7 @@ class Engine {
           if (!propDefs[b.prop]) { err(`${tag}: предмет "${b.prop}" не найден (library.json или defs.props)`); break; }
           if (!isNum(b.x)) { err(`${tag}: нужен x`); break; }
           const floor = isNum(b.y) ? b.y : GROUND + 4;
-          C.props[b.id] = { id: b.id, def: propDefs[b.prop], floor, layer: b.layer === 'front' ? 'front' : 'back', ev: [{ type: 'spawn', t, x: b.x, y: floor, rot: b.rot || 0, scale: isNum(b.scale) ? b.scale : 1 }] };
+          C.props[b.id] = { id: b.id, def: propDefs[b.prop], floor, layer: ['front', 'back'].includes(b.layer) ? b.layer : 'auto', ev: [{ type: 'spawn', t, x: b.x, y: floor, rot: b.rot || 0, scale: isNum(b.scale) ? b.scale : 1 }] };
           break;
         }
         case 'move': case 'remove': case 'hold': case 'release': case 'layer': {
@@ -1118,19 +1118,43 @@ class Engine {
         if (st.renderLayer !== 'behindProps' || (por && por.solo && id !== por.on)) continue;
         if (st.vis) this._drawChar(ctx, st, t, por && por.on === id ? por.angle : null);
       }
-      // предметы заднего слоя
+      // Явные back-объекты остаются на дальнем плане.
       for (const P of props) {
         const s = this.propState(P, t);
         if (s.layer !== 'back' || por) continue;
         if (!s.vis || s.held || !s.pos) continue;
         ctx.save(); ctx.translate(s.pos.x, s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx, P, t, s.scale); ctx.restore();
       }
-      // обычный слой персонажей (по x, чтобы перекрытие было естественным)
-      for (const id of ids) {
-        const st = this.charState(id, t);
-        if (st.renderLayer === 'behindProps' || (por && por.solo && id !== por.on)) continue;
-        if (st.vis) this._drawChar(ctx, st, t, por && por.on === id ? por.angle : null);
+      // Автоматическая глубина: самостоятельные объекты сортируются по нижней точке.
+      // Чем ниже основание объекта в кадре, тем позже он рисуется и тем ближе он к зрителю.
+      if (!por) {
+        const depthItems = [];
+        for (const id of ids) {
+          const st = this.charState(id, t);
+          if (st.renderLayer !== 'behindProps' && st.vis) depthItems.push({kind:'char', id, y:GROUND + (st.y || 0)});
+        }
+        for (const P of props) {
+          const s = this.propState(P, t);
+          if (s.layer === 'auto' && s.vis && !s.held && s.pos) depthItems.push({kind:'prop', P, s, y:s.pos.y});
+        }
+        depthItems.sort((a,b)=>a.y-b.y);
+        for (const item of depthItems) {
+          if (item.kind === 'char') {
+            const st = this.charState(item.id, t);
+            this._drawChar(ctx, st, t, por && por.on === item.id ? por.angle : null);
+          } else {
+            const {P,s}=item;
+            ctx.save(); ctx.translate(s.pos.x,s.pos.y); ctx.rotate(rad(s.rot)); this._drawProp(ctx,P,t,s.scale); ctx.restore();
+          }
+        }
+      } else {
+        for (const id of ids) {
+          const st = this.charState(id, t);
+          if (st.renderLayer !== 'behindProps' && !(por && por.solo && id !== por.on) && st.vis)
+            this._drawChar(ctx, st, t, por && por.on === id ? por.angle : null);
+        }
       }
+      // Явные front-объекты остаются поверх автоматической сортировки.
       for (const P of props) {
         const s = this.propState(P, t);
         if (s.layer !== 'front' || por) continue;
