@@ -1,0 +1,602 @@
+{
+  "id": "story_05_s03",
+  "duration": 12.4,
+  "start": {
+    "location": "field",
+    "view": "calendar",
+    "chars": {
+      "bld": {
+        "x": 380,
+        "face": "right",
+        "hidden": true
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n06",
+      "dur": 2.4
+    },
+    {
+      "t": 0.3,
+      "do": "marker",
+      "name": "шелест страниц"
+    },
+    {
+      "t": 0.35,
+      "do": "spawn",
+      "id": "pg0",
+      "prop": "cal_page",
+      "x": 540,
+      "y": 400,
+      "layer": "back"
+    },
+    {
+      "t": 0.35,
+      "do": "move",
+      "id": "pg0",
+      "y": 380,
+      "rot": -172,
+      "dur": 0.4,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 0.8,
+      "do": "remove",
+      "id": "pg0"
+    },
+    {
+      "t": 0.8,
+      "do": "spawn",
+      "id": "pg1",
+      "prop": "cal_page",
+      "x": 540,
+      "y": 400,
+      "layer": "back"
+    },
+    {
+      "t": 0.8,
+      "do": "move",
+      "id": "pg1",
+      "y": 380,
+      "rot": -172,
+      "dur": 0.4,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 1.25,
+      "do": "remove",
+      "id": "pg1"
+    },
+    {
+      "t": 1.25,
+      "do": "spawn",
+      "id": "pg2",
+      "prop": "cal_page",
+      "x": 540,
+      "y": 400,
+      "layer": "back"
+    },
+    {
+      "t": 1.25,
+      "do": "move",
+      "id": "pg2",
+      "y": 380,
+      "rot": -172,
+      "dur": 0.4,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 1.7,
+      "do": "remove",
+      "id": "pg2"
+    },
+    {
+      "t": 1.7000000000000002,
+      "do": "spawn",
+      "id": "pg3",
+      "prop": "cal_page",
+      "x": 540,
+      "y": 400,
+      "layer": "back"
+    },
+    {
+      "t": 1.7000000000000002,
+      "do": "move",
+      "id": "pg3",
+      "y": 380,
+      "rot": -172,
+      "dur": 0.4,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.15,
+      "do": "spawn",
+      "id": "pg4",
+      "prop": "cal_page",
+      "x": 540,
+      "y": 400,
+      "layer": "back"
+    },
+    {
+      "t": 2.15,
+      "do": "move",
+      "id": "pg4",
+      "y": 380,
+      "rot": -172,
+      "dur": 0.4,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.1500000000000004,
+      "do": "remove",
+      "id": "pg3"
+    },
+    {
+      "t": 2.6,
+      "do": "remove",
+      "id": "pg4"
+    },
+    {
+      "t": 2.9,
+      "do": "view",
+      "id": "main",
+      "transition": "cut"
+    },
+    {
+      "t": 2.9,
+      "do": "place",
+      "who": "bld",
+      "x": 380,
+      "face": "right"
+    },
+    {
+      "t": 2.9,
+      "do": "show",
+      "who": "bld"
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "seat",
+      "prop": "car_seat",
+      "x": 440,
+      "y": 1250
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "car",
+      "prop": "car",
+      "x": 440,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 2.9,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drive",
+      "dur": 2.6
+    },
+    {
+      "t": 2.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 2.4
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "st0",
+      "prop": "grass_stub",
+      "x": 1150,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "st0",
+      "x": -1150,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "st1",
+      "prop": "grass_stub",
+      "x": 1390,
+      "y": 1332,
+      "layer": "front"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "st1",
+      "x": -910,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "st2",
+      "prop": "grass_stub",
+      "x": 1630,
+      "y": 1402,
+      "layer": "back"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "st2",
+      "x": -670,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "st3",
+      "prop": "grass_stub",
+      "x": 1870,
+      "y": 1262,
+      "layer": "front"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "st3",
+      "x": -430,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "st4",
+      "prop": "grass_stub",
+      "x": 2110,
+      "y": 1332,
+      "layer": "back"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "st4",
+      "x": -190,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "st5",
+      "prop": "grass_stub",
+      "x": 2350,
+      "y": 1402,
+      "layer": "front"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "st5",
+      "x": 50,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "st6",
+      "prop": "grass_stub",
+      "x": 2590,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "st6",
+      "x": 290,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gr0",
+      "prop": "grass_clump",
+      "x": 60,
+      "y": 1900,
+      "layer": "front",
+      "scale": 0.15
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gr1",
+      "prop": "grass_clump",
+      "x": 260,
+      "y": 1900,
+      "layer": "front",
+      "scale": 0.15
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gr2",
+      "prop": "grass_clump",
+      "x": 470,
+      "y": 1900,
+      "layer": "front",
+      "scale": 0.15
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gr3",
+      "prop": "grass_clump",
+      "x": 680,
+      "y": 1900,
+      "layer": "front",
+      "scale": 0.15
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gr4",
+      "prop": "grass_clump",
+      "x": 890,
+      "y": 1900,
+      "layer": "front",
+      "scale": 0.15
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gr5",
+      "prop": "grass_clump",
+      "x": 1060,
+      "y": 1900,
+      "layer": "front",
+      "scale": 0.15
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gg0",
+      "prop": "grass_clump",
+      "x": 90,
+      "y": 1250,
+      "layer": "back",
+      "scale": 0.2
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gg1",
+      "prop": "grass_clump",
+      "x": 300,
+      "y": 1250,
+      "layer": "back",
+      "scale": 0.2
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gg2",
+      "prop": "grass_clump",
+      "x": 520,
+      "y": 1250,
+      "layer": "back",
+      "scale": 0.2
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gg3",
+      "prop": "grass_clump",
+      "x": 740,
+      "y": 1250,
+      "layer": "back",
+      "scale": 0.2
+    },
+    {
+      "t": 5.0,
+      "do": "spawn",
+      "id": "gg4",
+      "prop": "grass_clump",
+      "x": 980,
+      "y": 1250,
+      "layer": "back",
+      "scale": 0.2
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gr0",
+      "scale": 1.5,
+      "y": 1900,
+      "dur": 3.4,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gr1",
+      "scale": 1.5,
+      "y": 1900,
+      "dur": 3.4,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gr2",
+      "scale": 1.5,
+      "y": 1900,
+      "dur": 3.4,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gr3",
+      "scale": 1.5,
+      "y": 1900,
+      "dur": 3.4,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gr4",
+      "scale": 1.5,
+      "y": 1900,
+      "dur": 3.4,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gr5",
+      "scale": 1.5,
+      "y": 1900,
+      "dur": 3.4,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gg0",
+      "scale": 1.1,
+      "dur": 3.0,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gg1",
+      "scale": 1.1,
+      "dur": 3.0,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gg2",
+      "scale": 1.1,
+      "dur": 3.0,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gg3",
+      "scale": 1.1,
+      "dur": 3.0,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "move",
+      "id": "gg4",
+      "scale": 1.1,
+      "dur": 3.0,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n07",
+      "dur": 3.2
+    },
+    {
+      "t": 5.2,
+      "do": "camera",
+      "x": 540,
+      "y": 1050,
+      "zoom": 1.15,
+      "dur": 2.5
+    },
+    {
+      "t": 5.2,
+      "do": "fx",
+      "kind": "dust",
+      "x": 190,
+      "y": 1245,
+      "dur": 1.5
+    },
+    {
+      "t": 5.4,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drive_rev",
+      "dur": 2.6
+    },
+    {
+      "t": 7.4,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "angry",
+      "dur": 2.5
+    },
+    {
+      "t": 7.6,
+      "do": "shake",
+      "dur": 1.8,
+      "amp": 5
+    },
+    {
+      "t": 7.6,
+      "do": "fx",
+      "kind": "dust",
+      "x": 190,
+      "y": 1245,
+      "dur": 2.0
+    },
+    {
+      "t": 8.0,
+      "do": "marker",
+      "name": "машина застревает"
+    },
+    {
+      "t": 9.0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "sit_slump",
+      "dur": 2.5
+    },
+    {
+      "t": 9.1,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "tired",
+      "dur": 2.4
+    },
+    {
+      "t": 9.6,
+      "do": "say",
+      "who": "narr",
+      "line": "n08",
+      "dur": 2.2
+    }
+  ]
+}

@@ -1,0 +1,635 @@
+{
+  "id": "story_05_s01",
+  "duration": 14.3,
+  "start": {
+    "location": "field",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 380,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "seat",
+      "prop": "car_seat",
+      "x": 440,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "car",
+      "prop": "car",
+      "x": 440,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drive",
+      "dur": 3.2
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 540,
+      "y": 1000,
+      "zoom": 1.0,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gf0",
+      "prop": "grass_clump",
+      "x": 520,
+      "y": 1262,
+      "layer": "front",
+      "scale": 1.15
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gf1",
+      "prop": "grass_clump",
+      "x": 610,
+      "y": 1262,
+      "layer": "front",
+      "scale": 1.15
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gf2",
+      "prop": "grass_clump",
+      "x": 700,
+      "y": 1262,
+      "layer": "front",
+      "scale": 1.15
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gf3",
+      "prop": "grass_clump",
+      "x": 790,
+      "y": 1262,
+      "layer": "front",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gf4",
+      "prop": "grass_clump",
+      "x": 880,
+      "y": 1262,
+      "layer": "front",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gf5",
+      "prop": "grass_clump",
+      "x": 970,
+      "y": 1262,
+      "layer": "front",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gf6",
+      "prop": "grass_clump",
+      "x": 1060,
+      "y": 1262,
+      "layer": "front",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gb0",
+      "prop": "grass_mid",
+      "x": 600,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gb1",
+      "prop": "grass_mid",
+      "x": 760,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gb2",
+      "prop": "grass_mid",
+      "x": 920,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gb3",
+      "prop": "grass_mid",
+      "x": 1080,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n01",
+      "dur": 3.1
+    },
+    {
+      "t": 0.3,
+      "do": "camera",
+      "x": 540,
+      "y": 1050,
+      "zoom": 1.18,
+      "dur": 3.0
+    },
+    {
+      "t": 3.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n02",
+      "dur": 3.3
+    },
+    {
+      "t": 3.6,
+      "do": "pose",
+      "who": "bld",
+      "pose": "drive_rev",
+      "dur": 2.8
+    },
+    {
+      "t": 3.6,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "angry",
+      "dur": 3.0
+    },
+    {
+      "t": 3.7,
+      "do": "move",
+      "id": "car",
+      "x": 468,
+      "dur": 0.35
+    },
+    {
+      "t": 3.7,
+      "do": "move",
+      "id": "seat",
+      "x": 468,
+      "dur": 0.35
+    },
+    {
+      "t": 3.7,
+      "do": "walk",
+      "who": "bld",
+      "x": 408,
+      "dur": 0.35
+    },
+    {
+      "t": 3.7,
+      "do": "fx",
+      "kind": "dust",
+      "x": 190,
+      "y": 1245,
+      "dur": 2.8
+    },
+    {
+      "t": 3.7,
+      "do": "marker",
+      "name": "мотор, колёса буксуют"
+    },
+    {
+      "t": 3.8,
+      "do": "shake",
+      "dur": 3,
+      "amp": 5
+    },
+    {
+      "t": 4.1,
+      "do": "move",
+      "id": "car",
+      "x": 440,
+      "dur": 0.35
+    },
+    {
+      "t": 4.1,
+      "do": "move",
+      "id": "seat",
+      "x": 440,
+      "dur": 0.35
+    },
+    {
+      "t": 4.1,
+      "do": "walk",
+      "who": "bld",
+      "x": 380,
+      "dur": 0.35
+    },
+    {
+      "t": 4.6,
+      "do": "move",
+      "id": "car",
+      "x": 464,
+      "dur": 0.3
+    },
+    {
+      "t": 4.6,
+      "do": "move",
+      "id": "seat",
+      "x": 464,
+      "dur": 0.3
+    },
+    {
+      "t": 4.6,
+      "do": "walk",
+      "who": "bld",
+      "x": 404,
+      "dur": 0.3
+    },
+    {
+      "t": 4.95,
+      "do": "move",
+      "id": "car",
+      "x": 440,
+      "dur": 0.3
+    },
+    {
+      "t": 4.95,
+      "do": "move",
+      "id": "seat",
+      "x": 440,
+      "dur": 0.3
+    },
+    {
+      "t": 4.95,
+      "do": "walk",
+      "who": "bld",
+      "x": 380,
+      "dur": 0.3
+    },
+    {
+      "t": 6.0,
+      "do": "camera",
+      "reset": true,
+      "dur": 0.4
+    },
+    {
+      "t": 6.4,
+      "do": "pose",
+      "who": "bld",
+      "pose": "sit_slump",
+      "dur": 1.0
+    },
+    {
+      "t": 6.6,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "confused",
+      "dur": 1.2
+    },
+    {
+      "t": 7.0,
+      "do": "say",
+      "who": "narr",
+      "line": "n03",
+      "dur": 3.0
+    },
+    {
+      "t": 7.0,
+      "do": "fx",
+      "kind": "idea",
+      "who": "bld",
+      "dur": 1.2
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "car"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "seat"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gf0"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gf1"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gf2"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gf3"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gf4"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gf5"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gf6"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gb0"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gb1"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gb2"
+    },
+    {
+      "t": 9.1,
+      "do": "remove",
+      "id": "gb3"
+    },
+    {
+      "t": 9.1,
+      "do": "place",
+      "who": "bld",
+      "x": 200,
+      "face": "right"
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "mow",
+      "prop": "mower",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 9.1,
+      "do": "pose",
+      "who": "bld",
+      "pose": "mow",
+      "dur": 4.6
+    },
+    {
+      "t": 9.1,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.1
+    },
+    {
+      "t": 9.1,
+      "do": "marker",
+      "name": "газонокосилка"
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "c0",
+      "prop": "grass_mid",
+      "x": 520,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "c1",
+      "prop": "grass_mid",
+      "x": 630,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "c2",
+      "prop": "grass_mid",
+      "x": 740,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "c3",
+      "prop": "grass_mid",
+      "x": 850,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "c4",
+      "prop": "grass_mid",
+      "x": 960,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "c5",
+      "prop": "grass_mid",
+      "x": 1070,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "c6",
+      "prop": "grass_mid",
+      "x": 1180,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 9.15,
+      "do": "hold",
+      "id": "mow",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 9.4,
+      "do": "walk",
+      "who": "bld",
+      "x": 700,
+      "dur": 3.6,
+      "ease": "linear"
+    },
+    {
+      "t": 9.89568345323741,
+      "do": "remove",
+      "id": "c0"
+    },
+    {
+      "t": 9.89568345323741,
+      "do": "spawn",
+      "id": "s0",
+      "prop": "grass_stub",
+      "x": 520,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 9.89568345323741,
+      "do": "fx",
+      "kind": "dust",
+      "x": 520,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 10.68705035971223,
+      "do": "remove",
+      "id": "c1"
+    },
+    {
+      "t": 10.68705035971223,
+      "do": "spawn",
+      "id": "s1",
+      "prop": "grass_stub",
+      "x": 630,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 10.68705035971223,
+      "do": "fx",
+      "kind": "dust",
+      "x": 630,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 11.47841726618705,
+      "do": "remove",
+      "id": "c2"
+    },
+    {
+      "t": 11.47841726618705,
+      "do": "spawn",
+      "id": "s2",
+      "prop": "grass_stub",
+      "x": 740,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 11.47841726618705,
+      "do": "fx",
+      "kind": "dust",
+      "x": 740,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 12.26978417266187,
+      "do": "remove",
+      "id": "c3"
+    },
+    {
+      "t": 12.26978417266187,
+      "do": "spawn",
+      "id": "s3",
+      "prop": "grass_stub",
+      "x": 850,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 12.26978417266187,
+      "do": "fx",
+      "kind": "dust",
+      "x": 850,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 13.06115107913669,
+      "do": "remove",
+      "id": "c4"
+    },
+    {
+      "t": 13.06115107913669,
+      "do": "spawn",
+      "id": "s4",
+      "prop": "grass_stub",
+      "x": 960,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 13.06115107913669,
+      "do": "fx",
+      "kind": "dust",
+      "x": 960,
+      "y": 1230,
+      "dur": 0.5
+    },
+    {
+      "t": 13.1,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.0
+    }
+  ]
+}

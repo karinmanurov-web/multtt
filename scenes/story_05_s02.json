@@ -1,0 +1,872 @@
+{
+  "id": "story_05_s02",
+  "duration": 12.2,
+  "start": {
+    "location": "field",
+    "view": "main",
+    "chars": {
+      "bld": {
+        "x": 640,
+        "face": "right"
+      },
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "mow",
+      "dur": 0.8
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "mow",
+      "prop": "mower",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s0",
+      "prop": "grass_stub",
+      "x": 520,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "s1",
+      "prop": "grass_stub",
+      "x": 630,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r0",
+      "prop": "grass_clump",
+      "x": 980,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r1",
+      "prop": "grass_mid",
+      "x": 1095,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r2",
+      "prop": "grass_clump",
+      "x": 1210,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r3",
+      "prop": "grass_mid",
+      "x": 1325,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r4",
+      "prop": "grass_clump",
+      "x": 1440,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r5",
+      "prop": "grass_mid",
+      "x": 1555,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r6",
+      "prop": "grass_clump",
+      "x": 1670,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r7",
+      "prop": "grass_mid",
+      "x": 1785,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r8",
+      "prop": "grass_clump",
+      "x": 1900,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r9",
+      "prop": "grass_mid",
+      "x": 2015,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r10",
+      "prop": "grass_clump",
+      "x": 2130,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r11",
+      "prop": "grass_mid",
+      "x": 2245,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r12",
+      "prop": "grass_clump",
+      "x": 2360,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r13",
+      "prop": "grass_mid",
+      "x": 2475,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r14",
+      "prop": "grass_clump",
+      "x": 2590,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r15",
+      "prop": "grass_mid",
+      "x": 2705,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r16",
+      "prop": "grass_clump",
+      "x": 2820,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r17",
+      "prop": "grass_mid",
+      "x": 2935,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r18",
+      "prop": "grass_clump",
+      "x": 3050,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r19",
+      "prop": "grass_mid",
+      "x": 3165,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r20",
+      "prop": "grass_clump",
+      "x": 3280,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r21",
+      "prop": "grass_mid",
+      "x": 3395,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r22",
+      "prop": "grass_clump",
+      "x": 3510,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r23",
+      "prop": "grass_mid",
+      "x": 3625,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r24",
+      "prop": "grass_clump",
+      "x": 3740,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r25",
+      "prop": "grass_mid",
+      "x": 3855,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l0",
+      "prop": "grass_clump",
+      "x": 300,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l1",
+      "prop": "grass_mid",
+      "x": 185,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l2",
+      "prop": "grass_clump",
+      "x": 70,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l3",
+      "prop": "grass_mid",
+      "x": -45,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l4",
+      "prop": "grass_clump",
+      "x": -160,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l5",
+      "prop": "grass_mid",
+      "x": -275,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l6",
+      "prop": "grass_clump",
+      "x": -390,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l7",
+      "prop": "grass_mid",
+      "x": -505,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l8",
+      "prop": "grass_clump",
+      "x": -620,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l9",
+      "prop": "grass_mid",
+      "x": -735,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l10",
+      "prop": "grass_clump",
+      "x": -850,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l11",
+      "prop": "grass_mid",
+      "x": -965,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l12",
+      "prop": "grass_clump",
+      "x": -1080,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l13",
+      "prop": "grass_mid",
+      "x": -1195,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l14",
+      "prop": "grass_clump",
+      "x": -1310,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l15",
+      "prop": "grass_mid",
+      "x": -1425,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l16",
+      "prop": "grass_clump",
+      "x": -1540,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "l17",
+      "prop": "grass_mid",
+      "x": -1655,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "mow",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n04",
+      "dur": 2.4
+    },
+    {
+      "t": 0.4,
+      "do": "pose",
+      "who": "bld",
+      "pose": "mow",
+      "dur": 0.5
+    },
+    {
+      "t": 1.4,
+      "do": "camera",
+      "x": 640,
+      "y": 1000,
+      "zoom": 0.5,
+      "dur": 2.6,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 1.4,
+      "do": "marker",
+      "name": "дрон взлетает: тихий звук косилки, затихает"
+    },
+    {
+      "t": 4.1,
+      "do": "view",
+      "id": "aerial",
+      "transition": "fade",
+      "dur": 0.5,
+      "keepCam": true
+    },
+    {
+      "t": 4.1,
+      "do": "hide",
+      "who": "bld"
+    },
+    {
+      "t": 4.1,
+      "do": "remove",
+      "id": "mow"
+    },
+    {
+      "t": 4.1,
+      "do": "camera",
+      "x": 540,
+      "y": 1100,
+      "zoom": 0.6,
+      "dur": 0.01
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r0"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r1"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r2"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r3"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r4"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r5"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r6"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r7"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r8"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r9"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r10"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r11"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r12"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r13"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r14"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r15"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r16"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r17"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r18"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r19"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r20"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r21"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r22"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r23"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r24"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "r25"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l0"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l1"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l2"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l3"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l4"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l5"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l6"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l7"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l8"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l9"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l10"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l11"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l12"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l13"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l14"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l15"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l16"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "l17"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "s0"
+    },
+    {
+      "t": 4.2,
+      "do": "remove",
+      "id": "s1"
+    },
+    {
+      "t": 4.3,
+      "do": "camera",
+      "x": 540,
+      "y": -2100,
+      "zoom": 0.1,
+      "dur": 4.4,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 5.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n05",
+      "dur": 2.9
+    },
+    {
+      "t": 9.2,
+      "do": "view",
+      "id": "main",
+      "transition": "cut"
+    },
+    {
+      "t": 9.2,
+      "do": "camera",
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0,
+      "dur": 0.01
+    },
+    {
+      "t": 9.2,
+      "do": "show",
+      "who": "bld"
+    },
+    {
+      "t": 9.2,
+      "do": "spawn",
+      "id": "mow2",
+      "prop": "mower",
+      "x": 300,
+      "y": 1250
+    },
+    {
+      "t": 9.2,
+      "do": "pose",
+      "who": "bld",
+      "pose": "mow",
+      "dur": 0.4
+    },
+    {
+      "t": 9.25,
+      "do": "hold",
+      "id": "mow2",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 9.6,
+      "do": "pose",
+      "who": "bld",
+      "pose": "tired",
+      "dur": 2.0
+    },
+    {
+      "t": 9.6,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "sad",
+      "dur": 2.2
+    },
+    {
+      "t": 9.8,
+      "do": "fx",
+      "kind": "sweat",
+      "who": "bld",
+      "dur": 1.2
+    },
+    {
+      "t": 9.8,
+      "do": "marker",
+      "name": "тихий звук косилки затихает"
+    }
+  ]
+}

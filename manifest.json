@@ -205,6 +205,30 @@
       "langs": {
         "ru": "lang/story_04.ru.json"
       }
+    },
+    {
+      "id": "story_05_s01",
+      "title": "Сюжет №5 · Дорога · s01 · Трава высокая",
+      "file": "scenes/story_05_s01.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
+    },
+    {
+      "id": "story_05_s02",
+      "title": "Сюжет №5 · Дорога · s02 · Путь большой",
+      "file": "scenes/story_05_s02.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
+    },
+    {
+      "id": "story_05_s03",
+      "title": "Сюжет №5 · Дорога · s03 · Трава снова выросла",
+      "file": "scenes/story_05_s03.json",
+      "langs": {
+        "ru": "lang/story_05.ru.json"
+      }
     }
   ]
 }

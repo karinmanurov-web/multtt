@@ -172,6 +172,9 @@ const POSES = {
   pull: (lt, t) => P({ L: [128, 12 + Math.sin(t * 24) * 3], R: [128, 12 - Math.sin(t * 24) * 3], lean: -14, by: 6 }),
   fall_back: (lt, t) => P({ L: [74, -70], R: [74, -70], lean: -30, by: 8, head: -8 }),
   wipe: (lt, t) => P({ L: [30, 120 + Math.sin(t * 9) * 8], R: [30, 120 - Math.sin(t * 9) * 8], head: 8, lean: -2, by: 3 }),
+  drive: (lt, t) => P({ L: [74, 104], R: [74, 104], sq: .86, air: -30, by: Math.sin(t * 2.2) * 1, head: 0 }),
+  drive_rev: (lt, t) => P({ L: [74, 104], R: [74, 104], sq: .86, air: -30, lean: 5 + Math.sin(t * 26) * 3, head: 4, by: Math.sin(t * 30) * 3 }),
+  mow: (lt, t) => P({ L: [84, 134], R: [84, 134], lean: 7, by: Math.abs(Math.sin(t * 6)) * 3 }),
   jump: (lt) => {
     const T = 0.8, u = (lt % T) / T;
     const air = u < 0.15 ? 0 : Math.sin(Math.PI * ((u - 0.15) / 0.85));
@@ -667,7 +670,7 @@ class Engine {
             P.ev.push({ type: 'layer', t, layer: b.layer });
           } else if (b.do === 'move') {
             if (!needDur()) break;
-            P.ev.push({ type: 'move', t, t1: t + b.dur, x: isNum(b.x) ? b.x : null, y: isNum(b.y) ? b.y : null, arc: b.arc || 0, ease: b.ease || 'easeInOut', rot: isNum(b.rot) ? b.rot : null });
+            P.ev.push({ type: 'move', t, t1: t + b.dur, x: isNum(b.x) ? b.x : null, y: isNum(b.y) ? b.y : null, arc: b.arc || 0, ease: b.ease || 'easeInOut', rot: isNum(b.rot) ? b.rot : null, sc: isNum(b.scale) ? b.scale : null });
           } else if (b.do === 'hold') {
             const id = who(b, i); if (!id) break;
             const hand = b.hand === 'L' ? 'L' : 'R';
@@ -1005,8 +1008,10 @@ class Engine {
       st = { x: lerp(from.x, to.x, k), y: lerp(from.y, to.y, k), zoom: lerp(from.zoom, to.zoom, k), rot: lerp(from.rot, to.rot, k) };
       break;
     }
-    const hw = W / 2 / st.zoom, hh = H / 2 / st.zoom;
-    st.x = clamp(st.x, hw, W - hw); st.y = clamp(st.y, hh, H - hh);
+    if (st.zoom >= 1) {   // zoom < 1 («дрон»): камера свободна, локация должна быть нарисована шире мира
+      const hw = W / 2 / st.zoom, hh = H / 2 / st.zoom;
+      st.x = clamp(st.x, hw, W - hw); st.y = clamp(st.y, hh, H - hh);
+    }
     return st;
   }
 
@@ -1044,11 +1049,12 @@ class Engine {
         case 'move': {
           if (!pos) break;
           const tx = e.x == null ? pos.x : e.x, ty = e.y == null ? pos.y : e.y;
-          if (t >= e.t1) { pos = { x: tx, y: ty }; if (e.rot != null) rot = e.rot; }
+          if (t >= e.t1) { pos = { x: tx, y: ty }; if (e.rot != null) rot = e.rot; if (e.sc != null) scale = e.sc; }
           else {
             const k = ease(e.ease, (t - e.t) / (e.t1 - e.t));
             pos = { x: lerp(pos.x, tx, k), y: lerp(pos.y, ty, k) - Math.sin(Math.PI * k) * e.arc };
             if (e.rot != null) rot = lerp(rot, e.rot, k);
+            if (e.sc != null) scale = lerp(scale, e.sc, k);
             return { vis, pos, rot, scale, held, floor, layer };
           }
           break;
