@@ -373,6 +373,30 @@
       "langs": {
         "ru": "lang/story_07.ru.json"
       }
+    },
+    {
+      "id": "story_08_s01",
+      "title": "Сюжет №8 · Мост · s01 · Камни",
+      "file": "scenes/story_08_s01.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
+    },
+    {
+      "id": "story_08_s02",
+      "title": "Сюжет №8 · Мост · s02 · Бревно",
+      "file": "scenes/story_08_s02.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
+    },
+    {
+      "id": "story_08_s03",
+      "title": "Сюжет №8 · Мост · s03 · Очередь",
+      "file": "scenes/story_08_s03.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
     }
   ]
 }

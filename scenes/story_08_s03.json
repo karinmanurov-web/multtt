@@ -1,0 +1,372 @@
+{
+  "id": "story_08_s03",
+  "duration": 11.8,
+  "start": {
+    "location": "river",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "ex1": {
+        "type": "extra",
+        "x": -250,
+        "face": "right",
+        "sy": 0.8,
+        "shirt": "#d8695f",
+        "hair": "#4a3426"
+      },
+      "ex2": {
+        "type": "extra",
+        "x": 1250,
+        "face": "left",
+        "sy": 0.8,
+        "shirt": "#4a8fd0",
+        "hat": "#e8c24a",
+        "pants": "#3a4a6b"
+      },
+      "ex3": {
+        "type": "extra",
+        "x": -430,
+        "face": "right",
+        "sy": 0.8,
+        "shirt": "#7bbf6a",
+        "glasses": true,
+        "hair": "#2a2a2a"
+      },
+      "ex4": {
+        "type": "extra",
+        "x": 1400,
+        "face": "left",
+        "sy": 0.8,
+        "shirt": "#b07ad0",
+        "hair": "#8a5a2b"
+      },
+      "ex5": {
+        "type": "extra",
+        "x": -600,
+        "face": "right",
+        "sy": 0.8,
+        "shirt": "#e8a24a",
+        "hair": "#6a3f26"
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 500,
+      "y": 960,
+      "zoom": 0.65,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st0",
+      "prop": "stone",
+      "x": 380,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st1",
+      "prop": "stone",
+      "x": 500,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st2",
+      "prop": "stone",
+      "x": 620,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rd1",
+      "prop": "reeds",
+      "x": 305,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rd2",
+      "prop": "reeds",
+      "x": 695,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lf",
+      "prop": "log_flat",
+      "x": 500,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "ex3",
+      "x": 190,
+      "y": -93.07692307692308,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "ex5",
+      "x": 105,
+      "y": -165.0,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "ex4",
+      "x": 810,
+      "y": -93.07692307692308,
+      "face": "left"
+    },
+    {
+      "t": 0.1,
+      "do": "emote",
+      "who": "ex3",
+      "emotion": "worried",
+      "dur": 3.0
+    },
+    {
+      "t": 0.1,
+      "do": "emote",
+      "who": "ex4",
+      "emotion": "worried",
+      "dur": 3.0
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n06",
+      "dur": 5.1
+    },
+    {
+      "t": 1.5,
+      "do": "walk",
+      "who": "ex1",
+      "x": 40,
+      "y": -220,
+      "dur": 1.2,
+      "ease": "linear"
+    },
+    {
+      "t": 1.5,
+      "do": "walk",
+      "who": "ex2",
+      "x": 960,
+      "y": -220,
+      "dur": 1.4,
+      "ease": "linear"
+    },
+    {
+      "t": 2.7,
+      "do": "walk",
+      "who": "ex1",
+      "x": 300,
+      "y": 0,
+      "dur": 1.5,
+      "ease": "linear"
+    },
+    {
+      "t": 2.9,
+      "do": "walk",
+      "who": "ex2",
+      "x": 700,
+      "y": 0,
+      "dur": 1.5,
+      "ease": "linear"
+    },
+    {
+      "t": 4.2,
+      "do": "walk",
+      "who": "ex1",
+      "x": 310,
+      "y": -60,
+      "dur": 0.25,
+      "ease": "linear"
+    },
+    {
+      "t": 4.4,
+      "do": "walk",
+      "who": "ex2",
+      "x": 690,
+      "y": -60,
+      "dur": 0.25,
+      "ease": "linear"
+    },
+    {
+      "t": 4.45,
+      "do": "walk",
+      "who": "ex1",
+      "x": 455,
+      "y": -60,
+      "dur": 1.3,
+      "ease": "linear"
+    },
+    {
+      "t": 4.65,
+      "do": "walk",
+      "who": "ex2",
+      "x": 545,
+      "y": -60,
+      "dur": 1.1,
+      "ease": "linear"
+    },
+    {
+      "t": 5.8,
+      "do": "say",
+      "who": "narr",
+      "line": "n07",
+      "dur": 5.7
+    },
+    {
+      "t": 5.8,
+      "do": "pose",
+      "who": "ex1",
+      "pose": "shrug",
+      "dur": 1.5
+    },
+    {
+      "t": 5.8,
+      "do": "emote",
+      "who": "ex1",
+      "emotion": "worried",
+      "dur": 1.5
+    },
+    {
+      "t": 5.9,
+      "do": "fx",
+      "kind": "question",
+      "who": "ex1",
+      "dur": 1.2
+    },
+    {
+      "t": 6.0,
+      "do": "pose",
+      "who": "ex2",
+      "pose": "point",
+      "dur": 1.4
+    },
+    {
+      "t": 6.0,
+      "do": "emote",
+      "who": "ex2",
+      "emotion": "angry",
+      "dur": 1.4
+    },
+    {
+      "t": 7.4,
+      "do": "pose",
+      "who": "ex1",
+      "pose": "crouch_idle",
+      "dur": 2.6
+    },
+    {
+      "t": 7.4,
+      "do": "emote",
+      "who": "ex1",
+      "emotion": "neutral",
+      "dur": 2.6
+    },
+    {
+      "t": 8.3,
+      "do": "pose",
+      "who": "ex2",
+      "pose": "jump",
+      "dur": 0.8
+    },
+    {
+      "t": 8.3,
+      "do": "walk",
+      "who": "ex2",
+      "x": 400,
+      "y": -60,
+      "dur": 0.8,
+      "ease": "linear"
+    },
+    {
+      "t": 9.1,
+      "do": "pose",
+      "who": "ex2",
+      "pose": "idle",
+      "dur": 0.2
+    },
+    {
+      "t": 9.1,
+      "do": "walk",
+      "who": "ex2",
+      "x": 300,
+      "y": -60,
+      "dur": 0.8,
+      "ease": "linear"
+    },
+    {
+      "t": 9.9,
+      "do": "walk",
+      "who": "ex2",
+      "x": 290,
+      "y": 0,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 10.0,
+      "do": "pose",
+      "who": "ex1",
+      "pose": "idle",
+      "dur": 1.0
+    },
+    {
+      "t": 10.0,
+      "do": "walk",
+      "who": "ex1",
+      "x": 700,
+      "y": -60,
+      "dur": 1.6,
+      "ease": "linear"
+    },
+    {
+      "t": 10.1,
+      "do": "walk",
+      "who": "ex3",
+      "x": 300,
+      "y": 0,
+      "dur": 1.2,
+      "ease": "soft"
+    },
+    {
+      "t": 10.5,
+      "do": "walk",
+      "who": "ex5",
+      "x": 200,
+      "y": -84.61538461538461,
+      "dur": 0.8,
+      "ease": "linear"
+    }
+  ]
+}

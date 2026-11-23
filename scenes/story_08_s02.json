@@ -1,0 +1,338 @@
+{
+  "id": "story_08_s02",
+  "duration": 10.8,
+  "start": {
+    "location": "river",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "bld": {
+        "type": "bld",
+        "x": -520,
+        "face": "right",
+        "sy": 0.8
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 300,
+      "y": 960,
+      "zoom": 0.65,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "bld",
+      "x": -520,
+      "y": -220,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st0",
+      "prop": "stone",
+      "x": 380,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st1",
+      "prop": "stone",
+      "x": 500,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st2",
+      "prop": "stone",
+      "x": 620,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rd1",
+      "prop": "reeds",
+      "x": 305,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rd2",
+      "prop": "reeds",
+      "x": 695,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "tr",
+      "prop": "tree_log",
+      "x": -130,
+      "y": 1030,
+      "layer": "back"
+    },
+    {
+      "t": 0.2,
+      "do": "walk",
+      "who": "bld",
+      "x": -440,
+      "dur": 1.9,
+      "ease": "linear"
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n03",
+      "dur": 3.3
+    },
+    {
+      "t": 2.2,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "surprised",
+      "dur": 0.9
+    },
+    {
+      "t": 2.3,
+      "do": "fx",
+      "kind": "idea",
+      "who": "bld",
+      "dur": 1.0
+    },
+    {
+      "t": 3.0,
+      "do": "remove",
+      "id": "tr"
+    },
+    {
+      "t": 3.0,
+      "do": "spawn",
+      "id": "lc",
+      "prop": "log_carry",
+      "x": -300,
+      "y": 1030
+    },
+    {
+      "t": 3.0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "mow",
+      "dur": 3.3
+    },
+    {
+      "t": 3.05,
+      "do": "hold",
+      "id": "lc",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 3.2,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "angry",
+      "dur": 3.0
+    },
+    {
+      "t": 3.2,
+      "do": "fx",
+      "kind": "sweat",
+      "who": "bld",
+      "dur": 2.8
+    },
+    {
+      "t": 3.2,
+      "do": "walk",
+      "who": "bld",
+      "x": -130,
+      "dur": 3.0,
+      "ease": "linear"
+    },
+    {
+      "t": 3.2,
+      "do": "marker",
+      "name": "кряхтение, волочение"
+    },
+    {
+      "t": 3.9,
+      "do": "say",
+      "who": "narr",
+      "line": "n04",
+      "dur": 3.6
+    },
+    {
+      "t": 6.3,
+      "do": "release",
+      "id": "lc",
+      "drop": false
+    },
+    {
+      "t": 6.3,
+      "do": "remove",
+      "id": "lc"
+    },
+    {
+      "t": 6.3,
+      "do": "spawn",
+      "id": "lf",
+      "prop": "log_flat",
+      "x": 90,
+      "y": 1025,
+      "rot": 0,
+      "layer": "back"
+    },
+    {
+      "t": 6.3,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.0
+    },
+    {
+      "t": 6.3,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 1.2
+    },
+    {
+      "t": 6.35,
+      "do": "move",
+      "id": "lf",
+      "x": 200,
+      "y": 1150,
+      "rot": 22,
+      "dur": 0.55,
+      "ease": "easeIn"
+    },
+    {
+      "t": 6.4,
+      "do": "walk",
+      "who": "bld",
+      "x": 40,
+      "y": -220,
+      "dur": 0.8,
+      "ease": "linear"
+    },
+    {
+      "t": 6.9,
+      "do": "move",
+      "id": "lf",
+      "x": 500,
+      "y": 1250,
+      "rot": 0,
+      "dur": 0.5,
+      "ease": "bounce"
+    },
+    {
+      "t": 7.2,
+      "do": "walk",
+      "who": "bld",
+      "x": 300,
+      "y": 0,
+      "dur": 1.4,
+      "ease": "linear"
+    },
+    {
+      "t": 7.4,
+      "do": "fx",
+      "kind": "dust",
+      "x": 330,
+      "y": 1245,
+      "dur": 0.8
+    },
+    {
+      "t": 7.4,
+      "do": "shake",
+      "dur": 0.4,
+      "amp": 5
+    },
+    {
+      "t": 7.6,
+      "do": "say",
+      "who": "narr",
+      "line": "n05",
+      "dur": 3.0
+    },
+    {
+      "t": 8.65,
+      "do": "walk",
+      "who": "bld",
+      "x": 335,
+      "y": -60,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 9.0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hop",
+      "dur": 0.5
+    },
+    {
+      "t": 9.0,
+      "do": "move",
+      "id": "lf",
+      "rot": -2.5,
+      "dur": 0.15
+    },
+    {
+      "t": 9.2,
+      "do": "move",
+      "id": "lf",
+      "rot": 2,
+      "dur": 0.2
+    },
+    {
+      "t": 9.4,
+      "do": "move",
+      "id": "lf",
+      "rot": -1.2,
+      "dur": 0.2
+    },
+    {
+      "t": 9.5,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.0
+    },
+    {
+      "t": 9.6,
+      "do": "move",
+      "id": "lf",
+      "rot": 0,
+      "dur": 0.3
+    },
+    {
+      "t": 9.6,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 1.0
+    }
+  ]
+}

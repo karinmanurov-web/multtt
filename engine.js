@@ -182,6 +182,11 @@ const POSES = {
   crouch_idle: (lt, t) => P({ sq: .8, lean: 14, head: -6, L: [20, 120], R: [20, 120], by: Math.sin(t * 2) * 1 }),
   crouch_walk: (lt, t) => P({ sq: .8, lean: 15, head: -8, L: [24 + Math.sin(t * 7) * 10, 118], R: [24 - Math.sin(t * 7) * 10, 118], by: Math.abs(Math.sin(t * 7)) * 2 }),
   ouch: (lt, t) => P({ sq: .92, lean: 6, head: 14, L: [10, -160], R: [40, 110], by: 4 }),
+  hop: (lt) => {
+    const T = 0.5, u = Math.min(1, (lt % T) / T), air = Math.sin(Math.PI * u);
+    return P({ air: -air * 70, sq: 1 - (u < 0.12 ? 0.1 * Math.sin(Math.PI * u / 0.12) : 0), L: [50, -60], R: [50, -60], lean: 6 });
+  },
+  balance: (lt) => P({ L: [60, -70 + Math.sin(lt * 7) * 55], R: [60, -70 - Math.sin(lt * 7) * 55], lean: Math.sin(lt * 7) * 9, head: Math.sin(lt * 7) * -5 }),
   jump: (lt) => {
     const T = 0.8, u = (lt % T) / T;
     const air = u < 0.15 ? 0 : Math.sin(Math.PI * ((u - 0.15) / 0.85));
@@ -561,7 +566,7 @@ class Engine {
         id, def: resolveCharDef(type, inst, charTypes, err, id), renderLayer: inst.renderLayer === 'behindProps' ? 'behindProps' : 'normal',
         x0: s && isNum(s.x) ? s.x : (defaultStart[id] ? defaultStart[id].x : 540), vis: [{ t: 0, v: !!s && !inst.hidden }],
         angs: [{ t: 0, v: inst.angle === 'back' ? 'back' : 'side', prev: 'side', dur: 0 }],
-        face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], cum: 0, poses: [], emos: [], says: [], holds: [], vests: [], seed: hashStr(id) % 100
+        face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], lifts: [], cum: 0, poses: [], emos: [], says: [], holds: [], vests: [], seed: hashStr(id) % 100
       };
     }
     for (const id in C.chars) {
@@ -604,6 +609,7 @@ class Engine {
           if (!isNum(b.x)) { err(`${tag}: нужен x`); break; }
           const ch = C.chars[id];
           ch.segs.push({ t0: t, t1: t, x0: b.x, x1: b.x, ease: 'linear', moving: false });
+          if (isNum(b.y)) ch.lifts.push({ t0: t, t1: t, y0: b.y, y1: b.y, ease: 'linear' });
           ch.vis.push({ t, v: true });
           if (b.face) ch.face.push({ t, v: b.face === 'left' ? -1 : 1 });
           break;
@@ -624,6 +630,7 @@ class Engine {
           ch.segs.push({ t0: t, t1: t + dur, x0, x1: b.x, ease: b.ease || 'soft', moving: Math.abs(b.x - x0) > 0.5 });
           if (b.face !== 'keep' && Math.abs(b.x - x0) > 0.5) ch.face.push({ t, v: b.x > x0 ? 1 : -1 });
           if (b.face === 'left' || b.face === 'right') ch.face.push({ t: t + dur, v: b.face === 'left' ? -1 : 1 });
+          if (isNum(b.y)) ch.lifts.push({ t0: t, t1: t + dur, y0: eng._liftAt(ch, t), y1: b.y, ease: b.yease || b.ease || 'soft' });
           const sp = Math.abs(b.x - x0) / dur;
           if (sp > 520) warn(`${tag}: очень быстрый бег (${Math.round(sp)} px/с) — увеличьте dur`);
           break;
@@ -697,6 +704,14 @@ class Engine {
           if (!locs[b.id]) { err(`${tag}: локация "${b.id}" не найдена`); break; }
           C.locEv.push({ t, id: b.id, transition: b.transition || 'fade', dur: isNum(b.dur) ? b.dur : 0.5 });
           C.viewEv.push({ t, view: b.view || null, transition: 'cut', dur: 0, cam: true, tag });
+          break;
+        }
+        case 'lift': {
+          // вертикальное смещение героя (склон, мост): y < 0 — выше земли; можно и в walk: {do:"walk",x,y,dur}
+          const id = who(b, i); if (!id) break;
+          if (!isNum(b.y)) { err(`${tag}: lift требует y`); break; }
+          const ch = C.chars[id], dur = isNum(b.dur) ? Math.max(0, b.dur) : 0;
+          ch.lifts.push({ t0: t, t1: t + dur, y0: eng._liftAt(ch, t), y1: b.y, ease: b.ease || 'linear' });
           break;
         }
         case 'vest': {
@@ -789,6 +804,7 @@ class Engine {
       ch.angs.sort((a, c) => a.t - c.t); for (let k = 1; k < ch.angs.length; k++) ch.angs[k].prev = ch.angs[k - 1].v;
       ch.face.sort((a, c) => a.t - c.t); ch.vis.sort((a, c) => a.t - c.t); ch.holds.sort((a, c) => a.t - c.t);
       ch.segs.sort((a, c) => a.t0 - c.t0);
+      ch.lifts.sort((a, c) => a.t0 - c.t0);
       // кумулятивная дистанция для ходьбы без скольжения ног
       let cum = 0; for (const s of ch.segs) { s.d0 = cum; if (s.moving) cum += Math.abs(s.x1 - s.x0); }
     }
@@ -859,6 +875,16 @@ class Engine {
   }
 
   // ───── сэмплеры треков ─────
+  _liftAt(ch, t) {
+    let y = 0;
+    for (const s of ch.lifts) {
+      if (s.t0 > t) break;
+      if (t >= s.t1) { y = s.y1; continue; }
+      y = lerp(s.y0, s.y1, ease(s.ease, (t - s.t0) / (s.t1 - s.t0)));
+      break;
+    }
+    return y;
+  }
   _posAt(ch, t) {
     let x = ch.x0;
     for (const s of ch.segs) {
@@ -957,7 +983,7 @@ class Engine {
     let vest = null; for (const e of ch.vests) if (e.t <= t) vest = e;
     const ae = lastBefore(ch.angs, t);
     const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
-    return { ang, pname: pose._name, vis, x, y: 0, face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id, vest, renderLayer: ch.renderLayer || 'normal' };
+    return { ang, pname: pose._name, vis, x, y: this._liftAt(ch, t), face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id, vest, renderLayer: ch.renderLayer || 'normal' };
   }
 
   // кисть в мировых координатах (для падения/удержания предметов и камеры)
