@@ -501,6 +501,30 @@
       "langs": {
         "ru": "lang/story_09.ru.json"
       }
+    },
+    {
+      "id": "story_09_s07",
+      "title": "Сюжет №9 · Отопление · s07 · Холодная гостиная",
+      "file": "scenes/story_09_s07.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
+    },
+    {
+      "id": "story_09_s08",
+      "title": "Сюжет №9 · Отопление · s08 · Трубы",
+      "file": "scenes/story_09_s08.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
+    },
+    {
+      "id": "story_09_s09",
+      "title": "Сюжет №9 · Отопление · s09 · Первый этаж",
+      "file": "scenes/story_09_s09.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
     }
   ]
 }

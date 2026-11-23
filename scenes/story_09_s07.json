@@ -1,0 +1,263 @@
+{
+  "id": "story_09_s07",
+  "duration": 12.0,
+  "start": {
+    "location": "cottage",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "type": "eng",
+        "x": -300,
+        "face": "right",
+        "sy": 0.82
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "leaves",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#b5654a",
+      "sleeve": "#b5654a"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "stv",
+      "prop": "stove",
+      "x": 330,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bs",
+      "prop": "brick_stove",
+      "x": 520,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ch",
+      "prop": "chimney",
+      "x": 520,
+      "y": 1068,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lg",
+      "prop": "stove_logs",
+      "x": 520,
+      "y": 1215,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sm",
+      "prop": "smoke",
+      "x": 520,
+      "y": -300,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fr",
+      "prop": "stove_fire",
+      "x": 520,
+      "y": 1215,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "th",
+      "prop": "th_t22",
+      "x": 180,
+      "y": 810,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 560,
+      "y": 1000,
+      "zoom": 0.95,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "cl",
+      "prop": "cold_living",
+      "x": 0,
+      "y": 0,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "thL",
+      "prop": "th_t12",
+      "x": 715,
+      "y": 840,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 440,
+      "y": 0,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "hands_warm",
+      "dur": 1.6
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 1.6
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n19",
+      "dur": 3.0
+    },
+    {
+      "t": 1.6,
+      "do": "walk",
+      "who": "eng",
+      "x": 760,
+      "y": 0,
+      "dur": 2.2,
+      "face": "right"
+    },
+    {
+      "t": 1.6,
+      "do": "camera",
+      "x": 700,
+      "y": 1000,
+      "zoom": 0.95,
+      "dur": 2.2,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 3.7,
+      "do": "say",
+      "who": "narr",
+      "line": "n20",
+      "dur": 3.5
+    },
+    {
+      "t": 3.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "tired",
+      "dur": 1.8
+    },
+    {
+      "t": 3.9,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "worried",
+      "dur": 2
+    },
+    {
+      "t": 5.9,
+      "do": "walk",
+      "who": "eng",
+      "x": 500,
+      "y": 0,
+      "dur": 2.0,
+      "face": "left"
+    },
+    {
+      "t": 5.9,
+      "do": "camera",
+      "x": 560,
+      "y": 1000,
+      "zoom": 0.95,
+      "dur": 2.0,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 8.0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "think",
+      "dur": 1.5
+    },
+    {
+      "t": 8.0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "confused",
+      "dur": 1.5
+    },
+    {
+      "t": 8.0,
+      "do": "say",
+      "who": "narr",
+      "line": "n21",
+      "dur": 3.0
+    },
+    {
+      "t": 9.6,
+      "do": "walk",
+      "who": "eng",
+      "x": 500,
+      "y": 0,
+      "dur": 0.4,
+      "face": "right"
+    },
+    {
+      "t": 9.6,
+      "do": "camera",
+      "x": 900,
+      "y": 1000,
+      "zoom": 0.95,
+      "dur": 2.0,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 9.6,
+      "do": "pose",
+      "who": "eng",
+      "pose": "point",
+      "dur": 2.0
+    }
+  ]
+}

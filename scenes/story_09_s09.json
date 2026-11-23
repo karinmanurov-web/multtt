@@ -1,0 +1,413 @@
+{
+  "id": "story_09_s09",
+  "duration": 12.0,
+  "start": {
+    "location": "cottage",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "type": "eng",
+        "x": -300,
+        "face": "right",
+        "sy": 0.82
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "leaves",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#b5654a",
+      "sleeve": "#b5654a"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "stv",
+      "prop": "stove",
+      "x": 330,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bs",
+      "prop": "brick_stove",
+      "x": 520,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ch",
+      "prop": "chimney",
+      "x": 520,
+      "y": 1068,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lg",
+      "prop": "stove_logs",
+      "x": 520,
+      "y": 1215,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sm",
+      "prop": "smoke",
+      "x": 520,
+      "y": -300,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fr",
+      "prop": "stove_fire",
+      "x": 520,
+      "y": 1215,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "th",
+      "prop": "th_t22",
+      "x": 180,
+      "y": 810,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 780,
+      "y": 1000,
+      "zoom": 0.95,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "thL",
+      "prop": "th_t22",
+      "x": 715,
+      "y": 840,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp0",
+      "prop": "pipe_h",
+      "x": 575,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp1",
+      "prop": "pipe_h",
+      "x": 629,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp2",
+      "prop": "pipe_h",
+      "x": 683,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp3",
+      "prop": "pipe_h",
+      "x": 737,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp4",
+      "prop": "pipe_h",
+      "x": 791,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp5",
+      "prop": "pipe_h",
+      "x": 845,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp6",
+      "prop": "pipe_h",
+      "x": 899,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp7",
+      "prop": "pipe_h",
+      "x": 953,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp8",
+      "prop": "pipe_h",
+      "x": 1007,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp9",
+      "prop": "pipe_h",
+      "x": 1061,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp10",
+      "prop": "pipe_h",
+      "x": 1115,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp11",
+      "prop": "pipe_h",
+      "x": 1169,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pp12",
+      "prop": "pipe_h",
+      "x": 1223,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r1",
+      "prop": "rad",
+      "x": 900,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r2",
+      "prop": "rad",
+      "x": 1040,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hw1",
+      "prop": "heat_waves",
+      "x": 900,
+      "y": 1130,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hw2",
+      "prop": "heat_waves",
+      "x": 1040,
+      "y": 1130,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 640,
+      "y": 0,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle",
+      "dur": 0.3
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 1.5
+    },
+    {
+      "t": 0.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n25",
+      "dur": 2.2
+    },
+    {
+      "t": 1.0,
+      "do": "walk",
+      "who": "eng",
+      "x": 760,
+      "y": 0,
+      "dur": 1.2,
+      "face": "right"
+    },
+    {
+      "t": 2.4,
+      "do": "pose",
+      "who": "eng",
+      "pose": "hands_up",
+      "dur": 1.0
+    },
+    {
+      "t": 2.4,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 1.2
+    },
+    {
+      "t": 3.0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#7fb2e6",
+      "sleeve": "#f4cfae"
+    },
+    {
+      "t": 3.0,
+      "do": "spawn",
+      "id": "swp",
+      "prop": "sweater_pr",
+      "x": 655,
+      "y": 1125,
+      "layer": "front"
+    },
+    {
+      "t": 3.6,
+      "do": "walk",
+      "who": "eng",
+      "x": 730,
+      "y": 0,
+      "dur": 0.6,
+      "face": "left"
+    },
+    {
+      "t": 4.4,
+      "do": "pose",
+      "who": "eng",
+      "pose": "sit",
+      "dur": 1.2
+    },
+    {
+      "t": 4.4,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 2
+    },
+    {
+      "t": 6.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n26",
+      "dur": 4.0
+    },
+    {
+      "t": 6.6,
+      "do": "spawn",
+      "id": "cw",
+      "prop": "cold_waves",
+      "x": 1020,
+      "y": 900,
+      "scale": 1.3,
+      "layer": "front"
+    },
+    {
+      "t": 6.6,
+      "do": "camera",
+      "x": 900,
+      "y": 900,
+      "zoom": 0.9,
+      "dur": 1.8,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 6.7,
+      "do": "pose",
+      "who": "eng",
+      "pose": "sit_up",
+      "dur": 2.5
+    },
+    {
+      "t": 6.7,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "surprised",
+      "dur": 2.5
+    },
+    {
+      "t": 6.9,
+      "do": "fx",
+      "kind": "exclaim",
+      "who": "eng",
+      "dur": 0.8
+    }
+  ]
+}
