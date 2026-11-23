@@ -1,0 +1,970 @@
+{
+  "id": "story_09_s10",
+  "duration": 17.8,
+  "start": {
+    "location": "cottage",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "type": "eng",
+        "x": -300,
+        "face": "right",
+        "sy": 0.82
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "leaves",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#b5654a",
+      "sleeve": "#b5654a"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "stv",
+      "prop": "stove",
+      "x": 330,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bs",
+      "prop": "brick_stove",
+      "x": 520,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ch",
+      "prop": "chimney",
+      "x": 520,
+      "y": 1068,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lg",
+      "prop": "stove_logs",
+      "x": 520,
+      "y": 1215,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sm",
+      "prop": "smoke",
+      "x": 520,
+      "y": -300,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fr",
+      "prop": "stove_fire",
+      "x": 520,
+      "y": 1215,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "th",
+      "prop": "th_t22",
+      "x": 180,
+      "y": 810,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 900,
+      "y": 1000,
+      "zoom": 0.95,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r1",
+      "prop": "rad",
+      "x": 900,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "r2",
+      "prop": "rad",
+      "x": 1040,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p0",
+      "prop": "pipe_h",
+      "x": 575,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p1",
+      "prop": "pipe_h",
+      "x": 629,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p2",
+      "prop": "pipe_h",
+      "x": 683,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p3",
+      "prop": "pipe_h",
+      "x": 737,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p4",
+      "prop": "pipe_h",
+      "x": 791,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p5",
+      "prop": "pipe_h",
+      "x": 845,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p6",
+      "prop": "pipe_h",
+      "x": 899,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p7",
+      "prop": "pipe_h",
+      "x": 953,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p8",
+      "prop": "pipe_h",
+      "x": 1007,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p9",
+      "prop": "pipe_h",
+      "x": 1061,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p10",
+      "prop": "pipe_h",
+      "x": 1115,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 1120,
+      "y": -45,
+      "face": "left"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle",
+      "dur": 0.3
+    },
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#7fb2e6",
+      "sleeve": "#f4cfae"
+    },
+    {
+      "t": 0.4,
+      "do": "walk",
+      "who": "eng",
+      "x": 790,
+      "y": -545,
+      "dur": 3.4,
+      "ease": "linear",
+      "face": "left"
+    },
+    {
+      "t": 0.4,
+      "do": "camera",
+      "x": 900,
+      "y": 800,
+      "zoom": 0.95,
+      "dur": 3.4,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 0.4,
+      "do": "say",
+      "who": "narr",
+      "line": "n27",
+      "dur": 3.0
+    },
+    {
+      "t": 0.8,
+      "do": "spawn",
+      "id": "vp0",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0.92,
+      "do": "spawn",
+      "id": "vp1",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1196,
+      "layer": "back"
+    },
+    {
+      "t": 1.04,
+      "do": "spawn",
+      "id": "vp2",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1142,
+      "layer": "back"
+    },
+    {
+      "t": 1.1600000000000001,
+      "do": "spawn",
+      "id": "vp3",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1088,
+      "layer": "back"
+    },
+    {
+      "t": 1.28,
+      "do": "spawn",
+      "id": "vp4",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1034,
+      "layer": "back"
+    },
+    {
+      "t": 1.4,
+      "do": "spawn",
+      "id": "vp5",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 980,
+      "layer": "back"
+    },
+    {
+      "t": 1.52,
+      "do": "spawn",
+      "id": "vp6",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 926,
+      "layer": "back"
+    },
+    {
+      "t": 1.6400000000000001,
+      "do": "spawn",
+      "id": "vp7",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 872,
+      "layer": "back"
+    },
+    {
+      "t": 1.76,
+      "do": "spawn",
+      "id": "vp8",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 818,
+      "layer": "back"
+    },
+    {
+      "t": 1.8800000000000001,
+      "do": "spawn",
+      "id": "vp9",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 764,
+      "layer": "back"
+    },
+    {
+      "t": 3.8,
+      "do": "walk",
+      "who": "eng",
+      "x": 770,
+      "y": -560,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 4.2,
+      "do": "walk",
+      "who": "eng",
+      "x": 300,
+      "y": -560,
+      "dur": 3.0,
+      "ease": "linear",
+      "face": "left"
+    },
+    {
+      "t": 4.2,
+      "do": "pose",
+      "who": "eng",
+      "pose": "rake",
+      "dur": 3.0
+    },
+    {
+      "t": 4.2,
+      "do": "spawn",
+      "id": "f2p0",
+      "prop": "pipe_h",
+      "x": 1120,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 4.2,
+      "do": "camera",
+      "x": 620,
+      "y": 700,
+      "zoom": 0.95,
+      "dur": 3.0,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 4.3500000000000005,
+      "do": "spawn",
+      "id": "f2p1",
+      "prop": "pipe_h",
+      "x": 1066,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 4.5,
+      "do": "spawn",
+      "id": "f2p2",
+      "prop": "pipe_h",
+      "x": 1012,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 4.65,
+      "do": "spawn",
+      "id": "f2p3",
+      "prop": "pipe_h",
+      "x": 958,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 4.8,
+      "do": "spawn",
+      "id": "f2p4",
+      "prop": "pipe_h",
+      "x": 904,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 4.95,
+      "do": "spawn",
+      "id": "f2p5",
+      "prop": "pipe_h",
+      "x": 850,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 5.1,
+      "do": "spawn",
+      "id": "f2p6",
+      "prop": "pipe_h",
+      "x": 796,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 5.25,
+      "do": "spawn",
+      "id": "f2p7",
+      "prop": "pipe_h",
+      "x": 742,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 5.4,
+      "do": "spawn",
+      "id": "f2p8",
+      "prop": "pipe_h",
+      "x": 688,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 5.55,
+      "do": "spawn",
+      "id": "f2p9",
+      "prop": "pipe_h",
+      "x": 634,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 5.6,
+      "do": "say",
+      "who": "narr",
+      "line": "n28",
+      "dur": 5.4
+    },
+    {
+      "t": 5.7,
+      "do": "spawn",
+      "id": "f2p10",
+      "prop": "pipe_h",
+      "x": 580,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 5.85,
+      "do": "spawn",
+      "id": "f2p11",
+      "prop": "pipe_h",
+      "x": 526,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 6.0,
+      "do": "spawn",
+      "id": "f2p12",
+      "prop": "pipe_h",
+      "x": 472,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 6.15,
+      "do": "spawn",
+      "id": "f2p13",
+      "prop": "pipe_h",
+      "x": 418,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 6.300000000000001,
+      "do": "spawn",
+      "id": "f2p14",
+      "prop": "pipe_h",
+      "x": 364,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 6.45,
+      "do": "spawn",
+      "id": "f2p15",
+      "prop": "pipe_h",
+      "x": 310,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 6.6,
+      "do": "spawn",
+      "id": "f2p16",
+      "prop": "pipe_h",
+      "x": 256,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 6.75,
+      "do": "spawn",
+      "id": "f2p17",
+      "prop": "pipe_h",
+      "x": 202,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 6.9,
+      "do": "spawn",
+      "id": "f2p18",
+      "prop": "pipe_h",
+      "x": 148,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 7.4,
+      "do": "spawn",
+      "id": "f2r0",
+      "prop": "rad",
+      "x": 560,
+      "y": 690,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 7.4,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present",
+      "dur": 2.4
+    },
+    {
+      "t": 7.4,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 2.4
+    },
+    {
+      "t": 7.42,
+      "do": "move",
+      "id": "f2r0",
+      "scale": 1,
+      "dur": 0.5,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 8.0,
+      "do": "spawn",
+      "id": "f2r1",
+      "prop": "rad",
+      "x": 700,
+      "y": 690,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 8.02,
+      "do": "move",
+      "id": "f2r1",
+      "scale": 1,
+      "dur": 0.5,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 8.1,
+      "do": "spawn",
+      "id": "f2w0",
+      "prop": "heat_waves",
+      "x": 560,
+      "y": 575,
+      "layer": "front",
+      "scale": 1
+    },
+    {
+      "t": 8.6,
+      "do": "spawn",
+      "id": "f2r2",
+      "prop": "rad",
+      "x": 200,
+      "y": 690,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 8.62,
+      "do": "move",
+      "id": "f2r2",
+      "scale": 0.8,
+      "dur": 0.5,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 8.7,
+      "do": "spawn",
+      "id": "f2w1",
+      "prop": "heat_waves",
+      "x": 700,
+      "y": 575,
+      "layer": "front",
+      "scale": 1
+    },
+    {
+      "t": 9.299999999999999,
+      "do": "spawn",
+      "id": "f2w2",
+      "prop": "heat_waves",
+      "x": 200,
+      "y": 575,
+      "layer": "front",
+      "scale": 0.8
+    },
+    {
+      "t": 10.2,
+      "do": "camera",
+      "x": 450,
+      "y": 1450,
+      "zoom": 0.75,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 11.0,
+      "do": "spawn",
+      "id": "bp0",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1304,
+      "layer": "back"
+    },
+    {
+      "t": 11.1,
+      "do": "spawn",
+      "id": "bp1",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1358,
+      "layer": "back"
+    },
+    {
+      "t": 11.2,
+      "do": "spawn",
+      "id": "bp2",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1412,
+      "layer": "back"
+    },
+    {
+      "t": 11.2,
+      "do": "spawn",
+      "id": "tank",
+      "prop": "tank",
+      "x": 400,
+      "y": 1810,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 11.219999999999999,
+      "do": "move",
+      "id": "tank",
+      "scale": 1,
+      "dur": 0.5,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 11.3,
+      "do": "spawn",
+      "id": "bp3",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1466,
+      "layer": "back"
+    },
+    {
+      "t": 11.4,
+      "do": "spawn",
+      "id": "bp4",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1520,
+      "layer": "back"
+    },
+    {
+      "t": 11.5,
+      "do": "spawn",
+      "id": "bp5",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1574,
+      "layer": "back"
+    },
+    {
+      "t": 11.6,
+      "do": "spawn",
+      "id": "bp6",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1628,
+      "layer": "back"
+    },
+    {
+      "t": 11.6,
+      "do": "spawn",
+      "id": "boil",
+      "prop": "boiler",
+      "x": 180,
+      "y": 1810,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 11.62,
+      "do": "move",
+      "id": "boil",
+      "scale": 1,
+      "dur": 0.5,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 11.7,
+      "do": "spawn",
+      "id": "bp7",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1682,
+      "layer": "back"
+    },
+    {
+      "t": 11.8,
+      "do": "spawn",
+      "id": "bp8",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1736,
+      "layer": "back"
+    },
+    {
+      "t": 11.9,
+      "do": "spawn",
+      "id": "bp9",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.0,
+      "do": "spawn",
+      "id": "bh0",
+      "prop": "pipe_h",
+      "x": 290,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.1,
+      "do": "spawn",
+      "id": "bh1",
+      "prop": "pipe_h",
+      "x": 344,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.2,
+      "do": "spawn",
+      "id": "bh2",
+      "prop": "pipe_h",
+      "x": 398,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.3,
+      "do": "spawn",
+      "id": "bh3",
+      "prop": "pipe_h",
+      "x": 452,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.4,
+      "do": "spawn",
+      "id": "bh4",
+      "prop": "pipe_h",
+      "x": 506,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.5,
+      "do": "spawn",
+      "id": "bh5",
+      "prop": "pipe_h",
+      "x": 560,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.6,
+      "do": "spawn",
+      "id": "bh6",
+      "prop": "pipe_h",
+      "x": 614,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.6,
+      "do": "say",
+      "who": "narr",
+      "line": "n29",
+      "dur": 4.4
+    },
+    {
+      "t": 12.7,
+      "do": "spawn",
+      "id": "bh7",
+      "prop": "pipe_h",
+      "x": 668,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.8,
+      "do": "spawn",
+      "id": "bh8",
+      "prop": "pipe_h",
+      "x": 722,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 12.9,
+      "do": "spawn",
+      "id": "bh9",
+      "prop": "pipe_h",
+      "x": 776,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 13.0,
+      "do": "spawn",
+      "id": "pm1",
+      "prop": "pump",
+      "x": 500,
+      "y": 1790,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 13.02,
+      "do": "move",
+      "id": "pm1",
+      "scale": 1,
+      "dur": 0.5,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 13.3,
+      "do": "spawn",
+      "id": "pm2",
+      "prop": "pump",
+      "x": 720,
+      "y": 1790,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 13.32,
+      "do": "move",
+      "id": "pm2",
+      "scale": 1,
+      "dur": 0.5,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 14.4,
+      "do": "camera",
+      "x": 600,
+      "y": 950,
+      "zoom": 0.62,
+      "dur": 2.0,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 14.4,
+      "do": "pose",
+      "who": "eng",
+      "pose": "hips",
+      "dur": 3
+    },
+    {
+      "t": 14.4,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 3
+    }
+  ]
+}

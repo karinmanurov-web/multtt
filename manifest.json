@@ -525,6 +525,30 @@
       "langs": {
         "ru": "lang/story_09.ru.json"
       }
+    },
+    {
+      "id": "story_09_s10",
+      "title": "Сюжет №9 · Отопление · s10 · Не останавливаться",
+      "file": "scenes/story_09_s10.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
+    },
+    {
+      "id": "story_09_s11",
+      "title": "Сюжет №9 · Отопление · s11 · Полноценное отопление",
+      "file": "scenes/story_09_s11.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
+    },
+    {
+      "id": "story_09_s12",
+      "title": "Сюжет №9 · Отопление · s12 · Финал",
+      "file": "scenes/story_09_s12.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
     }
   ]
 }
