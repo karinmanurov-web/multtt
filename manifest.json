@@ -453,6 +453,30 @@
       "langs": {
         "ru": "lang/story_08.ru.json"
       }
+    },
+    {
+      "id": "story_09_s01",
+      "title": "Сюжет №9 · Отопление · s01 · Осень",
+      "file": "scenes/story_09_s01.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
+    },
+    {
+      "id": "story_09_s02",
+      "title": "Сюжет №9 · Отопление · s02 · Закономерность",
+      "file": "scenes/story_09_s02.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
+    },
+    {
+      "id": "story_09_s03",
+      "title": "Сюжет №9 · Отопление · s03 · Кастрюли",
+      "file": "scenes/story_09_s03.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
     }
   ]
 }

@@ -1,0 +1,198 @@
+{
+  "id": "story_09_s01",
+  "duration": 12.0,
+  "start": {
+    "location": "cottage",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "type": "eng",
+        "x": -300,
+        "face": "right",
+        "sy": 0.82
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "leaves",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 600,
+      "y": 1000,
+      "zoom": 0.72,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#b5654a",
+      "sleeve": "#b5654a"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "stv",
+      "prop": "stove",
+      "x": 330,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "th",
+      "prop": "th_t16",
+      "x": 180,
+      "y": 810,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "tb",
+      "prop": "k_table",
+      "x": 420,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ch",
+      "prop": "k_chair",
+      "x": 300,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 350,
+      "y": 0,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "sit",
+      "dur": 0.1
+    },
+    {
+      "t": 0.3,
+      "do": "marker",
+      "name": "шум ветра, шорох листьев"
+    },
+    {
+      "t": 0.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n01",
+      "dur": 2.0
+    },
+    {
+      "t": 3.0,
+      "do": "camera",
+      "x": 420,
+      "y": 1020,
+      "zoom": 1.15,
+      "dur": 2.0,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 3.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n02",
+      "dur": 2.6
+    },
+    {
+      "t": 5.0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "sit_rub",
+      "dur": 1.8
+    },
+    {
+      "t": 5.0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "tired",
+      "dur": 2.0
+    },
+    {
+      "t": 5.2,
+      "do": "fx",
+      "kind": "sweat",
+      "who": "eng",
+      "dur": 1.0
+    },
+    {
+      "t": 6.4,
+      "do": "say",
+      "who": "narr",
+      "line": "n03",
+      "dur": 3.6
+    },
+    {
+      "t": 7.0,
+      "do": "camera",
+      "x": 520,
+      "y": 1030,
+      "zoom": 1.5,
+      "dur": 1.0,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 7.0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "worried",
+      "dur": 1.2
+    },
+    {
+      "t": 8.2,
+      "do": "spawn",
+      "id": "pl",
+      "prop": "plaid",
+      "x": 350,
+      "y": 1040,
+      "layer": "front"
+    },
+    {
+      "t": 8.2,
+      "do": "pose",
+      "who": "eng",
+      "pose": "sit_cozy",
+      "dur": 3
+    },
+    {
+      "t": 8.4,
+      "do": "camera",
+      "x": 420,
+      "y": 1020,
+      "zoom": 1.15,
+      "dur": 1.5,
+      "ease": "easeInOut"
+    }
+  ]
+}

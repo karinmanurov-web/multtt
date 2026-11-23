@@ -179,6 +179,10 @@ const POSES = {
   rake: (lt, t) => P({ L: [86 + Math.sin(t * 3.2) * 20, 134], R: [92 + Math.sin(t * 3.2) * 20, 118], lean: 12 + Math.sin(t * 3.2) * 3, by: 2 }),
   saw: (lt, t) => P({ R: [100 + Math.sin(t * 10.5) * 16, 150], L: [40, 130], lean: 24, head: 6, sq: .86 }),
   paint: (lt, t) => P({ R: [118, 20 + Math.sin(t * 6.5) * 55], L: [40, 125], lean: 8, head: -4, by: 1 }),
+  rub: (lt, t) => P({ L: [52 + Math.sin(t * 16) * 9, 84], R: [52 - Math.sin(t * 16) * 9, 84], head: 3, lean: 2, sq: .97 }),
+  sit_rub: (lt, t) => P({ L: [52 + Math.sin(t * 16) * 9, 96], R: [52 - Math.sin(t * 16) * 9, 96], sq: .86, air: -30, head: 4 }),
+  sit_cozy: (lt, t) => P({ L: [30, 70], R: [30, 70], sq: .86, air: -30, head: 6, by: Math.sin(t * 1.6) }),
+  hands_warm: (lt, t) => P({ L: [120, 20 + Math.sin(t * 5) * 3], R: [130, 28 + Math.sin(t * 5 + 1) * 3], lean: 5, head: -2 }),
   crouch_idle: (lt, t) => P({ sq: .8, lean: 14, head: -6, L: [20, 120], R: [20, 120], by: Math.sin(t * 2) * 1 }),
   crouch_walk: (lt, t) => P({ sq: .8, lean: 15, head: -8, L: [24 + Math.sin(t * 7) * 10, 118], R: [24 - Math.sin(t * 7) * 10, 118], by: Math.abs(Math.sin(t * 7)) * 2 }),
   ouch: (lt, t) => P({ sq: .92, lean: 6, head: 14, L: [10, -160], R: [40, 110], by: 4 }),
@@ -566,7 +570,7 @@ class Engine {
         id, def: resolveCharDef(type, inst, charTypes, err, id), renderLayer: inst.renderLayer === 'behindProps' ? 'behindProps' : 'normal',
         x0: s && isNum(s.x) ? s.x : (defaultStart[id] ? defaultStart[id].x : 540), vis: [{ t: 0, v: !!s && !inst.hidden }],
         angs: [{ t: 0, v: inst.angle === 'back' ? 'back' : 'side', prev: 'side', dur: 0 }],
-        face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], lifts: [], cum: 0, poses: [], emos: [], says: [], holds: [], vests: [], seed: hashStr(id) % 100
+        face: [{ t: 0, v: s && s.face === 'left' ? -1 : 1 }], segs: [], lifts: [], cum: 0, poses: [], emos: [], says: [], holds: [], vests: [], outfits: [], seed: hashStr(id) % 100
       };
     }
     for (const id in C.chars) {
@@ -712,6 +716,13 @@ class Engine {
           if (!isNum(b.y)) { err(`${tag}: lift требует y`); break; }
           const ch = C.chars[id], dur = isNum(b.dur) ? Math.max(0, b.dur) : 0;
           ch.lifts.push({ t0: t, t1: t + dur, y0: eng._liftAt(ch, t), y1: b.y, ease: b.ease || 'linear' });
+          break;
+        }
+        case 'outfit': {
+          // смена одежды: {do:"outfit",who:"eng",shirt:"#b5654a",sleeve:"#b5654a"}; sleeve:"#f4cfae" = голые руки (футболка)
+          const id = who(b, i); if (!id) break;
+          if (typeof b.shirt !== 'string') { err(`${tag}: outfit требует shirt`); break; }
+          C.chars[id].outfits.push({ t, shirt: b.shirt, sleeve: typeof b.sleeve === 'string' ? b.sleeve : undefined });
           break;
         }
         case 'vest': {
@@ -981,9 +992,11 @@ class Engine {
       }
     }
     let vest = null; for (const e of ch.vests) if (e.t <= t) vest = e;
+    let of = null; for (const e of ch.outfits) if (e.t <= t) of = e;
+    const odef = of ? Object.assign({}, def, { shirt: of.shirt || def.shirt, sleeve: of.sleeve === undefined ? def.sleeve : of.sleeve }) : def;
     const ae = lastBefore(ch.angs, t);
     const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
-    return { ang, pname: pose._name, vis, x, y: this._liftAt(ch, t), face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def, id, vest, renderLayer: ch.renderLayer || 'normal' };
+    return { ang, pname: pose._name, vis, x, y: this._liftAt(ch, t), face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def: odef, id, vest, renderLayer: ch.renderLayer || 'normal' };
   }
 
   // кисть в мировых координатах (для падения/удержания предметов и камеры)

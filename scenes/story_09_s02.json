@@ -1,0 +1,217 @@
+{
+  "id": "story_09_s02",
+  "duration": 12.0,
+  "start": {
+    "location": "cottage",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "type": "eng",
+        "x": -300,
+        "face": "right",
+        "sy": 0.82
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "leaves",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 420,
+      "y": 940,
+      "zoom": 1.1,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#b5654a",
+      "sleeve": "#b5654a"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "stv",
+      "prop": "stove",
+      "x": 330,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "th",
+      "prop": "th_t16",
+      "x": 180,
+      "y": 810,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 330,
+      "y": 0,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle",
+      "dur": 0.3
+    },
+    {
+      "t": 0.5,
+      "do": "spawn",
+      "id": "p1",
+      "prop": "pot_steam",
+      "x": 300,
+      "y": 980,
+      "layer": "back"
+    },
+    {
+      "t": 0.8,
+      "do": "say",
+      "who": "narr",
+      "line": "n04",
+      "dur": 1.8
+    },
+    {
+      "t": 1.5,
+      "do": "pose",
+      "who": "eng",
+      "pose": "write",
+      "dur": 2.0
+    },
+    {
+      "t": 3.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n05",
+      "dur": 3.6
+    },
+    {
+      "t": 3.5,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "surprised",
+      "dur": 1.5
+    },
+    {
+      "t": 3.5,
+      "do": "remove",
+      "id": "th"
+    },
+    {
+      "t": 3.5,
+      "do": "spawn",
+      "id": "th",
+      "prop": "th_t17",
+      "x": 180,
+      "y": 810,
+      "layer": "back"
+    },
+    {
+      "t": 3.6,
+      "do": "fx",
+      "kind": "exclaim",
+      "who": "eng",
+      "dur": 0.8
+    },
+    {
+      "t": 5.2,
+      "do": "walk",
+      "who": "eng",
+      "x": 500,
+      "y": 0,
+      "dur": 1.2,
+      "face": "right"
+    },
+    {
+      "t": 5.2,
+      "do": "camera",
+      "x": 620,
+      "y": 1000,
+      "zoom": 0.95,
+      "dur": 1.5,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 6.9,
+      "do": "pose",
+      "who": "eng",
+      "pose": "think",
+      "dur": 2.0
+    },
+    {
+      "t": 6.9,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "confused",
+      "dur": 1.5
+    },
+    {
+      "t": 7.5,
+      "do": "spawn",
+      "id": "ct",
+      "prop": "cold_tint",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 7.5,
+      "do": "camera",
+      "x": 800,
+      "y": 1000,
+      "zoom": 0.95,
+      "dur": 1.8,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 8.4,
+      "do": "say",
+      "who": "narr",
+      "line": "n06",
+      "dur": 2.4
+    },
+    {
+      "t": 9.6,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 2.0
+    },
+    {
+      "t": 9.6,
+      "do": "remove",
+      "id": "ct"
+    },
+    {
+      "t": 9.7,
+      "do": "fx",
+      "kind": "idea",
+      "who": "eng",
+      "dur": 1.4
+    }
+  ]
+}
