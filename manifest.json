@@ -421,6 +421,38 @@
       "langs": {
         "ru": "lang/story_08.ru.json"
       }
+    },
+    {
+      "id": "story_08_s07",
+      "title": "Сюжет №8 · Мост · s07 · Пробка",
+      "file": "scenes/story_08_s07.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
+    },
+    {
+      "id": "story_08_s08",
+      "title": "Сюжет №8 · Мост · s08 · Шире и шире",
+      "file": "scenes/story_08_s08.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
+    },
+    {
+      "id": "story_08_s09",
+      "title": "Сюжет №8 · Мост · s09 · Полноценный мост",
+      "file": "scenes/story_08_s09.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
+    },
+    {
+      "id": "story_08_s10",
+      "title": "Сюжет №8 · Мост · s10 · Финал",
+      "file": "scenes/story_08_s10.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
     }
   ]
 }

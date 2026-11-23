@@ -1029,7 +1029,7 @@ class Engine {
         to.y = GROUND - 300;
       } else {
         const s = this.charState(seg.on, tt);
-        to.x = s.x; to.y = GROUND - (FY[seg.focus] || 260) * s.def.sy;
+        to.x = s.x; to.y = GROUND + (s.y || 0) - (FY[seg.focus] || 260) * s.def.sy;
       }
     }
     if (isNum(seg.x)) to.x = seg.x;
@@ -1264,7 +1264,7 @@ class Engine {
     if (p.punch) zoom *= 1 + 0.14 * Math.exp(-lt * 16) * Math.cos(lt * 22);   // «щелчок» при смене кадра
     to.y += 120 / p.zoom + p.dy;
     const hw = W / 2 / zoom, hh = H / 2 / zoom;
-    return { x: clamp(to.x, hw, W - hw), y: clamp(to.y, hh, H - hh), zoom, rot: 0 };
+    return { x: clamp(to.x, hw, W - hw), y: to.y < hh ? to.y : clamp(to.y, hh, H - hh), zoom, rot: 0 };   // лицо выше мира (герой на высоте) — не прижимаем
   }
   _portraitBg(ctx, p, t, loc, view, withCam, T) {
     const bg = p.bg;

@@ -1,0 +1,727 @@
+{
+  "id": "story_08_s09",
+  "duration": 14.0,
+  "start": {
+    "location": "river_big",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "bld": {
+        "type": "bld",
+        "x": -520,
+        "face": "right",
+        "sy": 0.8,
+        "hidden": true
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 1050,
+      "y": 800,
+      "zoom": 0.75,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp0",
+      "prop": "pier_big",
+      "x": 650,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp1",
+      "prop": "pier_big",
+      "x": 850,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp2",
+      "prop": "pier_big",
+      "x": 1050,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp3",
+      "prop": "pier_big",
+      "x": 1250,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp4",
+      "prop": "pier_big",
+      "x": 1450,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs0",
+      "prop": "stone",
+      "x": 620,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs1",
+      "prop": "stone",
+      "x": 720,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs2",
+      "prop": "stone",
+      "x": 820,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs3",
+      "prop": "stone",
+      "x": 920,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs4",
+      "prop": "stone",
+      "x": 1020,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs5",
+      "prop": "stone",
+      "x": 1120,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs6",
+      "prop": "stone",
+      "x": 1220,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs7",
+      "prop": "stone",
+      "x": 1320,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs8",
+      "prop": "stone",
+      "x": 1420,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs9",
+      "prop": "stone",
+      "x": 1520,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v0",
+      "prop": "car_blue",
+      "x": -600,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v1",
+      "prop": "car_yellow",
+      "x": -930,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v2",
+      "prop": "van",
+      "x": -1260,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v3",
+      "prop": "car_green",
+      "x": -1590,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v4",
+      "prop": "car_white",
+      "x": -1920,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v5",
+      "prop": "car_blue",
+      "x": -2250,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v6",
+      "prop": "car_blue",
+      "x": -2580,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v7",
+      "prop": "car_yellow",
+      "x": -2910,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v8",
+      "prop": "van",
+      "x": -3240,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v9",
+      "prop": "car_green",
+      "x": -3570,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v10",
+      "prop": "car_white",
+      "x": -3900,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v11",
+      "prop": "car_blue",
+      "x": -4230,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v12",
+      "prop": "car_blue",
+      "x": -4560,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v13",
+      "prop": "car_yellow",
+      "x": -4890,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v14",
+      "prop": "van",
+      "x": -5220,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v15",
+      "prop": "car_green",
+      "x": -5550,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v16",
+      "prop": "car_white",
+      "x": -5880,
+      "y": 758,
+      "scale": 0.22,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "v17",
+      "prop": "car_blue",
+      "x": -6210,
+      "y": 792,
+      "scale": 0.24,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w0",
+      "prop": "car_yellow_l",
+      "x": 3000,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w1",
+      "prop": "van_l",
+      "x": 3600,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w2",
+      "prop": "car_white_l",
+      "x": 4200,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w3",
+      "prop": "car_green_l",
+      "x": 4800,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w4",
+      "prop": "car_blue_l",
+      "x": 5400,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w5",
+      "prop": "car_yellow_l",
+      "x": 6000,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w6",
+      "prop": "van_l",
+      "x": 6600,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w7",
+      "prop": "car_white_l",
+      "x": 7200,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w8",
+      "prop": "car_green_l",
+      "x": 7800,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "w9",
+      "prop": "car_blue_l",
+      "x": 8400,
+      "y": 826,
+      "scale": 0.26,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "dt",
+      "prop": "dump_truck",
+      "x": -1500,
+      "y": 792,
+      "scale": 0.16,
+      "layer": "back"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v0",
+      "x": 7000,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v1",
+      "x": 6670,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v2",
+      "x": 6340,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v3",
+      "x": 6010,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v4",
+      "x": 5680,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v5",
+      "x": 5350,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v6",
+      "x": 5020,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v7",
+      "x": 4690,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v8",
+      "x": 4360,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v9",
+      "x": 4030,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v10",
+      "x": 3700,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v11",
+      "x": 3370,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v12",
+      "x": 3040,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v13",
+      "x": 2710,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v14",
+      "x": 2380,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v15",
+      "x": 2050,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v16",
+      "x": 1720,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "v17",
+      "x": 1390,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w0",
+      "x": -5200,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w1",
+      "x": -4600,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w2",
+      "x": -4000,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w3",
+      "x": -3400,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w4",
+      "x": -2800,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w5",
+      "x": -2200,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w6",
+      "x": -1600,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w7",
+      "x": -1000,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w8",
+      "x": -400,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "w9",
+      "x": 200,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.02,
+      "do": "move",
+      "id": "dt",
+      "x": 6000,
+      "dur": 13.5,
+      "ease": "linear"
+    },
+    {
+      "t": 0.3,
+      "do": "camera",
+      "x": 1050,
+      "y": 1000,
+      "zoom": 0.42,
+      "dur": 12.0,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 0.3,
+      "do": "marker",
+      "name": "шум трафика нарастает"
+    },
+    {
+      "t": 0.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n22",
+      "dur": 3.1
+    },
+    {
+      "t": 4.0,
+      "do": "say",
+      "who": "narr",
+      "line": "n23",
+      "dur": 4.6
+    },
+    {
+      "t": 9.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n24",
+      "dur": 4.5
+    }
+  ]
+}

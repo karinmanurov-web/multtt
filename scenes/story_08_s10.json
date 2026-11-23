@@ -1,0 +1,278 @@
+{
+  "id": "story_08_s10",
+  "duration": 10.0,
+  "start": {
+    "location": "river_big",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "bld": {
+        "type": "bld",
+        "x": -520,
+        "face": "right",
+        "sy": 0.8,
+        "hidden": true
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 900,
+      "y": 640,
+      "zoom": 0.55,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp0",
+      "prop": "pier_big",
+      "x": 650,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp1",
+      "prop": "pier_big",
+      "x": 850,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp2",
+      "prop": "pier_big",
+      "x": 1050,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp3",
+      "prop": "pier_big",
+      "x": 1250,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp4",
+      "prop": "pier_big",
+      "x": 1450,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs0",
+      "prop": "stone",
+      "x": 620,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs1",
+      "prop": "stone",
+      "x": 720,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs2",
+      "prop": "stone",
+      "x": 820,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs3",
+      "prop": "stone",
+      "x": 920,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs4",
+      "prop": "stone",
+      "x": 1020,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs5",
+      "prop": "stone",
+      "x": 1120,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs6",
+      "prop": "stone",
+      "x": 1220,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs7",
+      "prop": "stone",
+      "x": 1320,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs8",
+      "prop": "stone",
+      "x": 1420,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "fs9",
+      "prop": "stone",
+      "x": 1520,
+      "y": 1345,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "bld",
+      "x": 760,
+      "y": -520,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 0.5
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.5
+    },
+    {
+      "t": 0.2,
+      "do": "spawn",
+      "id": "tk",
+      "prop": "dump_truck",
+      "x": -700,
+      "y": 846,
+      "scale": 0.55,
+      "layer": "front"
+    },
+    {
+      "t": 0.22,
+      "do": "move",
+      "id": "tk",
+      "x": 2600,
+      "dur": 3.2,
+      "ease": "linear"
+    },
+    {
+      "t": 0.3,
+      "do": "shake",
+      "dur": 2.6,
+      "amp": 3
+    },
+    {
+      "t": 0.3,
+      "do": "marker",
+      "name": "тяжёлый грузовик, вибрация моста"
+    },
+    {
+      "t": 1.4,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "surprised",
+      "dur": 1.2
+    },
+    {
+      "t": 2.6,
+      "do": "camera",
+      "x": 900,
+      "y": 1450,
+      "zoom": 0.55,
+      "dur": 1.6,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 3.2,
+      "do": "say",
+      "who": "narr",
+      "line": "n25",
+      "dur": 3.2
+    },
+    {
+      "t": 4.9,
+      "do": "camera",
+      "x": 900,
+      "y": 640,
+      "zoom": 0.55,
+      "dur": 0.8,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 4.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 1.5
+    },
+    {
+      "t": 6.0,
+      "do": "portrait",
+      "on": "bld",
+      "dur": 1.0,
+      "zoom": 2.4,
+      "angle": "side",
+      "bg": "blur"
+    },
+    {
+      "t": 7.0,
+      "do": "portrait",
+      "on": "bld",
+      "dur": 3.0,
+      "zoom": 2.4,
+      "angle": "q45",
+      "bg": "blur"
+    }
+  ]
+}
