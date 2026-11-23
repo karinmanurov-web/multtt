@@ -477,6 +477,30 @@
       "langs": {
         "ru": "lang/story_09.ru.json"
       }
+    },
+    {
+      "id": "story_09_s04",
+      "title": "Сюжет №9 · Отопление · s04 · Счёт",
+      "file": "scenes/story_09_s04.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
+    },
+    {
+      "id": "story_09_s05",
+      "title": "Сюжет №9 · Отопление · s05 · Костёр",
+      "file": "scenes/story_09_s05.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
+    },
+    {
+      "id": "story_09_s06",
+      "title": "Сюжет №9 · Отопление · s06 · Печь",
+      "file": "scenes/story_09_s06.json",
+      "langs": {
+        "ru": "lang/story_09.ru.json"
+      }
     }
   ]
 }

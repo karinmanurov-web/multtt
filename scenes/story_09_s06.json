@@ -1,0 +1,333 @@
+{
+  "id": "story_09_s06",
+  "duration": 13.5,
+  "start": {
+    "location": "cottage",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "type": "eng",
+        "x": -300,
+        "face": "right",
+        "sy": 0.82
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "leaves",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#b5654a",
+      "sleeve": "#b5654a"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "stv",
+      "prop": "stove",
+      "x": 330,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "th",
+      "prop": "th_t17",
+      "x": 180,
+      "y": 810,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 420,
+      "y": 980,
+      "zoom": 0.95,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp",
+      "prop": "brick_pile",
+      "x": 700,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 700,
+      "y": 0,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle",
+      "dur": 0.3
+    },
+    {
+      "t": 0.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n17",
+      "dur": 2.8
+    },
+    {
+      "t": 0.6,
+      "do": "spawn",
+      "id": "bk0",
+      "prop": "brick",
+      "x": 700,
+      "y": 1250
+    },
+    {
+      "t": 0.6,
+      "do": "hold",
+      "id": "bk0",
+      "who": "eng",
+      "hand": "R"
+    },
+    {
+      "t": 0.6,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle",
+      "dur": 0.1
+    },
+    {
+      "t": 0.6,
+      "do": "walk",
+      "who": "eng",
+      "x": 560,
+      "y": 0,
+      "dur": 1.0,
+      "face": "left"
+    },
+    {
+      "t": 1.6,
+      "do": "release",
+      "id": "bk0"
+    },
+    {
+      "t": 1.6,
+      "do": "remove",
+      "id": "bk0"
+    },
+    {
+      "t": 1.6,
+      "do": "walk",
+      "who": "eng",
+      "x": 700,
+      "y": 0,
+      "dur": 0.9,
+      "face": "right"
+    },
+    {
+      "t": 1.6,
+      "do": "spawn",
+      "id": "bs",
+      "prop": "brick_stove",
+      "x": 520,
+      "y": 1250,
+      "layer": "back",
+      "scale": 0.01
+    },
+    {
+      "t": 1.62,
+      "do": "move",
+      "id": "bs",
+      "scale": 0.55,
+      "dur": 0.5
+    },
+    {
+      "t": 2.5,
+      "do": "spawn",
+      "id": "bk1",
+      "prop": "brick",
+      "x": 700,
+      "y": 1250
+    },
+    {
+      "t": 2.5,
+      "do": "hold",
+      "id": "bk1",
+      "who": "eng",
+      "hand": "R"
+    },
+    {
+      "t": 2.5,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle",
+      "dur": 0.1
+    },
+    {
+      "t": 2.5,
+      "do": "walk",
+      "who": "eng",
+      "x": 560,
+      "y": 0,
+      "dur": 1.0,
+      "face": "left"
+    },
+    {
+      "t": 3.5,
+      "do": "release",
+      "id": "bk1"
+    },
+    {
+      "t": 3.5,
+      "do": "remove",
+      "id": "bk1"
+    },
+    {
+      "t": 3.5,
+      "do": "walk",
+      "who": "eng",
+      "x": 700,
+      "y": 0,
+      "dur": 0.9,
+      "face": "right"
+    },
+    {
+      "t": 3.52,
+      "do": "move",
+      "id": "bs",
+      "scale": 1,
+      "dur": 0.6
+    },
+    {
+      "t": 4.4,
+      "do": "walk",
+      "who": "eng",
+      "x": 420,
+      "y": 0,
+      "dur": 1.0,
+      "face": "right"
+    },
+    {
+      "t": 4.9,
+      "do": "spawn",
+      "id": "ch",
+      "prop": "chimney",
+      "x": 520,
+      "y": 1068,
+      "layer": "back",
+      "scale": 0.01
+    },
+    {
+      "t": 4.9,
+      "do": "camera",
+      "x": 520,
+      "y": 700,
+      "zoom": 0.7,
+      "dur": 1.6,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 4.92,
+      "do": "move",
+      "id": "ch",
+      "scale": 1,
+      "dur": 1.8,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 6.5,
+      "do": "say",
+      "who": "narr",
+      "line": "n18",
+      "dur": 4.2
+    },
+    {
+      "t": 7.0,
+      "do": "camera",
+      "x": 470,
+      "y": 1000,
+      "zoom": 1.15,
+      "dur": 1.2,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 7.0,
+      "do": "spawn",
+      "id": "lg",
+      "prop": "stove_logs",
+      "x": 520,
+      "y": 1215,
+      "layer": "back"
+    },
+    {
+      "t": 7.6,
+      "do": "spawn",
+      "id": "fr",
+      "prop": "stove_fire",
+      "x": 520,
+      "y": 1215,
+      "layer": "back",
+      "scale": 0.01
+    },
+    {
+      "t": 7.6,
+      "do": "spawn",
+      "id": "sm",
+      "prop": "smoke",
+      "x": 520,
+      "y": -300,
+      "layer": "back"
+    },
+    {
+      "t": 7.62,
+      "do": "move",
+      "id": "fr",
+      "scale": 1,
+      "dur": 0.6
+    },
+    {
+      "t": 8.2,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 5
+    },
+    {
+      "t": 8.2,
+      "do": "pose",
+      "who": "eng",
+      "pose": "hands_warm",
+      "dur": 5
+    },
+    {
+      "t": 8.2,
+      "do": "spawn",
+      "id": "stove_chair",
+      "prop": "k_chair",
+      "x": 330,
+      "y": 1250,
+      "layer": "back"
+    }
+  ]
+}

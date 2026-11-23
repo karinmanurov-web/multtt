@@ -1,0 +1,191 @@
+{
+  "id": "story_09_s05",
+  "duration": 11.0,
+  "start": {
+    "location": "cottage",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "type": "eng",
+        "x": -300,
+        "face": "right",
+        "sy": 0.82
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lv",
+      "prop": "leaves",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#b5654a",
+      "sleeve": "#b5654a"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "stv",
+      "prop": "stove",
+      "x": 330,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "th",
+      "prop": "th_t17",
+      "x": 180,
+      "y": 810,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 700,
+      "y": 980,
+      "zoom": 1.0,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 660,
+      "y": 0,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "think",
+      "dur": 2.5
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "neutral",
+      "dur": 1
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n14",
+      "dur": 3.8
+    },
+    {
+      "t": 1.5,
+      "do": "spawn",
+      "id": "tf",
+      "prop": "think_fire",
+      "x": 770,
+      "y": 890,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 1.52,
+      "do": "move",
+      "id": "tf",
+      "scale": 1,
+      "dur": 0.6,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 3.5,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 1.5
+    },
+    {
+      "t": 3.5,
+      "do": "pose",
+      "who": "eng",
+      "pose": "hands_warm",
+      "dur": 1.6
+    },
+    {
+      "t": 4.4,
+      "do": "say",
+      "who": "narr",
+      "line": "n15",
+      "dur": 1.0
+    },
+    {
+      "t": 5.4,
+      "do": "move",
+      "id": "tf",
+      "scale": 1.35,
+      "dur": 0.25
+    },
+    {
+      "t": 5.65,
+      "do": "remove",
+      "id": "tf"
+    },
+    {
+      "t": 5.65,
+      "do": "fx",
+      "kind": "dust",
+      "x": 770,
+      "y": 780,
+      "dur": 0.5
+    },
+    {
+      "t": 5.7,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "surprised",
+      "dur": 0.6
+    },
+    {
+      "t": 6.4,
+      "do": "pose",
+      "who": "eng",
+      "pose": "dizzy",
+      "dur": 1.4
+    },
+    {
+      "t": 6.4,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "frown",
+      "dur": 2
+    },
+    {
+      "t": 6.6,
+      "do": "say",
+      "who": "narr",
+      "line": "n16",
+      "dur": 2.6
+    },
+    {
+      "t": 8.0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "arms_cross",
+      "dur": 2.5
+    }
+  ]
+}
