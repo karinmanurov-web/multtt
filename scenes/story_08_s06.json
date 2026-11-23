@@ -1,0 +1,547 @@
+{
+  "id": "story_08_s06",
+  "duration": 12.0,
+  "start": {
+    "location": "river",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "bld": {
+        "type": "bld",
+        "x": -520,
+        "face": "right",
+        "sy": 0.8,
+        "hidden": true
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 500,
+      "y": 960,
+      "zoom": 0.65,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st0",
+      "prop": "stone",
+      "x": 380,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st1",
+      "prop": "stone",
+      "x": 500,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st2",
+      "prop": "stone",
+      "x": 620,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rd1",
+      "prop": "reeds",
+      "x": 305,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rd2",
+      "prop": "reeds",
+      "x": 695,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lg0",
+      "prop": "log_flat",
+      "x": 500,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lg1",
+      "prop": "log_flat",
+      "x": 500,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lg2",
+      "prop": "log_flat",
+      "x": 500,
+      "y": 1274,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pk0",
+      "prop": "plank",
+      "x": 246,
+      "y": 1190,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pk1",
+      "prop": "plank",
+      "x": 318,
+      "y": 1190,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pk2",
+      "prop": "plank",
+      "x": 390,
+      "y": 1190,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pk3",
+      "prop": "plank",
+      "x": 462,
+      "y": 1190,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pk4",
+      "prop": "plank",
+      "x": 534,
+      "y": 1190,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pk5",
+      "prop": "plank",
+      "x": 606,
+      "y": 1190,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pk6",
+      "prop": "plank_crack",
+      "x": 678,
+      "y": 1190,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pk7",
+      "prop": "plank",
+      "x": 750,
+      "y": 1190,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "bld",
+      "x": -150,
+      "y": -220,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 0.4
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.3
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n14",
+      "dur": 2.2
+    },
+    {
+      "t": 0.5,
+      "do": "spawn",
+      "id": "pier0",
+      "prop": "pier",
+      "x": 400,
+      "y": 1262,
+      "scale": 0.05,
+      "layer": "back"
+    },
+    {
+      "t": 0.5,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 2.0
+    },
+    {
+      "t": 0.5,
+      "do": "marker",
+      "name": "стук, бетон"
+    },
+    {
+      "t": 0.55,
+      "do": "move",
+      "id": "pier0",
+      "scale": 1,
+      "dur": 1.6,
+      "ease": "easeOut"
+    },
+    {
+      "t": 0.8,
+      "do": "spawn",
+      "id": "pier1",
+      "prop": "pier",
+      "x": 600,
+      "y": 1262,
+      "scale": 0.05,
+      "layer": "back"
+    },
+    {
+      "t": 0.8500000000000001,
+      "do": "move",
+      "id": "pier1",
+      "scale": 1,
+      "dur": 1.6,
+      "ease": "easeOut"
+    },
+    {
+      "t": 2.2,
+      "do": "fx",
+      "kind": "dust",
+      "x": 400,
+      "y": 1262,
+      "dur": 0.6
+    },
+    {
+      "t": 2.5,
+      "do": "fx",
+      "kind": "dust",
+      "x": 600,
+      "y": 1262,
+      "dur": 0.6
+    },
+    {
+      "t": 2.8,
+      "do": "say",
+      "who": "narr",
+      "line": "n15",
+      "dur": 4.4
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "pk0",
+      "y": 1046,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "pk1",
+      "y": 1046,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "pk2",
+      "y": 1046,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "pk3",
+      "y": 1046,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "pk4",
+      "y": 1046,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "pk5",
+      "y": 1046,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "pk6",
+      "y": 1046,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "pk7",
+      "y": 1046,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "lg0",
+      "y": 1106,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "lg1",
+      "y": 1118,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "move",
+      "id": "lg2",
+      "y": 1130,
+      "dur": 1.3,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 2.9,
+      "do": "pose",
+      "who": "bld",
+      "pose": "point_up",
+      "dur": 1.4
+    },
+    {
+      "t": 3.0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 1.3
+    },
+    {
+      "t": 4.3,
+      "do": "remove",
+      "id": "lg0"
+    },
+    {
+      "t": 4.3,
+      "do": "remove",
+      "id": "lg1"
+    },
+    {
+      "t": 4.3,
+      "do": "remove",
+      "id": "lg2"
+    },
+    {
+      "t": 4.3,
+      "do": "spawn",
+      "id": "gd",
+      "prop": "girder",
+      "x": 500,
+      "y": 1082,
+      "layer": "back"
+    },
+    {
+      "t": 4.6,
+      "do": "spawn",
+      "id": "rl",
+      "prop": "rail",
+      "x": 500,
+      "y": 1030,
+      "scale": 0.05,
+      "layer": "back"
+    },
+    {
+      "t": 4.65,
+      "do": "move",
+      "id": "rl",
+      "scale": 1,
+      "dur": 0.6,
+      "ease": "backSoft"
+    },
+    {
+      "t": 5.0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 0.5
+    },
+    {
+      "t": 5.0,
+      "do": "walk",
+      "who": "bld",
+      "x": 1150,
+      "y": -220,
+      "dur": 2.8,
+      "ease": "soft"
+    },
+    {
+      "t": 5.3,
+      "do": "remove",
+      "id": "pk6"
+    },
+    {
+      "t": 5.3,
+      "do": "spawn",
+      "id": "pk6n",
+      "prop": "plank",
+      "x": 678,
+      "y": 1046,
+      "layer": "back"
+    },
+    {
+      "t": 5.6,
+      "do": "spawn",
+      "id": "fl",
+      "prop": "fill_L",
+      "x": 0,
+      "y": 0,
+      "layer": "back"
+    },
+    {
+      "t": 5.6,
+      "do": "shake",
+      "dur": 0.5,
+      "amp": 5
+    },
+    {
+      "t": 5.6,
+      "do": "fx",
+      "kind": "dust",
+      "x": 170,
+      "y": 1030,
+      "dur": 0.8
+    },
+    {
+      "t": 5.6,
+      "do": "marker",
+      "name": "грохот насыпи"
+    },
+    {
+      "t": 5.9,
+      "do": "spawn",
+      "id": "fr",
+      "prop": "fill_R",
+      "x": 0,
+      "y": 0,
+      "layer": "back"
+    },
+    {
+      "t": 5.9,
+      "do": "fx",
+      "kind": "dust",
+      "x": 830,
+      "y": 1030,
+      "dur": 0.8
+    },
+    {
+      "t": 7.85,
+      "do": "walk",
+      "who": "bld",
+      "x": 1150,
+      "y": -220,
+      "dur": 0.05,
+      "face": "left"
+    },
+    {
+      "t": 7.9,
+      "do": "say",
+      "who": "narr",
+      "line": "n16",
+      "dur": 3.9
+    },
+    {
+      "t": 7.9,
+      "do": "pose",
+      "who": "bld",
+      "pose": "arms_cross",
+      "dur": 4.0
+    },
+    {
+      "t": 7.9,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 4.0
+    },
+    {
+      "t": 7.9,
+      "do": "spawn",
+      "id": "cr",
+      "prop": "car_blue",
+      "x": -380,
+      "y": 1030,
+      "scale": 0.4,
+      "layer": "front"
+    },
+    {
+      "t": 8.0,
+      "do": "move",
+      "id": "cr",
+      "x": 1450,
+      "y": 1030,
+      "dur": 3.5,
+      "ease": "linear"
+    }
+  ]
+}

@@ -397,6 +397,30 @@
       "langs": {
         "ru": "lang/story_08.ru.json"
       }
+    },
+    {
+      "id": "story_08_s04",
+      "title": "Сюжет №8 · Мост · s04 · Шире",
+      "file": "scenes/story_08_s04.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
+    },
+    {
+      "id": "story_08_s05",
+      "title": "Сюжет №8 · Мост · s05 · Телега",
+      "file": "scenes/story_08_s05.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
+    },
+    {
+      "id": "story_08_s06",
+      "title": "Сюжет №8 · Мост · s06 · Опоры",
+      "file": "scenes/story_08_s06.json",
+      "langs": {
+        "ru": "lang/story_08.ru.json"
+      }
     }
   ]
 }

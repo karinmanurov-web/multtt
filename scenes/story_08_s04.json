@@ -1,0 +1,675 @@
+{
+  "id": "story_08_s04",
+  "duration": 12.4,
+  "start": {
+    "location": "river",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "bld": {
+        "type": "bld",
+        "x": -520,
+        "face": "right",
+        "sy": 0.8
+      },
+      "ex1": {
+        "type": "extra",
+        "x": -250,
+        "face": "right",
+        "sy": 0.8,
+        "shirt": "#d8695f",
+        "hair": "#4a3426",
+        "hidden": true
+      },
+      "ex2": {
+        "type": "extra",
+        "x": 1250,
+        "face": "left",
+        "sy": 0.8,
+        "shirt": "#4a8fd0",
+        "hat": "#e8c24a",
+        "pants": "#3a4a6b",
+        "hidden": true
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 300,
+      "y": 960,
+      "zoom": 0.65,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "bld",
+      "x": -440,
+      "y": -220,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st0",
+      "prop": "stone",
+      "x": 380,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st1",
+      "prop": "stone",
+      "x": 500,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st2",
+      "prop": "stone",
+      "x": 620,
+      "y": 1280,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rd1",
+      "prop": "reeds",
+      "x": 305,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "rd2",
+      "prop": "reeds",
+      "x": 695,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lf",
+      "prop": "log_flat",
+      "x": 500,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "lc2",
+      "prop": "log_carry",
+      "x": -300,
+      "y": 1030
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "bld",
+      "pose": "mow",
+      "dur": 2.7
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "angry",
+      "dur": 2.6
+    },
+    {
+      "t": 0.05,
+      "do": "hold",
+      "id": "lc2",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 0.2,
+      "do": "walk",
+      "who": "bld",
+      "x": -130,
+      "dur": 2.4,
+      "ease": "linear"
+    },
+    {
+      "t": 0.3,
+      "do": "say",
+      "who": "narr",
+      "line": "n08",
+      "dur": 2.0
+    },
+    {
+      "t": 2.6,
+      "do": "release",
+      "id": "lc2",
+      "drop": false
+    },
+    {
+      "t": 2.6,
+      "do": "remove",
+      "id": "lc2"
+    },
+    {
+      "t": 2.6,
+      "do": "spawn",
+      "id": "l2",
+      "prop": "log_flat",
+      "x": 90,
+      "y": 1025,
+      "layer": "back"
+    },
+    {
+      "t": 2.6,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.0
+    },
+    {
+      "t": 2.6,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 0.3
+    },
+    {
+      "t": 2.65,
+      "do": "move",
+      "id": "l2",
+      "x": 200,
+      "y": 1150,
+      "rot": 22,
+      "dur": 0.5,
+      "ease": "easeIn"
+    },
+    {
+      "t": 2.7,
+      "do": "walk",
+      "who": "bld",
+      "x": -440,
+      "dur": 0.9,
+      "ease": "linear",
+      "face": "left"
+    },
+    {
+      "t": 3.0,
+      "do": "say",
+      "who": "narr",
+      "line": "n09",
+      "dur": 3.6
+    },
+    {
+      "t": 3.15,
+      "do": "move",
+      "id": "l2",
+      "x": 500,
+      "y": 1262,
+      "rot": 0,
+      "dur": 0.45,
+      "ease": "bounce"
+    },
+    {
+      "t": 3.55,
+      "do": "fx",
+      "kind": "dust",
+      "x": 330,
+      "y": 1255,
+      "dur": 0.6
+    },
+    {
+      "t": 3.7,
+      "do": "spawn",
+      "id": "lc3",
+      "prop": "log_carry",
+      "x": -300,
+      "y": 1030
+    },
+    {
+      "t": 3.7,
+      "do": "pose",
+      "who": "bld",
+      "pose": "mow",
+      "dur": 2.0
+    },
+    {
+      "t": 3.7,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "angry",
+      "dur": 1.9
+    },
+    {
+      "t": 3.7,
+      "do": "walk",
+      "who": "bld",
+      "x": -130,
+      "dur": 1.6,
+      "ease": "linear",
+      "face": "right"
+    },
+    {
+      "t": 3.75,
+      "do": "hold",
+      "id": "lc3",
+      "who": "bld",
+      "hand": "R"
+    },
+    {
+      "t": 5.4,
+      "do": "release",
+      "id": "lc3",
+      "drop": false
+    },
+    {
+      "t": 5.4,
+      "do": "remove",
+      "id": "lc3"
+    },
+    {
+      "t": 5.4,
+      "do": "spawn",
+      "id": "l3",
+      "prop": "log_flat",
+      "x": 90,
+      "y": 1025,
+      "layer": "back"
+    },
+    {
+      "t": 5.4,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.0
+    },
+    {
+      "t": 5.4,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 1.0
+    },
+    {
+      "t": 5.45,
+      "do": "move",
+      "id": "l3",
+      "x": 200,
+      "y": 1150,
+      "rot": 22,
+      "dur": 0.45,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.6,
+      "do": "walk",
+      "who": "bld",
+      "x": 40,
+      "y": -220,
+      "dur": 0.6,
+      "ease": "linear"
+    },
+    {
+      "t": 5.9,
+      "do": "move",
+      "id": "l3",
+      "x": 500,
+      "y": 1274,
+      "rot": 0,
+      "dur": 0.4,
+      "ease": "bounce"
+    },
+    {
+      "t": 6.2,
+      "do": "walk",
+      "who": "bld",
+      "x": 205,
+      "y": -76,
+      "dur": 1.0,
+      "ease": "linear"
+    },
+    {
+      "t": 6.3,
+      "do": "fx",
+      "kind": "dust",
+      "x": 330,
+      "y": 1265,
+      "dur": 0.6
+    },
+    {
+      "t": 7.2,
+      "do": "spawn",
+      "id": "pk0",
+      "prop": "plank",
+      "x": 246,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 7.2,
+      "do": "pose",
+      "who": "bld",
+      "pose": "hammer",
+      "dur": 3.2
+    },
+    {
+      "t": 7.2,
+      "do": "marker",
+      "name": "стук молотка"
+    },
+    {
+      "t": 7.22,
+      "do": "move",
+      "id": "pk0",
+      "y": 1190,
+      "dur": 0.2,
+      "ease": "easeIn"
+    },
+    {
+      "t": 7.32,
+      "do": "walk",
+      "who": "bld",
+      "x": 156,
+      "y": -76,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 7.58,
+      "do": "spawn",
+      "id": "pk1",
+      "prop": "plank",
+      "x": 318,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 7.6,
+      "do": "move",
+      "id": "pk1",
+      "y": 1190,
+      "dur": 0.2,
+      "ease": "easeIn"
+    },
+    {
+      "t": 7.7,
+      "do": "walk",
+      "who": "bld",
+      "x": 228,
+      "y": -76,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 7.8,
+      "do": "say",
+      "who": "narr",
+      "line": "n10",
+      "dur": 2.9
+    },
+    {
+      "t": 7.96,
+      "do": "spawn",
+      "id": "pk2",
+      "prop": "plank",
+      "x": 390,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 7.9799999999999995,
+      "do": "move",
+      "id": "pk2",
+      "y": 1190,
+      "dur": 0.2,
+      "ease": "easeIn"
+    },
+    {
+      "t": 8.08,
+      "do": "walk",
+      "who": "bld",
+      "x": 300,
+      "y": -76,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 8.34,
+      "do": "spawn",
+      "id": "pk3",
+      "prop": "plank",
+      "x": 462,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 8.36,
+      "do": "move",
+      "id": "pk3",
+      "y": 1190,
+      "dur": 0.2,
+      "ease": "easeIn"
+    },
+    {
+      "t": 8.459999999999999,
+      "do": "walk",
+      "who": "bld",
+      "x": 372,
+      "y": -76,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 8.55,
+      "do": "place",
+      "who": "ex1",
+      "x": -250,
+      "y": -220,
+      "face": "right"
+    },
+    {
+      "t": 8.55,
+      "do": "place",
+      "who": "ex2",
+      "x": 1250,
+      "y": -220,
+      "face": "left"
+    },
+    {
+      "t": 8.6,
+      "do": "walk",
+      "who": "ex1",
+      "x": 40,
+      "y": -220,
+      "dur": 1.2,
+      "ease": "linear"
+    },
+    {
+      "t": 8.6,
+      "do": "walk",
+      "who": "ex2",
+      "x": 960,
+      "y": -220,
+      "dur": 1.0,
+      "ease": "linear"
+    },
+    {
+      "t": 8.72,
+      "do": "spawn",
+      "id": "pk4",
+      "prop": "plank",
+      "x": 534,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 8.74,
+      "do": "move",
+      "id": "pk4",
+      "y": 1190,
+      "dur": 0.2,
+      "ease": "easeIn"
+    },
+    {
+      "t": 8.84,
+      "do": "walk",
+      "who": "bld",
+      "x": 444,
+      "y": -76,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 9.1,
+      "do": "spawn",
+      "id": "pk5",
+      "prop": "plank",
+      "x": 606,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 9.12,
+      "do": "move",
+      "id": "pk5",
+      "y": 1190,
+      "dur": 0.2,
+      "ease": "easeIn"
+    },
+    {
+      "t": 9.219999999999999,
+      "do": "walk",
+      "who": "bld",
+      "x": 516,
+      "y": -76,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 9.48,
+      "do": "spawn",
+      "id": "pk6",
+      "prop": "plank",
+      "x": 678,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 9.5,
+      "do": "move",
+      "id": "pk6",
+      "y": 1190,
+      "dur": 0.2,
+      "ease": "easeIn"
+    },
+    {
+      "t": 9.6,
+      "do": "walk",
+      "who": "bld",
+      "x": 588,
+      "y": -76,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 9.6,
+      "do": "walk",
+      "who": "ex2",
+      "x": 790,
+      "y": -76,
+      "dur": 1.0,
+      "ease": "linear"
+    },
+    {
+      "t": 9.8,
+      "do": "walk",
+      "who": "ex1",
+      "x": 210,
+      "y": -76,
+      "dur": 1.1,
+      "ease": "linear"
+    },
+    {
+      "t": 9.86,
+      "do": "spawn",
+      "id": "pk7",
+      "prop": "plank",
+      "x": 750,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 9.879999999999999,
+      "do": "move",
+      "id": "pk7",
+      "y": 1190,
+      "dur": 0.2,
+      "ease": "easeIn"
+    },
+    {
+      "t": 9.979999999999999,
+      "do": "walk",
+      "who": "bld",
+      "x": 660,
+      "y": -76,
+      "dur": 0.3,
+      "ease": "linear"
+    },
+    {
+      "t": 10.4,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle",
+      "dur": 1.5
+    },
+    {
+      "t": 10.4,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "happy",
+      "dur": 1.5
+    },
+    {
+      "t": 10.5,
+      "do": "walk",
+      "who": "bld",
+      "x": 620,
+      "y": -76,
+      "dur": 1.5,
+      "ease": "soft"
+    },
+    {
+      "t": 10.6,
+      "do": "walk",
+      "who": "ex2",
+      "x": 210,
+      "y": -76,
+      "dur": 2.6,
+      "ease": "linear"
+    },
+    {
+      "t": 10.9,
+      "do": "walk",
+      "who": "ex1",
+      "x": 790,
+      "y": -76,
+      "dur": 2.6,
+      "ease": "linear"
+    }
+  ]
+}
