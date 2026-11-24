@@ -700,9 +700,15 @@ class Engine {
         case 'say': {
           const id = who(b, i); if (!id) break;
           if (typeof b.line !== 'string') { err(`${tag}: нужен "line" (id реплики, не текст)`); break; }
-          if (!needDur()) break;
-          C.chars[id].says.push({ t0: t, t1: t + b.dur, line: b.line });
-          C.says.push({ t0: t, t1: t + b.dur, line: b.line, who: id });
+          // dur можно не указывать: время речи = длина текста / cps + 0,15 с (на нужном языке)
+          let sd = b.dur;
+          if (sd == null) {
+            const tx0 = this.texts.lines[b.line];
+            if (typeof tx0 === 'string') sd = Math.round((tx0.replace(/\s+/g, ' ').length / (this.texts.cps || 14) + 0.15) * 100) / 100;
+            else { sd = 2; warn(`${tag}: нет текста "${b.line}", не могу вычислить dur — поставил 2 с`); }
+          } else if (!isNum(sd) || sd <= 0) { err(`${tag}: "dur" должно быть числом > 0 (или не указывай — возьмётся по тексту)`); break; }
+          C.chars[id].says.push({ t0: t, t1: t + sd, line: b.line });
+          C.says.push({ t0: t, t1: t + sd, line: b.line, who: id });
           break;
         }
         case 'spawn': {

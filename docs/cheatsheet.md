@@ -12,6 +12,6 @@
 **Бит** = `{"t":сек,"do":…}`. Главные: `place walk face pose emote say spawn hold release move remove camera portrait shake fx title marker location view outfit angle`.
 **Предметы:** `spawn` (id, prop, x, y мировой, scale, rot°, layer back|front) → `hold` в руку (`who`, `hand`) → `release` / `move` / `remove`. Крупный план эскиза: `spawn` с `scale≈2.6` на `back`.
 **Камера:** `{"do":"camera","x":540,"y":850,"zoom":0.8,"dur":1}`; zoom<1 — свободный, zoom≥1 прижат к краям мира.
-**Время реплики** ≈ символов/14 с (cps в языковом файле). Слот `dur` короче — предупреждение.
+**Реплика:** `dur` в `say` можно не писать — время = символов/cps + 0,15 с (cps в языковом файле, на нужном языке). Следующие действия по-прежнему стоят на фиксированных `t`: после реплики сдвигай их сам. Если `dur` задан и короче речи — предупреждение.
 
 **Порядок работы над сюжетом:** реквизит (`tools/gen/sNlib.py` → library.json) → сцены (`sNscenes.py`) → `tools/cs.py` по каждой сцене → `tools/hashes.js` (старые сцены diff 0) → manifest.json (`id`,`title` «Сюжет №N · Название · sNN · Сцена»,`file`,`langs`) → docs → commit → push → проверить деплой. После правок `engine.js` повысить `?v=` в `index.html`.
