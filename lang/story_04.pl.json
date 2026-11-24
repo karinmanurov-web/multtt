@@ -1,0 +1,29 @@
+{
+  "lang": "pl",
+  "cps": 15,
+  "lines": {
+    "n01": "Przychodzisz do pracy. Na razie nie ma nic do roboty. No, bywa.",
+    "n02": "Sprawdzę, która godzina.",
+    "n03": "Jak to… minęło dopiero piętnaście minut?!",
+    "n04": "Czas ciągnie się w nieskończoność. Trzeba się czymś zająć.",
+    "n05": "Zrobię sobie herbatę.",
+    "n06": "Czajnik, jak zwykle, jest pusty.",
+    "n07": "A przecież to miała być zwykła czynność…",
+    "n08": "No, nie tym razem.",
+    "n09": "Najpierw trzeba zakręcić wodę.",
+    "n10": "Kran, oczywiście, postanowił nie współpracować.",
+    "n11": "To odetnijmy dopływ wody.",
+    "n12": "Świetnie.",
+    "n13": "W takiej sytuacji najlepiej wezwać fachowca.",
+    "n14": "Albo obejrzeć filmik.",
+    "n15": "Najpierw zdejmujemy ozdobną zaślepkę…",
+    "n16": "Chyba mam inny model.",
+    "n17": "Teraz ostrożnie wyjmujemy wkład.",
+    "n18": "Aha. Jasne.",
+    "n19": "No cóż. Wracamy do pracy.",
+    "c_burst": "AWARIA!",
+    "c_more": "JESZCZE MOCNIEJ!",
+    "vid_title": "Jak naprawić kran w 2 minuty",
+    "vid_sub": "To proste. Oglądaj do końca."
+  }
+}
