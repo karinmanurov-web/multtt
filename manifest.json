@@ -573,6 +573,30 @@
       "langs": {
         "ru": "lang/story_10.ru.json"
       }
+    },
+    {
+      "id": "story_10_s04",
+      "title": "Сюжет №10 · Хотел поспать · s04 · Отопление",
+      "file": "scenes/story_10_s04.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
+    },
+    {
+      "id": "story_10_s05",
+      "title": "Сюжет №10 · Хотел поспать · s05 · Насос",
+      "file": "scenes/story_10_s05.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
+    },
+    {
+      "id": "story_10_s06",
+      "title": "Сюжет №10 · Хотел поспать · s06 · Участок",
+      "file": "scenes/story_10_s06.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
     }
   ]
 }

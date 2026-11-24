@@ -682,7 +682,7 @@
       "prop": "boiler",
       "x": 180,
       "y": 1810,
-      "layer": "front"
+      "layer": "back"
     },
     {
       "t": 0,
@@ -691,7 +691,7 @@
       "prop": "tank",
       "x": 400,
       "y": 1810,
-      "layer": "front"
+      "layer": "back"
     },
     {
       "t": 0,
@@ -700,7 +700,7 @@
       "prop": "pump",
       "x": 500,
       "y": 1790,
-      "layer": "front"
+      "layer": "back"
     },
     {
       "t": 0,
@@ -709,7 +709,7 @@
       "prop": "pump",
       "x": 720,
       "y": 1790,
-      "layer": "front"
+      "layer": "back"
     },
     {
       "t": 0,
