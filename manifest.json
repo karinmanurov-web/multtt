@@ -123,7 +123,10 @@
       "title": "Сюжет №3 · Полка · s01",
       "file": "scenes/story_03_s01.json",
       "langs": {
-        "ru": "lang/story_03.ru.json"
+        "ru": "lang/story_03.ru.json",
+        "de": "lang/story_03.de.json",
+        "es": "lang/story_03.es.json",
+        "pl": "lang/story_03.pl.json"
       }
     },
     {
@@ -131,7 +134,10 @@
       "title": "Сюжет №3 · Полка · s02",
       "file": "scenes/story_03_s02.json",
       "langs": {
-        "ru": "lang/story_03.ru.json"
+        "ru": "lang/story_03.ru.json",
+        "de": "lang/story_03.de.json",
+        "es": "lang/story_03.es.json",
+        "pl": "lang/story_03.pl.json"
       }
     },
     {
@@ -139,7 +145,10 @@
       "title": "Сюжет №3 · Полка · s03",
       "file": "scenes/story_03_s03.json",
       "langs": {
-        "ru": "lang/story_03.ru.json"
+        "ru": "lang/story_03.ru.json",
+        "de": "lang/story_03.de.json",
+        "es": "lang/story_03.es.json",
+        "pl": "lang/story_03.pl.json"
       }
     },
     {
@@ -147,7 +156,10 @@
       "title": "Сюжет №3 · s03.1 · Лишние детали",
       "file": "scenes/story_03_s03_1.json",
       "langs": {
-        "ru": "lang/story_03.ru.json"
+        "ru": "lang/story_03.ru.json",
+        "de": "lang/story_03.de.json",
+        "es": "lang/story_03.es.json",
+        "pl": "lang/story_03.pl.json"
       }
     },
     {
@@ -155,7 +167,10 @@
       "title": "Сюжет №3 · Полка · s04",
       "file": "scenes/story_03_s04.json",
       "langs": {
-        "ru": "lang/story_03.ru.json"
+        "ru": "lang/story_03.ru.json",
+        "de": "lang/story_03.de.json",
+        "es": "lang/story_03.es.json",
+        "pl": "lang/story_03.pl.json"
       }
     },
     {
