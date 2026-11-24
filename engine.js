@@ -123,7 +123,7 @@ const HIP_Y = -160, LEG = 88, UARM = 92, FARM = 88, SHOULDER_Y = -172;
 
 // ───────────────────────── позы ─────────────────────────
 // L/R = положение кисти относительно плеча [наружу, вниз] (px). Руки считаются через IK.
-const BASE = { L: [24, 164], R: [24, 164], by: 0, air: 0, lean: 0, head: 0, sq: 1 };
+const BASE = { L: [24, 164], R: [24, 164], by: 0, air: 0, lean: 0, head: 0, sq: 1, roll: 0 };
 const P = o => Object.assign({}, BASE, o);
 const POSES = {
   idle: (lt, t) => { const b = Math.sin(t * 2.2) * 3; return P({ L: [24, 164 + b], R: [24, 164 - b], by: Math.sin(t * 2.2) * 1.5 }); },
@@ -179,6 +179,8 @@ const POSES = {
   rake: (lt, t) => P({ L: [86 + Math.sin(t * 3.2) * 20, 134], R: [92 + Math.sin(t * 3.2) * 20, 118], lean: 12 + Math.sin(t * 3.2) * 3, by: 2 }),
   saw: (lt, t) => P({ R: [100 + Math.sin(t * 10.5) * 16, 150], L: [40, 130], lean: 24, head: 6, sq: .86 }),
   paint: (lt, t) => P({ R: [118, 20 + Math.sin(t * 6.5) * 55], L: [40, 125], lean: 8, head: -4, by: 1 }),
+  lie: (lt, t) => P({ L: [10, 150], R: [10, 150], roll: -88, head: -4, by: Math.sin(t * 1.3) * 1.2 }),
+  lie_ear: (lt, t) => P({ L: [10, 150], R: [-30, -60], roll: -88, head: 8 }),
   rub: (lt, t) => P({ L: [52 + Math.sin(t * 16) * 9, 84], R: [52 - Math.sin(t * 16) * 9, 84], head: 3, lean: 2, sq: .97 }),
   sit_rub: (lt, t) => P({ L: [52 + Math.sin(t * 16) * 9, 96], R: [52 - Math.sin(t * 16) * 9, 96], sq: .86, air: -30, head: 4 }),
   sit_cozy: (lt, t) => P({ L: [30, 70], R: [30, 70], sq: .86, air: -30, head: 6, by: Math.sin(t * 1.6) }),
@@ -996,7 +998,7 @@ class Engine {
     const odef = of ? Object.assign({}, def, { shirt: of.shirt || def.shirt, sleeve: of.sleeve === undefined ? def.sleeve : of.sleeve }) : def;
     const ae = lastBefore(ch.angs, t);
     const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
-    return { ang, pname: pose._name, vis, x, y: this._liftAt(ch, t), face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, emo, mo, wk, run, say, def: odef, id, vest, renderLayer: ch.renderLayer || 'normal' };
+    return { ang, pname: pose._name, vis, x, y: this._liftAt(ch, t), face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, roll: pose.roll || 0, emo, mo, wk, run, say, def: odef, id, vest, renderLayer: ch.renderLayer || 'normal' };
   }
 
   // кисть в мировых координатах (для падения/удержания предметов и камеры)
@@ -1435,10 +1437,11 @@ class Engine {
     ctx.save();
     ctx.translate(st.x, GROUND + st.y);
     const sh = 1 - clamp(-st.air / 400, 0, 0.6);
-    if (!inVehicle) {
+    if (!inVehicle && !st.roll) {
       ctx.fillStyle = 'rgba(0,0,0,0.24)';
       ctx.beginPath(); ctx.ellipse(0, 6, 84 * sh, 17 * sh, 0, 0, Math.PI * 2); ctx.fill();
     }
+    if (st.roll) ctx.rotate(rad(st.roll) * st.face);   // лёжа: поворот всего тела вокруг ступней
     ctx.scale((st.face / Math.sqrt(st.sq)) * turnK * (q45 ? 0.9 : 1), def.sy * st.sq);
     ctx.translate(0, st.air);
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';

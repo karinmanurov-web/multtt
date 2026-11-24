@@ -549,6 +549,30 @@
       "langs": {
         "ru": "lang/story_09.ru.json"
       }
+    },
+    {
+      "id": "story_10_s01",
+      "title": "Сюжет №10 · Хотел поспать · s01 · Тишина",
+      "file": "scenes/story_10_s01.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
+    },
+    {
+      "id": "story_10_s02",
+      "title": "Сюжет №10 · Хотел поспать · s02 · Кап-кап",
+      "file": "scenes/story_10_s02.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
+    },
+    {
+      "id": "story_10_s03",
+      "title": "Сюжет №10 · Хотел поспать · s03 · Холодильник",
+      "file": "scenes/story_10_s03.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
     }
   ]
 }

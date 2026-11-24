@@ -1,0 +1,992 @@
+{
+  "id": "story_10_s02",
+  "duration": 11.5,
+  "start": {
+    "location": "cottage2",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "type": "eng",
+        "x": -300,
+        "face": "right",
+        "sy": 0.82
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "outfit",
+      "who": "eng",
+      "shirt": "#9bb3e8",
+      "sleeve": "#9bb3e8"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "no",
+      "prop": "night_out",
+      "x": 0,
+      "y": 0,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "mn",
+      "prop": "moon",
+      "x": 1500,
+      "y": -250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "nd",
+      "prop": "night_dim",
+      "x": 0,
+      "y": 0,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "stv",
+      "prop": "stove",
+      "x": 330,
+      "y": 1100,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bs",
+      "prop": "brick_stove",
+      "x": 520,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ch",
+      "prop": "chimney",
+      "x": 520,
+      "y": 1068,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "nt_l",
+      "prop": "lamp_off",
+      "x": 510,
+      "y": 616,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "nd2",
+      "prop": "night_dim2",
+      "x": 0,
+      "y": 0,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p0",
+      "prop": "pipe_h",
+      "x": 575,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p1",
+      "prop": "pipe_h",
+      "x": 629,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p2",
+      "prop": "pipe_h",
+      "x": 683,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p3",
+      "prop": "pipe_h",
+      "x": 737,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p4",
+      "prop": "pipe_h",
+      "x": 791,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p5",
+      "prop": "pipe_h",
+      "x": 845,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p6",
+      "prop": "pipe_h",
+      "x": 899,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p7",
+      "prop": "pipe_h",
+      "x": 953,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p8",
+      "prop": "pipe_h",
+      "x": 1007,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p9",
+      "prop": "pipe_h",
+      "x": 1061,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1p10",
+      "prop": "pipe_h",
+      "x": 1115,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1r0",
+      "prop": "rad",
+      "x": 900,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f1r1",
+      "prop": "rad",
+      "x": 1040,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp0",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp1",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1196,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp2",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1142,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp3",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1088,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp4",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 1034,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp5",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 980,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp6",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 926,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp7",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 872,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp8",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 818,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "vp9",
+      "prop": "pipe_v",
+      "x": 1145,
+      "y": 764,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p0",
+      "prop": "pipe_h",
+      "x": 1120,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p1",
+      "prop": "pipe_h",
+      "x": 1066,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p2",
+      "prop": "pipe_h",
+      "x": 1012,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p3",
+      "prop": "pipe_h",
+      "x": 958,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p4",
+      "prop": "pipe_h",
+      "x": 904,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p5",
+      "prop": "pipe_h",
+      "x": 850,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p6",
+      "prop": "pipe_h",
+      "x": 796,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p7",
+      "prop": "pipe_h",
+      "x": 742,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p8",
+      "prop": "pipe_h",
+      "x": 688,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p9",
+      "prop": "pipe_h",
+      "x": 634,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p10",
+      "prop": "pipe_h",
+      "x": 580,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p11",
+      "prop": "pipe_h",
+      "x": 526,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p12",
+      "prop": "pipe_h",
+      "x": 472,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p13",
+      "prop": "pipe_h",
+      "x": 418,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p14",
+      "prop": "pipe_h",
+      "x": 364,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p15",
+      "prop": "pipe_h",
+      "x": 310,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p16",
+      "prop": "pipe_h",
+      "x": 256,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p17",
+      "prop": "pipe_h",
+      "x": 202,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2p18",
+      "prop": "pipe_h",
+      "x": 148,
+      "y": 690,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "f2r0",
+      "prop": "rad",
+      "x": 350,
+      "y": 520,
+      "layer": "back",
+      "scale": 0.8
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp0",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1304,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp1",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1358,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp2",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1412,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp3",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1466,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp4",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1520,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp5",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1574,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp6",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1628,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp7",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1682,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp8",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1736,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bp9",
+      "prop": "pipe_v",
+      "x": 580,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh0",
+      "prop": "pipe_h",
+      "x": 290,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh1",
+      "prop": "pipe_h",
+      "x": 344,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh2",
+      "prop": "pipe_h",
+      "x": 398,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh3",
+      "prop": "pipe_h",
+      "x": 452,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh4",
+      "prop": "pipe_h",
+      "x": 506,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh5",
+      "prop": "pipe_h",
+      "x": 560,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh6",
+      "prop": "pipe_h",
+      "x": 614,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh7",
+      "prop": "pipe_h",
+      "x": 668,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh8",
+      "prop": "pipe_h",
+      "x": 722,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bh9",
+      "prop": "pipe_h",
+      "x": 776,
+      "y": 1790,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "boil",
+      "prop": "boiler",
+      "x": 180,
+      "y": 1810,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "tank",
+      "prop": "tank",
+      "x": 400,
+      "y": 1810,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pm1",
+      "prop": "pump",
+      "x": 500,
+      "y": 1790,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pm2",
+      "prop": "pump",
+      "x": 720,
+      "y": 1790,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "bl",
+      "prop": "blanket",
+      "x": 190,
+      "y": 612,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "pl",
+      "prop": "pillow",
+      "x": 140,
+      "y": 600,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 450,
+      "y": -690,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "pose",
+      "who": "eng",
+      "pose": "lie"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 450,
+      "y": 800,
+      "zoom": 1.2,
+      "dur": 0.01,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "tp",
+      "prop": "tap",
+      "x": 695,
+      "y": 598,
+      "layer": "front",
+      "scale": 1.5
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 0.5
+    },
+    {
+      "t": 0.9,
+      "do": "spawn",
+      "id": "dr0",
+      "prop": "drop",
+      "x": 725,
+      "y": 545,
+      "layer": "front",
+      "scale": 1.4
+    },
+    {
+      "t": 0.92,
+      "do": "move",
+      "id": "dr0",
+      "y": 612,
+      "dur": 0.35,
+      "ease": "easeIn"
+    },
+    {
+      "t": 1.25,
+      "do": "spawn",
+      "id": "popsnd_kap125",
+      "prop": "snd_kap",
+      "x": 710,
+      "y": 420,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 1.27,
+      "do": "remove",
+      "id": "dr0"
+    },
+    {
+      "t": 1.27,
+      "do": "move",
+      "id": "popsnd_kap125",
+      "scale": 1.0,
+      "dur": 0.25,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 1.3,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "surprised",
+      "dur": 1.2
+    },
+    {
+      "t": 1.3,
+      "do": "marker",
+      "name": "кап… кап… (капля)"
+    },
+    {
+      "t": 2.15,
+      "do": "remove",
+      "id": "popsnd_kap125"
+    },
+    {
+      "t": 2.9,
+      "do": "spawn",
+      "id": "dr2",
+      "prop": "drop",
+      "x": 725,
+      "y": 545,
+      "layer": "front",
+      "scale": 1.4
+    },
+    {
+      "t": 2.92,
+      "do": "move",
+      "id": "dr2",
+      "y": 612,
+      "dur": 0.35,
+      "ease": "easeIn"
+    },
+    {
+      "t": 3.25,
+      "do": "spawn",
+      "id": "popsnd_kap325",
+      "prop": "snd_kap",
+      "x": 710,
+      "y": 420,
+      "layer": "front",
+      "scale": 0.01
+    },
+    {
+      "t": 3.27,
+      "do": "remove",
+      "id": "dr2"
+    },
+    {
+      "t": 3.27,
+      "do": "move",
+      "id": "popsnd_kap325",
+      "scale": 1.0,
+      "dur": 0.25,
+      "ease": "easeInOut"
+    },
+    {
+      "t": 3.3,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "angry",
+      "dur": 0.8
+    },
+    {
+      "t": 3.6,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle"
+    },
+    {
+      "t": 3.6,
+      "do": "remove",
+      "id": "bl"
+    },
+    {
+      "t": 3.6,
+      "do": "place",
+      "who": "eng",
+      "x": 330,
+      "y": -650,
+      "face": "right"
+    },
+    {
+      "t": 4.0,
+      "do": "walk",
+      "who": "eng",
+      "x": 640,
+      "y": -560,
+      "dur": 1.8,
+      "face": "right"
+    },
+    {
+      "t": 4.15,
+      "do": "remove",
+      "id": "popsnd_kap325"
+    },
+    {
+      "t": 5.8,
+      "do": "pose",
+      "who": "eng",
+      "pose": "valve_pull",
+      "dur": 1.2
+    },
+    {
+      "t": 5.8,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "angry",
+      "dur": 1.2
+    },
+    {
+      "t": 5.8,
+      "do": "marker",
+      "name": "скрип крана"
+    },
+    {
+      "t": 6.0,
+      "do": "remove",
+      "id": "tp"
+    },
+    {
+      "t": 6.0,
+      "do": "spawn",
+      "id": "tp2",
+      "prop": "tap",
+      "x": 695,
+      "y": 598,
+      "layer": "front",
+      "scale": 1.5
+    },
+    {
+      "t": 7.2,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle"
+    },
+    {
+      "t": 7.2,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "neutral",
+      "dur": 0.5
+    },
+    {
+      "t": 7.4,
+      "do": "walk",
+      "who": "eng",
+      "x": 450,
+      "y": -690,
+      "dur": 2.0,
+      "face": "left"
+    },
+    {
+      "t": 9.5,
+      "do": "pose",
+      "who": "eng",
+      "pose": "lie"
+    },
+    {
+      "t": 9.5,
+      "do": "place",
+      "who": "eng",
+      "x": 450,
+      "y": -690,
+      "face": "right"
+    },
+    {
+      "t": 9.5,
+      "do": "spawn",
+      "id": "bl",
+      "prop": "blanket",
+      "x": 190,
+      "y": 612,
+      "layer": "front"
+    },
+    {
+      "t": 9.6,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 1.5
+    }
+  ]
+}
