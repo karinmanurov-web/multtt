@@ -86,13 +86,39 @@ const EXTRA_BASE = {
   sy: 1.0, tw: 122, hair: null, hat: null, glasses: false, tie: null, browY: -32
 };
 const LOOK_KEYS = ['skin', 'shirt', 'sleeve', 'pants', 'shoe', 'sy', 'tw', 'hair', 'hat', 'glasses', 'tie'];
+// Архитекторша (жена Инженера): готовый тип "arch" — {"type":"arch"} у статиста; сама рисует причёску-пучок, шарф, серьгу и юбку
+const O='#1e1b26';
+const ARCH = {
+  name: 'Архитекторша', skin: '#f6d2b4', shirt: '#e8765a', sleeve: '#e8765a', pants: '#2f8f8a', shoe: '#7a2f4a',
+  sy: 0.98, tw: 108, hair: '#5a2d4a', hat: null, glasses: false, tie: null, browY: -34,
+  torso: [
+    { t: 'poly', pts: [[-52, 6], [52, 6], [92, 112], [-92, 112]], fill: '#2f8f8a', stroke: O, sw: 6 },
+    { t: 'poly', pts: [[-30, 20], [-52, 112]], stroke: '#7fd0c6', sw: 6, closed: false },
+    { t: 'poly', pts: [[0, 20], [0, 112]], stroke: '#7fd0c6', sw: 6, closed: false },
+    { t: 'poly', pts: [[30, 20], [52, 112]], stroke: '#7fd0c6', sw: 6, closed: false },
+    { t: 'rect', x: -56, y: 0, w: 112, h: 16, r: 6, fill: '#f2c14e', stroke: O, sw: 6 },
+    { t: 'poly', pts: [[-40, -204], [40, -204], [34, -172], [0, -150], [-34, -172]], fill: '#f2c14e', stroke: O, sw: 6 },
+    { t: 'poly', pts: [[10, -168], [42, -90], [24, -84], [2, -150]], fill: '#f2c14e', stroke: O, sw: 6 },
+    { t: 'circle', x: 0, y: -160, r: 12, fill: '#e8765a', stroke: O, sw: 5 }
+  ],
+  head_front: [
+    { t: 'circle', x: -10, y: -106, r: 34, fill: '#5a2d4a', stroke: O, sw: 6 },
+    { t: 'poly', pts: [[-4, -118], [30, -150]], stroke: '#f2c14e', sw: 8, closed: false },
+    { t: 'path', d: 'M -76 -10 Q -60 -78 8 -76 Q 52 -70 72 -30 Q 38 -52 4 -44 Q -34 -38 -76 -10 Z', fill: '#5a2d4a', stroke: O, sw: 6 },
+    { t: 'circle', x: -60, y: 36, r: 11, fill: '#f2c14e', stroke: O, sw: 5 },
+    { t: 'poly', pts: [[-60, 46], [-60, 66]], stroke: '#f2c14e', sw: 6, closed: false },
+    { t: 'circle', x: -60, y: 70, r: 7, fill: '#e8765a', stroke: O, sw: 4 }
+  ]
+};
+
 function resolveCharDef(type, inst, types, err, id) {
   let base;
   if (type === 'eng' || type === 'bld') base = Object.assign({ kind: type }, CHARS[type]);
   else if (type === 'extra') base = Object.assign({}, EXTRA_BASE);
+  else if (type === 'arch') base = Object.assign({}, EXTRA_BASE, ARCH, { kind: 'extra' });
   else if (types[type] && typeof types[type] === 'object') base = Object.assign({}, EXTRA_BASE, types[type], { kind: 'extra' });
   else {
-    err(`Персонаж "${id}": неизвестный тип "${type}" (есть: eng, bld, extra${Object.keys(types).map(k => ', ' + k).join('')})`);
+    err(`Персонаж "${id}": неизвестный тип "${type}" (есть: eng, bld, arch, extra${Object.keys(types).map(k => ', ' + k).join('')})`);
     base = Object.assign({}, EXTRA_BASE);
   }
   for (const k of LOOK_KEYS) {

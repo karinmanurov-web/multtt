@@ -76,6 +76,14 @@
       }
     },
     {
+      "id": "demo_09",
+      "title": "Демо 9: Архитекторша",
+      "file": "scenes/demo_09.json",
+      "langs": {
+        "ru": "lang/demo_09.ru.json"
+      }
+    },
+    {
       "id": "insert",
       "title": "Ракурс · предметный кадр",
       "file": "scenes/insert.json",

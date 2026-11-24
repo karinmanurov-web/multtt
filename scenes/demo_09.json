@@ -1,0 +1,63 @@
+{
+ "id": "demo_09",
+ "duration": 10,
+ "start": {
+  "location": "cottage",
+  "chars": {
+   "eng": {
+    "x": 330,
+    "face": "right"
+   },
+   "wife": {
+    "type": "arch",
+    "x": 760,
+    "face": "left"
+   }
+  }
+ },
+ "beats": [
+  {
+   "t": 0.3,
+   "do": "pose",
+   "who": "wife",
+   "pose": "point_up",
+   "dur": 2.5
+  },
+  {
+   "t": 0.4,
+   "do": "say",
+   "who": "wife",
+   "line": "l1",
+   "dur": 3.2
+  },
+  {
+   "t": 3.8,
+   "do": "emote",
+   "who": "eng",
+   "emotion": "shocked",
+   "dur": 2
+  },
+  {
+   "t": 3.9,
+   "do": "say",
+   "who": "eng",
+   "line": "l2",
+   "dur": 1.8
+  },
+  {
+   "t": 6,
+   "do": "portrait",
+   "on": "wife",
+   "dur": 2,
+   "zoom": 2.6,
+   "bg": "blur"
+  },
+  {
+   "t": 6.1,
+   "do": "say",
+   "who": "wife",
+   "line": "l3",
+   "dur": 1.8
+  }
+ ]
+}
