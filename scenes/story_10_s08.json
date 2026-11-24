@@ -1075,7 +1075,7 @@
       "prop": "shutter",
       "x": 210,
       "y": 300,
-      "layer": "front"
+      "layer": "back"
     },
     {
       "t": 7.7,
