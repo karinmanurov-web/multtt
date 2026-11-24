@@ -695,6 +695,78 @@
       "langs": {
         "ru": "lang/story_10.ru.json"
       }
+    },
+    {
+      "id": "story_11_s01",
+      "title": "Сюжет №11 · Небольшие изменения · s01 · Идеальный проект",
+      "file": "scenes/story_11_s01.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
+    },
+    {
+      "id": "story_11_s02",
+      "title": "Сюжет №11 · Небольшие изменения · s02 · Небольшие изменения",
+      "file": "scenes/story_11_s02.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
+    },
+    {
+      "id": "story_11_s03",
+      "title": "Сюжет №11 · Небольшие изменения · s03 · Архитекторша",
+      "file": "scenes/story_11_s03.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
+    },
+    {
+      "id": "story_11_s04",
+      "title": "Сюжет №11 · Небольшие изменения · s04 · Геология",
+      "file": "scenes/story_11_s04.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
+    },
+    {
+      "id": "story_11_s05",
+      "title": "Сюжет №11 · Небольшие изменения · s05 · Размеры",
+      "file": "scenes/story_11_s05.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
+    },
+    {
+      "id": "story_11_s06",
+      "title": "Сюжет №11 · Небольшие изменения · s06 · Парящий дом",
+      "file": "scenes/story_11_s06.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
+    },
+    {
+      "id": "story_11_s07",
+      "title": "Сюжет №11 · Небольшие изменения · s07 · Сроки",
+      "file": "scenes/story_11_s07.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
+    },
+    {
+      "id": "story_11_s08",
+      "title": "Сюжет №11 · Небольшие изменения · s08 · Последнее изменение",
+      "file": "scenes/story_11_s08.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
+    },
+    {
+      "id": "story_11_s09",
+      "title": "Сюжет №11 · Небольшие изменения · s09 · Результат",
+      "file": "scenes/story_11_s09.json",
+      "langs": {
+        "ru": "lang/story_11.ru.json"
+      }
     }
   ]
 }

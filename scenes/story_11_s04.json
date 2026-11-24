@@ -1,0 +1,284 @@
+{
+  "id": "story_11_s04",
+  "duration": 21.7,
+  "start": {
+    "location": "field",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "x": 230,
+        "face": "right"
+      },
+      "bld": {
+        "x": 800,
+        "face": "left"
+      },
+      "arc": {
+        "type": "arch",
+        "x": 1500,
+        "face": "left"
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hf",
+      "prop": "fnd_a",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st",
+      "prop": "lp_st1",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ball",
+      "prop": "lp_ball",
+      "x": 540.0,
+      "y": 650.0,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 540,
+      "y": 850,
+      "zoom": 0.8,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 230,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "bld",
+      "x": 800,
+      "face": "left"
+    },
+    {
+      "t": 1.1,
+      "do": "move",
+      "id": "st",
+      "rot": 7,
+      "dur": 2.4
+    },
+    {
+      "t": 1.1,
+      "do": "move",
+      "id": "ball",
+      "x": 613.1,
+      "y": 654.5,
+      "dur": 2.4
+    },
+    {
+      "t": 1.3,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "worried",
+      "dur": 3
+    },
+    {
+      "t": 1.5,
+      "do": "fx",
+      "kind": "sweat",
+      "on": "eng",
+      "anchor": "head",
+      "dur": 1.5
+    },
+    {
+      "t": 6.091428571428571,
+      "do": "spawn",
+      "id": "cb",
+      "prop": "clipboard",
+      "x": 230,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 6.141428571428571,
+      "do": "hold",
+      "id": "cb",
+      "who": "eng"
+    },
+    {
+      "t": 6.19142857142857,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present"
+    },
+    {
+      "t": 9.297142857142855,
+      "do": "spawn",
+      "id": "bp",
+      "prop": "bog_pool",
+      "x": 540,
+      "y": 1262,
+      "layer": "back"
+    },
+    {
+      "t": 9.397142857142857,
+      "do": "spawn",
+      "id": "bg",
+      "prop": "bog_chunk",
+      "x": 630,
+      "y": 1250,
+      "layer": "front",
+      "scale": 0.9
+    },
+    {
+      "t": 9.497142857142856,
+      "do": "move",
+      "id": "bg",
+      "x": 920,
+      "y": 1170,
+      "arc": 140,
+      "dur": 1.2
+    },
+    {
+      "t": 9.497142857142856,
+      "do": "pose",
+      "who": "bld",
+      "pose": "pull"
+    },
+    {
+      "t": 9.597142857142856,
+      "do": "move",
+      "id": "st",
+      "rot": 12,
+      "dur": 1.8
+    },
+    {
+      "t": 9.597142857142856,
+      "do": "move",
+      "id": "ball",
+      "x": 664.7,
+      "y": 663.1,
+      "dur": 1.8
+    },
+    {
+      "t": 10.697142857142856,
+      "do": "fx",
+      "kind": "boom",
+      "x": 920,
+      "y": 1180,
+      "dur": 0.5
+    },
+    {
+      "t": 10.897142857142857,
+      "do": "spawn",
+      "id": "snd1",
+      "prop": "snd_chmok",
+      "x": 740,
+      "y": 1050,
+      "layer": "front"
+    },
+    {
+      "t": 11.917142857142855,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "shocked",
+      "dur": 2
+    },
+    {
+      "t": 12.097142857142856,
+      "do": "remove",
+      "id": "snd1"
+    },
+    {
+      "t": 12.117142857142854,
+      "do": "pose",
+      "who": "eng",
+      "pose": "facepalm"
+    },
+    {
+      "t": 13.42285714285714,
+      "do": "remove",
+      "id": "bp"
+    },
+    {
+      "t": 13.42285714285714,
+      "do": "remove",
+      "id": "bg"
+    },
+    {
+      "t": 13.42285714285714,
+      "do": "remove",
+      "id": "hf"
+    },
+    {
+      "t": 13.42285714285714,
+      "do": "spawn",
+      "id": "hfc",
+      "prop": "fnd_c",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 13.42285714285714,
+      "do": "move",
+      "id": "st",
+      "rot": 0,
+      "dur": 0.6
+    },
+    {
+      "t": 13.42285714285714,
+      "do": "move",
+      "id": "ball",
+      "x": 540.0,
+      "y": 650.0,
+      "dur": 0.6
+    },
+    {
+      "t": 13.72285714285714,
+      "do": "fx",
+      "kind": "dust",
+      "x": 540,
+      "y": 1230,
+      "dur": 0.7
+    },
+    {
+      "t": 13.72285714285714,
+      "do": "pose",
+      "who": "bld",
+      "pose": "rake"
+    },
+    {
+      "t": 13.72285714285714,
+      "do": "pose",
+      "who": "eng",
+      "pose": "idle"
+    },
+    {
+      "t": 18.642857142857142,
+      "do": "camera",
+      "x": 540,
+      "y": 1000,
+      "zoom": 1.5,
+      "dur": 1.4
+    }
+  ]
+}

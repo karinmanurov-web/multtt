@@ -1,0 +1,262 @@
+{
+  "id": "story_11_s02",
+  "duration": 16.0,
+  "start": {
+    "location": "field",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "x": 170,
+        "face": "right"
+      },
+      "bld": {
+        "x": 820,
+        "face": "left"
+      },
+      "arc": {
+        "type": "arch",
+        "x": 1500,
+        "face": "left"
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hf",
+      "prop": "fnd_a",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "dp",
+      "prop": "dirt_pile",
+      "x": 700,
+      "y": 1250,
+      "layer": "back",
+      "scale": 1.0
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sv",
+      "prop": "shovel",
+      "x": 760,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "sv",
+      "who": "bld"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": -120,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sg",
+      "prop": "sk_garage",
+      "x": -120,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "sg",
+      "who": "eng"
+    },
+    {
+      "t": 0.1,
+      "do": "pose",
+      "who": "bld",
+      "pose": "rake"
+    },
+    {
+      "t": 0.1,
+      "do": "walk",
+      "who": "eng",
+      "x": 350,
+      "dur": 1.6,
+      "face": "right"
+    },
+    {
+      "t": 2.1,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present"
+    },
+    {
+      "t": 2.1,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "worried",
+      "dur": 2
+    },
+    {
+      "t": 3.662857142857143,
+      "do": "remove",
+      "id": "hf"
+    },
+    {
+      "t": 3.662857142857143,
+      "do": "spawn",
+      "id": "hf2",
+      "prop": "fnd_b",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 4.062857142857143,
+      "do": "spawn",
+      "id": "gf",
+      "prop": "garage_f",
+      "x": 940,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 4.062857142857143,
+      "do": "fx",
+      "kind": "dust",
+      "x": 940,
+      "y": 1230,
+      "dur": 0.7
+    },
+    {
+      "t": 4.062857142857143,
+      "do": "pose",
+      "who": "bld",
+      "pose": "rake"
+    },
+    {
+      "t": 6.154285714285715,
+      "do": "release",
+      "id": "sg",
+      "drop": false
+    },
+    {
+      "t": 6.154285714285715,
+      "do": "spawn",
+      "id": "st",
+      "prop": "sk_tower",
+      "x": 350,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 6.174285714285714,
+      "do": "remove",
+      "id": "sg"
+    },
+    {
+      "t": 6.204285714285715,
+      "do": "hold",
+      "id": "st",
+      "who": "eng"
+    },
+    {
+      "t": 6.2542857142857144,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present"
+    },
+    {
+      "t": 7.354285714285715,
+      "do": "remove",
+      "id": "gf"
+    },
+    {
+      "t": 7.554285714285715,
+      "do": "spawn",
+      "id": "tf",
+      "prop": "tower_f",
+      "x": 790,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 7.554285714285715,
+      "do": "fx",
+      "kind": "dust",
+      "x": 790,
+      "y": 1230,
+      "dur": 0.7
+    },
+    {
+      "t": 7.654285714285715,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 2.5
+    },
+    {
+      "t": 9.088571428571429,
+      "do": "pose",
+      "who": "bld",
+      "pose": "rake"
+    },
+    {
+      "t": 9.588571428571429,
+      "do": "fx",
+      "kind": "dust",
+      "x": 340,
+      "y": 1230,
+      "dur": 0.7
+    },
+    {
+      "t": 11.088571428571429,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "tired",
+      "dur": 2
+    },
+    {
+      "t": 12.094285714285714,
+      "do": "release",
+      "id": "st",
+      "drop": true
+    },
+    {
+      "t": 12.094285714285714,
+      "do": "pose",
+      "who": "eng",
+      "pose": "arms_cross"
+    },
+    {
+      "t": 12.094285714285714,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "neutral",
+      "dur": 3.5
+    },
+    {
+      "t": 12.494285714285715,
+      "do": "portrait",
+      "on": "eng",
+      "dur": 2.6,
+      "zoom": 2.6,
+      "bg": "blur"
+    }
+  ]
+}

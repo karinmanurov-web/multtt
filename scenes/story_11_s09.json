@@ -1,0 +1,455 @@
+{
+  "id": "story_11_s09",
+  "duration": 40.1,
+  "start": {
+    "location": "field",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "x": 170,
+        "face": "right"
+      },
+      "bld": {
+        "x": 640,
+        "face": "left"
+      },
+      "arc": {
+        "type": "arch",
+        "x": 1500,
+        "face": "left"
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "hf",
+      "prop": "fnd_cx",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "st",
+      "prop": "lp_st3",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gw",
+      "prop": "glow_ball",
+      "x": 540.0,
+      "y": 575.0,
+      "layer": "back",
+      "scale": 1.3
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "ball2",
+      "prop": "lp_ball_spin",
+      "x": 540.0,
+      "y": 575.0,
+      "layer": "back",
+      "scale": 1.3
+    },
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "gl",
+      "prop": "garland",
+      "x": 540.0,
+      "y": 575.0,
+      "layer": "back",
+      "scale": 1.3
+    },
+    {
+      "t": 0,
+      "do": "camera",
+      "x": 540,
+      "y": 850,
+      "zoom": 0.8,
+      "dur": 0.01
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "eng",
+      "x": 200,
+      "face": "right"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "bld",
+      "x": 650,
+      "face": "left"
+    },
+    {
+      "t": 0,
+      "do": "place",
+      "who": "arc",
+      "x": 970,
+      "face": "left"
+    },
+    {
+      "t": 0,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "worried",
+      "dur": 1.5
+    },
+    {
+      "t": 0.3,
+      "do": "shake",
+      "dur": 1.0,
+      "amp": 4
+    },
+    {
+      "t": 1.9485714285714288,
+      "do": "remove",
+      "id": "st"
+    },
+    {
+      "t": 1.9485714285714288,
+      "do": "spawn",
+      "id": "stb",
+      "prop": "lp_st_bent",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 1.9485714285714288,
+      "do": "move",
+      "id": "ball2",
+      "x": 660.0,
+      "y": 615.0,
+      "rot": 14,
+      "dur": 1.2
+    },
+    {
+      "t": 1.9485714285714288,
+      "do": "move",
+      "id": "gl",
+      "x": 660.0,
+      "y": 615.0,
+      "dur": 1.2
+    },
+    {
+      "t": 1.9485714285714288,
+      "do": "move",
+      "id": "gw",
+      "x": 660.0,
+      "y": 615.0,
+      "dur": 1.2
+    },
+    {
+      "t": 3.4542857142857146,
+      "do": "spawn",
+      "id": "k",
+      "prop": "snd_krak",
+      "x": 320,
+      "y": 1100,
+      "layer": "front"
+    },
+    {
+      "t": 3.4542857142857146,
+      "do": "shake",
+      "dur": 0.8,
+      "amp": 12
+    },
+    {
+      "t": 3.4542857142857146,
+      "do": "fx",
+      "kind": "dust",
+      "x": 540,
+      "y": 1230,
+      "dur": 0.7
+    },
+    {
+      "t": 4.854285714285714,
+      "do": "remove",
+      "id": "k"
+    },
+    {
+      "t": 4.960000000000001,
+      "do": "remove",
+      "id": "ball2"
+    },
+    {
+      "t": 4.960000000000001,
+      "do": "remove",
+      "id": "gl"
+    },
+    {
+      "t": 4.960000000000001,
+      "do": "remove",
+      "id": "gw"
+    },
+    {
+      "t": 4.960000000000001,
+      "do": "spawn",
+      "id": "bb",
+      "prop": "lp_ball",
+      "x": 660.0,
+      "y": 615.0,
+      "layer": "back",
+      "scale": 1.3
+    },
+    {
+      "t": 5.0600000000000005,
+      "do": "move",
+      "id": "bb",
+      "x": 1700,
+      "y": 925.0,
+      "rot": 720,
+      "dur": 6.0,
+      "ease": "easeIn"
+    },
+    {
+      "t": 5.360000000000001,
+      "do": "move",
+      "id": "stb",
+      "rot": 82,
+      "dur": 1.5
+    },
+    {
+      "t": 5.460000000000001,
+      "do": "pose",
+      "who": "eng",
+      "pose": "shrug"
+    },
+    {
+      "t": 5.960000000000001,
+      "do": "fx",
+      "kind": "dust",
+      "on": "eng",
+      "anchor": "body",
+      "dur": 1.2
+    },
+    {
+      "t": 5.960000000000001,
+      "do": "fx",
+      "kind": "dust",
+      "on": "bld",
+      "anchor": "body",
+      "dur": 1.2
+    },
+    {
+      "t": 6.5600000000000005,
+      "do": "fx",
+      "kind": "dust",
+      "x": 540,
+      "y": 1230,
+      "dur": 0.8
+    },
+    {
+      "t": 9.822857142857144,
+      "do": "camera",
+      "x": 560,
+      "y": 1000,
+      "zoom": 1.05,
+      "dur": 1.2
+    },
+    {
+      "t": 10.022857142857143,
+      "do": "walk",
+      "who": "eng",
+      "x": 330,
+      "dur": 1.4,
+      "face": "right"
+    },
+    {
+      "t": 10.122857142857145,
+      "do": "walk",
+      "who": "bld",
+      "x": 570,
+      "dur": 1.2,
+      "face": "left"
+    },
+    {
+      "t": 10.122857142857145,
+      "do": "walk",
+      "who": "arc",
+      "x": 830,
+      "dur": 1.4,
+      "face": "left"
+    },
+    {
+      "t": 11.222857142857144,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "neutral",
+      "dur": 5
+    },
+    {
+      "t": 11.222857142857144,
+      "do": "pose",
+      "who": "eng",
+      "pose": "think"
+    },
+    {
+      "t": 11.422857142857143,
+      "do": "pose",
+      "who": "bld",
+      "pose": "arms_cross"
+    },
+    {
+      "t": 17.82857142857143,
+      "do": "emote",
+      "who": "arc",
+      "emotion": "happy",
+      "dur": 2
+    },
+    {
+      "t": 20.12,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "sad",
+      "dur": 1.8
+    },
+    {
+      "t": 21.76857142857143,
+      "do": "emote",
+      "who": "bld",
+      "emotion": "neutral",
+      "dur": 2.5
+    },
+    {
+      "t": 24.34571428571429,
+      "do": "spawn",
+      "id": "sq",
+      "prop": "sk_pool",
+      "x": 940,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 24.39571428571429,
+      "do": "hold",
+      "id": "sq",
+      "who": "arc"
+    },
+    {
+      "t": 24.54571428571429,
+      "do": "pose",
+      "who": "arc",
+      "pose": "present"
+    },
+    {
+      "t": 28.49428571428572,
+      "do": "emote",
+      "who": "arc",
+      "emotion": "happy",
+      "dur": 2.2
+    },
+    {
+      "t": 31.07142857142858,
+      "do": "camera",
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0,
+      "dur": 0.8
+    },
+    {
+      "t": 31.27142857142858,
+      "do": "spawn",
+      "id": "sqb",
+      "prop": "sk_pool_big",
+      "x": 540,
+      "y": 700,
+      "layer": "back",
+      "scale": 2.2
+    },
+    {
+      "t": 33.43428571428572,
+      "do": "camera",
+      "x": 540,
+      "y": 780,
+      "zoom": 1.15,
+      "dur": 2.5
+    },
+    {
+      "t": 34.23428571428572,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "shocked",
+      "dur": 3
+    },
+    {
+      "t": 34.23428571428572,
+      "do": "pose",
+      "who": "eng",
+      "pose": "facepalm"
+    },
+    {
+      "t": 36.83428571428572,
+      "do": "spawn",
+      "id": "bk0",
+      "prop": "black_s",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 37.01428571428572,
+      "do": "spawn",
+      "id": "bk1",
+      "prop": "black_s",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 37.19428571428572,
+      "do": "spawn",
+      "id": "bk2",
+      "prop": "black_s",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 37.37428571428572,
+      "do": "spawn",
+      "id": "bk3",
+      "prop": "black_s",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 37.55428571428572,
+      "do": "spawn",
+      "id": "bk4",
+      "prop": "black_s",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    },
+    {
+      "t": 37.78428571428572,
+      "do": "spawn",
+      "id": "bkf",
+      "prop": "black_f",
+      "x": 0,
+      "y": 0,
+      "layer": "front"
+    }
+  ]
+}

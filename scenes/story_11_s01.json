@@ -1,0 +1,191 @@
+{
+  "id": "story_11_s01",
+  "duration": 14.7,
+  "start": {
+    "location": "field",
+    "chars": {
+      "narr": {
+        "type": "extra",
+        "x": 540,
+        "face": "left",
+        "hidden": true,
+        "shirt": "#24242a",
+        "sy": 0.8
+      },
+      "eng": {
+        "x": 170,
+        "face": "right"
+      },
+      "bld": {
+        "x": 900,
+        "face": "left"
+      },
+      "arc": {
+        "type": "arch",
+        "x": 1500,
+        "face": "left"
+      }
+    }
+  },
+  "defs": {},
+  "beats": [
+    {
+      "t": 0,
+      "do": "spawn",
+      "id": "sh",
+      "prop": "sk_house",
+      "x": 170,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 0,
+      "do": "hold",
+      "id": "sh",
+      "who": "eng"
+    },
+    {
+      "t": 0.05,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present"
+    },
+    {
+      "t": 0.1,
+      "do": "emote",
+      "who": "eng",
+      "emotion": "happy",
+      "dur": 14
+    },
+    {
+      "t": 0.6000000000000001,
+      "do": "pose",
+      "who": "bld",
+      "pose": "idle"
+    },
+    {
+      "t": 4.405714285714286,
+      "do": "spawn",
+      "id": "k1",
+      "prop": "sk_h1",
+      "x": 540,
+      "y": 650,
+      "layer": "back",
+      "scale": 2.6
+    },
+    {
+      "t": 4.605714285714286,
+      "do": "pose",
+      "who": "eng",
+      "pose": "present"
+    },
+    {
+      "t": 5.405714285714286,
+      "do": "remove",
+      "id": "k1"
+    },
+    {
+      "t": 5.405714285714286,
+      "do": "spawn",
+      "id": "k2",
+      "prop": "sk_h2",
+      "x": 540,
+      "y": 650,
+      "layer": "back",
+      "scale": 2.6
+    },
+    {
+      "t": 6.305714285714286,
+      "do": "remove",
+      "id": "k2"
+    },
+    {
+      "t": 6.305714285714286,
+      "do": "spawn",
+      "id": "k3",
+      "prop": "sk_house",
+      "x": 540,
+      "y": 650,
+      "layer": "back",
+      "scale": 2.6
+    },
+    {
+      "t": 7.482857142857143,
+      "do": "release",
+      "id": "sh",
+      "drop": false
+    },
+    {
+      "t": 7.482857142857143,
+      "do": "spawn",
+      "id": "sv",
+      "prop": "shovel",
+      "x": 900,
+      "y": 1250,
+      "layer": "front"
+    },
+    {
+      "t": 7.482857142857143,
+      "do": "spawn",
+      "id": "dp",
+      "prop": "dirt_pile",
+      "x": 700,
+      "y": 1250,
+      "layer": "back",
+      "scale": 0.4
+    },
+    {
+      "t": 7.502857142857143,
+      "do": "remove",
+      "id": "sh"
+    },
+    {
+      "t": 7.532857142857143,
+      "do": "pose",
+      "who": "eng",
+      "pose": "hips"
+    },
+    {
+      "t": 7.532857142857143,
+      "do": "hold",
+      "id": "sv",
+      "who": "bld"
+    },
+    {
+      "t": 7.7057142857142855,
+      "do": "remove",
+      "id": "k3"
+    },
+    {
+      "t": 7.782857142857143,
+      "do": "pose",
+      "who": "bld",
+      "pose": "rake"
+    },
+    {
+      "t": 7.8828571428571435,
+      "do": "move",
+      "id": "dp",
+      "scale": 1.0,
+      "dur": 5.0,
+      "ease": "linear"
+    },
+    {
+      "t": 9.982857142857142,
+      "do": "spawn",
+      "id": "hf",
+      "prop": "house_f",
+      "x": 540,
+      "y": 1250,
+      "layer": "back"
+    },
+    {
+      "t": 9.982857142857142,
+      "do": "fx",
+      "kind": "dust",
+      "x": 540,
+      "y": 1230,
+      "dur": 0.7
+    }
+  ]
+}
