@@ -58,6 +58,9 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
+      # Artifact API is eventually consistent: right after upload deploy-pages sometimes finds 0 artifacts.
+      - name: Wait for artifact to become visible
+        run: sleep 20
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
