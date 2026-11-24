@@ -1,0 +1,30 @@
+{
+  "lang": "pl",
+  "cps": 15,
+  "lines": {
+    "n01": "Myślałeś, że powieszenie półki zajmie pięć minut.",
+    "n02": "Nic trudnego.",
+    "n03": "Jest ściana, półka i kilka kołków.",
+    "n04": "Co może pójść nie tak?",
+    "n05": "Pierwszy otwór gotowy.",
+    "n06": "Prawie.",
+    "n07": "W ścianie trafia się coś, czego nie ma w instrukcji.",
+    "n08": "Może pręt zbrojeniowy.",
+    "n09": "Nic się nie stało. Przesuniemy otwór o kawałek.",
+    "n10": "Instrukcja mówi, że wszystko musi do siebie pasować.",
+    "n11": "I według instrukcji pasuje.",
+    "n12": "Został tylko drobny szczegół.",
+    "n13": "Prawdziwa ściana.",
+    "n14": "No i…",
+    "n15": "Półka w końcu wisi.",
+    "n16": "Równo.",
+    "n17": "Solidnie.",
+    "n18": "I…",
+    "n19": "A te części chyba w ogóle nie były potrzebne.",
+    "tag_5min": "MONTAŻ PÓŁKI · 5 MINUT",
+    "tag_armature": "ZBROJENIE?",
+    "tag_tolerance": "TOLERANCJA: 0 MM",
+    "tag_ready": "GOTOWE",
+    "tag_unused_parts": "ZBĘDNE ELEMENTY"
+  }
+}
