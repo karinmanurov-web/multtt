@@ -62,6 +62,7 @@
 <div class="app">
   <div class="stagecol">
     <div class="bar tight">
+      <select id="selStory" title="Сюжет"></select>
       <select id="selScene" title="Сцена"></select>
       <select id="selLang" title="Язык текстов"></select>
       <span class="hint" id="status"></span>
@@ -141,15 +142,53 @@ async function boot() {
     manifest = JSON.parse(await fetchText('manifest.json'));
     $('taLib').value = await fetchText('library.json');
     fillScenes();
-    await loadScene(manifest.scenes[0].id);
+    let last = null; try { last = localStorage.getItem('studioScene'); } catch (e) {}
+    await loadScene(last && manifest.scenes.some(x => x.id === last) ? last : manifest.scenes[0].id);
   } catch (e) {
     setStatus('Файлы не подгрузились автоматически (' + (location.protocol === 'file:' ? 'страница открыта как file://' : e.message) + '). Откройте файлы кнопкой «Открыть файлы…» или запустите: python3 -m http.server');
-    $('selScene').innerHTML = '<option>—</option>'; $('selLang').innerHTML = '<option>—</option>';
+    $('selStory').innerHTML = '<option>—</option>'; $('selScene').innerHTML = '<option>—</option>'; $('selLang').innerHTML = '<option>—</option>';
   }
   requestAnimationFrame(frame);
 }
+// ───── сюжеты → сцены (двухуровневое меню) ─────
+// Группировка берётся из manifest: необязательные поля сцены story / name; иначе выводится из id и title
+// («Сюжет №5 · Дорога · s03 · Название» → сюжет «Сюжет №5 · Дорога», сцена «s03 · Название»).
+let groups = [];
+function sceneMeta(s) {
+  const title = s.title || s.id, parts = title.split(' · ');
+  const i = parts.findIndex(p => /^s\d+(\.\d+)?$/.test(p));
+  const m = /^(story|ep)_?(\d+)/.exec(s.id);
+  let key = s.story || (m ? m[1] + m[2] : i > 0 ? parts.slice(0, i).join(' · ') : 'misc');
+  let label = s.story || (i > 0 ? parts.slice(0, i).join(' · ') : (m ? title : 'Демо и ракурсы'));
+  const name = s.name || (i > 0 ? parts.slice(i).join(' · ') : title);
+  return { key, label, name };
+}
+function buildGroups() {
+  groups = []; const byKey = {};
+  for (const s of manifest.scenes) {
+    const mt = sceneMeta(s);
+    let g = byKey[mt.key];
+    if (!g) { g = byKey[mt.key] = { key: mt.key, label: mt.label, scenes: [] }; groups.push(g); }
+    if (mt.label.length > g.label.length) g.label = mt.label;      // берём самое полное название сюжета
+    g.scenes.push({ id: s.id, name: mt.name });
+  }
+}
 function fillScenes() {
-  $('selScene').innerHTML = manifest.scenes.map(s => `<option value="${s.id}">${s.title || s.id}</option>`).join('');
+  buildGroups();
+  $('selStory').innerHTML = groups.map(g => `<option value="${esc(g.key)}">${esc(g.label)} (${g.scenes.length})</option>`).join('');
+  fillSceneList($('selStory').value);
+}
+function fillSceneList(key, pick) {
+  const g = groups.find(x => x.key === key) || groups[0];
+  if (!g) { $('selScene').innerHTML = ''; return; }
+  $('selScene').innerHTML = g.scenes.map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join('');
+  if (pick) $('selScene').value = pick;
+}
+function syncStory(id) {                                             // выставить оба меню по id сцены
+  const g = groups.find(x => x.scenes.some(y => y.id === id));
+  if (!g) return;
+  if ($('selStory').value !== g.key) { $('selStory').value = g.key; fillSceneList(g.key, id); }
+  $('selScene').value = id;
 }
 function fillLangs(sc) {
   $('selLang').innerHTML = Object.keys(sc.langs).map(l => `<option value="${l}">${l}</option>`).join('');
@@ -157,6 +196,8 @@ function fillLangs(sc) {
 async function loadScene(id, lang) {
   const sc = manifest.scenes.find(s => s.id === id);
   if (!sc) return;
+  syncStory(id);
+  try { localStorage.setItem('studioScene', id); } catch (e) {}
   $('taScene').value = await fetchText(sc.file);
   fillLangs(sc);
   lang = lang || Object.keys(sc.langs)[0];
@@ -164,6 +205,7 @@ async function loadScene(id, lang) {
   $('taTexts').value = await fetchText(sc.langs[lang]);
   apply(true);
 }
+$('selStory').onchange = () => { fillSceneList($('selStory').value); loadScene($('selScene').value); };
 $('selScene').onchange = () => loadScene($('selScene').value);
 $('selLang').onchange = async () => {
   const sc = manifest.scenes.find(s => s.id === $('selScene').value);
