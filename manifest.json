@@ -244,7 +244,10 @@
       "title": "Сюжет №5 · Дорога · s01 · Трава высокая",
       "file": "scenes/story_05_s01.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -252,7 +255,10 @@
       "title": "Сюжет №5 · Дорога · s02 · Путь большой",
       "file": "scenes/story_05_s02.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -260,7 +266,10 @@
       "title": "Сюжет №5 · Дорога · s03 · Трава снова выросла",
       "file": "scenes/story_05_s03.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -268,7 +277,10 @@
       "title": "Сюжет №5 · Дорога · s04 · Бульдозер",
       "file": "scenes/story_05_s04.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -276,7 +288,10 @@
       "title": "Сюжет №5 · Дорога · s05 · Дождь",
       "file": "scenes/story_05_s05.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -284,7 +299,10 @@
       "title": "Сюжет №5 · Дорога · s06 · Грунтовая дорога",
       "file": "scenes/story_05_s06.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
