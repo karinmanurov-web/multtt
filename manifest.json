@@ -597,6 +597,30 @@
       "langs": {
         "ru": "lang/story_10.ru.json"
       }
+    },
+    {
+      "id": "story_10_s07",
+      "title": "Сюжет №10 · Хотел поспать · s07 · Ветер",
+      "file": "scenes/story_10_s07.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
+    },
+    {
+      "id": "story_10_s08",
+      "title": "Сюжет №10 · Хотел поспать · s08 · Полная тишина",
+      "file": "scenes/story_10_s08.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
+    },
+    {
+      "id": "story_10_s09",
+      "title": "Сюжет №10 · Хотел поспать · s09 · Финал",
+      "file": "scenes/story_10_s09.json",
+      "langs": {
+        "ru": "lang/story_10.ru.json"
+      }
     }
   ]
 }
