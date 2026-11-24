@@ -825,26 +825,18 @@
       "t": 3.0,
       "do": "spawn",
       "id": "pil",
-      "prop": "pillow",
-      "x": 140,
-      "y": 560,
-      "layer": "front",
-      "scale": 0.01
-    },
-    {
-      "t": 3.0,
-      "do": "move",
-      "id": "pil",
-      "y": 585,
-      "dur": 0.4,
-      "ease": "easeInOut"
+      "prop": "pillow_c",
+      "x": 92,
+      "y": 380,
+      "layer": "front"
     },
     {
       "t": 3.02,
       "do": "move",
       "id": "pil",
-      "scale": 1,
-      "dur": 0.4
+      "y": 634,
+      "dur": 0.45,
+      "ease": "easeIn"
     },
     {
       "t": 4.6,

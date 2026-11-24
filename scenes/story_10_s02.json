@@ -980,7 +980,7 @@
     {
       "t": 9.5,
       "do": "spawn",
-      "id": "bl",
+      "id": "bl2",
       "prop": "blanket",
       "x": 160,
       "y": 612,
