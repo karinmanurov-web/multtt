@@ -310,7 +310,10 @@
       "title": "Сюжет №5 · Дорога · s07 · По дороге ездят другие",
       "file": "scenes/story_05_s07.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -318,7 +321,10 @@
       "title": "Сюжет №5 · Дорога · s08 · Дорогу нужно улучшить",
       "file": "scenes/story_05_s08.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -326,7 +332,10 @@
       "title": "Сюжет №5 · Дорога · s09 · Дорога становится трассой",
       "file": "scenes/story_05_s09.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -334,7 +343,10 @@
       "title": "Сюжет №5 · Дорога · s10 · Деревня становится городом",
       "file": "scenes/story_05_s10.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
@@ -342,7 +354,10 @@
       "title": "Сюжет №5 · Дорога · s11 · Почти приехал",
       "file": "scenes/story_05_s11.json",
       "langs": {
-        "ru": "lang/story_05.ru.json"
+        "ru": "lang/story_05.ru.json",
+        "de": "lang/story_05.de.json",
+        "es": "lang/story_05.es.json",
+        "pl": "lang/story_05.pl.json"
       }
     },
     {
