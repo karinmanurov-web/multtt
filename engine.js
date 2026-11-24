@@ -179,8 +179,8 @@ const POSES = {
   rake: (lt, t) => P({ L: [86 + Math.sin(t * 3.2) * 20, 134], R: [92 + Math.sin(t * 3.2) * 20, 118], lean: 12 + Math.sin(t * 3.2) * 3, by: 2 }),
   saw: (lt, t) => P({ R: [100 + Math.sin(t * 10.5) * 16, 150], L: [40, 130], lean: 24, head: 6, sq: .86 }),
   paint: (lt, t) => P({ R: [118, 20 + Math.sin(t * 6.5) * 55], L: [40, 125], lean: 8, head: -4, by: 1 }),
-  lie: (lt, t) => P({ L: [10, 150], R: [10, 150], roll: -88, head: -4, by: Math.sin(t * 1.3) * 1.2 }),
-  lie_ear: (lt, t) => P({ L: [10, 150], R: [-30, -60], roll: -88, head: 8 }),
+  lie: (lt, t) => P({ L: [8, 178], R: [8, 178], roll: -88, head: -4, by: Math.sin(t * 1.3) * 1.2 }),
+  lie_ear: (lt, t) => P({ L: [8, 178], R: [-30, -60], roll: -88, head: 8 }),
   rub: (lt, t) => P({ L: [52 + Math.sin(t * 16) * 9, 84], R: [52 - Math.sin(t * 16) * 9, 84], head: 3, lean: 2, sq: .97 }),
   sit_rub: (lt, t) => P({ L: [52 + Math.sin(t * 16) * 9, 96], R: [52 - Math.sin(t * 16) * 9, 96], sq: .86, air: -30, head: 4 }),
   sit_cozy: (lt, t) => P({ L: [30, 70], R: [30, 70], sq: .86, air: -30, head: 6, by: Math.sin(t * 1.6) }),
@@ -724,7 +724,7 @@ class Engine {
           // смена одежды: {do:"outfit",who:"eng",shirt:"#b5654a",sleeve:"#b5654a"}; sleeve:"#f4cfae" = голые руки (футболка)
           const id = who(b, i); if (!id) break;
           if (typeof b.shirt !== 'string') { err(`${tag}: outfit требует shirt`); break; }
-          C.chars[id].outfits.push({ t, shirt: b.shirt, sleeve: typeof b.sleeve === 'string' ? b.sleeve : undefined });
+          C.chars[id].outfits.push({ t, shirt: b.shirt, sleeve: typeof b.sleeve === 'string' ? b.sleeve : undefined, pants: b.pants, shoe: b.shoe, pj: !!b.pj, stripe: b.stripe });
           break;
         }
         case 'vest': {
@@ -995,7 +995,7 @@ class Engine {
     }
     let vest = null; for (const e of ch.vests) if (e.t <= t) vest = e;
     let of = null; for (const e of ch.outfits) if (e.t <= t) of = e;
-    const odef = of ? Object.assign({}, def, { shirt: of.shirt || def.shirt, sleeve: of.sleeve === undefined ? def.sleeve : of.sleeve }) : def;
+    const odef = of ? Object.assign({}, def, { shirt: of.shirt || def.shirt, sleeve: of.sleeve === undefined ? def.sleeve : of.sleeve, pants: of.pants || def.pants, shoe: of.shoe || def.shoe, pj: of.pj, stripe: of.stripe }) : def;
     const ae = lastBefore(ch.angs, t);
     const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
     return { ang, pname: pose._name, vis, x, y: this._liftAt(ch, t), face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, roll: pose.roll || 0, emo, mo, wk, run, say, def: odef, id, vest, renderLayer: ch.renderLayer || 'normal' };
@@ -1462,7 +1462,7 @@ class Engine {
       const leg = side < 0 ? st.legs.L : st.legs.R;
       const hx = side * hipX, hy = g.hipY;
       const fx = leg.x, fy = -leg.lift - st.air * 0.0;
-      const r = ik(hx, hy + 4, fx, fy, LEG, LEG, side, 1, 0.1);
+      const r = st.roll ? ik(hx, hy + 4, hx, hy + 4 + LEG * 2 * 0.998, LEG, LEG, side, 1, 0.1) : ik(hx, hy + 4, fx, fy, LEG, LEG, side, 1, 0.1);
       this._limb(ctx, [hx, hy + 4], [r.ex, r.ey], [r.hx, r.hy], 38, def.pants);
       ctx.fillStyle = def.shoe; ctx.strokeStyle = OUT; ctx.lineWidth = 6;
         ctx.beginPath(); ctx.ellipse(r.hx + (back ? 0 : 8), r.hy - 4, back ? 30 : 36, back ? 22 : 19, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
@@ -1514,7 +1514,15 @@ class Engine {
     // шея
     ctx.fillStyle = def.skin; rr(ctx, -16, -214, 32, 28, 8); ctx.fill(); ctx.stroke();
     if (back && (id === 'eng' || id === 'bld')) return this._torsoBack(ctx, id, def, tw);
-    if (id === 'eng') {
+    if (id === 'eng' && def.pj) {
+      ctx.fillStyle = def.shirt; rr(ctx, -tw / 2, -198, tw, 216, 28); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = def.stripe || '#dfe8ff';
+      for (let x = -tw / 2 + 12; x < tw / 2 - 6; x += 24) ctx.fillRect(x, -190, 8, 200);
+      ctx.strokeStyle = def.stripe || '#dfe8ff'; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(-26, -198); ctx.lineTo(0, -150); ctx.lineTo(26, -198); ctx.stroke();
+      ctx.strokeStyle = OUT; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(0, -150); ctx.lineTo(0, 10); ctx.stroke();
+      ctx.fillStyle = '#fff'; for (const y of [-120, -70, -20]) { ctx.beginPath(); ctx.arc(0, y, 6, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); }
+      ctx.fillStyle = def.pants; rr(ctx, -tw / 2 + 2, 2, tw - 4, 16, 6); ctx.fill(); ctx.stroke();
+    } else if (id === 'eng') {
       ctx.fillStyle = def.shirt; rr(ctx, -tw / 2, -198, tw, 216, 28); ctx.fill(); ctx.stroke();
       // воротник
       ctx.fillStyle = '#fff';
@@ -1559,7 +1567,12 @@ class Engine {
   _torsoBack(ctx, id, def, tw) {
     ctx.lineWidth = 6; ctx.strokeStyle = OUT; ctx.lineJoin = 'round';
     ctx.fillStyle = def.shirt; rr(ctx, -tw / 2, -198, tw, 216, 28); ctx.fill(); ctx.stroke();
-    if (id === 'eng') {
+    if (id === 'eng' && def.pj) {
+      ctx.fillStyle = def.stripe || '#dfe8ff';
+      for (let x = -tw / 2 + 12; x < tw / 2 - 6; x += 24) ctx.fillRect(x, -190, 8, 200);
+      ctx.strokeStyle = OUT; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(0, -160); ctx.lineTo(0, -4); ctx.stroke();
+      ctx.fillStyle = def.pants; rr(ctx, -tw / 2 + 2, 2, tw - 4, 16, 6); ctx.fill(); ctx.stroke();
+    } else if (id === 'eng') {
       ctx.fillStyle = '#fff'; rr(ctx, -34, -210, 68, 24, 10); ctx.fill(); ctx.stroke();            // воротник сзади
       ctx.strokeStyle = 'rgba(30,27,38,.35)'; ctx.lineWidth = 4;
       ctx.beginPath(); ctx.moveTo(-tw / 2 + 6, -150); ctx.quadraticCurveTo(0, -176, tw / 2 - 6, -150); ctx.stroke();  // кокетка

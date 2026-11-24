@@ -26,8 +26,12 @@
       "t": 0,
       "do": "outfit",
       "who": "eng",
-      "shirt": "#9bb3e8",
-      "sleeve": "#9bb3e8"
+      "shirt": "#6f86c4",
+      "sleeve": "#6f86c4",
+      "pants": "#6f86c4",
+      "shoe": "#c98a4a",
+      "pj": true,
+      "stripe": "#cfdcff"
     },
     {
       "t": 0,
@@ -88,18 +92,20 @@
       "do": "spawn",
       "id": "nt_l",
       "prop": "lamp_on",
-      "x": 510,
+      "x": 575,
       "y": 616,
-      "layer": "back"
+      "layer": "back",
+      "scale": 0.8
     },
     {
       "t": 0,
       "do": "spawn",
       "id": "lg",
       "prop": "lamp_glow",
-      "x": 510,
+      "x": 575,
       "y": 616,
-      "layer": "back"
+      "layer": "back",
+      "scale": 0.8
     },
     {
       "t": 0,
@@ -710,7 +716,7 @@
       "do": "spawn",
       "id": "bl",
       "prop": "blanket",
-      "x": 190,
+      "x": 160,
       "y": 612,
       "layer": "front"
     },
@@ -779,9 +785,10 @@
       "do": "spawn",
       "id": "nt_l2",
       "prop": "lamp_off",
-      "x": 510,
+      "x": 575,
       "y": 616,
-      "layer": "back"
+      "layer": "back",
+      "scale": 0.8
     },
     {
       "t": 1.9,
