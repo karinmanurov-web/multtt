@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>multtt — эпизод (монтаж сцен)</title>
+<style>
+  :root { --bg:#14131a; --panel:#1d1c26; --line:#2f2d3d; --txt:#ecebf5; --dim:#9a98b0; --acc:#ffc61a; --bad:#ff6b6b; --warn:#ffb454; --ok:#5fd38d; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; background: var(--bg); color: var(--txt); font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  button, select, input, textarea { font: inherit; color: inherit; }
+  .app { display: grid; grid-template-columns: minmax(300px, 1fr) 470px; height: 100%; }
+  .stagecol { display: flex; flex-direction: column; align-items: center; padding: 12px; gap: 8px; min-width: 0; min-height: 0; }
+  .stagewrap { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; width: 100%; }
+  canvas#stage { height: 100%; max-height: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: 10px; box-shadow: 0 6px 30px #0008; max-width: 100%; }
+  .bar { width: 100%; max-width: 640px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  button { background: #2a2838; border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+  button:hover { background: #343247; }
+  button.primary { background: var(--acc); color: #1b1500; border-color: var(--acc); font-weight: 700; }
+  button.rec { background: #c0334a; border-color: #c0334a; font-weight: 700; }
+  button.rec.on { animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { background: #ff566f; } }
+  select { background: #2a2838; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+  input[type=range] { flex: 1; min-width: 120px; accent-color: var(--acc); }
+  input[type=number] { width: 70px; background: #121119; border: 1px solid var(--line); border-radius: 6px; padding: 3px 5px; }
+  label.chk { display: flex; gap: 5px; align-items: center; color: var(--dim); cursor: pointer; user-select: none; }
+  .time { font-variant-numeric: tabular-nums; color: var(--dim); min-width: 92px; text-align: right; }
+  #tl { width: 100%; max-width: 640px; height: 74px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+  .side { background: var(--panel); border-left: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; padding: 10px; gap: 8px; overflow: auto; }
+  textarea { height: 230px; width: 100%; resize: vertical; background: #121119; border: 1px solid var(--line); border-radius: 8px; padding: 10px; font: 12px/1.45 ui-monospace, Menlo, Consolas, monospace; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .hint { color: var(--dim); font-size: 12px; }
+  a { color: var(--acc); }
+  .msg { padding: 6px 9px; border-radius: 6px; margin-bottom: 5px; white-space: pre-wrap; }
+  .msg.err { background: #4a1f27; border-left: 3px solid var(--bad); } .msg.warn { background: #46361c; border-left: 3px solid var(--warn); }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  td, th { padding: 4px 6px; border-bottom: 1px solid var(--line); text-align: left; }
+  th { color: var(--dim); font-weight: 600; } tr.seg { cursor: pointer; } tr.seg:hover, tr.cur { background: #2a2838; }
+  @media (max-width: 900px) { .app { grid-template-columns: 1fr; height: auto; } .stagecol { height: 82vh; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="stagecol">
+    <div class="bar">
+      <a href="index.html" title="Студия: одна сцена">← студия</a>
+      <select id="selEp" title="Эпизод"></select>
+      <select id="selLang" title="Язык текстов"></select>
+      <span class="hint" id="status"></span>
+    </div>
+    <div class="stagewrap"><canvas id="stage" width="540" height="960"></canvas></div>
+    <canvas id="tl" width="1280" height="148"></canvas>
+    <div class="bar">
+      <button id="btnRestart">⏮</button>
+      <button id="btnPlay" class="primary">▶ Играть</button>
+      <input type="range" id="seek" min="0" max="1000" value="0">
+      <span class="time" id="time">0.0 / 0.0</span>
+    </div>
+    <div class="bar">
+      <select id="selQ"><option value="0.5" selected>Превью 540×960</option><option value="1">Полное 1080×1920</option></select>
+      <label class="chk"><input type="checkbox" id="chkSubs" checked> реплики</label>
+      <label class="chk"><input type="checkbox" id="chkTitles" checked> титры</label>
+      <button id="btnRec" class="rec" title="Запишет весь эпизод в .webm в реальном времени">● Запись эпизода</button>
+    </div>
+  </div>
+  <div class="side">
+    <div class="hint">Эпизод — список сцен с обрезкой (<code>in</code>, <code>out</code>) и вырезами (<code>cuts</code>: [[от, до], …] в секундах сцены). Формат и примеры: <code>docs/episodes.md</code>. Файлы лежат в <code>episodes/</code>.</div>
+    <textarea id="taEp" spellcheck="false"></textarea>
+    <div class="row"><button id="btnApply" class="primary">Применить</button><button id="btnDl">Скачать JSON эпизода</button></div>
+    <div id="log"></div>
+    <table><thead><tr><th>#</th><th>сцена</th><th>от–до</th><th>длит.</th></tr></thead><tbody id="segs"></tbody></table>
+  </div>
+</div>
+<script src="engine.js?v=20261124-2"></script>
+<script>
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const canvas = $('stage'), tl = $('tl'), tctx = tl.getContext('2d');
+const eng = new Mult.Engine(canvas);
+let manifest = null, libText = '', epIndex = [], ep = null, plan = [], total = 1, T = 0, playing = false, lastTs = 0, recording = null, dirty = true;
+let cur = { key: '' }, lang = '';
+const cache = {};   // id → { scene, texts{lang} }
+const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+const setStatus = s => $('status').textContent = s || '';
+async function getJSON(u) { const r = await fetch(u, { cache: 'no-store' }); if (!r.ok) throw new Error(u + ': ' + r.status); return r.json(); }
+
+async function boot() {
+  eng.setQuality(+$('selQ').value);
+  try {
+    manifest = await getJSON('manifest.json');
+    libText = await (await fetch('library.json', { cache: 'no-store' })).text();
+    eng.setLibrary(JSON.parse(libText));
+    epIndex = (await getJSON('episodes/index.json')).episodes;
+    $('selEp').innerHTML = epIndex.map(e => `<option value="${esc(e.file)}">${esc(e.title || e.id)}</option>`).join('');
+    let last = null; try { last = localStorage.getItem('epFile'); } catch (e) { }
+    if (last && epIndex.some(e => e.file === last)) $('selEp').value = last;
+    await loadEpisodeFile();
+  } catch (e) { setStatus('Не загрузилось: ' + e.message + (location.protocol === 'file:' ? ' (страница открыта как file://, нужен сервер)' : '')); }
+  requestAnimationFrame(frame);
+}
+async function loadEpisodeFile() {
+  const f = $('selEp').value; try { localStorage.setItem('epFile', f); } catch (e) { }
+  const txt = await (await fetch(f, { cache: 'no-store' })).text();
+  $('taEp').value = txt;
+  const j = JSON.parse(txt);
+  const langs = new Set();
+  for (const s of j.scenes) { const sc = manifest.scenes.find(m => m.id === (s.scene || s)); if (sc) Object.keys(sc.langs || {}).forEach(l => langs.add(l)); }
+  $('selLang').innerHTML = [...langs].map(l => `<option>${l}</option>`).join('');
+  if (j.lang && langs.has(j.lang)) $('selLang').value = j.lang;
+  await apply();
+}
+async function sceneData(id, lg) {
+  const sc = manifest.scenes.find(m => m.id === id);
+  if (!sc) throw new Error('нет сцены в manifest.json: ' + id);
+  const c = cache[id] || (cache[id] = { scene: await getJSON(sc.file), texts: {} });
+  const use = sc.langs[lg] ? lg : Object.keys(sc.langs)[0];
+  if (!c.texts[use]) c.texts[use] = await getJSON(sc.langs[use]);
+  return { scene: c.scene, texts: c.texts[use], used: use, missing: use !== lg };
+}
+// ───── план: сцены → куски без вырезов ─────
+async function apply() {
+  const log = []; const msg = (k, s) => log.push(`<div class="msg ${k}">${esc(s)}</div>`);
+  try { ep = JSON.parse($('taEp').value); } catch (e) { $('log').innerHTML = `<div class="msg err">JSON эпизода: ${esc(e.message)}</div>`; return; }
+  lang = $('selLang').value || ep.lang || '';
+  plan = []; let g = 0;
+  for (let i = 0; i < (ep.scenes || []).length; i++) {
+    const it = typeof ep.scenes[i] === 'string' ? { scene: ep.scenes[i] } : ep.scenes[i];
+    let d; try { d = await sceneData(it.scene, lang); } catch (e) { msg('err', `#${i + 1}: ${e.message}`); continue; }
+    if (d.missing) msg('warn', `${it.scene}: нет языка «${lang}», показан «${d.used}»`);
+    eng.setTexts(d.texts); const rep = eng.load(d.scene);
+    if (rep.errors && rep.errors.length) msg('err', `${it.scene}: ${rep.errors[0]}`);
+    const dur = eng.C ? eng.C.dur : (d.scene.duration || 1);
+    const a = Math.max(0, it.in || 0), b = Math.min(dur, it.out == null ? dur : it.out);
+    let cuts = (it.cuts || []).map(c => [Math.max(a, c[0]), Math.min(b, c[1])]).filter(c => c[1] > c[0]).sort((x, y) => x[0] - y[0]);
+    let p = a; const keep = [];
+    for (const c of cuts) { if (c[0] > p) keep.push([p, c[0]]); p = Math.max(p, c[1]); }
+    if (b > p) keep.push([p, b]);
+    if (!keep.length) { msg('warn', `${it.scene}: после вырезов ничего не осталось`); continue; }
+    keep.forEach((k, n) => { plan.push({ i, id: it.scene, a: k[0], b: k[1], g0: g, g1: g + (k[1] - k[0]), part: keep.length > 1 ? n + 1 : 0, scene: d.scene, texts: d.texts }); g += k[1] - k[0]; });
+  }
+  total = Math.max(0.1, g); T = Math.min(T, total); cur = { key: '' };
+  const fade = ep.fade || 0;
+  plan.forEach((s, n) => { s.fadeIn = fade && (n === 0 || plan[n - 1].id !== s.id) ? fade : 0; s.fadeOut = fade && (n === plan.length - 1 || plan[n + 1].id !== s.id) ? fade : 0; });
+  $('log').innerHTML = log.join('');
+  $('segs').innerHTML = plan.map((s, n) => `<tr class="seg" data-n="${n}"><td>${s.i + 1}${s.part ? '.' + s.part : ''}</td><td>${esc(s.id)}</td><td>${s.a.toFixed(1)}–${s.b.toFixed(1)}</td><td>${(s.b - s.a).toFixed(1)}</td></tr>`).join('') +
+    `<tr><td></td><td><b>итого</b></td><td></td><td><b>${fmt(total)}</b></td></tr>`;
+  document.querySelectorAll('tr.seg').forEach(tr => tr.onclick = () => seek(plan[+tr.dataset.n].g0));
+  setStatus(`${plan.length} кусков · ${fmt(total)} · язык ${lang}`); dirty = true; drawTl();
+}
+const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+function segAt(t) { for (let i = 0; i < plan.length; i++) if (t < plan[i].g1) return plan[i]; return plan[plan.length - 1]; }
+function show(t) {
+  const s = segAt(t); if (!s) return;
+  const key = s.i + ':' + lang;
+  if (cur.key !== key) { eng.setTexts(s.texts); eng.load(s.scene); cur = { key }; }
+  const local = s.a + Math.min(t - s.g0, s.b - s.a);
+  eng.render(local);
+  const lt = t - s.g0, rt = s.g1 - t;
+  const al = Math.max(s.fadeIn ? 1 - lt / s.fadeIn : 0, s.fadeOut ? 1 - rt / s.fadeOut : 0);
+  if (al > 0) { const c = canvas.getContext('2d'); c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = `rgba(0,0,0,${Math.min(1, al)})`; c.fillRect(0, 0, canvas.width, canvas.height); c.restore(); }
+  $('segs').querySelectorAll('tr.seg').forEach((tr, n) => tr.classList.toggle('cur', plan[n] === s));
+}
+// ───── плеер ─────
+function seek(v) { T = Math.max(0, Math.min(total, v)); dirty = true; }
+function frame(ts) {
+  if (playing) {
+    T += Math.min(0.1, (ts - lastTs) / 1000); lastTs = ts;
+    if (T >= total) { T = total; playing = false; $('btnPlay').textContent = '▶ Играть'; if (recording) stopRecord(); }
+    dirty = true;
+  }
+  if (dirty && plan.length) { show(Math.min(T, total - 1e-3)); $('seek').value = Math.round(T / total * 1000); $('time').textContent = `${T.toFixed(1)} / ${total.toFixed(1)}`; drawTl(); dirty = false; }
+  requestAnimationFrame(frame);
+}
+function drawTl() {
+  const w = tl.width, h = tl.height, c = tctx; c.clearRect(0, 0, w, h); c.fillStyle = '#1d1c26'; c.fillRect(0, 0, w, h);
+  if (!plan.length) return;
+  const X = s => s / total * w, pal = ['#4f86c6', '#d9822b', '#6aa07a', '#8a5ad6', '#c0556f', '#2aa6a0'];
+  plan.forEach(s => {
+    c.fillStyle = pal[s.i % pal.length]; c.fillRect(X(s.g0) + 1, 34, Math.max(2, X(s.g1) - X(s.g0) - 2), 70);
+    if (s.part > 1) { c.fillStyle = '#ffc61a'; c.fillRect(X(s.g0) - 2, 28, 4, 82); }   // место выреза
+    c.fillStyle = '#fff'; c.font = '18px system-ui'; c.fillText(s.id.replace(/^story_/, '').replace(/^.*_s/, 's'), X(s.g0) + 6, 60);
+  });
+  c.fillStyle = '#6f6d86'; c.font = '18px system-ui';
+  for (let s = 0; s <= total; s += total > 120 ? 30 : 10) c.fillText(fmt(s), X(s) + 3, 20);
+  c.strokeStyle = '#ffc61a'; c.lineWidth = 3; c.beginPath(); c.moveTo(X(T), 0); c.lineTo(X(T), h); c.stroke();
+}
+let drag = false; const tlSeek = e => { const r = tl.getBoundingClientRect(); seek((e.clientX - r.left) / r.width * total); };
+tl.onpointerdown = e => { drag = true; tl.setPointerCapture(e.pointerId); tlSeek(e); }; tl.onpointermove = e => { if (drag) tlSeek(e); }; tl.onpointerup = () => drag = false;
+$('btnPlay').onclick = () => { if (!plan.length) return; if (playing) playing = false; else { if (T >= total - 0.01) T = 0; playing = true; lastTs = performance.now(); } $('btnPlay').textContent = playing ? '⏸ Пауза' : '▶ Играть'; };
+$('btnRestart').onclick = () => seek(0);
+$('seek').oninput = e => seek(e.target.value / 1000 * total);
+$('selQ').onchange = e => { eng.setQuality(+e.target.value); dirty = true; };
+$('chkSubs').onchange = e => { eng.flags.subs = e.target.checked; dirty = true; };
+$('chkTitles').onchange = e => { eng.flags.titles = e.target.checked; dirty = true; };
+$('selEp').onchange = loadEpisodeFile;
+$('selLang').onchange = () => { cur = { key: '' }; apply(); };
+$('btnApply').onclick = apply;
+$('btnDl').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([$('taEp').value], { type: 'application/json' })); a.download = (ep && ep.id || 'episode') + '.json'; a.click(); };
+// ───── запись всего эпизода в .webm ─────
+function startRecord() {
+  if (!plan.length) return;
+  if (!window.MediaRecorder) { setStatus('Нужен Chrome (MediaRecorder)'); return; }
+  const mime = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'].find(m => MediaRecorder.isTypeSupported(m));
+  const chunks = [], rec = new MediaRecorder(canvas.captureStream(30), { mimeType: mime, videoBitsPerSecond: 14e6 });
+  rec.ondataavailable = e => e.data.size && chunks.push(e.data);
+  rec.onstop = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(chunks, { type: 'video/webm' })); a.download = `${(ep && ep.id) || 'episode'}_${lang}.webm`; a.click(); };
+  recording = rec; seek(0); playing = true; lastTs = performance.now(); cur = { key: '' };
+  $('btnPlay').textContent = '⏸ Пауза'; $('btnRec').classList.add('on'); $('btnRec').textContent = '■ Стоп';
+  setTimeout(() => rec.start(), 50);
+}
+function stopRecord() { const rec = recording; recording = null; $('btnRec').classList.remove('on'); $('btnRec').textContent = '● Запись эпизода'; setTimeout(() => { try { rec.stop(); } catch (e) { } setStatus('Запись сохранена (.webm)'); }, 350); }
+$('btnRec').onclick = () => { recording ? (playing = false, stopRecord()) : startRecord(); };
+window.episode = { eng, seek, get T() { return T; }, get total() { return total; }, get plan() { return plan; } };
+boot();
+})();
+</script>
+</body>
+</html>

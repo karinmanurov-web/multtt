@@ -1,0 +1,17 @@
+{
+  "id": "story_11",
+  "title": "Сюжет №11 · Небольшие изменения (все сцены)",
+  "lang": "ru",
+  "fade": 0.25,
+  "scenes": [
+    "story_11_s01",
+    "story_11_s02",
+    "story_11_s03",
+    "story_11_s04",
+    "story_11_s05",
+    "story_11_s06",
+    "story_11_s07",
+    "story_11_s08",
+    "story_11_s09"
+  ]
+}

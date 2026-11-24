@@ -1,0 +1,156 @@
+# Индекс библиотеки (автогенерация: python3 tools/props_index.py)
+
+## Локации
+
+- `construction_site` — ракурсы: main, fence, scaffold, cabin
+- `office` — ракурсы: main, desk, corner
+- `foreman_office`
+- `insert_stage`
+- `blueprint_pov`
+- `shelf_room` — ракурсы: main, wall_close
+- `office_day` — ракурсы: desk, clock, kitchen
+- `phone_screen`
+- `field` — ракурсы: main, aerial, calendar, aerial2
+- `room`
+- `yard`
+- `river`
+- `river_big`
+- `cottage`
+- `cottage2`
+
+## Предметы (имя · размер примерно W×H · отметки)
+
+- **accent**: `accent_rays` 690×500
+- **aer**: `aer_barriers` 572×7600; `aer_bypass` 4600×4600; `aer_cross` 12000×2000; `aer_lights` 712×7252; `aer_road1` 120×7600; `aer_road2` 240×7600; `aer_road4` 520×7600
+- **air**: `air_puffs` — up
+- **alarm**: `alarm` — up
+- **asphalt**: `asphalt_seg` 244×266
+- **ball**: `ball` 56×56
+- **base**: `base_seg` 244×266
+- **bike**: `bike_rider` 126×198 up
+- **bill**: `bill_flat` 96×5 up; `bill_v1` 580×760 up; `bill_v2` 580×760 up; `bill_v3` 580×760 up; `bill_v4` 580×760 up; `bill_w1` 580×860 up; `bill_w2` 580×860 up; `bill_w3` 580×860 up; `bill_w4` 580×860 up
+- **black**: `black_f` 6400×4800 up; `black_s` 6400×4800 up
+- **blanket**: `blanket` 320×118 up
+- **bog**: `bog_chunk` 240×152 up; `bog_pool` 600×96
+- **boiler**: `boiler` 160×260 up
+- **box**: `box` 120×100 up рука
+- **brick**: `brick` 72×34 up рука; `brick_pile` 100×84 up; `brick_stove` 160×182 up; `brick_wall` 430×471
+- **brush**: `brush_dry` 36×160 up; `brush_g1` 36×160 up; `brush_g2` 36×160 up
+- **bucket**: `bucket` 100×130
+- **cal**: `cal_page` 780×790; `cal_w` 160×240 up
+- **can**: `can_e` 110×150 up рука; `can_g1` 110×150 up рука; `can_g2` 110×150 up рука
+- **cap**: `cap_part` 28×18
+- **car**: `car` 905×526; `car_blue` 905×526; `car_blue_l` 905×526; `car_green` 905×526; `car_green_l` 905×526; `car_seat` 240×250; `car_white` 905×526; `car_white_l` 905×526; `car_yellow` 905×526; `car_yellow_l` 905×526
+- **cart**: `cart` 210×120 up рука
+- **cartridge**: `cartridge` 36×60 up рука
+- **ceiling**: `ceiling` 1400×1700
+- **chimney**: `chimney` 68×1500 up
+- **clean**: `clean_tap` 110×130; `clean_tool` 250×40
+- **clipboard**: `clipboard` 96×136 up
+- **clock**: `clock_hour` 60×230; `clock_min` 52×316; `clock_sec` 24×340
+- **coffee**: `coffee` 60×110 up рука
+- **cold**: `cold_living` 536×536 up; `cold_tint` 6400×4000 up; `cold_waves` — up
+- **cone**: `cone` 88×100 up рука
+- **crane**: `crane_cab` 28×524 up; `crane_car` 120×170 up; `crane_jib` 1060×140 up; `crane_tw` 140×1550 up
+- **cup**: `cup` 57×56 up рука
+- **curbs**: `curbs` 7200×282
+- **dark**: `dark` 1700×2600
+- **dirt**: `dirt_big` 350×160; `dirt_pile` 270×150; `dirt_strip` 3600×112
+- **door**: `door_closed` 228×575; `door_cut` 228×485; `door_open` 228×575
+- **dozer**: `dozer` 876×528; `dozer_seat` 160×160
+- **drill**: `drill` 380×200 рука
+- **drop**: `drop` 14×22 up
+- **dump**: `dump_bed` 652×268; `dump_bed_full` 652×308; `dump_truck` 1032×438
+- **exc**: `exc_seat` 150×150
+- **excavator**: `excavator` 660×528
+- **fill**: `fill_L` 264×232 up; `fill_R` 264×226 up
+- **flake**: `flake` 18×15
+- **flood**: `flood` 1480×901
+- **fnd**: `fnd_a` 420×40; `fnd_b` 640×40; `fnd_c` 880×40; `fnd_cx` 880×40
+- **folder**: `folder` 96×128 up
+- **fountain**: `fountain` 524×1040
+- **fridge**: `fridge_ov` — up; `fridge_ov2` — up
+- **garage**: `garage` 248×176; `garage_f` 220×40
+- **garland**: `garland` — up; `garland_g` 140×38 up
+- **girder**: `girder` 430×36 up
+- **glow**: `glow_ball` 680×680 up
+- **grass**: `grass_clump` —; `grass_mid` —; `grass_stub` —
+- **gravel**: `gravel_pile` 340×160; `gravel_seg` 244×112
+- **hammer**: `hammer` 84×180
+- **heat**: `heat_waves` — up
+- **house**: `house_f` 500×34; `house_r` 500×162; `house_w` 420×236
+- **hum**: `hum_waves` — up; `hum_waves_r` — up
+- **instruction**: `instruction_manual` 230×250 up рука
+- **k**: `k_chair` 110×280 up; `k_table` 220×130 up
+- **kettle**: `kettle` 126×92 up рука
+- **ladder**: `ladder` 52×1120 up
+- **lamp**: `lamp` 124×552; `lamp_glow` 500×380 up; `lamp_off` 68×96 up; `lamp_on` 68×96 up
+- **leaves**: `leaves` — up
+- **level**: `level_ok` 340×44 up; `level_tilt` 340×44 up
+- **log**: `log_carry` 457×170 up рука; `log_flat` 446×60 up
+- **lp**: `lp_ball` 500×500 up; `lp_ball_spin` 500×500 up; `lp_st1` 26×400 up; `lp_st2` 70×400 up; `lp_st3` 120×400 up; `lp_st_bent` 220×400 up
+- **mark**: `mark_x` 60×60
+- **marking**: `marking` 7200×176
+- **moon**: `moon` 300×300 up
+- **mower**: `mower` 270×204 up рука
+- **mud**: `mud_front` 760×124; `mud_strip` 7200×112
+- **nails**: `nails` 46×276
+- **night**: `night_dim` 1180×1710 up; `night_dim2` 1180×1710 up; `night_out` 6000×2956 up
+- **paver**: `paver` 760×530; `paver_seat` 150×160
+- **phone**: `phone` 40×72 up
+- **pier**: `pier` 92×232 up; `pier_big` 152×400 up; `pier_w` 124×118 up
+- **pillow**: `pillow` 140×52 up; `pillow_c` 176×176 up
+- **pipe**: `pipe_h` 54×18 up; `pipe_joint` 26×26 up; `pipe_v` 18×54 up
+- **pk**: `pk_g1` 64×366 up; `pk_g1p` 64×366 up; `pk_g2` 64×366 up; `pk_raw` 64×366 up
+- **plaid**: `plaid` 160×140 up
+- **plan**: `plan` 236×172 up рука
+- **plank**: `plank` 72×16 up; `plank_crack` 72×22 up; `plank_sag` 72×16 up
+- **pot**: `pot` 120×100 up; `pot_big` 120×100 up; `pot_steam` 120×100 up
+- **pothole**: `pothole` 240×36
+- **puddle**: `puddle` 320×44; `puddle_b` 300×40
+- **pump**: `pump` 96×78 up; `pump_dead` 68×78 up; `pump_off` 96×78 up; `pump_ov` — up
+- **rad**: `rad` 124×118 up; `rad_bubbles` — up; `rad_shake` — up
+- **rail**: `rail` 412×84 up
+- **rain**: `rain` —
+- **rake**: `rake` 144×196 up рука
+- **reeds**: `reeds` 64×130 up
+- **road**: `road_seg` 244×112; `road_wide` 4000×146 up
+- **roll**: `roll` 36×131 up
+- **roller**: `roller` 720×408; `roller_seat` 150×160
+- **roof**: `roof_sheet` 12×12 up; `roof_sheet2` 12×12 up; `roof_sheet3` 12×12 up
+- **saw**: `saw` 200×40 up рука
+- **shelf**: `shelf_board` 490×88 рука; `shelf_books` 194×150; `shelf_bracket` 110×110; `shelf_level` 290×46 up рука; `shelf_wall_holes` 286×26
+- **shovel**: `shovel` 56×232 up
+- **shutter**: `shutter` 216×214 up
+- **sign**: `sign` 128×484
+- **sk**: `sk_float` 150×190 up; `sk_garage` 150×190 up; `sk_h1` 150×190 up; `sk_h2` 150×190 up; `sk_house` 150×190 up; `sk_lolli` 150×190 up; `sk_lolli2` 150×190 up; `sk_pool` 150×190 up; `sk_pool_big` 380×390 up; `sk_spin` 150×190 up; `sk_tower` 150×190 up
+- **slab**: `slab` 200×38
+- **smoke**: `smoke` — up
+- **snd**: `snd_UU` — up; `snd_bam` — up; `snd_bul` — up; `snd_bum` — up; `snd_chmok` — up; `snd_dzin` — up; `snd_hlop` — up; `snd_kap` — up; `snd_krak` — up; `snd_ring` — up; `snd_shk` — up; `snd_shlep` — up; `snd_shsh` — up; `snd_ss` — up; `snd_trr` — up; `snd_tuk` — up; `snd_uu` — up; `snd_zh` — up; `snd_zzz` — up
+- **snow**: `snow_out` 6000×2966 up
+- **snowfall**: `snowfall` — up
+- **socket**: `socket` 56×44
+- **sprinkler**: `sprinkler` 24×44 up
+- **stone**: `stone` 100×48 up
+- **storm**: `storm_cloud` 1940×370
+- **stove**: `stove` 240×144 up; `stove_fire` — up; `stove_logs` 68×22 up
+- **sun**: `sun_ray` 220×220 up
+- **sweater**: `sweater_pr` 120×30 up
+- **tank**: `tank` 200×275 up
+- **tap**: `tap` 40×60 up; `tap_handle` 68×62 рука; `tap_part` 20×28
+- **tape**: `tape` 78×56 up рука
+- **th**: `th_t12` 140×90 up; `th_t16` 140×90 up; `th_t17` 140×90 up; `th_t18` 140×90 up; `th_t19` 140×90 up; `th_t20` 140×90 up; `th_t22` 140×90 up
+- **think**: `think_fire` 380×330 up
+- **timer**: `timer_box` 56×70 up; `timer_box_off` 56×70 up
+- **tower**: `tower` 160×500; `tower_f` 140×40
+- **tree**: `tree_log` 485×170 up
+- **truck**: `truck_seat` 170×160
+- **valve**: `valve` 112×112
+- **van**: `van` 905×560; `van_l` 905×560
+- **vest**: `vest_stain` 132×217
+- **visor**: `visor` 100×30 up
+- **walkie**: `walkie` 44×122 up рука
+- **wall**: `wall_hole` 226×212; `wall_splash` — up
+- **water**: `water_thin` 18×113
+- **win**: `win_new` —
+- **wind**: `wind_a` — up; `wind_b` — up
