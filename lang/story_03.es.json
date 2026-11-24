@@ -1,0 +1,30 @@
+{
+  "lang": "es",
+  "cps": 16,
+  "lines": {
+    "n01": "Pensaste que colgar una estantería llevaría cinco minutos.",
+    "n02": "Nada complicado.",
+    "n03": "Hay una pared, una estantería y unos tacos.",
+    "n04": "¿Qué podría salir mal?",
+    "n05": "El primer agujero está listo.",
+    "n06": "Casi.",
+    "n07": "En la pared aparece algo que no figuraba en las instrucciones.",
+    "n08": "Quizá sea una varilla de hierro.",
+    "n09": "No pasa nada. Desplazamos un poco el agujero.",
+    "n10": "Las instrucciones dicen que todo debe coincidir.",
+    "n11": "Y, según las instrucciones, coincide.",
+    "n12": "Solo queda un pequeño detalle.",
+    "n13": "La pared de verdad.",
+    "n14": "Y… voilà.",
+    "n15": "Por fin, la estantería está instalada.",
+    "n16": "Recta.",
+    "n17": "Firme.",
+    "n18": "Y…",
+    "n19": "Parece que estas piezas ni siquiera hacían falta.",
+    "tag_5min": "MONTAJE DE ESTANTERÍA · 5 MINUTOS",
+    "tag_armature": "¿VARILLA DE HIERRO?",
+    "tag_tolerance": "TOLERANCIA: 0 MM",
+    "tag_ready": "LISTO",
+    "tag_unused_parts": "PIEZAS SOBRANTES"
+  }
+}
