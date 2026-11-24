@@ -1,0 +1,30 @@
+{
+  "lang": "de",
+  "cps": 15,
+  "lines": {
+    "n01": "Du dachtest, ein Regal aufzuhängen dauert fünf Minuten.",
+    "n02": "Ganz einfach.",
+    "n03": "Eine Wand, ein Regal, ein paar Dübel.",
+    "n04": "Was soll schon schiefgehen?",
+    "n05": "Das erste Loch ist fertig.",
+    "n06": "Fast.",
+    "n07": "In der Wand steckt etwas, das in der Anleitung nicht erwähnt wird.",
+    "n08": "Vielleicht Bewehrungsstahl.",
+    "n09": "Kein Problem. Wir versetzen das Loch einfach ein Stück.",
+    "n10": "Laut Anleitung muss alles genau übereinstimmen.",
+    "n11": "Und laut Anleitung tut es das.",
+    "n12": "Nur noch eine Kleinigkeit.",
+    "n13": "Die echte Wand.",
+    "n14": "Und voilà …",
+    "n15": "Das Regal hängt endlich.",
+    "n16": "Gerade.",
+    "n17": "Sicher.",
+    "n18": "Und …",
+    "n19": "Diese Teile hier waren wohl völlig überflüssig.",
+    "tag_5min": "REGALMONTAGE · 5 MINUTEN",
+    "tag_armature": "BEWEHRUNGSSTAHL?",
+    "tag_tolerance": "TOLERANZ: 0 MM",
+    "tag_ready": "FERTIG",
+    "tag_unused_parts": "ÜBRIGE TEILE"
+  }
+}
