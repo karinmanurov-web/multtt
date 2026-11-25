@@ -89,6 +89,7 @@
       <label class="chk"><input type="checkbox" id="chkSubs" checked> реплики</label>
       <label class="chk"><input type="checkbox" id="chkTitles" checked> титры</label>
       <label class="chk"><input type="checkbox" id="chkSafe"> зоны TikTok</label>
+      <button id="btnCopyTxt" title="Скопировать текст сцены (закадровый — сплошным текстом, реплики — «И: …»). Shift — весь сюжет">⧉ Текст</button>
       <button id="btnFrames" title="Контактный лист: кадры сцены на одном экране (клавиша F)">▦ Кадры</button>
       <button id="btnRec" class="rec" title="Запишет ролик в .webm в реальном времени">● Запись</button>
     </div>
@@ -138,7 +139,7 @@
   </div>
   <div id="sheetGrid"></div>
 </div>
-<script src="engine.js?v=20261126-2"></script>
+<script src="engine.js?v=20261126-3"></script>
 <script>
 (() => {
 'use strict';
@@ -347,6 +348,33 @@ function buildSheet() {
   t = keep; dirty = true;
 }
 const openSheet = () => { if (!eng.C) return; $('sheet').classList.add('on'); buildSheet(); };
+
+// ───── копирование текста сцены / сюжета ─────
+async function toClipboard(txt) {
+  try { await navigator.clipboard.writeText(txt); return true; } catch (e) { }
+  const ta = document.createElement('textarea'); ta.value = txt; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
+  let ok = false; try { ok = document.execCommand('copy'); } catch (e) { } ta.remove(); return ok;
+}
+async function copyScript(whole) {
+  if (!eng.C) { setStatus('Нет загруженной сцены'); return; }
+  let parts = [], n = 1;
+  if (!whole) parts = [eng.scriptLines()];
+  else {
+    const g = groups.find(x => x.key === $('selStory').value), lg = $('selLang').value;
+    n = g.scenes.length;
+    const lib = parse('taLib', 'Библиотека', []);
+    for (const it of g.scenes) {
+      const sc = manifest.scenes.find(m => m.id === it.id);
+      const tx = JSON.parse(await fetchText(sc.langs[lg] || Object.values(sc.langs)[0]));
+      eng.setLibrary(lib || {}); eng.setTexts(tx); eng.load(JSON.parse(await fetchText(sc.file)));
+      parts.push(eng.scriptLines());
+    }
+    apply(false);                                                    // вернуть текущую сцену
+  }
+  const txt = Mult.formatScript(parts);
+  setStatus(txt ? ((await toClipboard(txt)) ? `Текст скопирован (${whole ? n + ' сцен' : 'сцена'}, ${txt.length} зн.)` : 'Не удалось скопировать') : 'В сцене нет реплик');
+}
+$('btnCopyTxt').onclick = e => copyScript(e.shiftKey);
 $('btnFrames').onclick = openSheet; $('shClose').onclick = () => $('sheet').classList.remove('on');
 $('shMode').onchange = $('shN').onchange = buildSheet;
 document.addEventListener('keydown', e => {

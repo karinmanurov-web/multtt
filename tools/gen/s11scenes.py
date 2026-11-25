@@ -36,7 +36,7 @@ be+=[b(t,"release",id="sh",drop=False),b(t+0.02,"remove",id="sh"),b(t+0.05,"pose
   SP(t,"sv","shovel",900,1250,"front"),b(t+0.05,"hold",id="sv",who="bld"),b(t+0.3,"pose",who="bld",pose="rake"),
   SP(t,"dp","dirt_pile",700,1250,"back",scale=0.4),b(t+0.4,"move",id="dp",scale=1.0,dur=5.0,ease="linear"),
   SP(t+2.5,"hf","house_f",HX,1250,"back"),DUST(t+2.5,HX,1230)]
-mk("story_11_s01",round(q.t+0.6,1),START(),sorted(be,key=lambda x:x['t']))
+mk("story_11_s01",round(q.t+0.6,1),START(),sorted(be+q.b,key=lambda x:x["t"]))
 # ═════ S2 · Небольшие изменения ═════
 q=Q(0.3)
 be=[sp("hf","fnd_a",HX),sp("dp","dirt_pile",700,scale=1.0),sp("sv","shovel",760,1250,"front"),b(0,"hold",id="sv",who="bld"),b(0.1,"pose",who="bld",pose="rake"),
@@ -53,7 +53,7 @@ t=q.say("s2n03","Строитель перестроил фундамент ещ
 be+=[b(t,"pose",who="bld",pose="rake"),DUST(t+0.5,HX-200,1230),b(t+2.0,"emote",who="bld",emotion="tired",dur=2)]
 t=q.say("s2n04","К этому моменту ты уже перестал удивляться.")
 be+=[b(t,"release",id="st",drop=True),b(t,"pose",who="eng",pose="arms_cross"),b(t,"emote",who="eng",emotion="neutral",dur=3.5),b(t+0.4,"portrait",on="eng",dur=2.6,zoom=2.6,bg="blur")]
-mk("story_11_s02",round(q.t+0.6,1),START(170,820),sorted(be,key=lambda x:x['t']))
+mk("story_11_s02",round(q.t+0.6,1),START(170,820),sorted(be+q.b,key=lambda x:x["t"]))
 # ═════ S3 · Архитекторша ═════
 q=Q(0.3)
 be=[sp("hf","fnd_a",HX),sp("dp","dirt_pile",720),b(0,"place",who="arc",x=1400,face="left"),sp("sl","sk_lolli",1400,1250,"front"),b(0,"hold",id="sl",who="arc"),b(0.1,"walk",who="arc",x=900,dur=1.8,face="left"),
@@ -71,7 +71,7 @@ be+=[b(t,"remove",id="hf"),SP(t,"hf3","fnd_a",HX),SP(t+0.3,"st","lp_st1",HX),DUS
 bx,by=ballc(0,250)
 t=q.say("s3n05","И оба ошиблись.")
 be+=[SP(t-1.0,"ball","lp_ball",bx,by,"back"),DUST(t-1.0,bx,by+150),b(t,"camera",x=540,y=850,zoom=0.8,dur=1.2),b(t+0.6,"shake",dur=0.8,amp=8)]
-mk("story_11_s03",round(q.t+0.8,1),START(170,620),sorted(be,key=lambda x:x['t']))
+mk("story_11_s03",round(q.t+0.8,1),START(170,620),sorted(be+q.b,key=lambda x:x["t"]))
 # ═════ S4 · Геология ═════
 q=Q(0.3); bx,by=ballc(0,250)
 be=[sp("hf","fnd_a",HX),sp("st","lp_st1",HX),sp("ball","lp_ball",bx,by),b(0,"camera",x=540,y=850,zoom=0.8,dur=0.01),b(0,"place",who="eng",x=230,face="right"),b(0,"place",who="bld",x=800,face="left")]
@@ -90,7 +90,7 @@ t=q.say("s4n04","Пришлось укреплять фундамент, кот�
 be+=[b(t,"remove",id="bp"),b(t,"remove",id="bg"),b(t,"remove",id="hf"),SP(t,"hfc","fnd_c",HX),b(t,"move",id="st",rot=0,dur=0.6),b(t,"move",id="ball",x=ballc(0,250)[0],y=ballc(0,250)[1],dur=0.6),DUST(t+0.3,HX,1230),b(t+0.3,"pose",who="bld",pose="rake"),b(t+0.3,"pose",who="eng",pose="idle")]
 t=q.say("s4n05","Палочка пока оставалась тонкой.")
 be+=[b(t,"camera",x=540,y=1000,zoom=1.5,dur=1.4)]
-mk("story_11_s04",round(q.t+0.6,1),START(230,800),sorted(be,key=lambda x:x['t']))
+mk("story_11_s04",round(q.t+0.6,1),START(230,800),sorted(be+q.b,key=lambda x:x["t"]))
 # ═════ S5 · Размеры ═════
 q=Q(0.3); bx,by=ballc(0,250)
 be=[sp("hf","fnd_c",HX),sp("st","lp_st1",HX),sp("ball","lp_ball",bx,by),b(0,"camera",x=540,y=850,zoom=0.8,dur=0.01),b(0,"place",who="eng",x=170,face="right"),b(0,"place",who="bld",x=650,face="left"),
@@ -109,7 +109,7 @@ t=q.say("s5d02","Только не меняй диаметр фундамент�
 be+=[b(t,"emote",who="eng",emotion="furious",dur=2),b(t,"pose",who="eng",pose="angry"),b(t+0.5,"remove",id="hf"),SP(t+0.5,"hfx","fnd_cx",HX),b(t+0.5,"spawn",id="k",prop="snd_krak",x=HX-200,y=1100,layer="front"),b(t+2.0,"remove",id="k"),b(t+0.5,"shake",dur=0.5,amp=10)]
 t=q.say("s5n05","Строитель уже начал подозревать, что строит не дом, а памятник твоим ошибкам.")
 be+=[b(t,"pose",who="eng",pose="idle"),b(t+0.2,"emote",who="bld",emotion="tired",dur=3),b(t+0.4,"portrait",on="bld",dur=2.6,zoom=2.6,bg="blur")]
-mk("story_11_s05",round(q.t+0.6,1),START(170,640),sorted(be,key=lambda x:x['t']))
+mk("story_11_s05",round(q.t+0.6,1),START(170,640),sorted(be+q.b,key=lambda x:x["t"]))
 # ═════ S6 · Парящий дом ═════
 q=Q(0.3); bx,by=ballc(0,250,HX,1.3)
 be=[sp("hf","fnd_cx",HX),sp("st","lp_st3",HX),sp("ball","lp_ball",bx,by,scale=1.3),b(0,"camera",x=540,y=850,zoom=0.8,dur=0.01),b(0,"place",who="eng",x=200,face="right"),b(0,"place",who="bld",x=650,face="left"),b(0,"place",who="arc",x=1400,face="left"),
@@ -128,7 +128,7 @@ be+=[b(t,"camera",x=620,y=760,zoom=0.62,dur=1.2),
  SP(t+3.0,"shd","sun_ray",HX,1262,"back",scale=0.01)]
 t=q.say("s6n03","В какой-то момент стало ясно, что визуализация была единственной частью проекта, которая действительно работала.")
 be+=[b(t+0.5,"emote",who="eng",emotion="shocked",dur=3),b(t+0.5,"pose",who="eng",pose="facepalm"),b(t+0.8,"emote",who="arc",emotion="happy",dur=5)]
-mk("story_11_s06",round(q.t+0.6,1),START(200,720),sorted(be,key=lambda x:x['t']))
+mk("story_11_s06",round(q.t+0.6,1),START(200,720),sorted(be+q.b,key=lambda x:x["t"]))
 # ═════ S7 · Сроки ═════
 q=Q(0.3); bx,by=ballc(0,250,HX,1.3); tb=by-250*1.3
 be=[sp("hf","fnd_cx",HX),sp("st","lp_st3",HX,1150),sp("ball","lp_ball",bx,by-100,scale=1.3),sp("cr","crane_tw",1000),sp("cj","crane_jib",1000,-250),sp("cc","crane_car",HX,-250,"front"),sp("cab","crane_cab",HX,tb-100,"front"),
@@ -147,7 +147,7 @@ t=q.say("s7n05","Теперь дом должен был быть выше, ле
 be+=[b(t,"place",who="eng",x=500,face="right"),b(t+0.3,"emote",who="eng",emotion="shocked",dur=3),b(t+0.5,"emote",who="bld",emotion="shocked",dur=3)]
 t=q.say("s7n06","Срок сдачи остался прежним.")
 be+=[b(t,"portrait",on="eng",dur=2.2,zoom=2.6,bg="blur"),b(t,"emote",who="eng",emotion="furious",dur=2.2)]
-mk("story_11_s07",round(q.t+0.6,1),START(240,780),sorted(be,key=lambda x:x['t']))
+mk("story_11_s07",round(q.t+0.6,1),START(240,780),sorted(be+q.b,key=lambda x:x["t"]))
 # ═════ S8 · Последнее изменение ═════
 q=Q(0.3); bx,by=ballc(0,250,HX,1.3)
 be=[sp("hf","fnd_cx",HX),sp("st","lp_st3",HX),sp("ball","lp_ball",bx,by,scale=1.3),b(0,"camera",x=540,y=850,zoom=0.8,dur=0.01),b(0,"place",who="eng",x=200,face="right"),b(0,"place",who="bld",x=650,face="left"),b(0,"place",who="arc",x=960,face="left"),
@@ -167,7 +167,7 @@ t=q.say("s8d05","Нет. Нет, это уже не предусмотрено."
 t=q.say("s8n04","Ты понял, что расчёты больше не имеют значения.")
 be+=[b(t,"release",id="gg",drop=True),b(t,"remove",id="ball"),SP(t,"gw","glow_ball",bx,by,"back",scale=1.3),SP(t,"ball2","lp_ball_spin",bx,by,"back",scale=1.3),SP(t,"gl","garland",bx,by,"back",scale=1.3),
  b(t,"pose",who="eng",pose="facepalm"),b(t+0.2,"camera",x=540,y=900,zoom=0.8,dur=0.01)]
-mk("story_11_s08",round(q.t+0.8,1),START(200,730),sorted(be,key=lambda x:x['t']))
+mk("story_11_s08",round(q.t+0.8,1),START(200,730),sorted(be+q.b,key=lambda x:x["t"]))
 # ═════ S9 · Результат ═════
 q=Q(0.3); bx,by=ballc(0,250,HX,1.3)
 be=[sp("hf","fnd_cx",HX),sp("st","lp_st3",HX),sp("gw","glow_ball",bx,by,scale=1.3),sp("ball2","lp_ball_spin",bx,by,scale=1.3),sp("gl","garland",bx,by,scale=1.3),
@@ -196,7 +196,7 @@ t=q.say("s9n07","На этот раз — дом с бассейном.")
 be+=[b(t,"camera",x=540,y=960,zoom=1.0,dur=0.8),SP(t+0.2,"sqb","sk_pool_big",540,700,"back",scale=2.2)]
 t=q.say("s9n08","И, кажется, бассейн должен был быть на крыше.")
 be+=[b(t,"camera",x=540,y=780,zoom=1.15,dur=2.5),b(t+0.8,"emote",who="eng",emotion="shocked",dur=3),b(t+0.8,"pose",who="eng",pose="facepalm"),*BLACK(t+3.4)]
-mk("story_11_s09",round(q.t+3.2,1),START(170,640),sorted(be,key=lambda x:x['t']))
+mk("story_11_s09",round(q.t+3.2,1),START(170,640),sorted(be+q.b,key=lambda x:x["t"]))
 for _k,_v in {'snd_krak':'КРАК!','snd_bum':'БУМ!','snd_shlep':'Шлёп!','snd_trr':'Тр-р-р…','snd_chmok':'Чвяк!'}.items(): LANG[_k]=_v
 json.dump({"lang":"ru","cps":14,"lines":LANG},open(D+'lang/story_11.ru.json','w'),ensure_ascii=False,indent=2)
 print('ok',len(LANG))

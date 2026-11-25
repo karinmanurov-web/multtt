@@ -1256,6 +1256,20 @@ class Engine {
     }
     return { vis, pos, rot, scale, held, floor, layer };
   }
+  // Текст сцены для копирования: реплики по времени. Закадровый (id narr) — без метки, остальные с буквой говорящего.
+  scriptLines(a = 0, b = Infinity) {
+    const C = this.C, L = (this.texts && this.texts.lines) || {}, out = [];
+    if (!C) return out;
+    for (const s of C.says) {
+      if (s.t0 < a - 0.01 || s.t0 >= b) continue;
+      const raw = L[s.line]; if (typeof raw !== 'string') continue;
+      const text = raw.replace(/\s+/g, ' ').trim(); if (!text) continue;
+      const ch = C.chars[s.who], d = ch && ch.def || {}, nm = d.name || '';
+      const label = s.who === 'narr' ? '' : d.kind === 'eng' ? 'И' : d.kind === 'bld' ? 'С' : nm === 'Архитекторша' ? 'А' : nm === 'Сметчица' ? 'См' : nm === 'Статист' || !nm ? 'Ст' : nm[0].toUpperCase();
+      out.push({ who: s.who, label, text });
+    }
+    return out;
+  }
   _drawProp(ctx, P, t, scale, grip) {
     const g = P.def.grip || [0, 0];
     ctx.save();
@@ -1904,7 +1918,16 @@ class Engine {
   }
 }
 
-const api = { Engine, W, H, GROUND, POSE_NAMES, EMO_NAMES, FX_KINDS, EASE_NAMES, SHAPE_TYPES, CHAR_IDS, LOOK_KEYS, CALLOUT_STYLES, DEFAULT_VIEW, ANGLES, PORTRAIT_ANGLES };
+// Склейка текста: сцены (массивы scriptLines) → строка. Закадровые фразы подряд — один абзац, реплики героев — по строке «И: …».
+function formatScript(scenes) {
+  return scenes.map(lines => {
+    const out = []; let nar = [];
+    const flush = () => { if (nar.length) { out.push(nar.join(' ')); nar = []; } };
+    for (const l of lines) { if (!l.label) nar.push(l.text); else { flush(); out.push(l.label + ': ' + l.text); } }
+    flush(); return out.join('\n');
+  }).filter(Boolean).join('\n\n');
+}
+const api = { formatScript, Engine, W, H, GROUND, POSE_NAMES, EMO_NAMES, FX_KINDS, EASE_NAMES, SHAPE_TYPES, CHAR_IDS, LOOK_KEYS, CALLOUT_STYLES, DEFAULT_VIEW, ANGLES, PORTRAIT_ANGLES };
 if (typeof module !== 'undefined' && module.exports) module.exports = api;
 else root.Mult = api;
 })(typeof window !== 'undefined' ? window : globalThis);

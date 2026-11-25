@@ -67,7 +67,7 @@
   <div class="side">
     <div class="hint">Эпизод — список сцен с обрезкой (<code>in</code>, <code>out</code>) и вырезами (<code>cuts</code>: [[от, до], …] в секундах сцены). Формат и примеры: <code>docs/episodes.md</code>. Файлы лежат в <code>episodes/</code>.</div>
     <textarea id="taEp" spellcheck="false"></textarea>
-    <div class="row"><button id="btnApply" class="primary">Применить</button><button id="btnDl">Скачать JSON эпизода</button><button id="btnCp">Копировать</button></div>
+    <div class="row"><button id="btnApply" class="primary">Применить</button><button id="btnDl">Скачать JSON эпизода</button><button id="btnCp">Копировать</button><button id="btnTxt" title="Скопировать текст эпизода с учётом вырезов">⧉ Текст</button></div>
     <div class="hint" id="keys"><b>Клавиши</b> (ставь курсор на нужной секунде): <kbd>I</kbd> начало сцены · <kbd>O</kbd> конец сцены · <kbd>[</kbd> начало выреза · <kbd>]</kbd> конец выреза · <kbd>X</kbd> сбросить правки текущей сцены · <kbd>Backspace</kbd>/<kbd>Ctrl+Z</kbd> отмена · <kbd>Esc</kbd> отменить начатый вырез<br>
 <kbd>←</kbd><kbd>→</kbd> 0,1 с · <kbd>Shift</kbd>+стрелки 1 с · <kbd>Alt</kbd>+стрелки 1 кадр · <kbd>↑</kbd><kbd>↓</kbd> прошлая/следующая сцена · <kbd>Пробел</kbd> пауза · <kbd>Home</kbd>/<kbd>End</kbd></div>
     <div id="where" class="hint"></div>
@@ -75,7 +75,7 @@
     <table><thead><tr><th>#</th><th>сцена</th><th>от–до</th><th>длит.</th></tr></thead><tbody id="segs"></tbody></table>
   </div>
 </div>
-<script src="engine.js?v=20261126-2"></script>
+<script src="engine.js?v=20261126-3"></script>
 <script>
 (() => {
 'use strict';
@@ -275,6 +275,18 @@ document.addEventListener('keydown', async e => {
   }
   else if (k === 'x' || k === 'X' || k === 'ч' || k === 'Ч') { stop(); await edit(p.i, it => { delete it.in; delete it.out; delete it.cuts; }, p.local); say(`${p.id}: правки сброшены`); }
 }, true);
+$('btnTxt').onclick = async () => {
+  const by = new Map();
+  for (const s of plan) {
+    eng.setTexts(s.texts); eng.load(s.scene);
+    const l = eng.scriptLines(s.a, s.b); if (!by.has(s.i)) by.set(s.i, []); by.get(s.i).push(...l);
+  }
+  cur = { key: '' }; dirty = true;
+  const txt = Mult.formatScript([...by.values()]);
+  if (!txt) { say('В эпизоде нет реплик'); return; }
+  let ok = false; try { await navigator.clipboard.writeText(txt); ok = true; } catch (e) { const ta = document.createElement('textarea'); ta.value = txt; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); try { ok = document.execCommand('copy'); } catch (e2) { } ta.remove(); }
+  say(ok ? `Текст скопирован (${by.size} сцен, ${txt.length} зн.)` : 'Не удалось скопировать');
+};
 $('btnCp').onclick = async () => { try { await navigator.clipboard.writeText($('taEp').value); say('JSON скопирован'); } catch (e) { say('Не удалось скопировать — выдели текст вручную'); } };
 // ───── запись всего эпизода в .webm ─────
 function startRecord() {
