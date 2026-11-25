@@ -209,8 +209,7 @@
    "id": "pv",
    "prop": "paver",
    "x": -600,
-   "y": 1250,
-   "layer": "front"
+   "y": 1250
   },
   {
    "do": "pose",
@@ -345,8 +344,7 @@
    "id": "rl",
    "prop": "roller",
    "x": -600,
-   "y": 1250,
-   "layer": "front"
+   "y": 1250
   },
   {
    "do": "place",
@@ -479,8 +477,7 @@
    "id": "rl2",
    "prop": "roller",
    "x": -640,
-   "y": 1250,
-   "layer": "front"
+   "y": 1250
   },
   {
    "do": "move",

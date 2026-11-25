@@ -106,8 +106,7 @@
    "id": "car",
    "prop": "car_blue",
    "x": 340,
-   "y": 820,
-   "layer": "front",
+   "y": 800,
    "scale": 0.6
   },
   {
@@ -124,11 +123,22 @@
    "t": 0.4
   },
   {
+   "do": "walk",
+   "with": "n49",
+   "gap": 0.1,
+   "who": "bld",
+   "x": 560,
+   "y": -430,
+   "dur": 1.9,
+   "face": "right"
+  },
+  {
    "do": "pose",
    "with": "n49",
-   "gap": 0.2,
+   "gap": 2.0,
    "who": "bld",
-   "pose": "hammer"
+   "pose": "rake",
+   "dur": 0.5
   },
   {
    "do": "say",
@@ -138,9 +148,18 @@
    "gap": 0.18
   },
   {
+   "do": "camera",
+   "with": "n50",
+   "gap": 0,
+   "x": 700,
+   "y": 1000,
+   "zoom": 0.5,
+   "dur": 2.0
+  },
+  {
    "do": "pop",
    "with": "n50",
-   "gap": 0.30000000000000004,
+   "gap": 0.1,
    "id": "rp1",
    "prop": "ramp_1",
    "x": 620,
@@ -149,9 +168,19 @@
    "dust": false
   },
   {
+   "do": "walk",
+   "with": "n50",
+   "gap": 0.35,
+   "who": "bld",
+   "x": 860,
+   "y": -361,
+   "dur": 0.65,
+   "face": "right"
+  },
+  {
    "do": "pop",
    "with": "n50",
-   "gap": 0.8999999999999999,
+   "gap": 1.1,
    "id": "rp2",
    "prop": "ramp_2",
    "x": 620,
@@ -160,9 +189,27 @@
    "dust": false
   },
   {
+   "do": "pose",
+   "with": "n50",
+   "gap": 1.0,
+   "who": "bld",
+   "pose": "rake",
+   "dur": 0.35
+  },
+  {
+   "do": "walk",
+   "with": "n50",
+   "gap": 1.35,
+   "who": "bld",
+   "x": 1160,
+   "y": -275,
+   "dur": 0.65,
+   "face": "right"
+  },
+  {
    "do": "pop",
    "with": "n50",
-   "gap": 1.4999999999999998,
+   "gap": 2.1,
    "id": "rp3",
    "prop": "ramp_3",
    "x": 620,
@@ -171,9 +218,27 @@
    "dust": false
   },
   {
+   "do": "pose",
+   "with": "n50",
+   "gap": 2.0,
+   "who": "bld",
+   "pose": "rake",
+   "dur": 0.35
+  },
+  {
+   "do": "walk",
+   "with": "n50",
+   "gap": 2.35,
+   "who": "bld",
+   "x": 1460,
+   "y": -189,
+   "dur": 0.65,
+   "face": "right"
+  },
+  {
    "do": "pop",
    "with": "n50",
-   "gap": 2.1,
+   "gap": 3.1,
    "id": "rp4",
    "prop": "ramp_4",
    "x": 620,
@@ -182,9 +247,27 @@
    "dust": false
   },
   {
+   "do": "pose",
+   "with": "n50",
+   "gap": 3.0,
+   "who": "bld",
+   "pose": "rake",
+   "dur": 0.35
+  },
+  {
+   "do": "walk",
+   "with": "n50",
+   "gap": 3.35,
+   "who": "bld",
+   "x": 1760,
+   "y": -103,
+   "dur": 0.65,
+   "face": "right"
+  },
+  {
    "do": "pop",
    "with": "n50",
-   "gap": 2.7,
+   "gap": 4.1,
    "id": "rp5",
    "prop": "ramp_5",
    "x": 620,
@@ -193,13 +276,32 @@
    "dust": false
   },
   {
-   "do": "camera",
+   "do": "pose",
    "with": "n50",
-   "gap": 0,
-   "x": 700,
-   "y": 1000,
-   "zoom": 0.5,
-   "dur": 2.0
+   "gap": 4.0,
+   "who": "bld",
+   "pose": "rake",
+   "dur": 0.35
+  },
+  {
+   "do": "walk",
+   "with": "n50",
+   "gap": 4.35,
+   "who": "bld",
+   "x": 2060,
+   "y": -17,
+   "dur": 0.65,
+   "face": "right"
+  },
+  {
+   "do": "walk",
+   "with": "n50",
+   "gap": 0.8,
+   "who": "eng",
+   "x": 1000,
+   "y": -321,
+   "dur": 2.2,
+   "face": "right"
   },
   {
    "do": "say",
@@ -285,7 +387,7 @@
    "gap": 0,
    "id": "car",
    "x": 1900,
-   "y": 1250,
+   "y": 1230,
    "dur": 5.0,
    "ease": "linear"
   },

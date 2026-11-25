@@ -208,7 +208,6 @@
    "prop": "roller",
    "x": -680,
    "y": 820,
-   "layer": "front",
    "scale": 0.9
   },
   {
@@ -256,8 +255,7 @@
    "id": "c0",
    "prop": "car_blue",
    "x": -1100,
-   "y": 820,
-   "layer": "front",
+   "y": 800,
    "scale": 0.6
   },
   {
@@ -276,8 +274,7 @@
    "id": "c1",
    "prop": "car_yellow",
    "x": -1700,
-   "y": 820,
-   "layer": "front",
+   "y": 800,
    "scale": 0.6
   },
   {
@@ -296,8 +293,7 @@
    "id": "c2",
    "prop": "car_green",
    "x": -2300,
-   "y": 820,
-   "layer": "front",
+   "y": 800,
    "scale": 0.6
   },
   {

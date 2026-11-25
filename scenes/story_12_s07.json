@@ -432,7 +432,6 @@
    "prop": "car_blue",
    "x": -900,
    "y": 1250,
-   "layer": "front",
    "scale": 0.55
   },
   {
@@ -440,21 +439,17 @@
    "with": "n40",
    "gap": 0.4,
    "id": "cr1",
-   "x": 380,
+   "x": -420,
    "y": 1250,
-   "dur": 2.0,
+   "dur": 2.6,
    "ease": "easeOut"
   },
   {
-   "do": "move",
+   "do": "shake",
    "with": "n40",
-   "gap": 2.5,
-   "id": "cr1",
-   "x": 700,
-   "y": 820,
-   "dur": 3.0,
-   "ease": "easeInOut",
-   "rot": -12
+   "gap": 3.0,
+   "dur": 0.4,
+   "amp": 4
   },
   {
    "do": "pose",

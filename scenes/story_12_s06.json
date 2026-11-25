@@ -175,8 +175,7 @@
    "id": "exc",
    "prop": "excavator",
    "x": -500,
-   "y": 1250,
-   "layer": "front"
+   "y": 1250
   },
   {
    "do": "pose",
@@ -718,8 +717,7 @@
    "id": "tk",
    "prop": "army_tank",
    "x": -400,
-   "y": 1420,
-   "layer": "front",
+   "y": 1400,
    "scale": 0.85
   },
   {

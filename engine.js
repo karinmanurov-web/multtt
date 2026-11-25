@@ -308,6 +308,7 @@ function shapeBBox(s) {
     default: return null;
   }
 }
+let SPIN_T = null;   // если задано — вращение 'spin' идёт по пройденному пути предмета, а не по времени (колёса стоят, когда машина стоит)
 function applyAnim(ctx, a, t, px, py) {
   const ph = a.ph || 0, sp = a.s == null ? 0.5 : a.s, am = a.a == null ? 1 : a.a;
   ctx.translate(px, py);
@@ -315,7 +316,7 @@ function applyAnim(ctx, a, t, px, py) {
     case 'sway': ctx.rotate(rad(am * Math.sin(2 * Math.PI * sp * t + ph))); break;
     case 'bob': ctx.translate(0, am * Math.sin(2 * Math.PI * sp * t + ph)); break;
     case 'slide': ctx.translate(am * Math.sin(2 * Math.PI * sp * t + ph), 0); break;
-    case 'spin': ctx.rotate(2 * Math.PI * sp * t + ph); break;
+    case 'spin': ctx.rotate(2 * Math.PI * sp * (SPIN_T == null ? t : SPIN_T) + ph); break;
     case 'pulse': { const k = 1 + am * Math.sin(2 * Math.PI * sp * t + ph); ctx.scale(k, k); break; }
     case 'drift': ctx.translate(sp * t, 0); break;
     case 'fall': { const wr = a.a || 160, off = (t * (a.s || 1800)) % wr; ctx.translate(off * (a.dx || 0) / wr, off); break; }   // дождь: узор с периодом a падает со скоростью s px/с, снос dx на период
@@ -1238,8 +1239,26 @@ class Engine {
     ctx.save();
     ctx.scale((P.def.scale || 1) * scale, (P.def.scale || 1) * scale);
     ctx.translate(-g[0], -g[1]);
+    SPIN_T = this._propDist(P, t);
     drawShapes(ctx, P.def.shapes, t, k => this.T(k));
+    SPIN_T = null;
     ctx.restore();
+  }
+  // Путь, пройденный предметом по move-событиям, в «секундах вращения» (400 px = 1 с). null — предмет не ездит, вращение по времени.
+  _propDist(P, t) {
+    if (P._mv === undefined) P._mv = P.ev.some(e => e.type === 'move');
+    if (!P._mv) return null;
+    let x = null, y = 0, d = 0;
+    for (const e of P.ev) {
+      if (e.t > t) break;
+      if (e.type === 'spawn') { x = e.x; y = e.y; }
+      else if (e.type === 'move' && x != null) {
+        const tx = e.x == null ? x : e.x, ty = e.y == null ? y : e.y, len = Math.hypot(tx - x, ty - y);
+        if (t >= e.t1) { d += len; x = tx; y = ty; }
+        else { d += len * ease(e.ease, (t - e.t) / Math.max(1e-6, e.t1 - e.t)); break; }
+      }
+    }
+    return d / 400;
   }
 
   // ───── отрисовка ─────

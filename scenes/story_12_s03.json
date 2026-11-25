@@ -289,8 +289,7 @@
    "id": "exc",
    "prop": "excavator",
    "x": -500,
-   "y": 1250,
-   "layer": "front"
+   "y": 1250
   },
   {
    "do": "release",
