@@ -111,14 +111,36 @@ const ARCH = {
   ]
 };
 
+// Сметчица (жена Строителя): готовый тип "est" — {"type":"est"} у статиста; строгий пучок, красный карандаш, очки, кардиган, калькулятор на груди, юбка-карандаш
+const EST = {
+  name: 'Сметчица', skin: '#f2c9a8', shirt: '#6b8f5e', sleeve: '#6b8f5e', pants: '#4a4f63', shoe: '#2d2a30',
+  sy: 0.98, tw: 104, hair: '#3d3a4a', hat: null, glasses: true, tie: null, browY: -34,
+  torso: [
+    { t: 'poly', pts: [[-48, 6], [48, 6], [58, 112], [-58, 112]], fill: '#4a4f63', stroke: O, sw: 6 },
+    { t: 'poly', pts: [[0, 20], [0, 112]], stroke: '#2f3344', sw: 5, closed: false },
+    { t: 'rect', x: -52, y: 0, w: 104, h: 12, r: 5, fill: '#7a4f33', stroke: O, sw: 6 },
+    { t: 'poly', pts: [[-36, -204], [0, -158], [36, -204]], fill: '#fffdf5', stroke: O, sw: 6 },
+    { t: 'poly', pts: [[-16, -176], [18, -100]], stroke: '#e8765a', sw: 5, closed: false },
+    { t: 'rect', x: 12, y: -112, w: 36, h: 48, r: 6, fill: '#4a4f63', stroke: O, sw: 5 },
+    { t: 'rect', x: 17, y: -106, w: 26, h: 14, r: 3, fill: '#b8f0c8', stroke: O, sw: 3 },
+    { t: 'circle', x: 22, y: -80, r: 4, fill: '#cfd3e0' }, { t: 'circle', x: 32, y: -80, r: 4, fill: '#cfd3e0' }, { t: 'circle', x: 42, y: -80, r: 4, fill: '#e8765a' }
+  ],
+  head_front: [
+    { t: 'circle', x: -10, y: -106, r: 26, fill: '#3d3a4a', stroke: O, sw: 6 },
+    { t: 'poly', pts: [[-4, -118], [34, -162]], stroke: '#d94a3d', sw: 9, closed: false },
+    { t: 'path', d: 'M -76 -10 Q -60 -78 8 -76 Q 52 -70 72 -30 Q 38 -52 4 -44 Q -34 -38 -76 -10 Z', fill: '#3d3a4a', stroke: O, sw: 6 }
+  ]
+};
+
 function resolveCharDef(type, inst, types, err, id) {
   let base;
   if (type === 'eng' || type === 'bld') base = Object.assign({ kind: type }, CHARS[type]);
   else if (type === 'extra') base = Object.assign({}, EXTRA_BASE);
   else if (type === 'arch') base = Object.assign({}, EXTRA_BASE, ARCH, { kind: 'extra' });
+  else if (type === 'est') base = Object.assign({}, EXTRA_BASE, EST, { kind: 'extra' });
   else if (types[type] && typeof types[type] === 'object') base = Object.assign({}, EXTRA_BASE, types[type], { kind: 'extra' });
   else {
-    err(`Персонаж "${id}": неизвестный тип "${type}" (есть: eng, bld, arch, extra${Object.keys(types).map(k => ', ' + k).join('')})`);
+    err(`Персонаж "${id}": неизвестный тип "${type}" (есть: eng, bld, arch, est, extra${Object.keys(types).map(k => ', ' + k).join('')})`);
     base = Object.assign({}, EXTRA_BASE);
   }
   for (const k of LOOK_KEYS) {

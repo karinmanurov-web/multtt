@@ -1,0 +1,81 @@
+{
+ "id": "demo_10",
+ "start": {
+  "location": "cottage",
+  "chars": {
+   "bld": {
+    "x": 330,
+    "face": "right"
+   },
+   "wife": {
+    "type": "est",
+    "x": 760,
+    "face": "left"
+   }
+  }
+ },
+ "beats": [
+  {
+   "t": 0,
+   "do": "give",
+   "who": "wife",
+   "id": "calc",
+   "prop": "calc"
+  },
+  {
+   "t": 0.3,
+   "do": "dialog",
+   "lines": [
+    [
+     "bld",
+     "l1"
+    ],
+    [
+     "wife",
+     "l2"
+    ],
+    [
+     "bld",
+     "l3"
+    ],
+    [
+     "wife",
+     "l4"
+    ]
+   ],
+   "gap": 0.25
+  },
+  {
+   "with": "l2",
+   "gap": 0,
+   "do": "pose",
+   "who": "wife",
+   "pose": "arms_cross"
+  },
+  {
+   "with": "l3",
+   "gap": 0,
+   "do": "emote",
+   "who": "bld",
+   "emotion": "worried",
+   "dur": 1.5
+  },
+  {
+   "after": "l3",
+   "gap": 0.1,
+   "do": "give",
+   "who": "wife",
+   "id": "rc",
+   "prop": "receipt",
+   "hand": "L"
+  },
+  {
+   "with": "l4",
+   "gap": 0,
+   "do": "emote",
+   "who": "wife",
+   "emotion": "angry",
+   "dur": 2
+  }
+ ]
+}

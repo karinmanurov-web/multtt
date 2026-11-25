@@ -84,6 +84,14 @@
       }
     },
     {
+      "id": "demo_10",
+      "title": "Демо 10 · Сметчица (жена Строителя)",
+      "file": "scenes/demo_10.json",
+      "langs": {
+        "ru": "lang/demo_10.ru.json"
+      }
+    },
+    {
       "id": "insert",
       "title": "Ракурс · предметный кадр",
       "file": "scenes/insert.json",

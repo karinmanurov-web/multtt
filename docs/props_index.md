@@ -40,6 +40,7 @@
 - **bucket**: `bucket` 100×130
 - **bump**: `bump` 340×60
 - **cal**: `cal_page` 780×790; `cal_w` 160×240 up
+- **calc**: `calc` 68×100 рука
 - **can**: `can_e` 110×150 up рука; `can_g1` 110×150 up рука; `can_g2` 110×150 up рука
 - **cap**: `cap_part` 28×18
 - **car**: `car` 905×526; `car_blue` 905×526; `car_blue_l` 905×526; `car_green` 905×526; `car_green_l` 905×526; `car_seat` 240×250; `car_white` 905×526; `car_white_l` 905×526; `car_yellow` 905×526; `car_yellow_l` 905×526
@@ -119,6 +120,8 @@
 - **rain**: `rain` —
 - **rake**: `rake` 144×196 up рука
 - **ramp**: `ramp_1` 300×456 up; `ramp_2` 300×370 up; `ramp_3` 300×284 up; `ramp_4` 300×198 up; `ramp_5` 300×116 up
+- **receipt**: `receipt` 60×532 up рука
+- **red**: `red_pen` 8×104
 - **reeds**: `reeds` 64×130 up
 - **road**: `road_seg` 244×112; `road_wide` 4000×146 up
 - **roll**: `roll` 36×131 up
