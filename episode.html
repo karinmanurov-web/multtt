@@ -95,7 +95,16 @@ async function boot() {
     manifest = await getJSON('manifest.json');
     libText = await (await fetch('library.json', { cache: 'no-store' })).text();
     eng.setLibrary(JSON.parse(libText));
-    epIndex = (await getJSON('episodes/index.json')).episodes;
+    try { epIndex = (await getJSON('episodes/index.json')).episodes || []; } catch (e) { epIndex = []; }
+    // автоэпизоды: для каждого сюжета из manifest (story_NN, ep01…) без своего файла — «все сцены подряд»
+    const have = new Set(epIndex.map(e => e.id));
+    const byKey = {};
+    for (const sc of manifest.scenes) { const m = /^(story_\d+|ep\d+)_/.exec(sc.id); if (m) (byKey[m[1]] = byKey[m[1]] || []).push(sc); }
+    for (const [k, list] of Object.entries(byKey)) {
+      if (have.has(k)) continue;
+      const t = list[0].title || k, i = t.search(/ · s\d/);
+      epIndex.push({ id: k, title: (i > 0 ? t.slice(0, i) : t) + ' (все сцены)', file: 'auto:' + k, auto: true });
+    }
     $('selEp').innerHTML = epIndex.map(e => `<option value="${esc(e.file)}">${esc(e.title || e.id)}</option>`).join('');
     let last = null; try { last = localStorage.getItem('epFile'); } catch (e) { }
     if (last && epIndex.some(e => e.file === last)) $('selEp').value = last;
@@ -105,7 +114,12 @@ async function boot() {
 }
 async function loadEpisodeFile() {
   const f = $('selEp').value; try { localStorage.setItem('epFile', f); } catch (e) { }
-  const txt = await (await fetch(f, { cache: 'no-store' })).text();
+  let txt;
+  if (f.startsWith('auto:')) {          // свой файл episodes/<id>.json, если он есть; иначе все сцены сюжета подряд
+    const k = f.slice(5), r = await fetch(`episodes/${k}.json`, { cache: 'no-store' });
+    const ok = r.ok && (r.headers.get('content-type') || '').includes('json');
+    txt = ok ? await r.text() : JSON.stringify({ id: k, title: $('selEp').selectedOptions[0].textContent, lang: 'ru', fade: 0.25, scenes: manifest.scenes.filter(s => s.id.startsWith(k + '_')).map(s => s.id) }, null, 1).replace(/\[\n\s+/, '[\n  ').replace(/,\n\s+"/g, ',\n  "').replace(/\n \]/, '\n ]');
+  } else txt = await (await fetch(f, { cache: 'no-store' })).text();
   $('taEp').value = txt;
   const j = JSON.parse(txt);
   const langs = new Set();
