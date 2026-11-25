@@ -767,6 +767,78 @@
       "langs": {
         "ru": "lang/story_11.ru.json"
       }
+    },
+    {
+      "id": "story_12_s01",
+      "title": "Сюжет №12 · Ровная дорога · s01 · Одна маленькая яма",
+      "file": "scenes/story_12_s01.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
+    },
+    {
+      "id": "story_12_s02",
+      "title": "Сюжет №12 · Ровная дорога · s02 · Рядом",
+      "file": "scenes/story_12_s02.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
+    },
+    {
+      "id": "story_12_s03",
+      "title": "Сюжет №12 · Ровная дорога · s03 · Причина",
+      "file": "scenes/story_12_s03.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
+    },
+    {
+      "id": "story_12_s04",
+      "title": "Сюжет №12 · Ровная дорога · s04 · Трубы",
+      "file": "scenes/story_12_s04.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
+    },
+    {
+      "id": "story_12_s05",
+      "title": "Сюжет №12 · Ровная дорога · s05 · Новый асфальт",
+      "file": "scenes/story_12_s05.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
+    },
+    {
+      "id": "story_12_s06",
+      "title": "Сюжет №12 · Ровная дорога · s06 · Укрепление",
+      "file": "scenes/story_12_s06.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
+    },
+    {
+      "id": "story_12_s07",
+      "title": "Сюжет №12 · Ровная дорога · s07 · Идеальная геометрия",
+      "file": "scenes/story_12_s07.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
+    },
+    {
+      "id": "story_12_s08",
+      "title": "Сюжет №12 · Ровная дорога · s08 · Финальная катастрофа",
+      "file": "scenes/story_12_s08.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
+    },
+    {
+      "id": "story_12_s09",
+      "title": "Сюжет №12 · Ровная дорога · s09 · Финал",
+      "file": "scenes/story_12_s09.json",
+      "langs": {
+        "ru": "lang/story_12.ru.json"
+      }
     }
   ]
 }

@@ -57,3 +57,10 @@
 - Чупа-чупс: шар `lp_ball` (центр шара = начало координат, R=250; `lp_ball_spin` — крутится), палочки `lp_st1/2/3` (тонкая/средняя/толстая, основание на земле), `lp_st_bent` (согнутая), `garland` (мигающие лампочки по шару), `garland_g` (гирлянда в руке), `glow_ball` (свечение). Шар катится: `move` с `rot` в градусах.
 - Кран: `crane_tw` (башня, высота 1500, ставится на землю x=1000), `crane_jib` (стрела, y=−250), `crane_car` (каретка, слой front), `crane_cab` (трос 500 px; нижний конец = крюк). Каретка закрывает верх троса, трос поднимают вместе с грузом. Кадр — `camera zoom≈0.62–0.7`.
 - Звуки: `snd_krak`, `snd_chmok`, `snd_bum`, `snd_shlep`, `snd_trr`.
+
+## Сюжет №12 · Ровная дорога (s01–s09)
+Рубрика «Снежный ком раздражающих моментов». Только закадровый голос (`narr`), реплики на привязках `after`/`with`.
+Генераторы: `tools/gen/s12lib.py` (props), `tools/gen/s12scenes.py` (сцены + `lang/story_12.ru.json`).
+Дорога = 8 плиток `asphalt_seg`/`base_seg`/`gravel_seg` (x=-100+240k, y=1250), ямы/заплатки/траншеи на y≈1320–1360, герои стоят с `y=170`.
+Новые props: `patch, bump, rubble, trench_empty/pipe/cable/new/gravel, xs_ok/sag/pipe/cable/fix/tilt` (разрезы для `inset`), `army_tank, emb_a/b/c` (насыпь), `cliff` (обрыв, дорога на высоте 430), `ramp_1..5` (съезд), `vh_a/b/c` (дома деревни).
+Техника из сюжета №5: excavator, paver, roller, car, cone, dirt_pile, gravel_pile. Камера: зум 0.8 (s01–s06), 0.75→0.45 (s07), 0.5–0.6 (s08–s09).

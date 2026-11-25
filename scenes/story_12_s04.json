@@ -1,0 +1,420 @@
+{
+ "id": "story_12_s04",
+ "start": {
+  "location": "field",
+  "view": "main",
+  "chars": {
+   "narr": {
+    "type": "extra",
+    "x": 540,
+    "face": "left",
+    "hidden": true,
+    "shirt": "#24242a",
+    "sy": 0.8
+   },
+   "eng": {
+    "x": 170,
+    "face": "right"
+   },
+   "bld": {
+    "x": 900,
+    "face": "left"
+   }
+  }
+ },
+ "defs": {},
+ "beats": [
+  {
+   "t": 0,
+   "do": "camera",
+   "x": 540,
+   "y": 1250,
+   "zoom": 0.8,
+   "dur": 0.01
+  },
+  {
+   "t": 0,
+   "do": "place",
+   "who": "eng",
+   "x": 250,
+   "y": 170,
+   "face": "right"
+  },
+  {
+   "t": 0,
+   "do": "place",
+   "who": "bld",
+   "x": 900,
+   "y": 170,
+   "face": "left"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "r0",
+   "prop": "asphalt_seg",
+   "x": -100,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "r1",
+   "prop": "asphalt_seg",
+   "x": 140,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "r6",
+   "prop": "asphalt_seg",
+   "x": 1340,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "r7",
+   "prop": "asphalt_seg",
+   "x": 1580,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "bs2",
+   "prop": "base_seg",
+   "x": 380,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "bs3",
+   "prop": "base_seg",
+   "x": 620,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "bs4",
+   "prop": "base_seg",
+   "x": 860,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "bs5",
+   "prop": "base_seg",
+   "x": 1100,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "trp",
+   "prop": "trench_pipe",
+   "x": 540,
+   "y": 1320,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "gp",
+   "prop": "gravel_pile",
+   "x": 900,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "give",
+   "who": "bld",
+   "id": "sv",
+   "prop": "shovel"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n15",
+   "t": 0.4
+  },
+  {
+   "do": "pose",
+   "with": "n15",
+   "gap": 0.2,
+   "who": "bld",
+   "pose": "shrug",
+   "dur": 2.0
+  },
+  {
+   "do": "emote",
+   "with": "n15",
+   "gap": 0.2,
+   "who": "bld",
+   "emotion": "confused",
+   "dur": 2.2
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n16",
+   "after": "n15",
+   "gap": 0.18
+  },
+  {
+   "do": "give",
+   "with": "n16",
+   "gap": 0,
+   "who": "eng",
+   "id": "cb",
+   "prop": "clipboard"
+  },
+  {
+   "do": "pose",
+   "with": "n16",
+   "gap": 0.2,
+   "who": "eng",
+   "pose": "present"
+  },
+  {
+   "do": "emote",
+   "with": "n16",
+   "gap": 0.3,
+   "who": "eng",
+   "emotion": "smug",
+   "dur": 2.0
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n17",
+   "after": "n16",
+   "gap": 0.18
+  },
+  {
+   "do": "walk",
+   "with": "n17",
+   "gap": 0,
+   "who": "bld",
+   "x": 700,
+   "y": 170,
+   "dur": 1.0,
+   "face": "left"
+  },
+  {
+   "do": "pose",
+   "with": "n17",
+   "gap": 1.0,
+   "who": "bld",
+   "pose": "rake",
+   "dur": 3.0
+  },
+  {
+   "do": "remove",
+   "with": "n17",
+   "gap": 1.2,
+   "id": "trp"
+  },
+  {
+   "do": "pop",
+   "with": "n17",
+   "gap": 1.2,
+   "id": "trn",
+   "prop": "trench_new",
+   "x": 540,
+   "y": 1320,
+   "layer": "back"
+  },
+  {
+   "do": "remove",
+   "with": "n17",
+   "gap": 3.0,
+   "id": "trn"
+  },
+  {
+   "do": "pop",
+   "with": "n17",
+   "gap": 3.0,
+   "id": "trg",
+   "prop": "trench_gravel",
+   "x": 540,
+   "y": 1320,
+   "layer": "back"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n18",
+   "after": "n17",
+   "gap": 0.18
+  },
+  {
+   "do": "emote",
+   "with": "n18",
+   "gap": 0.2,
+   "who": "eng",
+   "emotion": "surprised",
+   "dur": 2.0
+  },
+  {
+   "do": "pose",
+   "with": "n18",
+   "gap": 0.2,
+   "who": "eng",
+   "pose": "point_up"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n19",
+   "after": "n18",
+   "gap": 0.18
+  },
+  {
+   "do": "remove",
+   "with": "n19",
+   "gap": 0.2,
+   "id": "trg"
+  },
+  {
+   "do": "pop",
+   "with": "n19",
+   "gap": 0.2,
+   "id": "trc",
+   "prop": "trench_cable",
+   "x": 540,
+   "y": 1320,
+   "layer": "back"
+  },
+  {
+   "do": "pose",
+   "with": "n19",
+   "gap": 0.3,
+   "who": "bld",
+   "pose": "rake",
+   "dur": 2.2
+  },
+  {
+   "do": "pop",
+   "with": "n19",
+   "gap": 0.4,
+   "id": "dp1",
+   "prop": "dirt_pile",
+   "x": 240,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "emote",
+   "with": "n19",
+   "gap": 0.4,
+   "who": "bld",
+   "emotion": "tired",
+   "dur": 2.0
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n20",
+   "after": "n19",
+   "gap": 0.18
+  },
+  {
+   "do": "camera",
+   "with": "n20",
+   "gap": 0,
+   "x": 540,
+   "y": 1100,
+   "zoom": 0.65,
+   "dur": 1.8
+  },
+  {
+   "do": "pop",
+   "with": "n20",
+   "gap": 0.6,
+   "id": "t2",
+   "prop": "trench_empty",
+   "x": -20,
+   "y": 1356,
+   "layer": "back",
+   "scale": 0.8
+  },
+  {
+   "do": "pop",
+   "with": "n20",
+   "gap": 1.0,
+   "id": "t3",
+   "prop": "trench_gravel",
+   "x": 1060,
+   "y": 1356,
+   "layer": "back",
+   "scale": 0.8
+  },
+  {
+   "do": "pop",
+   "with": "n20",
+   "gap": 1.4,
+   "id": "dp2",
+   "prop": "dirt_pile",
+   "x": 820,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "pop",
+   "with": "n20",
+   "gap": 1.8,
+   "id": "cn1",
+   "prop": "cone",
+   "x": 300,
+   "y": 1420,
+   "layer": "front"
+  },
+  {
+   "do": "pop",
+   "with": "n20",
+   "gap": 2.2,
+   "id": "cn2",
+   "prop": "cone",
+   "x": 800,
+   "y": 1560,
+   "layer": "front"
+  },
+  {
+   "do": "pose",
+   "with": "n20",
+   "gap": 0.5,
+   "who": "eng",
+   "pose": "think"
+  },
+  {
+   "do": "emote",
+   "with": "n20",
+   "gap": 0.5,
+   "who": "eng",
+   "emotion": "tired",
+   "dur": 3
+  },
+  {
+   "do": "emote",
+   "after": "n20",
+   "gap": 0,
+   "who": "eng",
+   "emotion": "neutral",
+   "dur": 1.2
+  }
+ ]
+}

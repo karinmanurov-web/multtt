@@ -1,0 +1,391 @@
+{
+ "id": "story_12_s09",
+ "start": {
+  "location": "field",
+  "view": "main",
+  "chars": {
+   "narr": {
+    "type": "extra",
+    "x": 540,
+    "face": "left",
+    "hidden": true,
+    "shirt": "#24242a",
+    "sy": 0.8
+   },
+   "eng": {
+    "x": 170,
+    "face": "right"
+   },
+   "bld": {
+    "x": 900,
+    "face": "left"
+   }
+  }
+ },
+ "defs": {},
+ "beats": [
+  {
+   "t": 0,
+   "do": "camera",
+   "x": 400,
+   "y": 1000,
+   "zoom": 0.6,
+   "dur": 0.01
+  },
+  {
+   "t": 0,
+   "do": "place",
+   "who": "eng",
+   "x": 300,
+   "y": 170,
+   "face": "right"
+  },
+  {
+   "t": 0,
+   "do": "place",
+   "who": "bld",
+   "x": -1000,
+   "y": 170,
+   "face": "left"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "cl",
+   "prop": "cliff",
+   "x": 620,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "v0",
+   "prop": "vh_a",
+   "x": 880,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "v1",
+   "prop": "vh_b",
+   "x": 1130,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "v2",
+   "prop": "vh_c",
+   "x": 1360,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "place",
+   "who": "eng",
+   "x": 0,
+   "y": -430,
+   "face": "right"
+  },
+  {
+   "t": 0,
+   "do": "place",
+   "who": "bld",
+   "x": -200,
+   "y": -430,
+   "face": "right"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "car",
+   "prop": "car_blue",
+   "x": 340,
+   "y": 820,
+   "layer": "front",
+   "scale": 0.6
+  },
+  {
+   "t": 0,
+   "do": "give",
+   "who": "bld",
+   "id": "sv",
+   "prop": "shovel"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n49",
+   "t": 0.4
+  },
+  {
+   "do": "pose",
+   "with": "n49",
+   "gap": 0.2,
+   "who": "bld",
+   "pose": "hammer"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n50",
+   "after": "n49",
+   "gap": 0.18
+  },
+  {
+   "do": "pop",
+   "with": "n50",
+   "gap": 0.30000000000000004,
+   "id": "rp1",
+   "prop": "ramp_1",
+   "x": 620,
+   "y": 1250,
+   "layer": "back",
+   "dust": false
+  },
+  {
+   "do": "pop",
+   "with": "n50",
+   "gap": 0.8999999999999999,
+   "id": "rp2",
+   "prop": "ramp_2",
+   "x": 620,
+   "y": 1250,
+   "layer": "back",
+   "dust": false
+  },
+  {
+   "do": "pop",
+   "with": "n50",
+   "gap": 1.4999999999999998,
+   "id": "rp3",
+   "prop": "ramp_3",
+   "x": 620,
+   "y": 1250,
+   "layer": "back",
+   "dust": false
+  },
+  {
+   "do": "pop",
+   "with": "n50",
+   "gap": 2.1,
+   "id": "rp4",
+   "prop": "ramp_4",
+   "x": 620,
+   "y": 1250,
+   "layer": "back",
+   "dust": false
+  },
+  {
+   "do": "pop",
+   "with": "n50",
+   "gap": 2.7,
+   "id": "rp5",
+   "prop": "ramp_5",
+   "x": 620,
+   "y": 1250,
+   "layer": "back",
+   "dust": false
+  },
+  {
+   "do": "camera",
+   "with": "n50",
+   "gap": 0,
+   "x": 700,
+   "y": 1000,
+   "zoom": 0.5,
+   "dur": 2.0
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n51",
+   "after": "n50",
+   "gap": 0.18
+  },
+  {
+   "do": "give",
+   "with": "n51",
+   "gap": 0,
+   "who": "eng",
+   "id": "lv",
+   "prop": "level_ok"
+  },
+  {
+   "do": "pose",
+   "with": "n51",
+   "gap": 0.2,
+   "who": "eng",
+   "pose": "measure",
+   "dur": 2.0
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n52",
+   "after": "n51",
+   "gap": 0.18
+  },
+  {
+   "do": "emote",
+   "with": "n52",
+   "gap": 0,
+   "who": "eng",
+   "emotion": "happy",
+   "dur": 2.0
+  },
+  {
+   "do": "stow",
+   "with": "n52",
+   "gap": 0.1,
+   "id": "lv"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n53",
+   "after": "n52",
+   "gap": 0.18
+  },
+  {
+   "do": "camera",
+   "with": "n53",
+   "gap": 0,
+   "x": 1850,
+   "y": 1000,
+   "zoom": 0.6,
+   "dur": 0.01
+  },
+  {
+   "do": "place",
+   "with": "n53",
+   "gap": 0,
+   "who": "eng",
+   "x": 2420,
+   "y": 0,
+   "face": "left"
+  },
+  {
+   "do": "place",
+   "with": "n53",
+   "gap": 0,
+   "who": "bld",
+   "x": 2650,
+   "y": 0,
+   "face": "left"
+  },
+  {
+   "do": "move",
+   "with": "n53",
+   "gap": 0,
+   "id": "car",
+   "x": 1900,
+   "y": 1250,
+   "dur": 5.0,
+   "ease": "linear"
+  },
+  {
+   "do": "spawn",
+   "with": "n53",
+   "gap": 0,
+   "id": "ph1",
+   "prop": "pothole",
+   "x": 2060,
+   "y": 1300,
+   "layer": "back",
+   "scale": 1.7
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n54",
+   "after": "n53",
+   "gap": 0.18
+  },
+  {
+   "do": "shake",
+   "with": "n54",
+   "gap": 0.3,
+   "dur": 1.0,
+   "amp": 8
+  },
+  {
+   "do": "move",
+   "with": "n54",
+   "gap": 0.2,
+   "id": "car",
+   "x": 2010,
+   "dur": 1.2,
+   "ease": "easeOut"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n55",
+   "after": "n54",
+   "gap": 0.18
+  },
+  {
+   "do": "emote",
+   "with": "n55",
+   "gap": 0.2,
+   "who": "eng",
+   "emotion": "surprised",
+   "dur": 2.0
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n56",
+   "after": "n55",
+   "gap": 0.18
+  },
+  {
+   "do": "pose",
+   "with": "n56",
+   "gap": 0.2,
+   "who": "bld",
+   "pose": "present"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n57",
+   "after": "n56",
+   "gap": 0.18
+  },
+  {
+   "do": "emote",
+   "with": "n57",
+   "gap": 0.2,
+   "who": "eng",
+   "emotion": "tired",
+   "dur": 3.0
+  },
+  {
+   "do": "pose",
+   "with": "n57",
+   "gap": 0.2,
+   "who": "eng",
+   "pose": "facepalm"
+  },
+  {
+   "do": "blackout",
+   "with": "n57",
+   "gap": 2.2
+  },
+  {
+   "do": "emote",
+   "after": "n57",
+   "gap": 0,
+   "who": "eng",
+   "emotion": "neutral",
+   "dur": 3.0
+  }
+ ]
+}

@@ -24,6 +24,7 @@
 - **aer**: `aer_barriers` 572×7600; `aer_bypass` 4600×4600; `aer_cross` 12000×2000; `aer_lights` 712×7252; `aer_road1` 120×7600; `aer_road2` 240×7600; `aer_road4` 520×7600
 - **air**: `air_puffs` — up
 - **alarm**: `alarm` — up
+- **army**: `army_tank` 634×266 up
 - **asphalt**: `asphalt_seg` 244×266
 - **ball**: `ball` 56×56
 - **base**: `base_seg` 244×266
@@ -37,6 +38,7 @@
 - **brick**: `brick` 72×34 up рука; `brick_pile` 100×84 up; `brick_stove` 160×182 up; `brick_wall` 430×471
 - **brush**: `brush_dry` 36×160 up; `brush_g1` 36×160 up; `brush_g2` 36×160 up
 - **bucket**: `bucket` 100×130
+- **bump**: `bump` 340×60
 - **cal**: `cal_page` 780×790; `cal_w` 160×240 up
 - **can**: `can_e` 110×150 up рука; `can_g1` 110×150 up рука; `can_g2` 110×150 up рука
 - **cap**: `cap_part` 28×18
@@ -46,6 +48,7 @@
 - **ceiling**: `ceiling` 1400×1700
 - **chimney**: `chimney` 68×1500 up
 - **clean**: `clean_tap` 110×130; `clean_tool` 250×40
+- **cliff**: `cliff` 1506×456 up
 - **clipboard**: `clipboard` 96×136 up
 - **clock**: `clock_hour` 60×230; `clock_min` 52×316; `clock_sec` 24×340
 - **coffee**: `coffee` 60×110 up рука
@@ -61,6 +64,7 @@
 - **drill**: `drill` 380×200 рука
 - **drop**: `drop` 14×22 up
 - **dump**: `dump_bed` 652×268; `dump_bed_full` 652×308; `dump_truck` 1032×438
+- **emb**: `emb_a` 1000×176 up; `emb_b` 1500×316 up; `emb_c` 2200×456 up
 - **exc**: `exc_seat` 150×150
 - **excavator**: `excavator` 660×528
 - **fill**: `fill_L` 264×232 up; `fill_R` 264×226 up
@@ -96,6 +100,7 @@
 - **mud**: `mud_front` 760×124; `mud_strip` 7200×112
 - **nails**: `nails` 46×276
 - **night**: `night_dim` 1180×1710 up; `night_dim2` 1180×1710 up; `night_out` 6000×2956 up
+- **patch**: `patch` 250×40
 - **paver**: `paver` 760×530; `paver_seat` 150×160
 - **phone**: `phone` 40×72 up
 - **pier**: `pier` 92×232 up; `pier_big` 152×400 up; `pier_w` 124×118 up
@@ -113,11 +118,13 @@
 - **rail**: `rail` 412×84 up
 - **rain**: `rain` —
 - **rake**: `rake` 144×196 up рука
+- **ramp**: `ramp_1` 300×456 up; `ramp_2` 300×370 up; `ramp_3` 300×284 up; `ramp_4` 300×198 up; `ramp_5` 300×116 up
 - **reeds**: `reeds` 64×130 up
 - **road**: `road_seg` 244×112; `road_wide` 4000×146 up
 - **roll**: `roll` 36×131 up
 - **roller**: `roller` 720×408; `roller_seat` 150×160
 - **roof**: `roof_sheet` 12×12 up; `roof_sheet2` 12×12 up; `roof_sheet3` 12×12 up
+- **rubble**: `rubble` 101×37
 - **saw**: `saw` 200×40 up рука
 - **shelf**: `shelf_board` 490×88 рука; `shelf_books` 194×150; `shelf_bracket` 110×110; `shelf_level` 290×46 up рука; `shelf_wall_holes` 286×26
 - **shovel**: `shovel` 56×232 up
@@ -144,13 +151,16 @@
 - **timer**: `timer_box` 56×70 up; `timer_box_off` 56×70 up
 - **tower**: `tower` 160×500; `tower_f` 140×40
 - **tree**: `tree_log` 485×170 up
+- **trench**: `trench_cable` 640×84; `trench_empty` 640×84; `trench_gravel` 640×86; `trench_new` 640×84; `trench_pipe` 640×84
 - **truck**: `truck_seat` 170×160
 - **valve**: `valve` 112×112
 - **van**: `van` 905×560; `van_l` 905×560
 - **vest**: `vest_stain` 132×217
+- **vh**: `vh_a` 262×234 up; `vh_b` 282×244 up; `vh_c` 242×224 up
 - **visor**: `visor` 100×30 up
 - **walkie**: `walkie` 44×122 up рука
 - **wall**: `wall_hole` 226×212; `wall_splash` — up
 - **water**: `water_thin` 18×113
 - **win**: `win_new` —
 - **wind**: `wind_a` — up; `wind_b` — up
+- **xs**: `xs_cable` 720×460 up; `xs_fix` 720×460 up; `xs_ok` 720×460 up; `xs_pipe` 720×460 up; `xs_sag` 720×460 up; `xs_tilt` 720×460 up

@@ -1,0 +1,549 @@
+{
+ "id": "story_12_s05",
+ "start": {
+  "location": "field",
+  "view": "main",
+  "chars": {
+   "narr": {
+    "type": "extra",
+    "x": 540,
+    "face": "left",
+    "hidden": true,
+    "shirt": "#24242a",
+    "sy": 0.8
+   },
+   "eng": {
+    "x": 170,
+    "face": "right"
+   },
+   "bld": {
+    "x": 900,
+    "face": "left"
+   }
+  }
+ },
+ "defs": {},
+ "beats": [
+  {
+   "t": 0,
+   "do": "camera",
+   "x": 540,
+   "y": 1270,
+   "zoom": 0.8,
+   "dur": 0.01
+  },
+  {
+   "t": 0,
+   "do": "place",
+   "who": "eng",
+   "x": 170,
+   "y": 170,
+   "face": "right"
+  },
+  {
+   "t": 0,
+   "do": "place",
+   "who": "bld",
+   "x": -600,
+   "y": 170,
+   "face": "left"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "b0",
+   "prop": "base_seg",
+   "x": -100,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "b1",
+   "prop": "base_seg",
+   "x": 140,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "b2",
+   "prop": "base_seg",
+   "x": 380,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "b3",
+   "prop": "base_seg",
+   "x": 620,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "b4",
+   "prop": "base_seg",
+   "x": 860,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "b5",
+   "prop": "base_seg",
+   "x": 1100,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "b6",
+   "prop": "base_seg",
+   "x": 1340,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "b7",
+   "prop": "base_seg",
+   "x": 1580,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "spawn",
+   "id": "dp1",
+   "prop": "dirt_pile",
+   "x": 1000,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "t": 0,
+   "do": "pose",
+   "who": "eng",
+   "pose": "idle"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n21",
+   "t": 0.4
+  },
+  {
+   "do": "pose",
+   "with": "n21",
+   "gap": 0.2,
+   "who": "eng",
+   "pose": "cheer",
+   "dur": 1.6
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n22",
+   "after": "n21",
+   "gap": 0.18
+  },
+  {
+   "do": "give",
+   "with": "n22",
+   "gap": 0,
+   "who": "eng",
+   "id": "ph",
+   "prop": "phone"
+  },
+  {
+   "do": "pose",
+   "with": "n22",
+   "gap": 0.2,
+   "who": "eng",
+   "pose": "think"
+  },
+  {
+   "do": "emote",
+   "with": "n22",
+   "gap": 0.3,
+   "who": "eng",
+   "emotion": "smug",
+   "dur": 2.0
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n23",
+   "after": "n22",
+   "gap": 0.18
+  },
+  {
+   "do": "stow",
+   "with": "n23",
+   "gap": 0,
+   "id": "ph"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 0,
+   "id": "pv_s",
+   "prop": "paver_seat",
+   "x": -600,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 0,
+   "id": "pv",
+   "prop": "paver",
+   "x": -600,
+   "y": 1250,
+   "layer": "front"
+  },
+  {
+   "do": "pose",
+   "with": "n23",
+   "gap": 0.05,
+   "who": "bld",
+   "pose": "drive"
+  },
+  {
+   "do": "move",
+   "with": "n23",
+   "gap": 0.1,
+   "id": "pv",
+   "x": 1700,
+   "dur": 4.2,
+   "ease": "linear"
+  },
+  {
+   "do": "move",
+   "with": "n23",
+   "gap": 0.1,
+   "id": "pv_s",
+   "x": 1700,
+   "dur": 4.2,
+   "ease": "linear"
+  },
+  {
+   "do": "walk",
+   "with": "n23",
+   "gap": 0.1,
+   "who": "bld",
+   "x": 1605,
+   "y": 0,
+   "dur": 4.2,
+   "ease": "linear",
+   "face": "right"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 0.7,
+   "id": "a0",
+   "prop": "asphalt_seg",
+   "x": -100,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 1.2,
+   "id": "a1",
+   "prop": "asphalt_seg",
+   "x": 140,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 1.7,
+   "id": "a2",
+   "prop": "asphalt_seg",
+   "x": 380,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 2.2,
+   "id": "a3",
+   "prop": "asphalt_seg",
+   "x": 620,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 2.7,
+   "id": "a4",
+   "prop": "asphalt_seg",
+   "x": 860,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 3.2,
+   "id": "a5",
+   "prop": "asphalt_seg",
+   "x": 1100,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 3.7,
+   "id": "a6",
+   "prop": "asphalt_seg",
+   "x": 1340,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 4.2,
+   "id": "a7",
+   "prop": "asphalt_seg",
+   "x": 1580,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 4.6,
+   "id": "rl_s",
+   "prop": "roller_seat",
+   "x": -600,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n23",
+   "gap": 4.6,
+   "id": "rl",
+   "prop": "roller",
+   "x": -600,
+   "y": 1250,
+   "layer": "front"
+  },
+  {
+   "do": "place",
+   "with": "n23",
+   "gap": 4.65,
+   "who": "bld",
+   "x": -730,
+   "y": 0,
+   "face": "right"
+  },
+  {
+   "do": "pose",
+   "with": "n23",
+   "gap": 4.66,
+   "who": "bld",
+   "pose": "drive"
+  },
+  {
+   "do": "move",
+   "with": "n23",
+   "gap": 4.7,
+   "id": "rl",
+   "x": 1700,
+   "dur": 4.5,
+   "ease": "linear"
+  },
+  {
+   "do": "move",
+   "with": "n23",
+   "gap": 4.7,
+   "id": "rl_s",
+   "x": 1700,
+   "dur": 4.5,
+   "ease": "linear"
+  },
+  {
+   "do": "walk",
+   "with": "n23",
+   "gap": 4.7,
+   "who": "bld",
+   "x": 1570,
+   "y": 0,
+   "dur": 4.5,
+   "ease": "linear",
+   "face": "right"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n24",
+   "after": "n23",
+   "gap": 0.18
+  },
+  {
+   "do": "emote",
+   "with": "n24",
+   "gap": 0,
+   "who": "eng",
+   "emotion": "happy",
+   "dur": 2.5
+  },
+  {
+   "do": "pose",
+   "with": "n24",
+   "gap": 0.1,
+   "who": "eng",
+   "pose": "hips"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n25",
+   "after": "n24",
+   "gap": 0.18
+  },
+  {
+   "do": "emote",
+   "with": "n25",
+   "gap": 0,
+   "who": "eng",
+   "emotion": "laugh",
+   "dur": 2.6
+  },
+  {
+   "do": "portrait",
+   "with": "n25",
+   "gap": 0.3,
+   "on": "eng",
+   "dur": 2.2,
+   "zoom": 2.6,
+   "bg": "blur"
+  },
+  {
+   "do": "say",
+   "who": "narr",
+   "line": "n26",
+   "after": "n25",
+   "gap": 0.18
+  },
+  {
+   "do": "place",
+   "with": "n26",
+   "gap": 0,
+   "who": "bld",
+   "x": -700,
+   "y": 0,
+   "face": "right"
+  },
+  {
+   "do": "pose",
+   "with": "n26",
+   "gap": 0.01,
+   "who": "bld",
+   "pose": "drive"
+  },
+  {
+   "do": "spawn",
+   "with": "n26",
+   "gap": 0,
+   "id": "rl2_s",
+   "prop": "roller_seat",
+   "x": -640,
+   "y": 1250,
+   "layer": "back"
+  },
+  {
+   "do": "spawn",
+   "with": "n26",
+   "gap": 0,
+   "id": "rl2",
+   "prop": "roller",
+   "x": -640,
+   "y": 1250,
+   "layer": "front"
+  },
+  {
+   "do": "move",
+   "with": "n26",
+   "gap": 0.1,
+   "id": "rl2",
+   "x": 900,
+   "dur": 3.0,
+   "ease": "easeInOut"
+  },
+  {
+   "do": "move",
+   "with": "n26",
+   "gap": 0.1,
+   "id": "rl2_s",
+   "x": 900,
+   "dur": 3.0,
+   "ease": "easeInOut"
+  },
+  {
+   "do": "walk",
+   "with": "n26",
+   "gap": 0.1,
+   "who": "bld",
+   "x": 770,
+   "y": 0,
+   "dur": 3.0,
+   "ease": "easeInOut",
+   "face": "right"
+  },
+  {
+   "do": "pop",
+   "with": "n26",
+   "gap": 2.4,
+   "id": "sag",
+   "prop": "pothole",
+   "x": 560,
+   "y": 1338,
+   "layer": "back",
+   "scale": 0.55
+  },
+  {
+   "do": "emote",
+   "with": "n26",
+   "gap": 2.6,
+   "who": "eng",
+   "emotion": "shocked",
+   "dur": 2.5
+  },
+  {
+   "do": "pose",
+   "with": "n26",
+   "gap": 2.7,
+   "who": "eng",
+   "pose": "hands_up"
+  },
+  {
+   "do": "emote",
+   "after": "n26",
+   "gap": 0,
+   "who": "eng",
+   "emotion": "neutral",
+   "dur": 1.2
+  }
+ ]
+}
