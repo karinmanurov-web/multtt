@@ -391,6 +391,82 @@ function drawShape(ctx, s, t, T) {
 }
 
 const SHAPE_TYPES = ['rect', 'circle', 'ellipse', 'poly', 'path', 'line', 'text', 'g'];
+// ───── макросы и привязки по времени ─────
+// Раскрывает короткие биты в обычные и считает t для битов с привязкой к реплике:
+//   "after":"id реплики" — после конца реплики, "with":"id реплики" — с её начала; "gap" — сдвиг в секундах (по умолчанию 0).
+// Макросы: pop, give, stow, inset, blackout, dialog (описание в docs/ai2_animator.md).
+function expandBeats(raw, texts, err) {
+  const lines = (texts && texts.lines) || {}, cps = (texts && texts.cps) || 14;
+  const isN = v => typeof v === 'number' && isFinite(v);
+  const sayDur = b => isN(b.dur) ? b.dur : (typeof lines[b.line] === 'string' ? Math.round((lines[b.line].replace(/\s+/g, ' ').length / cps + 0.15) * 100) / 100 : 2);
+  const items = []; let uid = 0;
+  const anchorOf = b => ({ after: b.after, with: b.with, gap: b.gap, t: b.t });
+  raw.forEach((b, i) => {
+    if (!b || typeof b !== 'object') { items.push({ b, i, off: 0 }); return; }
+    const A = anchorOf(b), add = (nb, off = 0, anchor = A) => items.push({ b: nb, i, off, a: anchor });
+    switch (b.do) {
+      case 'pop': {
+        const y = isN(b.y) ? b.y : null;
+        add({ do: 'spawn', id: b.id, prop: b.prop, x: b.x, y: b.y, layer: b.layer, scale: b.scale, rot: b.rot });
+        if (b.dust !== false) add({ do: 'fx', kind: 'dust', x: b.x, y: (y == null ? 1254 : y) - 20, dur: 0.7 }, 0.02);
+        break;
+      }
+      case 'give':
+        add({ do: 'spawn', id: b.id, prop: b.prop, x: 0, y: b.y, layer: 'front', scale: b.scale });
+        add({ do: 'hold', id: b.id, who: b.who, hand: b.hand }, 0.02);
+        break;
+      case 'stow':
+        add({ do: 'release', id: b.id, drop: false });
+        add({ do: 'remove', id: b.id }, 0.02);
+        break;
+      case 'inset':
+        if (!isN(b.dur)) { err(`beats[${i}] (inset): нужен dur`); break; }
+        add({ do: 'spawn', id: b.id, prop: b.prop, x: isN(b.x) ? b.x : 540, y: isN(b.y) ? b.y : 640, layer: b.layer || 'back', scale: isN(b.scale) ? b.scale : 2.6 });
+        add({ do: 'remove', id: b.id }, b.dur);
+        break;
+      case 'blackout': {
+        const k = 'bo' + (uid++);
+        for (let n = 0; n < 5; n++) add({ do: 'spawn', id: `${k}_${n}`, prop: 'black_s', x: 0, y: 0, layer: 'front' }, 0.18 * n);
+        add({ do: 'spawn', id: `${k}_f`, prop: 'black_f', x: 0, y: 0, layer: 'front' }, 0.95);
+        break;
+      }
+      case 'dialog': {
+        if (!Array.isArray(b.lines) || !b.lines.length) { err(`beats[${i}] (dialog): нужен lines: [["who","id реплики"], …]`); break; }
+        const gap = isN(b.gap) ? b.gap : 0.12; let prev = null;
+        b.lines.forEach(([w, ln]) => {
+          if (prev == null) add({ do: 'say', who: w, line: ln });
+          else add({ do: 'say', who: w, line: ln }, 0, { after: prev, gap, t: 0 });
+          prev = ln;
+        });
+        break;
+      }
+      default: add(b);
+    }
+  });
+  // раскладка по времени: итерации, пока не разрешатся все привязки
+  const start = {}, end = {}; let pending = items.filter(o => o.b && typeof o.b === 'object');
+  const out = items.filter(o => !(o.b && typeof o.b === 'object')).map(o => o.b);
+  for (let pass = 0; pass < 60 && pending.length; pass++) {
+    const rest = [];
+    for (const o of pending) {
+      const a = o.a || anchorOf(o.b), ref = a.after != null ? a.after : a.with;
+      let t;
+      if (ref == null) t = a.t;
+      else if (a.after != null ? end[ref] != null : start[ref] != null) t = (a.after != null ? end[ref] : start[ref]) + (isN(a.gap) ? a.gap : 0) + (o.a && ref != null && o.a.t ? o.a.t : 0);
+      else { rest.push(o); continue; }
+      const nb = Object.assign({}, o.b); delete nb.after; delete nb.with; delete nb.gap;
+      if (isN(t)) nb.t = Math.round((t + o.off) * 1000) / 1000; else if (t !== undefined) nb.t = t; else delete nb.t;
+      if (nb.do === 'say' && isN(nb.t) && typeof nb.line === 'string') { start[nb.line] = nb.t; end[nb.line] = nb.t + sayDur(nb); }
+      out.push(nb);
+    }
+    if (rest.length === pending.length) break;
+    pending = rest;
+  }
+  const seen = new Set();
+  for (const o of pending) { if (seen.has(o.i)) continue; seen.add(o.i); const a = o.a || anchorOf(o.b); err(`beats[${o.i}] (${o.b.do}): привязка "${a.after != null ? 'after' : 'with'}": "${a.after != null ? a.after : a.with}" — такой реплики нет в сцене (или привязки идут по кругу)`); }
+  return out;
+}
+
 function validateShapes(shapes, where, err, texts) {
   if (!Array.isArray(shapes)) { err(`${where}: shapes должен быть массивом`); return; }
   shapes.forEach((s, i) => {
@@ -555,8 +631,8 @@ class Engine {
     const err = m => rep.errors.push(m), warn = m => rep.warnings.push(m);
     this.C = null;
     if (!scene || typeof scene !== 'object' || Array.isArray(scene)) { err('Сцена: ожидался JSON-объект'); return rep; }
-    const beats = scene.beats;
-    if (!Array.isArray(beats)) { err('Сцена: нет массива "beats"'); return rep; }
+    if (!Array.isArray(scene.beats)) { err('Сцена: нет массива "beats"'); return rep; }
+    const beats = expandBeats(scene.beats, this.texts, err);
 
     const defs = scene.defs || {};
     const locs = Object.assign({}, this.lib.locations, defs.locations || {});

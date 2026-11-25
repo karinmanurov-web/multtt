@@ -51,6 +51,13 @@
   .eng { color: #7fb2e6; } .bld { color: #ffa24a; }
   .drop { border: 2px dashed var(--line); border-radius: 8px; padding: 8px 10px; color: var(--dim); }
   .drop.over { border-color: var(--acc); color: var(--txt); }
+  #sheet { position: fixed; inset: 0; background: #0b0a10f2; z-index: 20; display: none; flex-direction: column; padding: 14px; gap: 10px; }
+  #sheet.on { display: flex; }
+  #sheetGrid { flex: 1; overflow: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; align-content: start; }
+  #sheetGrid figure { margin: 0; cursor: pointer; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px; }
+  #sheetGrid figure:hover { border-color: var(--acc); }
+  #sheetGrid canvas { width: 100%; aspect-ratio: 9 / 16; border-radius: 5px; background: #000; display: block; }
+  #sheetGrid figcaption { color: var(--dim); font-size: 12px; padding-top: 4px; text-align: center; }
   @media (max-width: 900px) {
     .app { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; }
     .stagecol { height: 82vh; }
@@ -82,6 +89,7 @@
       <label class="chk"><input type="checkbox" id="chkSubs" checked> реплики</label>
       <label class="chk"><input type="checkbox" id="chkTitles" checked> титры</label>
       <label class="chk"><input type="checkbox" id="chkSafe"> зоны TikTok</label>
+      <button id="btnFrames" title="Контактный лист: кадры сцены на одном экране (клавиша F)">▦ Кадры</button>
       <button id="btnRec" class="rec" title="Запишет ролик в .webm в реальном времени">● Запись</button>
     </div>
   </div>
@@ -120,7 +128,17 @@
   </div>
 </div>
 
-<script src="engine.js?v=20261125-1"></script>
+<div id="sheet">
+  <div class="row">
+    <b>Кадры сцены</b>
+    <select id="shMode"><option value="even">равномерно</option><option value="says">по репликам (середина)</option><option value="beats">по действиям</option></select>
+    <select id="shN"><option>8</option><option selected>12</option><option>16</option><option>24</option><option>40</option></select>
+    <span class="hint">клик по кадру — перейти к этому времени · Esc — закрыть</span>
+    <button id="shClose" style="margin-left:auto">Закрыть</button>
+  </div>
+  <div id="sheetGrid"></div>
+</div>
+<script src="engine.js?v=20261125-2"></script>
 <script>
 (() => {
 'use strict';
@@ -306,6 +324,35 @@ function togglePlay() {
   $('btnPlay').textContent = playing ? '⏸ Пауза' : '▶ Играть';
 }
 function seekTo(v) { t = Math.max(0, Math.min(dur, v)); dirty = true; }
+
+// ───── контактный лист: кадры сцены на одном экране ─────
+function sheetTimes() {
+  const n = +$('shN').value, mode = $('shMode').value, C = eng.C; if (!C) return [];
+  let ts = [];
+  if (mode === 'says' && info && info.says && info.says.length) ts = info.says.map(s => (s.t0 + s.t1) / 2);
+  else if (mode === 'beats' && info && info.beats) ts = [...new Set(info.beats.map(b => Math.round(b.t * 2) / 2))].sort((a, b) => a - b);
+  else for (let i = 0; i < n; i++) ts.push((i + 0.5) / n * dur);
+  if (ts.length > n && mode !== 'even') ts = ts.filter((_, i) => i % Math.ceil(ts.length / n) === 0);
+  return ts.map(v => Math.max(0, Math.min(dur - 0.02, v)));
+}
+function buildSheet() {
+  const grid = $('sheetGrid'); grid.innerHTML = ''; const ts = sheetTimes(), keep = t;
+  const wasPlaying = playing; playing = false; $('btnPlay').textContent = '▶ Играть';
+  ts.forEach(v => {
+    const f = document.createElement('figure'), c = document.createElement('canvas'); c.width = 270; c.height = 480;
+    eng.render(v); c.getContext('2d').drawImage(canvas, 0, 0, c.width, c.height);
+    const cap = document.createElement('figcaption'); cap.textContent = v.toFixed(1) + ' с';
+    f.append(c, cap); f.onclick = () => { $('sheet').classList.remove('on'); seekTo(v); }; grid.append(f);
+  });
+  t = keep; dirty = true;
+}
+const openSheet = () => { if (!eng.C) return; $('sheet').classList.add('on'); buildSheet(); };
+$('btnFrames').onclick = openSheet; $('shClose').onclick = () => $('sheet').classList.remove('on');
+$('shMode').onchange = $('shN').onchange = buildSheet;
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') $('sheet').classList.remove('on');
+  else if ((e.key === 'f' || e.key === 'F' || e.key === 'а' || e.key === 'А') && !/TEXTAREA|INPUT|SELECT/.test(e.target.tagName) && !e.ctrlKey && !e.metaKey) { e.preventDefault(); $('sheet').classList.contains('on') ? $('sheet').classList.remove('on') : openSheet(); }
+});
 $('btnPlay').onclick = togglePlay;
 $('btnRestart').onclick = () => seekTo(0);
 $('seek').oninput = e => seekTo(e.target.value / 1000 * dur);
