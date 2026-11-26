@@ -30,12 +30,13 @@
 - **base**: `base_seg` 244×266
 - **bike**: `bike_rider` 126×198 up
 - **bill**: `bill_flat` 96×5 up; `bill_v1` 580×760 up; `bill_v2` 580×760 up; `bill_v3` 580×760 up; `bill_v4` 580×760 up; `bill_w1` 580×860 up; `bill_w2` 580×860 up; `bill_w3` 580×860 up; `bill_w4` 580×860 up
+- **bk**: `bk_cmp` 720×460 up
 - **black**: `black_f` 6400×4800 up; `black_s` 6400×4800 up
 - **blanket**: `blanket` 320×118 up
 - **bog**: `bog_chunk` 240×152 up; `bog_pool` 600×96
 - **boiler**: `boiler` 160×260 up
 - **box**: `box` 120×100 up рука
-- **brick**: `brick` 72×34 up рука; `brick_pile` 100×84 up; `brick_stove` 160×182 up; `brick_wall` 430×471
+- **brick**: `brick` 72×34 up рука; `brick_pile` 100×84 up; `brick_pile_s` 208×108; `brick_stove` 160×182 up; `brick_wall` 430×471
 - **brush**: `brush_dry` 36×160 up; `brush_g1` 36×160 up; `brush_g2` 36×160 up
 - **bucket**: `bucket` 100×130
 - **bump**: `bump` 340×60
@@ -77,10 +78,15 @@
 - **fridge**: `fridge_ov` — up; `fridge_ov2` — up
 - **garage**: `garage` 248×176; `garage_f` 220×40
 - **garland**: `garland` — up; `garland_g` 140×38 up
+- **gate**: `gate_fail` 720×460 up; `gate_frame` 500×274
+- **gf**: `gf_a` 880×80; `gf_b` 800×47; `gf_c` 980×50; `gf_d` 1020×80
 - **girder**: `girder` 430×36 up
 - **glow**: `glow_ball` 680×680 up
+- **gr**: `gr_b` 910×166; `gr_bs` 910×132; `gr_c` 910×166
 - **grass**: `grass_clump` —; `grass_mid` —; `grass_stub` —
 - **gravel**: `gravel_pile` 340×160; `gravel_seg` 244×112
+- **gwa**: `gwa1` 820×85; `gwa2` 820×170; `gwa3` 820×255; `gwa4` 820×340
+- **gwb**: `gwb1` 820×85; `gwb2` 820×170; `gwb3` 820×255; `gwb4` 820×340
 - **hammer**: `hammer` 84×180
 - **heat**: `heat_waves` — up
 - **house**: `house_f` 500×34; `house_r` 500×162; `house_w` 420×236
@@ -120,6 +126,7 @@
 - **rain**: `rain` —
 - **rake**: `rake` 144×196 up рука
 - **ramp**: `ramp_1` 300×456 up; `ramp_2` 300×370 up; `ramp_3` 300×284 up; `ramp_4` 300×198 up; `ramp_5` 300×116 up
+- **rebar**: `rebar_bundle` 300×45
 - **receipt**: `receipt` 60×532 up рука
 - **red**: `red_pen` 8×104
 - **reeds**: `reeds` 64×130 up
@@ -135,6 +142,7 @@
 - **sign**: `sign` 128×484
 - **sk**: `sk_float` 150×190 up; `sk_garage` 150×190 up; `sk_h1` 150×190 up; `sk_h2` 150×190 up; `sk_house` 150×190 up; `sk_lolli` 150×190 up; `sk_lolli2` 150×190 up; `sk_pool` 150×190 up; `sk_pool_big` 380×390 up; `sk_spin` 150×190 up; `sk_tower` 150×190 up
 - **slab**: `slab` 200×38
+- **sm**: `sm_bad` 720×460 up; `sm_line` 720×460 up; `sm_save` 720×460 up; `sm_warn` 720×460 up
 - **smoke**: `smoke` — up
 - **snd**: `snd_UU` — up; `snd_bam` — up; `snd_bul` — up; `snd_bum` — up; `snd_chmok` — up; `snd_dzin` — up; `snd_hlop` — up; `snd_kap` — up; `snd_krak` — up; `snd_ring` — up; `snd_shk` — up; `snd_shlep` — up; `snd_shsh` — up; `snd_ss` — up; `snd_trr` — up; `snd_tuk` — up; `snd_uu` — up; `snd_zh` — up; `snd_zzz` — up
 - **snow**: `snow_out` 6000×2966 up
@@ -162,7 +170,7 @@
 - **vh**: `vh_a` 262×234 up; `vh_b` 282×244 up; `vh_c` 242×224 up
 - **visor**: `visor` 100×30 up
 - **walkie**: `walkie` 44×122 up рука
-- **wall**: `wall_hole` 226×212; `wall_splash` — up
+- **wall**: `wall_cracks` 650×150; `wall_hole` 226×212; `wall_splash` — up
 - **water**: `water_thin` 18×113
 - **win**: `win_new` —
 - **wind**: `wind_a` — up; `wind_b` — up

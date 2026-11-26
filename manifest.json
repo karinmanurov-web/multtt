@@ -847,6 +847,46 @@
       "langs": {
         "ru": "lang/story_12.ru.json"
       }
+    },
+    {
+      "id": "story_13_s01",
+      "title": "Сюжет №13 · Небольшая экономия · s01 · Смета",
+      "file": "scenes/story_13_s01.json",
+      "langs": {
+        "ru": "lang/story_13.ru.json"
+      }
+    },
+    {
+      "id": "story_13_s02",
+      "title": "Сюжет №13 · Небольшая экономия · s02 · Экономия на кирпичах",
+      "file": "scenes/story_13_s02.json",
+      "langs": {
+        "ru": "lang/story_13.ru.json"
+      }
+    },
+    {
+      "id": "story_13_s03",
+      "title": "Сюжет №13 · Небольшая экономия · s03 · Экономия на фундаменте",
+      "file": "scenes/story_13_s03.json",
+      "langs": {
+        "ru": "lang/story_13.ru.json"
+      }
+    },
+    {
+      "id": "story_13_s04",
+      "title": "Сюжет №13 · Небольшая экономия · s04 · Экономия на крыше",
+      "file": "scenes/story_13_s04.json",
+      "langs": {
+        "ru": "lang/story_13.ru.json"
+      }
+    },
+    {
+      "id": "story_13_s05",
+      "title": "Сюжет №13 · Небольшая экономия · s05 · Финал",
+      "file": "scenes/story_13_s05.json",
+      "langs": {
+        "ru": "lang/story_13.ru.json"
+      }
     }
   ]
 }
