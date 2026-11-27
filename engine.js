@@ -211,7 +211,7 @@ const POSES = {
     return P({ R: [ox, oy], L: [40, 80], lean, by: lean > 6 ? 5 : 0 });
   },
   // Позы «пишет в телефон»: телефон в левой руке (give … hand:"L") на уровне груди, правая «печатает» с малой амплитудой
-  type: (lt, t) => P({ L: [60, 14 + Math.sin(t * 1.7) * 1], R: [66 + Math.sin(lt * 14) * 2.5, 28 + Math.sin(lt * 9) * 1.5], head: 6, lean: 2 }),
+  type: (lt, t) => P({ R: [62, -6 + Math.sin(t * 1.7) * 1], L: [-124 + Math.sin(lt * 14) * 3, 26 + Math.sin(lt * 9) * 2], head: 6, lean: 2 }),
   sit_type: (lt, t) => P({ L: [46, 150], R: [46, 146 + Math.abs(Math.sin(t * 11)) * 5], sq: .86, air: -30, head: -3 }),
   // Чистка зубов: щётка (prop brush_h, give … hand:"R") у рта, движение щётки = движение руки (одна и та же синусоида)
   teeth: (lt, t) => P({ L: [24, 164], R: [8 + Math.sin(lt * 14) * 6, -54 + Math.sin(lt * 14) * 2], head: 3, lean: 1, front: true }),
