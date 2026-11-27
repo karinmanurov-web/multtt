@@ -38,7 +38,7 @@
 - **bowl**: `bowl` 104×60 up
 - **box**: `box` 120×100 up рука
 - **brick**: `brick` 72×34 up рука; `brick_pile` 100×84 up; `brick_pile_s` 208×108; `brick_stove` 160×182 up; `brick_wall` 430×471
-- **brush**: `brush_dry` 36×160 up; `brush_g1` 36×160 up; `brush_g2` 36×160 up
+- **brush**: `brush_dry` 36×160 up; `brush_g1` 36×160 up; `brush_g2` 36×160 up; `brush_h` 20×120
 - **bucket**: `bucket` 100×130
 - **bump**: `bump` 340×60
 - **cal**: `cal_page` 780×790; `cal_w` 160×240 up

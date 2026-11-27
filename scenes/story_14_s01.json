@@ -107,7 +107,7 @@
    "with": "n01",
    "gap": 1.3,
    "who": "eng",
-   "pose": "write"
+   "pose": "type"
   },
   {
    "do": "give",
@@ -115,7 +115,8 @@
    "gap": 1.4,
    "who": "eng",
    "id": "ph",
-   "prop": "phone"
+   "prop": "phone",
+   "hand": "L"
   },
   {
    "do": "say",

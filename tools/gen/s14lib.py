@@ -52,3 +52,7 @@ lib=json.load(open(LIB)); PR=lib['props']
 pr('bowl',[E(0,-6,52,12,'#f4efe6',OUT,5),P([(-50,-8),(50,-8),(34,-46),(-34,-46)],'#f4efe6',OUT,5),E(0,-46,36,8,'#e8a23a',OUT,4),C(-12,-48,4,'#7bbf5a',None,0),C(12,-46,4,'#7bbf5a',None,0)])
 pr('spoon',[R(-4,-4,8,70,'#cfd3e0',4,OUT,4),E(0,-8,13,17,'#cfd3e0',OUT,4)])
 json.dump(lib,open(LIB,'w'),ensure_ascii=False,indent=2); print('ok14 bowl')
+# ───── щётка в руке: хват в середине ручки, щетина смотрит «вперёд» по предплечью (не upright — вращается с рукой) ─────
+lib=json.load(open(LIB)); PR=lib['props']
+pr('brush_h',[R(-6,-30,12,70,'#8a6a47',5,OUT,4),R(-10,-64,20,38,'#c7ced8',3,OUT,4),R(-9,-80,18,18,'#7bd88f',3,OUT,3),R(-6,-76,12,4,'#ffffff',2,None,0)],grip=(0,0),upright=False); PR['brush_h']['holdRot']=-20
+json.dump(lib,open(LIB,'w'),ensure_ascii=False,indent=2); print('ok brush_h')

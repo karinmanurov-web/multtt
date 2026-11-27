@@ -210,6 +210,12 @@ const POSES = {
     else { const k = ease('easeOut', (p - 0.72) / 0.28); ox = lerp(100, 70, k); oy = lerp(100, 30, k); lean = lerp(12, 0, k); }
     return P({ R: [ox, oy], L: [40, 80], lean, by: lean > 6 ? 5 : 0 });
   },
+  // Позы «пишет в телефон»: телефон в левой руке (give … hand:"L") на уровне груди, правая «печатает» с малой амплитудой
+  type: (lt, t) => P({ L: [60, 14 + Math.sin(t * 1.7) * 1], R: [66 + Math.sin(lt * 14) * 2.5, 28 + Math.sin(lt * 9) * 1.5], head: 6, lean: 2 }),
+  sit_type: (lt, t) => P({ L: [46, 150], R: [46, 146 + Math.abs(Math.sin(t * 11)) * 5], sq: .86, air: -30, head: -3 }),
+  // Чистка зубов: щётка (prop brush_h, give … hand:"R") у рта, движение щётки = движение руки (одна и та же синусоида)
+  teeth: (lt, t) => P({ L: [24, 164], R: [8 + Math.sin(lt * 14) * 6, -54 + Math.sin(lt * 14) * 2], head: 3, lean: 1, front: true }),
+  teeth_type: (lt, t) => P({ L: [60, 14 + Math.sin(t * 1.7) * 1], R: [8 + Math.sin(lt * 14) * 6, -54 + Math.sin(lt * 14) * 2], head: 3, lean: 1, front: true }),
   sit: (lt, t) => P({ L: [46, 150], R: [46, 150], sq: .86, air: -30, by: Math.sin(t * 1.6) * 1 }),
   sit_tap: (lt, t) => P({ L: [46, 150], R: [46, 142 + Math.abs(Math.sin(t * 11)) * 12], sq: .86, air: -30, head: -3 }),
   sit_up: (lt, t) => P({ L: [46, 150], R: [-20, 80], sq: .86, air: -30, head: -13, lean: -4 }),
@@ -1133,7 +1139,7 @@ class Engine {
     const odef = of ? Object.assign({}, def, { shirt: of.shirt || def.shirt, sleeve: of.sleeve === undefined ? def.sleeve : of.sleeve, pants: of.pants || def.pants, shoe: of.shoe || def.shoe, pj: of.pj, stripe: of.stripe }) : def;
     const ae = lastBefore(ch.angs, t);
     const ang = { v: ae.v, prev: ae.prev || ae.v, lt: t - ae.t, dur: ae.dur };
-    return { ang, pname: pose._name, vis, x, y: this._liftAt(ch, t), face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, roll: pose.roll || 0, emo, mo, wk, run, say, def: odef, id, vest, renderLayer: ch.renderLayer || 'normal' };
+    return { ang, pname: pose._name, vis, x, y: this._liftAt(ch, t), face, legs, L, R, head, lean, by, air: pose.air, sq: pose.sq, roll: pose.roll || 0, front: !!pose.front, emo, mo, wk, run, say, def: odef, id, vest, renderLayer: ch.renderLayer || 'normal' };
   }
 
   // кисть в мировых координатах (для падения/удержания предметов и камеры)
@@ -1654,7 +1660,7 @@ class Engine {
     if (!back) {
       this._torso(ctx, def.kind, def, tw, back);
       // В машине руки и удерживаемые предметы скрыты; остаются только торс и голова.
-      if (!inVehicle) for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
+      if (!inVehicle && !st.front) for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
     } else {
       // При back руки и предмет уже нарисованы под ногами и торсом.
       this._torso(ctx, def.kind, def, tw, back);
@@ -1665,6 +1671,7 @@ class Engine {
     ctx.translate(0, -200); ctx.rotate(rad(st.head)); ctx.translate(0, -80);
     this._head(ctx, st, def.kind, def, t, back ? 'back' : (q45 ? 'q45' : 'side'));
     ctx.restore();
+    if (!back && !inVehicle && st.front) for (const hand of ['L', 'R']) this._arm(ctx, st, g, hand, t);
     ctx.restore();
 
     ctx.restore();

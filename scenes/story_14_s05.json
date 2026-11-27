@@ -362,14 +362,15 @@
    "gap": 0.3,
    "who": "eng",
    "id": "ph",
-   "prop": "phone"
+   "prop": "phone",
+   "hand": "L"
   },
   {
    "do": "pose",
    "with": "n24",
    "gap": 0.4,
    "who": "eng",
-   "pose": "write"
+   "pose": "type"
   },
   {
    "do": "say",

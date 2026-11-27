@@ -40,18 +40,15 @@
    "t": 0,
    "do": "pose",
    "who": "eng",
-   "pose": "rub"
+   "pose": "teeth"
   },
   {
    "t": 0,
-   "do": "spawn",
+   "do": "give",
+   "who": "eng",
    "id": "br",
-   "prop": "brush_g2",
-   "x": 745,
-   "y": 285,
-   "layer": "front",
-   "rot": -70,
-   "scale": 0.7
+   "prop": "brush_h",
+   "hand": "R"
   },
   {
    "do": "say",
@@ -211,14 +208,15 @@
    "gap": 0.8,
    "who": "eng",
    "id": "ph",
-   "prop": "phone"
+   "prop": "phone",
+   "hand": "L"
   },
   {
    "do": "pose",
    "with": "n18",
    "gap": 0.8,
    "who": "eng",
-   "pose": "write"
+   "pose": "teeth_type"
   },
   {
    "do": "emote",
@@ -278,7 +276,7 @@
    "with": "n20",
    "gap": 1.0,
    "who": "eng",
-   "pose": "wipe"
+   "pose": "teeth"
   },
   {
    "do": "say",
@@ -299,10 +297,17 @@
    "dur": 2.4
   },
   {
-   "do": "remove",
+   "do": "stow",
    "with": "n21",
    "gap": 0.2,
    "id": "br"
+  },
+  {
+   "do": "pose",
+   "with": "n21",
+   "gap": 0.2,
+   "who": "eng",
+   "pose": "idle"
   },
   {
    "do": "emote",

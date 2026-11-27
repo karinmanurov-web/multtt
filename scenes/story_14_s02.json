@@ -284,7 +284,7 @@
    "with": "n07",
    "gap": 0.6,
    "who": "eng",
-   "pose": "sit_tap"
+   "pose": "sit_type"
   },
   {
    "do": "emote",

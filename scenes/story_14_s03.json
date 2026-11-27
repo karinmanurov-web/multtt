@@ -113,14 +113,15 @@
    "gap": 0.8,
    "who": "eng",
    "id": "ph",
-   "prop": "phone"
+   "prop": "phone",
+   "hand": "L"
   },
   {
    "do": "pose",
    "with": "n12",
    "gap": 0.8,
    "who": "eng",
-   "pose": "write"
+   "pose": "teeth_type"
   },
   {
    "do": "say",
