@@ -35,6 +35,7 @@
 - **blanket**: `blanket` 320×118 up
 - **bog**: `bog_chunk` 240×152 up; `bog_pool` 600×96
 - **boiler**: `boiler` 160×260 up
+- **bowl**: `bowl` 104×60 up
 - **box**: `box` 120×100 up рука
 - **brick**: `brick` 72×34 up рука; `brick_pile` 100×84 up; `brick_pile_s` 208×108; `brick_stove` 160×182 up; `brick_wall` 430×471
 - **brush**: `brush_dry` 36×160 up; `brush_g1` 36×160 up; `brush_g2` 36×160 up
@@ -48,6 +49,7 @@
 - **cart**: `cart` 210×120 up рука
 - **cartridge**: `cartridge` 36×60 up рука
 - **ceiling**: `ceiling` 1400×1700
+- **chat**: `chat_lock` 720×460 up; `chat_ok` 720×460 up
 - **chimney**: `chimney` 68×1500 up
 - **clean**: `clean_tap` 110×130; `clean_tool` 250×40
 - **cliff**: `cliff` 1506×456 up
@@ -121,6 +123,7 @@
 - **pothole**: `pothole` 240×36
 - **puddle**: `puddle` 320×44; `puddle_b` 300×40
 - **pump**: `pump` 96×78 up; `pump_dead` 68×78 up; `pump_off` 96×78 up; `pump_ov` — up
+- **px**: `px_idle` 228×316 up; `px_run` 228×316 up; `px_sit` 228×294 up
 - **rad**: `rad` 124×118 up; `rad_bubbles` — up; `rad_shake` — up
 - **rail**: `rail` 412×84 up
 - **rain**: `rain` —
@@ -148,6 +151,7 @@
 - **snow**: `snow_out` 6000×2966 up
 - **snowfall**: `snowfall` — up
 - **socket**: `socket` 56×44
+- **spoon**: `spoon` 26×91 up
 - **sprinkler**: `sprinkler` 24×44 up
 - **stone**: `stone` 100×48 up
 - **storm**: `storm_cloud` 1940×370
@@ -160,6 +164,7 @@
 - **th**: `th_t12` 140×90 up; `th_t16` 140×90 up; `th_t17` 140×90 up; `th_t18` 140×90 up; `th_t19` 140×90 up; `th_t20` 140×90 up; `th_t22` 140×90 up
 - **think**: `think_fire` 380×330 up
 - **timer**: `timer_box` 56×70 up; `timer_box_off` 56×70 up
+- **tm**: `tm_0` 720×460 up; `tm_1` 720×460 up; `tm_3` 720×460 up; `tm_5` 720×460 up; `tm_ring` 720×460 up
 - **tower**: `tower` 160×500; `tower_f` 140×40
 - **tree**: `tree_log` 485×170 up
 - **trench**: `trench_cable` 640×84; `trench_empty` 640×84; `trench_gravel` 640×86; `trench_new` 640×84; `trench_pipe` 640×84

@@ -887,6 +887,46 @@
       "langs": {
         "ru": "lang/story_13.ru.json"
       }
+    },
+    {
+      "id": "story_14_s01",
+      "title": "Сюжет №14 · Правило пяти часов · s01 · Пробуждение",
+      "file": "scenes/story_14_s01.json",
+      "langs": {
+        "ru": "lang/story_14.ru.json"
+      }
+    },
+    {
+      "id": "story_14_s02",
+      "title": "Сюжет №14 · Правило пяти часов · s02 · Обед",
+      "file": "scenes/story_14_s02.json",
+      "langs": {
+        "ru": "lang/story_14.ru.json"
+      }
+    },
+    {
+      "id": "story_14_s03",
+      "title": "Сюжет №14 · Правило пяти часов · s03 · Разговор",
+      "file": "scenes/story_14_s03.json",
+      "langs": {
+        "ru": "lang/story_14.ru.json"
+      }
+    },
+    {
+      "id": "story_14_s04",
+      "title": "Сюжет №14 · Правило пяти часов · s04 · Чистка зубов",
+      "file": "scenes/story_14_s04.json",
+      "langs": {
+        "ru": "lang/story_14.ru.json"
+      }
+    },
+    {
+      "id": "story_14_s05",
+      "title": "Сюжет №14 · Правило пяти часов · s05 · Ночь",
+      "file": "scenes/story_14_s05.json",
+      "langs": {
+        "ru": "lang/story_14.ru.json"
+      }
     }
   ]
 }
